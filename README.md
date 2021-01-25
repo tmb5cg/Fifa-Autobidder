@@ -8,6 +8,7 @@ FIFA 21 web app autobuyer/autobidder built with a GUI. I decided to release the 
 If anyone sees this, feel free to reach out with issues or suggestions. This is my first read me and is probably incredibly unhelpful, in fact I'm assuming anyone using this has a programming background. In the future, I will create a hold-your-hand guide if people want but yea feel free to work on my project, would love to collaborate with someone too. 
 
 ## General Structure
+Need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
 
 Main.py --> Tkinter GUI with buttons and actions, each button passes action to Thread Runner 
 ThreadRunner --> creates separate threads for actions so GUI is interactable, also makes debugging easy (click reload functions button to edit code without restarting webdriver). Calls function runner
