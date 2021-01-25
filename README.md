@@ -3,6 +3,7 @@
 ## Starter tips 
 - cd into main folder and enter [make run]
 - Probably need to download chromedriver on your own, look up how to change the internal variables to help hide it from bot detectors
+- Probably better off just working with my code and integrating into an existing working Selenium bot 
 - You need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
 - Probably need to install bunch of random packages, like Tkinter (for GUI), open the project in a good IDE to find which are needed, good luck dealing with python PATH stuff, always is super confusing to me
 - Logins.txt you enter credentials, the 'save logins' button I never got around to making functional so just manually enter
