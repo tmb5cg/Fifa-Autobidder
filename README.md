@@ -1,8 +1,9 @@
 # FIFA 21 Web App Autobidder & Autobuyer
  
 ## Starter tips 
--You need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
--Probably need to install bunch of random packages, like Tkinter (for GUI), open the project in a good IDE to find which are needed, good luck dealing with python PATH stuff, always is super confusing to me
+- cd into main folder and enter [make run]
+- You need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
+- Probably need to install bunch of random packages, like Tkinter (for GUI), open the project in a good IDE to find which are needed, good luck dealing with python PATH stuff, always is super confusing to me
 - Logins.txt you enter credentials, the 'save logins' button I never got around to making functional so just manually enter
 - Must click login button first, then after you've entered the web app can run the autobidder
 
