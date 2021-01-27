@@ -1,5 +1,7 @@
 # FIFA 21 Web App Autobidder & Autobuyer
  
+ 
+ Will add GIF and screengrabs of GUI 
 ## Starter tips 
 - cd into main folder and enter [make run]
 - Probably need to download chromedriver on your own, look up how to change the internal variables to help hide it from bot detectors
