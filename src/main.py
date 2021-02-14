@@ -62,12 +62,12 @@ class DisplayLogs(tk.Frame):
         self.status2.grid(row = 0, column = 0)
 
         # Player list table
-        columns = ['log', 'log2']
+        columns = ['log']
         self.loggings = Treeview(self, columns=columns, show="headings")
-        self.loggings.column("log", width=80)
+        self.loggings.column("log", width=200)
 
         for col in columns[1:]:
-            self.loggings.column(col, width=30)
+            self.loggings.column(col, width=200)
             self.loggings.heading(col, text=col)
 
         #loggings.bind('<<TreeviewSelect>>', select_router)
@@ -80,7 +80,23 @@ class DisplayLogs(tk.Frame):
         for aline in txt:
             values2 = aline.strip("\n").split(",")
             self.loggings.insert('', 'end', values=values2)
-        
+
+        self.update_logs()
+
+    # Continuously updates log table
+    def update_logs(self):
+        for i in self.loggings.get_children():
+            self.loggings.delete(i)
+
+        txt = open("./data/logs.txt", "r")
+
+        self.playerlist = []
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            self.loggings.insert('', 'end', values=values2)
+        txt.close()
+        self.loggings.yview_moveto(1)
+        self.after(100, self.update_logs)
 
 
         # self.parent = parent

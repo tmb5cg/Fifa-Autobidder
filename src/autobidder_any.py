@@ -30,6 +30,17 @@ class AutobidderAny:
 
         if bidmethod == "playerlist":
             print("Bidding using input player list from GUI")
+
+
+            log = "Bidding using input player list from GUI"
+            file_object = open('./data/logs.txt', 'a')
+            now = datetime.now()
+            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+            full_log = dt_string + log
+            file_object.write(full_log)
+            file_object.close()
+
+
             self.bid_using_list()
 
     def testfunc(self):
@@ -42,6 +53,15 @@ class AutobidderAny:
     def getMostAccuratePricesFromMarket(self):
         clearOldSearchData()
         print("Cleared old search data hopefully, will now get new data")
+        log = "Cleared old search data, will now get new data"
+        # Log to data logs
+        file_object = open('./data/logs.txt', 'a')
+        now = datetime.now()
+        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+        full_log = dt_string + log
+        file_object.write(full_log)
+        file_object.close()
+
         sleep(5)
         for player in self.searchdata:
             name = player[1]
@@ -53,7 +73,15 @@ class AutobidderAny:
 
             addPlayerToTargetList(id, cardname, cardoverall, 0, "fromPriceFunc")
 
-            print("Searching for: " + str(cardname) + " | " + str(id))
+            print("Searching for: " + str(cardname) + " | " + str(id))   
+
+            log = "Searching for: " + str(cardname) + " | " + str(id)
+            file_object = open('./data/logs.txt', 'a')
+            now = datetime.now()
+            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+            full_log = dt_string + log
+            file_object.write(full_log)
+            file_object.close()
 
             data = [id, cardname, cardoverall]
             self.searchdata_ids_prices.append(data)
@@ -102,6 +130,16 @@ class AutobidderAny:
         print("Finished fetching price data for player: " + str(cardname))
         print("Proceeding to aggregate data and find lowest BIN")
         print("We will exclude cards with greater than 57 mins on market")
+
+        log = "Finished fetching price data for player: " + str(cardname) + " Proceeding to aggregate data and find lowest BIN, We will exclude cards with greater than 57 mins on market"
+        file_object = open('./data/logs.txt', 'a')
+        now = datetime.now()
+        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+        full_log = dt_string + log
+        file_object.write(full_log)
+        file_object.close()
+
+
         sleep(5)
         newSearchdata_ids_prices = []
         get_lowestbin_from_searchdata()
@@ -120,6 +158,15 @@ class AutobidderAny:
             newdata = [id, name, overall, marketprice]
             newSearchdata_ids_prices.append(newdata)
             print("Player: " + str(name) + " || " + str(overall) + " || MARKET PRICE: " + str(marketprice))
+
+            log = "Player: " + str(name) + " || " + str(overall) + " || MARKET PRICE: " + str(marketprice)
+            file_object = open('./data/logs.txt', 'a')
+            now = datetime.now()
+            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+            full_log = dt_string + log
+            file_object.write(full_log)
+            file_object.close()
+
             self.searchdata_ids_prices = newSearchdata_ids_prices
 
         # [[178509, 'Olivier Giroud', '79', 900],
@@ -148,6 +195,20 @@ class AutobidderAny:
 
         print("Number of players to bid on: " + str(num_players_to_bid_on))
         print("Bids to make on each player: " + str(bidstomake_eachplayer))
+        log = "Number of players to bid on: " + str(num_players_to_bid_on)
+        log2 = "Bids to make on each player: " + str(bidstomake_eachplayer)
+
+        # Log to data logs
+        file_object = open('./data/logs.txt', 'a')
+        now = datetime.now()
+        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+        full_log = dt_string + log
+        full_log2 = dt_string + log2
+
+        file_object.write(full_log)
+        file_object.write(full_log2)
+        file_object.close()
+
 
         for player in self.searchdata:
             name = player[1]

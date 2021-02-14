@@ -1,4 +1,1 @@
-[timestamp] bot did this
-[timestamp] bot also did this test
-[timestamp] adding dis
-[timestamp] testpp
+[14/02/2021 18:53:04]Bidding using input player list from GUI[14/02/2021 18:53:04]Cleared old search data, will now get new data
