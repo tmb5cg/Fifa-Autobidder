@@ -1,4 +1,0 @@
-ea_email (open logins.txt and edit) 
-ea_password
-gmail_login
-gmail_password_test_3
