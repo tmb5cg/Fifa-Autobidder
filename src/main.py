@@ -285,21 +285,21 @@ class MainButtons(tk.Frame):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        src.thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
+        thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
         self.after(100, self.process_queue)
 
     def bidUsingList(self):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        src.thread_runner.RunThread(self.queue, self.driver, "bidusinglist", self.controller.playerfilters.playerlist).start()
+        thread_runner.RunThread(self.queue, self.driver, "bidusinglist", self.controller.playerfilters.playerlist).start()
         self.after(100, self.process_queue)
 
     def bidAnyone(self):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        src.thread_runner.RunThread(self.queue, self.driver, "bidanyone", self.controller.playerfilters.playerlist).start()
+        thread_runner.RunThread(self.queue, self.driver, "bidanyone", self.controller.playerfilters.playerlist).start()
         self.after(100, self.process_queue)
 
     # These functions are called on button press
@@ -307,21 +307,21 @@ class MainButtons(tk.Frame):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        src.thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist).start()
+        thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist).start()
         self.after(100, self.process_queue)
 
     def reloadfunctions(self):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        importlib.reload(src.thread_runner)
-        importlib.reload(src.function_runner)
+        importlib.reload(thread_runner)
+        importlib.reload(function_runner)
 
-        importlib.reload(src.helpers)
-        importlib.reload(src.mainhelpers)
+        importlib.reload(helpers)
+        importlib.reload(mainhelpers)
 
-        importlib.reload(src.autobidder_any)
-        importlib.reload(src.autobidder_list)
+        importlib.reload(autobidder_any)
+        importlib.reload(autobidder_list)
 
         self.after(100, self.process_queue)
 

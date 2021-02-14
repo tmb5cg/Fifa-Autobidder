@@ -1,5 +1,5 @@
 import helpers
-from helpers import *
+
 from config import EMAIL_CREDENTIALS, EA_EMAIL
 
 from selenium.webdriver.common.by import By
@@ -501,7 +501,18 @@ def refreshPageAndGoToWatchlist(driver):
 
 
 def login(driver, user):
-    go_to_login_page(driver)
+    WebDriverWait(driver, 15).until(
+        EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))
+    )
+    print("Logging in...")
+
+    sleep(random.randint(5, 10))
+    driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
+
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.ID, 'email'))
+    )
+
 
     sleep(1)
     driver.find_element(By.ID, 'email').send_keys(user["email"])
