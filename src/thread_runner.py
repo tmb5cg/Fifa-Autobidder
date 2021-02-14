@@ -22,10 +22,6 @@ class RunThread(threading.Thread):
             self.queue.put("Logging in")
             self.runner.login()
 
-        if self.action == "test":
-            self.queue.put("Test button")
-            self.runner.test()
-
         if self.action == "bidusinglist":
             self.queue.put("Bidding using player list")
             self.runner.bidAnyone("playerlist")
@@ -33,3 +29,7 @@ class RunThread(threading.Thread):
         if self.action == "bidanyone":
             self.queue.put("Bidding on Common Golds")
             self.runner.bidAnyone("GUIfilters")
+
+        if self.action == "test":
+            self.queue.put("Test button")
+            self.runner.test()

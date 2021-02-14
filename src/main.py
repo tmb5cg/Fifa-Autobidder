@@ -40,11 +40,91 @@ class SeaofBTCapp(tk.Tk):
         self.playerfilters = PlayerFilters(self.container, self)
         self.table = Table(self.container, self)
         self.mainbuttons = MainButtons(self.container, self)
+        self.displaylogs = DisplayLogs(self.container, self)
 
-        self.logins.grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
-        self.playerfilters.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
-        self.table.grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
+        self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
+        self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
+        self.table.grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
         self.mainbuttons.grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
+
+        self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="10", pady="10")
+
+class DisplayLogs(tk.Frame):
+
+    def __init__(self, parent, controller):
+
+        self.parent = parent
+        self.controller = controller
+
+        tk.Frame.__init__(self, parent)
+
+        self.status2 = tk.Label(self, text="Bot Logs", font=LARGE_FONT)
+        self.status2.grid(row = 0, column = 0)
+
+        # Player list table
+        columns = ['log', 'log2']
+        self.loggings = Treeview(self, columns=columns, show="headings")
+        self.loggings.column("log", width=80)
+
+        for col in columns[1:]:
+            self.loggings.column(col, width=30)
+            self.loggings.heading(col, text=col)
+
+        #loggings.bind('<<TreeviewSelect>>', select_router)
+        self.loggings.grid(row=1,column=0)
+
+        # LOAD IN TABLE
+        txt = open("./data/logs.txt", "r")
+
+        #self.playerlist = []
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            self.loggings.insert('', 'end', values=values2)
+        
+
+
+        # self.parent = parent
+        # self.controller = controller
+
+        # tk.Frame.__init__(self, parent)
+
+        # self.logs = tk.Label(self, text="Logs", font=LARGE_FONT)
+        # self.logs.grid(row = 0, column = 0)
+
+        # self.text = Text(self, height=20, setgrid=True, wrap=WORD, undo=True, pady=2, padx=3)
+        # xscroll = ttk.Scrollbar(self, command=self.text.xview, orient=HORIZONTAL)
+        # yscroll = ttk.Scrollbar(self, command=self.text.yview, orient=VERTICAL)
+        # self.text.configure(xscrollcommand=xscroll.set, yscrollcommand=yscroll.set)
+
+        # self.text.grid(row=0, column=0, sticky=NSEW)
+        # yscroll.grid(row=0, column=1, sticky=NSEW)
+        # self.rowconfigure(0, weight=1)
+        # self.columnconfigure(0, weight=1)
+        
+
+        # # Player list table
+        # # columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
+        # # self.router_tree_view = Treeview(self, columns=columns, show="headings")
+        # # self.router_tree_view.column("id", width=30)
+
+        # # for col in columns[1:]:
+        # #     self.router_tree_view.column(col, width=80)
+        # #     self.router_tree_view.heading(col, text=col)
+
+        # # #router_tree_view.bind('<<TreeviewSelect>>', select_router)
+        # # self.router_tree_view.grid(row=1,column=0)
+
+        # # LOAD IN TABLE
+        # txt = open("./data/logs.txt", "r")
+        # self.text = txt
+        # # for aline in txt:
+        # #     values2 = aline.strip("\n").split(",")
+        # #     # self.text.insert('', 'end', values=values2)
+        # #     self.text.insert(END, ''.join(txt))
+        # txt.close()
+
+
+
 
 class Logins(tk.Frame):
 
@@ -128,6 +208,14 @@ class PlayerFilters(tk.Frame):
         self.parent = parent
         self.controller = controller
         self.playerlist = []
+
+        # # FUTBIN Link
+        # futbin_text = tk.StringVar()
+        # futbin_label = tk.Label(self, text='Futbin link: ', font=LARGE_FONT)
+        # futbin_entry = tk.Entry(self, textvariable=futbin_text)
+
+        # futbin_label.grid(row=7, column=0)
+        # futbin_entry.grid(row=7, column=1)
 
         # Player name
         player_text = tk.StringVar()
@@ -269,12 +357,13 @@ class MainButtons(tk.Frame):
         tk.Frame.__init__(self, parent)
 
         self.login = tk.Button(self, text='LOGIN', width=30, command=self.login).grid(row=3, column=1)
-        self.blankspace6 = tk.Label(self, text='', font=LARGE_FONT).grid(row=4, column=1)
-        self.bidlist = tk.Button(self, text='Bid Using List', width=30, command=self.bidUsingList).grid(row=5, column=1)
-        self.bidanyone = tk.Button(self, text='Bid Any Common Golds', width=30, command=self.bidAnyone).grid(row=6, column=1)
+        self.blankspace6 = tk.Label(self, text=' ', font=LARGE_FONT).grid(row=4, column=1)
+        self.bidlist = tk.Button(self, text='Autobidder [input list]', width=30, command=self.bidUsingList).grid(row=5, column=1)
+        self.bidanyone = tk.Button(self, text='Autobidder [any golds]', width=30, command=self.bidAnyone).grid(row=6, column=1)
+        self.blankspace7 = tk.Label(self, text=' - - - ', font=LARGE_FONT).grid(row=7, column=1)
 
-        self.reloadFunctions = tk.Button(self, text='RELOAD FUNCTIONS', width=30, command=self.reloadfunctions).grid(row=7, column=1)
-        self.test2 = tk.Button(self, text='Test Function', width=30, command=self.testfunc).grid(row=8, column=1)
+        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=8, column=1)
+        self.test2 = tk.Button(self, text='Developer - Test Function', width=30, command=self.testfunc).grid(row=9, column=1)
 
         # # Blank space
         self.blankspace3 = tk.Label(self, text='', font=LARGE_FONT).grid(row=0, column=1)
