@@ -1,19 +1,17 @@
-import src.thread_runner
-import src.function_runner
-import src.mainhelpers
-import src.helpers
-import src.autobidder_any
-import src.autobidder_list
+import thread_runner
+import function_runner
+import mainhelpers
+import helpers
+import autobidder_any
+import autobidder_list
 
-from src.config import create_driver, URL
-from src.thread_runner import RunThread
-from src.function_runner import RunFunction
-from src.helpers import *
-from src.mainhelpers import *
-
+from config import create_driver, URL
+from thread_runner import RunThread
+from function_runner import RunFunction
+from helpers import *
+from mainhelpers import *
 
 from selenium.webdriver.common.action_chains import ActionChains
-
 
 from importlib import reload
 import importlib
@@ -70,7 +68,7 @@ class Logins(tk.Frame):
         # Email
         email_text = tk.StringVar()
         email_label = tk.Label(self, text='EA Login', font=LARGE_FONT)
-        email_entry = tk.Entry(self, textvariable=email_text)
+        email_entry = tk.Entry(self, textvariable=email_text, show="*")
 
         email_label.grid(row=1, column = 0)
         email_entry.grid(row=1, column = 1)
@@ -78,7 +76,7 @@ class Logins(tk.Frame):
         # Password
         ea_password_text = tk.StringVar()
         ea_password_label = tk.Label(self, text='EA Password', font=LARGE_FONT)
-        ea_password_entry = tk.Entry(self, textvariable=ea_password_text)
+        ea_password_entry = tk.Entry(self, textvariable=ea_password_text, show="*")
 
         ea_password_label.grid(row=2, column = 0)
         ea_password_entry.grid(row=2, column = 1)
@@ -89,7 +87,7 @@ class Logins(tk.Frame):
         # Gmail Login
         gmail_text = tk.StringVar()
         gmail_label = tk.Label(self, text='Gmail Login (2FA)', font=LARGE_FONT)
-        gmail_entry = tk.Entry(self, textvariable=gmail_text)
+        gmail_entry = tk.Entry(self, textvariable=gmail_text, show="*")
 
         gmail_label.grid(row=4, column = 0)
         gmail_entry.grid(row=4, column = 1)
@@ -97,7 +95,7 @@ class Logins(tk.Frame):
         # Gmail Password
         gmail_password_text = tk.StringVar()
         gmail_password_label = tk.Label(self, text='Gmail Password', font=LARGE_FONT)
-        gmail_password_entry = tk.Entry(self, textvariable=gmail_password_text)
+        gmail_password_entry = tk.Entry(self, textvariable=gmail_password_text, show="*")
 
         gmail_password_label.grid(row=5, column = 0)
         gmail_password_entry.grid(row=5, column = 1)

@@ -1,5 +1,5 @@
-import src.mainhelpers
-from src.mainhelpers import *
+import mainhelpers
+from mainhelpers import *
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,8 +12,8 @@ import requests
 import csv
 from csv import reader
 
-import src.helpers
-from src.helpers import *
+import helpers
+from helpers import *
 
 
 def wait_for_shield_invisibility(driver, duration=0.25):

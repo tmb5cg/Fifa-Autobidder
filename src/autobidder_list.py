@@ -1,7 +1,7 @@
-import src.helpers
-import src.mainhelpers
-from src.helpers import *
-from src.mainhelpers import *
+import helpers
+import mainhelpers
+from helpers import *
+from mainhelpers import *
 
 from time import sleep
 

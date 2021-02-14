@@ -1,14 +1,14 @@
-import src.helpers
-import src.mainhelpers
-import src.autobidder_list
-import src.autobidder_any
+import helpers
+import mainhelpers
+import autobidder_list
+import autobidder_any
 
-from src.autobidder_list import AutobidderPlayerlist
-from src.autobidder_any import AutobidderAny
-from src.config import USER
+from autobidder_list import AutobidderPlayerlist
+from autobidder_any import AutobidderAny
+from config import USER
 
-from src.helpers import *
-from src.mainhelpers import *
+from helpers import *
+from mainhelpers import *
 
 
 class RunFunction:

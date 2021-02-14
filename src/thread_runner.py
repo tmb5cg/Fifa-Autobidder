@@ -1,8 +1,8 @@
-import src.function_runner
-import src.mainhelpers
-import src.helpers
+import function_runner
+import mainhelpers
+import helpers
 
-from src.function_runner import RunFunction
+from function_runner import RunFunction
 import threading
 
 

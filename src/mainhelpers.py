@@ -1,6 +1,6 @@
-import src.helpers
-from src.helpers import *
-from src.config import EMAIL_CREDENTIALS, EA_EMAIL
+import helpers
+from helpers import *
+from config import EMAIL_CREDENTIALS, EA_EMAIL
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
