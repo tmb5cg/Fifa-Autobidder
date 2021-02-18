@@ -25,20 +25,17 @@ class AutobidderAny:
     def run(self, bidmethod):
         if bidmethod == "GUIfilters":
             print("bid on any player")
+            log = "Bidding on any common golds about to expire at lower price than Futbin says"
+            log_event(log)
+
+
             futbindata = futbinscraper(20)
             self.bid_using_futbinprices(futbindata)
 
         if bidmethod == "playerlist":
             print("Bidding using input player list from GUI")
-
-
             log = "Bidding using input player list from GUI"
-            file_object = open('./data/logs.txt', 'a')
-            now = datetime.now()
-            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-            full_log = dt_string + log
-            file_object.write(full_log)
-            file_object.close()
+            log_event(log)
 
 
             self.bid_using_list()
@@ -54,13 +51,7 @@ class AutobidderAny:
         clearOldSearchData()
         print("Cleared old search data hopefully, will now get new data")
         log = "Cleared old search data, will now get new data"
-        # Log to data logs
-        file_object = open('./data/logs.txt', 'a')
-        now = datetime.now()
-        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-        full_log = dt_string + log
-        file_object.write(full_log)
-        file_object.close()
+        log_event(log)
 
         sleep(5)
         for player in self.searchdata:
@@ -76,12 +67,7 @@ class AutobidderAny:
             print("Searching for: " + str(cardname) + " | " + str(id))   
 
             log = "Searching for: " + str(cardname) + " | " + str(id)
-            file_object = open('./data/logs.txt', 'a')
-            now = datetime.now()
-            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-            full_log = dt_string + log
-            file_object.write(full_log)
-            file_object.close()
+            log_event(log)
 
             data = [id, cardname, cardoverall]
             self.searchdata_ids_prices.append(data)
@@ -132,13 +118,7 @@ class AutobidderAny:
         print("We will exclude cards with greater than 57 mins on market")
 
         log = "Finished fetching price data for player: " + str(cardname) + " Proceeding to aggregate data and find lowest BIN, We will exclude cards with greater than 57 mins on market"
-        file_object = open('./data/logs.txt', 'a')
-        now = datetime.now()
-        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-        full_log = dt_string + log
-        file_object.write(full_log)
-        file_object.close()
-
+        log_event(log)
 
         sleep(5)
         newSearchdata_ids_prices = []
@@ -160,12 +140,7 @@ class AutobidderAny:
             print("Player: " + str(name) + " || " + str(overall) + " || MARKET PRICE: " + str(marketprice))
 
             log = "Player: " + str(name) + " || " + str(overall) + " || MARKET PRICE: " + str(marketprice)
-            file_object = open('./data/logs.txt', 'a')
-            now = datetime.now()
-            dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-            full_log = dt_string + log
-            file_object.write(full_log)
-            file_object.close()
+            log_event(log)
 
             self.searchdata_ids_prices = newSearchdata_ids_prices
 
@@ -199,15 +174,8 @@ class AutobidderAny:
         log2 = "Bids to make on each player: " + str(bidstomake_eachplayer)
 
         # Log to data logs
-        file_object = open('./data/logs.txt', 'a')
-        now = datetime.now()
-        dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
-        full_log = dt_string + log
-        full_log2 = dt_string + log2
-
-        file_object.write(full_log)
-        file_object.write(full_log2)
-        file_object.close()
+        log_event(log)
+        log_event(log2)
 
 
         for player in self.searchdata:
@@ -227,19 +195,27 @@ class AutobidderAny:
             # Check if we have updated actual price in CSV
             futbinprice = getActualSellprice(playerid)
             print("Price found in bid_using_list (should match price printed above): " + str(futbinprice))
+            log = "Price found in bid_using_list (should match price printed above): " + str(futbinprice)
+            log_event(log)
+
             if (futbinprice == 0):
                 futbinprice, lastupdated = get_futbin_price_lastupdated(playerid)
 
             addPlayerToTargetList(playerid, cardname, cardoverall, futbinprice, "lastupdated")
 
             print(str(name) + " playerid " + str(playerid) + " lowest market price " + str(futbinprice) + " name on card " + str(cardname))
+            log = str(name) + " playerid " + str(playerid) + " lowest market price " + str(futbinprice) + " name on card " + str(cardname)
+            log_event(log)
 
             # Bid on players on current page -- 6 seconds spent in search tab
             clickSearch(self.driver)
             makebids_currentpage(self.driver, name, futbinprice, bidstomake_eachplayer, 0, "None")
             print("Finished bidding on:" + str(name))
+            log = "Finished bidding on:" + str(name)
+            log_event(log)
 
         print("Going to watchlist now")
+        log_event("Going to watchlist now")
         # get_lowestbin_from_searchdata()
         sleep(2)
         go_to_watchlist(self.driver)
@@ -256,26 +232,34 @@ class AutobidderAny:
 
         if num_activebids < 5:
             print("Number of active bids less than 5, sending players to TL and managing TL")
+            log = "Number of active bids less than 5, sending players to TL and managing TL"
+            log_event(log)
             try:
                 send_won_players_to_transferlist(self.driver)
             except:
                 print("Sending to TL didn't really work, gonna try again")
+                log = "Sending to TL didn't really work, gonna try again"
+                log_event(log)
             sleep(5)
             try:
                 clearExpired(self.driver)
             except:
                 print("Clearexpired caused exception, likely no players to clear")
-
+                log = "Clearexpired caused exception, likely no players to clear"
+                log_event(log)
                 try:
                     clearExpired(self.driver)
                 except:
                     print("Clearexpired didn't work for the 2nd time WTF")
+                    log = "Clearexpired didn't work for the 2nd time WTF"
+                    log_event(log)
 
             sleep(5)
-            print("Getting update sell prices!")
+            print("Getting update sell prices! Going to transfer list now ")
+            log = "Getting update sell prices, and now heading to the transfer list"
+            log_event(log)
             self.getMostAccuratePricesFromMarket()
             sleep(3)
-            print("Going to TL")
             self.manageTransferlist()
 
         sleep(2)
@@ -284,6 +268,8 @@ class AutobidderAny:
             playerdata = getAllPlayerInfoWatchlist(self.driver)
         except:
             print("Playerdata unable to fetch, reloading ManageWatchlist")
+            log = "Playerdata unable to fetch, reloading ManageWatchlist"
+            log_event(log)
             self.manageWatchlistBidwar()
 
         firstcard = playerdata[0]
@@ -292,6 +278,8 @@ class AutobidderAny:
         # If first card is processing, rerun the function
         if (firstcardTimeRemaining < 0):
             print("First card is processing, rerunning managewatchlist")
+            log = "First card is processing, rerunning managewatchlist"
+            log_event(log)
             self.manageWatchlistBidwar()
 
         else:
@@ -322,12 +310,18 @@ class AutobidderAny:
 
                         stopPrice = sellprice*.85
                         print("CHECKING IF WE SHOULD OUTBID Player " + str(playername) + " || CurBid: " + str(curbid) + " || Sell price: " + str(sellprice) + " || Stop price: " + str(stopPrice))
-
+                        log = "CHECKING IF WE SHOULD OUTBID Player " + str(playername) + " || CurBid: " + str(curbid) + " || Sell price: " + str(sellprice) + " || Stop price: " + str(stopPrice)
+                        log_events(log)
                         if curbid < stopPrice:
                             print(str(playername) + " || CurBid: " + str(curbid) + " || FutbinPrice: " + str(stopPrice) + " || Will now outbid")
+                            log = str(playername) + " || CurBid: " + str(curbid) + " || FutbinPrice: " + str(stopPrice) + " || Will now outbid"
+                            log_events(log)
                             result = makebid_individualplayerWatchlist(self.driver, playernumber, curbid)
                             if result == "Failure":
-                                print("failure bidding!!!!!! refreshing page ... ")
+                                print("Bid failure, refreshing page")
+                                log = "Bid failure, refreshing page"
+                                log_events(log)
+
                                 refreshPageAndGoToWatchlist(self.driver)
                                 sleep(4)
                                 self.manageWatchlistBidwar()
@@ -367,33 +361,36 @@ class AutobidderAny:
         print(playerids)
         if clickClearExpired:
             print("Click clear expired")
+            log = "Clearing expired / sold players"
+            log_events(log)
             self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button").click()
             sleep(2)
 
         if clickRelistAll:
             print("Listing " + str(expiredplayerscount) + " expired players for 100 less than expiration price...")
+            log = "Listing " + str(expiredplayerscount) + " expired players for 100 less than expiration price..."
+            log_events(log)
+
             for x in range(expiredplayerscount):
                 # Players didn't sell, currently selecting first player that didn't sell
-
                 # click player (because if player sells it switches)
                 self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div").click()
-
                 # click "Re-list Item"
                 self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
                 sleep(1)
-
                 # drop buy now by 100 (clicking minus button)
                 self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/button[1]").click()
-
                 sleep(1)
-
                 # click "List for Transfer"
                 self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button").click()
-
                 sleep(2)
 
         print("All expired players were relisted!")
         print("Now listing" + str(unlistedplayerscount) + " unlisted players...")
+
+        log = "All expired players were relisted! Now listing" + str(unlistedplayerscount) + " unlisted players..."
+        log_events(log)
+
         sleep(5)
 
         print(unlistedplayerscount)
@@ -417,8 +414,12 @@ class AutobidderAny:
                 currentplayerid = getPlayerID(playername, playerrating)
 
             print("Current player ID: " + str(currentplayerid) + " " + playername)
+            log = "Current player ID: " + str(currentplayerid) + " " + playername
+            log_events(log)
             futbinprice = getActualSellprice(currentplayerid)
             print("Current player lowest sell price: " + str(futbinprice))
+            log = "Current player lowest sell price: " + str(futbinprice)
+            log_events(log)
 
             futbinprice = int(futbinprice)
 
@@ -426,8 +427,12 @@ class AutobidderAny:
                 # get futbin price and list it for that
                 futbinprice, lastupdated = get_futbin_price_lastupdated(currentplayerid)
                 print("It appears player " + str(currentplayerid) + " " + playername + " is from an old search. Will list for Futbin price of: " + str(futbinprice))
+                log = "It appears player " + str(currentplayerid) + " " + playername + " is from an old search. Will list for Futbin price of: " + str(futbinprice)
+                log_events(log)
             else:
                 print("Price ID match found, will now list player for " + str(futbinprice))
+                log = "Price ID match found, will now list player for " + str(futbinprice)
+                log_events(log)
 
             if futbinprice > 1000:
                 buynowprice = futbinprice - 100
@@ -436,7 +441,7 @@ class AutobidderAny:
                 buynowprice = futbinprice - 50
                 startprice = buynowprice - 50
             else:
-                print("Wtf")
+                print("Something weird happened")
 
             # Click player
             self.driver.find_element(By.XPATH, playerbutton).click()
@@ -467,6 +472,8 @@ class AutobidderAny:
             sleep(5)
 
         print("Transferlist succesfully handled! Sleeping for 3 minutes and researching TM.")
+        log = "Transferlist succesfully handled! Sleeping for 3 minutes and researching TM."
+        log_events(log)
         sleep(180)
         self.bid_using_list()
 
@@ -498,7 +505,7 @@ class AutobidderAny:
         browser.execute_script("window.open('');")
         browser.switch_to.window(browser.window_handles[1])
         browser.get(tab_url)
-        print("Current Page Title is : %s" %browser.title)
+        # print("Current Page Title is : %s" %browser.title)
 
         # ~ ~ ~ ~ ~ ~ Do Stuff in new tab here ~ ~ ~ ~ ~
         for page in range(2, numpages):

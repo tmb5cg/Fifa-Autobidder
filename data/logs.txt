@@ -1,1 +1,19 @@
-[14/02/2021 18:53:04]Bidding using input player list from GUI[14/02/2021 18:53:04]Cleared old search data, will now get new data
+[15/02/2021 15:20:23] || Bidding using input player list from GUI
+[15/02/2021 15:20:23] || Cleared old search data, will now get new data
+[15/02/2021 15:21:45] || Bidding using input player list from GUI
+[15/02/2021 15:21:45] || Cleared old search data, will now get new data
+[15/02/2021 15:22:46] || Bidding using input player list from GUI
+[15/02/2021 15:22:46] || Cleared old search data, will now get new data
+[15/02/2021 15:27:17] || Bidding using input player list from GUI
+[15/02/2021 15:27:17] || Cleared old search data, will now get new data
+[15/02/2021 15:27:30] || Searching for: Luis Rodríguez | 0
+[15/02/2021 15:40:22] || Bidding using input player list from GUI
+[15/02/2021 15:40:22] || Cleared old search data, will now get new data
+[15/02/2021 15:52:26] || Bidding using input player list from GUI
+[15/02/2021 15:52:26] || Cleared old search data, will now get new data
+[15/02/2021 15:52:46] || Searching for: Luis Rodríguez | 0
+[15/02/2021 18:25:27] || Bidding using input player list from GUI
+[15/02/2021 18:25:27] || Cleared old search data, will now get new data
+[18/02/2021 09:51:48] || AutoLogin credentials exist. Not guaranteed they are formatted correctly, but they exist
+[18/02/2021 12:25:35] || Auto login credentials not found, login manually!
+[18/02/2021 12:25:45] || Auto login credentials not found, login manually!

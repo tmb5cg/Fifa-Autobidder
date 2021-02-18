@@ -1,5 +1,7 @@
 import helpers
 
+from helpers import *
+
 from config import EMAIL_CREDENTIALS, EA_EMAIL
 
 from selenium.webdriver.common.by import By
@@ -16,6 +18,107 @@ import requests
 import csv
 from csv import reader
 from datetime import datetime
+
+def getFutbinDataAndPopulateTable(driver, futbin_url):
+    browser = driver
+    tab_url = futbin_url 
+
+    browser.execute_script("window.open('');")
+    browser.switch_to.window(browser.window_handles[1])
+    browser.get(tab_url)
+    # print("Current Page Title is : %s" %browser.title)
+    # log_event("Fetching player input data from Futbin")
+
+    # sleep(4)
+    # price = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='repTb']/tbody/tr[" + str(i) + "]/td[5]/span"))).text
+    # playername = WebDriverWait(browser, 20).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='repTb']/tbody/tr[" + str(i) + "]/td[1]/div[2]/div[1]/a"))).text
+    # rating = WebDriverWait(browser, 20).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='repTb']/tbody/tr[" + str(i) + "]/td[2]/span"))).text
+
+    # name = driver.find_element(By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[2]/td").text
+    # team = driver.find_element(By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[3]/td/a").text
+    # nation = driver.find_element(By.XPATH,"/html/body/div[8]/div[12]/div[3]/div[1]/div/ul/li[1]/a").text
+    # cardtype = driver.find_element(By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[12]/td").text
+    # rating = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[2]").text
+    # cardname = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[3]").text
+    # position = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[4]").text
+
+    name = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[2]/td"))).text
+    team = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[3]/td/a"))).text
+    nation = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[12]/div[3]/div[1]/div/ul/li[1]/a"))).text
+    cardtype = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[12]/td"))).text
+    rating = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[2]"))).text
+    cardname = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[3]"))).text
+    position = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[4]"))).text
+
+    internals_location = driver.find_element(By.XPATH, "/html/body/div[8]/div[5]/div")
+    internal_id = int(internals_location.get_attribute("data-baseid"))
+    futbin_id = internals_location.get_attribute("data-id")
+    
+    # price, lastupdated = get_futbin_price_lastupdated(fifa_id)
+
+    r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(internal_id))
+
+    data = r.json()
+    price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
+    lastupdated = data[str(internal_id)]["prices"]["xbox"]["updated"]
+
+    # 18 mins ago
+    # 48 mins ago
+    # 1 hour ago
+    # 2 hours ago
+    if (lastupdated == "Never"):
+        return 0, 100
+    elif ("mins ago" in lastupdated):
+        lastupdated = lastupdated[:-9]
+        lastupdated = int(lastupdated)
+    elif("hour ago" in lastupdated):
+        lastupdated = lastupdated[:-9]
+        lastupdated = int(lastupdated) * 60
+    elif("hours ago" in lastupdated):
+        lastupdated = lastupdated[:-10]
+        lastupdated = int(lastupdated) * 60
+    elif("seconds" in lastupdated):
+        lastupdated = 1
+    elif("second" in lastupdated):
+        lastupdated = 1
+    else:
+        return 0, 100
+
+    price = price.replace(",", "")
+    price = int(price)
+
+    # MINUTES
+    lastupdated = int(lastupdated)
+    # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
+    futbin_id = int(futbin_id)
+    agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated]
+            # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
+
+    full_entry = ""
+    for word in agg:
+        word = str(word)
+        word_comma = word + ","
+        full_entry += word_comma
+
+    # Remove last comma
+    full_entry = full_entry[:-1]
+    print(full_entry)
+
+    # Add new line to end
+    hs = open("./data/user_playerlist_GUI.txt", "a", encoding="utf8")
+    hs.write(full_entry + "\n")
+    hs.close()
+
+    print(agg)
+
+    # "/html/body/div[8]/div[5]/div" <-- this div has an attribute "data-baseid" which is what we want, also "data-player-resource" which is the same, and finally "data-id" gives internal futbin ID
+
+    # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
+    browser.close()
+
+    # Switch back to the first tab with URL A
+    browser.switch_to.window(browser.window_handles[0])
+    # log_event("Fetched player info")
 
 
 def getAllPlayerInfo(driver):
@@ -95,7 +198,6 @@ def getAllPlayerInfo(driver):
             buynow = int(buynow)
 
         id = getPlayerIDFromTargets(name, rating)
-#        print("player id from targets" + str(id))
         if (id == 0):
             id = getPlayerID(name, rating)
             print("ID not found in Targets, general id search found " + str(id))
@@ -103,7 +205,6 @@ def getAllPlayerInfo(driver):
         info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
         playerdata.append(info)
 
-        # datetime object containing current date and time
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
         dt_string = dt_string.split(" ")
@@ -387,6 +488,7 @@ def makebid_individualplayerWatchlist(driver, playernumber, bidprice):
 
 
 def go_to_tranfer_market_and_input_parameters(driver, playername):
+    print("yuh yeet")
     go_to_transfer_market(driver)
 
     WebDriverWait(driver, 10).until(
@@ -546,6 +648,7 @@ def get_access_code():
         M.login(EMAIL_CREDENTIALS["email"], EMAIL_CREDENTIALS["password"])
     except imaplib.IMAP4.error:
         print("Login to email failed")
+        log_event("Email login attempt to get 2FA code failed, enter manually")
         sys.exit(1)
 
     print("Waiting for access code...")

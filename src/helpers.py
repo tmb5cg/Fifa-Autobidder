@@ -22,10 +22,19 @@ def wait_for_shield_invisibility(driver, duration=0.25):
     )
     sleep(duration)
 
+def log_event(event):
+    file_object = open('./data/logs.txt', 'a')
+    now = datetime.now()
+    dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+
+    full_log = dt_string + " || " + event + "\n"
+    file_object.write(full_log)
+    file_object.close()
+
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Getter methods ~ ~ ~ ~
 
 def addPlayerToTargetList(playerid, cardname, cardoverall, futbinprice, lastupdated):
-    with open(r'targetplayers.csv', 'a') as f:
+    with open(r'./data/user_playerlist_history.csv', 'a') as f:
         info = [playerid, cardname, cardoverall, futbinprice, lastupdated]
 
         writer = csv.writer(f)
@@ -106,7 +115,7 @@ def clearOldSearchData():
 
 
 def getPlayerID(cardname, rating):
-    with open('players2.csv', 'r') as read_obj:
+    with open('./data/players_database.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
 
         for player in csv_reader:
@@ -136,7 +145,7 @@ def getPlayerID(cardname, rating):
 #     # cardname on market is Rodriguez so it looks up rodriguez 78 and there's another guy w that last name and overall
 #     # maybe have it use the ID from intitial search
 #     #info = [playerid, cardname, cardoverall, futbinprice, lastupdated]
-#     with open('targetplayers.csv', 'r') as read_obj:
+#     with open('./data/user_playerlist_history.csv', 'r') as read_obj:
 #         csv_reader = reader(read_obj)
 #
 #         for player in csv_reader:
@@ -157,7 +166,7 @@ def getPlayerIDFromTargets(inputcardname, inputrating):
     # cardname on market is Rodriguez so it looks up rodriguez 78 and there's another guy w that last name and overall
     # maybe have it use the ID from intitial search
     #info = [playerid, cardname, cardoverall, futbinprice, lastupdated]
-    with open('targetplayers.csv', 'r') as read_obj:
+    with open('./data/user_playerlist_history.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
 
         for player in csv_reader:
@@ -184,7 +193,7 @@ def getPlayerIDFromTargets(inputcardname, inputrating):
 
 
 def getPlayerCardName(playerid):
-    with open('players2.csv', 'r') as read_obj:
+    with open('./data/players_database.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         for player in csv_reader:
             card = player[0]

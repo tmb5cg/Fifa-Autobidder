@@ -24,7 +24,12 @@ class RunFunction:
     def login(self):
         login(self.driver, USER)
 
+
+
     def bidAnyone(self, method):
         autobidder = AutobidderAny(self.driver, self.playerdata)
         # Methods = GUIfilters, playerlist
         autobidder.run(method)
+
+    def getFutbinInfo(self):
+        getFutbinDataAndPopulateTable(self.driver, self.playerdata)

@@ -22,7 +22,13 @@ import tkinter as tk
 from tkinter.ttk import Treeview
 from tkinter import ttk
 
+import os.path
+from os import path
+
 LARGE_FONT= ("Verdana", 12)
+SMALL_FONT = ("Verdana", 8)
+NORM_FONT = ("Helvetica", 10)
+
 
 class SeaofBTCapp(tk.Tk):
 
@@ -48,6 +54,7 @@ class SeaofBTCapp(tk.Tk):
         self.mainbuttons.grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
 
         self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="10", pady="10")
+
 
 class DisplayLogs(tk.Frame):
 
@@ -234,47 +241,83 @@ class PlayerFilters(tk.Frame):
         # futbin_entry.grid(row=7, column=1)
 
         # Player name
-        player_text = tk.StringVar()
-        player_label = tk.Label(self, text='Player name', font=LARGE_FONT)
-        player_entry = tk.Entry(self, textvariable=player_text)
+        # player_text = tk.StringVar()
+        # player_label = tk.Label(self, text='Player name', font=LARGE_FONT)
+        # player_entry = tk.Entry(self, textvariable=player_text)
 
-        player_label.grid(row=8, column=0)
-        player_entry.grid(row=8, column=1)
+        # player_label.grid(row=8, column=0)
+        # player_entry.grid(row=8, column=1)
 
-        # Buy price
-        overall_text = tk.StringVar()
-        overall_label = tk.Label(self, text='Player Overall', font=LARGE_FONT)
-        overall_entry = tk.Entry(self, textvariable=overall_text)
+        # # Buy price
+        # overall_text = tk.StringVar()
+        # overall_label = tk.Label(self, text='Player Overall', font=LARGE_FONT)
+        # overall_entry = tk.Entry(self, textvariable=overall_text)
 
-        overall_label.grid(row=9, column=0)
-        overall_entry.grid(row=9, column=1)
+        # overall_label.grid(row=9, column=0)
+        # overall_entry.grid(row=9, column=1)
 
-        # Buy price
-        buyprice_text = tk.StringVar()
-        buyprice_label = tk.Label(self, text='Buy Price', font=LARGE_FONT)
-        buyprice_entry = tk.Entry(self, textvariable=buyprice_text)
+        # # Buy price
+        # buyprice_text = tk.StringVar()
+        # buyprice_label = tk.Label(self, text='Buy Price', font=LARGE_FONT)
+        # buyprice_entry = tk.Entry(self, textvariable=buyprice_text)
 
-        buyprice_label.grid(row=10, column=0)
-        buyprice_entry.grid(row=10, column=1)
+        # buyprice_label.grid(row=10, column=0)
+        # buyprice_entry.grid(row=10, column=1)
 
-        # Sell price
-        sellprice_text = tk.StringVar()
-        sellprice_label = tk.Label(self, text='Sell Price', font=LARGE_FONT)
-        sellprice_entry = tk.Entry(self, textvariable=sellprice_text)
+        # # Sell price
+        # sellprice_text = tk.StringVar()
+        # sellprice_label = tk.Label(self, text='Sell Price', font=LARGE_FONT)
+        # sellprice_entry = tk.Entry(self, textvariable=sellprice_text)
 
-        sellprice_label.grid(row=11, column=0)
-        sellprice_entry.grid(row=11, column=1)
+        # sellprice_label.grid(row=11, column=0)
+        # sellprice_entry.grid(row=11, column=1)
+
 
         # BUTTONS
-        self.add_btn = tk.Button(self, text='Add Player', width=12, command=self.add_player)
-        self.add_btn.grid(row=12, column=0)
-        self.remove_btn = tk.Button(self, text='Remove Player', width=12, command=self.remove_player)
-        self.remove_btn.grid(row=12, column=1)
+        # self.add_btn = tk.Button(self, text='Add Player', width=12, command=self.add_player)
+        # self.add_btn.grid(row=12, column=0)
+        # self.remove_btn = tk.Button(self, text='Remove Player', width=12, command=self.remove_player)
+        # self.remove_btn.grid(row=12, column=1)
 
-        self.overall_text = overall_text
-        self.player_text = player_text
-        self.buyprice_text = buyprice_text
-        self.sellprice_text = sellprice_text
+        # self.overall_text = overall_text
+        # self.player_text = player_text
+        # self.buyprice_text = buyprice_text
+        # self.sellprice_text = sellprice_text
+
+
+
+        # FUTBIN Link entry -- new UI simplified 
+        # blank space
+
+
+        blankspacelabel = tk.Label(self, text=' - - - - ', font=LARGE_FONT)
+        blankspacelabel.grid(row=13, column=0)
+
+        futbinlink_text = tk.StringVar()
+        futbinlink_label = tk.Label(self, text='Player Futbin URL: ', font=LARGE_FONT)
+        futbin_entry = tk.Entry(self, textvariable=futbinlink_text)
+
+        futbinlink_label.grid(row=14, column=0)
+        futbin_entry.grid(row=14, column=1)
+
+        
+        self.add_btn_futbin = tk.Button(self, text='Add Player', width=12, command=self.add_player_futbin)
+        self.add_btn_futbin.grid(row=15, column=0)
+
+        self.remove_btn = tk.Button(self, text='Remove Player', width=12, command=self.remove_player)
+        self.remove_btn.grid(row=15, column=1)
+
+
+        # disclaimer1 = tk.StringVar()
+        # disclaimer_text1 = tk.Label(self, text='Enter Futbin URL to gather player data', font=SMALL_FONT)
+        # disclaimer_text1.grid(row=12, column=0)
+
+        # disclaimer2 = tk.StringVar()
+        # disclaimer_text2 = tk.Label(self, text='Note: Futbin price will be used as truth in initial searches, during which market data will be collected and analyzed to find accurate market price!', font=SMALL_FONT, wraplength=400)
+        # disclaimer_text2.grid(row=16, column=0)
+
+        self.futbinlink_text = futbinlink_text
+
 
     def add_player(self):
         val = [0, ",", self.player_text.get(), ",", self.overall_text.get(), ",", self.buyprice_text.get(), ",", self.sellprice_text.get()]
@@ -282,16 +325,24 @@ class PlayerFilters(tk.Frame):
         full_entry = ""
         for word in val:
             full_entry += str(word)
-        hs = open("settings.txt", "a")
+        hs = open("./data/user_playerlist_GUI.txt", "a", encoding="utf8")
         hs.write(full_entry + "\n")
         hs.close()
         self.update_list()
+
+    def add_player_futbin(self):
+        futbin_url = self.futbinlink_text.get()
+
+        self.queue = queue.Queue()
+        thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", futbin_url).start()
+        self.update_list()
+
 
     def update_list(self):
         for i in self.controller.table.router_tree_view.get_children():
             self.controller.table.router_tree_view.delete(i)
 
-        txt = open("settings.txt", "r")
+        txt = open("./data/user_playerlist_GUI.txt", "r", encoding="utf8")
 
         self.playerlist = []
         for aline in txt:
@@ -299,6 +350,8 @@ class PlayerFilters(tk.Frame):
             self.playerlist.append(values2)
             self.controller.table.router_tree_view.insert('', 'end', values=values2)
         txt.close()
+        self.after(100, self.update_list)
+
 
     def remove_player(self):
         index = self.controller.table.router_tree_view.selection()[0]
@@ -310,9 +363,9 @@ class PlayerFilters(tk.Frame):
 
         item_to_remove = item_to_remove[:-1]
 
-        with open("settings.txt", "r") as f:
+        with open("./data/user_playerlist_GUI.txt", "r", encoding="utf8") as f:
             lines = f.readlines()
-        with open("settings.txt", "w") as f:
+        with open("./data/user_playerlist_GUI.txt", "w", encoding="utf8") as f:
             for line in lines:
                 if line.strip("\n") != item_to_remove.strip("\n"):
                     f.write(line)
@@ -332,9 +385,11 @@ class Table(tk.Frame):
         self.status.grid(row = 0, column = 0)
 
         # Player list table
-        columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
+        # columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
+        columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
+
         self.router_tree_view = Treeview(self, columns=columns, show="headings")
-        self.router_tree_view.column("id", width=30)
+        # self.router_tree_view.column("id", width=30)
 
         for col in columns[1:]:
             self.router_tree_view.column(col, width=80)
@@ -344,7 +399,7 @@ class Table(tk.Frame):
         self.router_tree_view.grid(row=1,column=0)
 
         # LOAD IN TABLE
-        txt = open("settings.txt", "r")
+        txt = open("./data/user_playerlist_GUI.txt", "r", encoding="utf8")
 
         self.playerlist = self.controller.playerfilters.playerlist
 
@@ -390,8 +445,38 @@ class MainButtons(tk.Frame):
         self.progress()
         self.prog_bar.start()
         self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
+
+        login_exists = path.exists("./data/logins.txt")
+        if login_exists:
+            print("login file exists!")
+            log_event("Auto logging in using credentials")
+            thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
+        else:
+            print("Login file does NOT exists!")
+            log_event("Auto login credentials not found, login manually!")
+            self.popupmsg("Logins.txt not found, login manually!")
+        # autologin_status = thread_runner.RunThread(self.queue, self.driver, "checkCredentials", self.controller.playerfilters.playerlist).start()
+
+        # if autologin_status == "True":
+        #     thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
+        # elif autologin_status == "False":
+        #     print("login manually. create message box saying must login manually")
+
+        # result = thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
+        # if (result == True):
+        #     print("success")
+        # if (result == False):
+        #     print("credentials not listed")
         self.after(100, self.process_queue)
+
+    def popupmsg(self, msg):
+        popup = tk.Tk()
+        popup.wm_title("!")
+        label = ttk.Label(popup, text=msg, font=NORM_FONT)
+        label.pack(side="top", fill="x", pady=10)
+        B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
+        B1.pack()
+        popup.mainloop()
 
     def bidUsingList(self):
         self.progress()

@@ -26,6 +26,8 @@ def create_driver():
     # Removes navigator.webdriver flag
 
     # For older ChromeDriver under version 79.0.3945.16
+    option.add_argument("--ignore-certificate-error")
+    option.add_argument("--ignore-ssl-errors")
     option.add_experimental_option("excludeSwitches", ["enable-automation"])
     option.add_experimental_option('useAutomationExtension', False)
 

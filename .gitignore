@@ -3,3 +3,4 @@ src/__pycache__/
 .venv
 .vscode
 logins.txt
+data/logins.txt
