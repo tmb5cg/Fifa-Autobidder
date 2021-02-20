@@ -41,7 +41,7 @@ def getFutbinDataAndPopulateTable(driver, futbin_url):
     # rating = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[2]").text
     # cardname = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[3]").text
     # position = driver.find_element(By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[4]").text
-
+    # name at top (see ronaldo - cardname, fullname, and name at top differ /html/body/div[8]/div[12]/div[3]/div[1]/h1/span
     name = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[2]/td"))).text
     team = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[3]/td/a"))).text
     nation = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[12]/div[3]/div[1]/div/ul/li[1]/a"))).text
@@ -105,7 +105,7 @@ def getFutbinDataAndPopulateTable(driver, futbin_url):
     print(full_entry)
 
     # Add new line to end
-    hs = open("./data/user_playerlist_GUI.txt", "a", encoding="utf8")
+    hs = open("./data/player_list.txt", "a", encoding="utf8")
     hs.write(full_entry + "\n")
     hs.close()
 
@@ -211,7 +211,7 @@ def getAllPlayerInfo(driver):
         date = dt_string[0]
         currenttime = dt_string[1]
 
-        with open(r'marketsearchdata.csv', 'a') as f:
+        with open(r'marketsearchdata.csv', 'a', encoding="utf8") as f:
             info = [date, currenttime, playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
 
             writer = csv.writer(f)
@@ -356,29 +356,30 @@ def makebids_currentpage(driver, name, futbinprice, bids_allowed, bids_made, fut
                         delta2 = buynow - curbid
                         # Check function isGoodSBCFodder ie bundes german etc
                         if (delta > 250) and (delta < 700) and (delta2 > 800):
-                            print("Player " + str(card[3]) + " || " + str(card[2]) + " || Current bid: " + str(curbid) + " || Futbin Price: " + str(futbinprice) + " (Updated: idk mins ago) || DELTA: " + str(delta))
-                            print("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                            log_event("Player " + str(card[3]) + " || " + str(card[2]) + " || Current bid: " + str(curbid) + " || Futbin Price: " + str(futbinprice) + " (Updated: idk mins ago) || DELTA: " + str(delta))
+                            log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
                             makebid_individualplayer(driver, playernumber, curbid)
                             bids_made += 1
         else:
             if bids_made < bids_allowed+1:
                 if "highest-bid" not in bidStatus:
                     if timeremainingmins < 40:
-                        if curbid <= maxbidprice:
-                            makebid_individualplayer(driver, playernumber, curbid)
-                            bids_made += 1
-                            print("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                        if timeremainingmins > 3:
+                            if curbid <= maxbidprice:
+                                makebid_individualplayer(driver, playernumber, curbid)
+                                bids_made += 1
+                                log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
 
                     else:
-                        print("Time remaining exceeded 40 minutes, RETURN")
+                        log_event("Time remaining of players on page exceeded 40 minutes, RETURN")
                         return "Finished"
             else:
-                print("Final Number of bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                log_event("Final Number of bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
                 return "Finished"
 
     sleeptime = random.randint(3000, 5000)
     sleep(sleeptime/1000)
-    print("Going to next page")
+    log_event("Going to next page")
     driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]')
     driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]').click()
 

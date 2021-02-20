@@ -1,9 +1,7 @@
 import helpers
 import mainhelpers
-import autobidder_list
 import autobidder_any
 
-from autobidder_list import AutobidderPlayerlist
 from autobidder_any import AutobidderAny
 from config import USER
 
@@ -23,7 +21,6 @@ class RunFunction:
 
     def login(self):
         login(self.driver, USER)
-
 
 
     def bidAnyone(self, method):

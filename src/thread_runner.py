@@ -1,13 +1,23 @@
-import function_runner
 import mainhelpers
 import helpers
+import autobidder_any
+import autobidder
 
 from helpers import *
 from mainhelpers import *
-from function_runner import RunFunction
+
+from autobidder import Autobidder
+from autobidder_any import AutobidderAny
+
+from config import USER
 import threading
 import os.path
 from os import path
+
+# from autobidder_list import AutobidderPlayerlist
+# import function_runner
+# import autobidder_list
+
 
 
 # Each button starts a new thread
@@ -18,34 +28,52 @@ class RunThread(threading.Thread):
         self.queue = queue
         self.searchdata = searchdata
         self.driver = driver
-        self.runner = RunFunction(self.driver, self.searchdata)
+        # self.runner = RunFunction(self.driver, self.searchdata)
 
     def run(self):
+        if self.action == "test":
+            self.queue.put("Test button")
+            log_event("Test function")
+
+            autobidder = Autobidder(self.driver)
+            autobidder.start()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         if self.action == "login":
             self.queue.put("Logging in")
+            log_event("AutoLogin...")
 
-            print("AutoLogin credentials exist. Not guaranteed they are formatted correctly, but they exist")
-            log_event("AutoLogin credentials exist. Not guaranteed they are formatted correctly, but they exist")
-            self.runner.login()
-
+            login(self.driver, USER)
 
 
         if self.action == "getFutbinDataFromURL":
             self.queue.put("Fetching player info")
-            # self.searchdata in this case is actually the futbin URL, this entire structure needs to be rewritten!
-            # too convoluted going from thread funner --> function runner. 
-            # This thread runner does the work that is needed and can dispatch functions on its own
-            self.runner.getFutbinInfo()
+            log_event("Fetching player info")
+
+            futbin_url = self.searchdata
+            getFutbinDataAndPopulateTable(self.driver, futbin_url)
 
 
         if self.action == "bidusinglist":
             self.queue.put("Bidding using player list")
-            self.runner.bidAnyone("playerlist")
+            log_event("Starting autobidder")
+
+            autobidder = AutobidderAny(self.driver, self.searchdata)
+            autobidder.run("playerlist")
 
         if self.action == "bidanyone":
             self.queue.put("Bidding on Common Golds")
-            self.runner.bidAnyone("GUIfilters")
-
-        if self.action == "test":
-            self.queue.put("Test button")
-            self.runner.test()
+            autobidder = AutobidderAny(self.driver, self.searchdata)
+            autobidder.run("playerlist")

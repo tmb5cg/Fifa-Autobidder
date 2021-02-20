@@ -6,14 +6,253 @@
 [15/02/2021 15:22:46] || Cleared old search data, will now get new data
 [15/02/2021 15:27:17] || Bidding using input player list from GUI
 [15/02/2021 15:27:17] || Cleared old search data, will now get new data
-[15/02/2021 15:27:30] || Searching for: Luis Rodríguez | 0
+[15/02/2021 15:27:30] || Searching for: Luis Rodrï¿½guez | 0
 [15/02/2021 15:40:22] || Bidding using input player list from GUI
 [15/02/2021 15:40:22] || Cleared old search data, will now get new data
 [15/02/2021 15:52:26] || Bidding using input player list from GUI
 [15/02/2021 15:52:26] || Cleared old search data, will now get new data
-[15/02/2021 15:52:46] || Searching for: Luis Rodríguez | 0
+[15/02/2021 15:52:46] || Searching for: Luis Rodrï¿½guez | 0
 [15/02/2021 18:25:27] || Bidding using input player list from GUI
 [15/02/2021 18:25:27] || Cleared old search data, will now get new data
 [18/02/2021 09:51:48] || AutoLogin credentials exist. Not guaranteed they are formatted correctly, but they exist
 [18/02/2021 12:25:35] || Auto login credentials not found, login manually!
 [18/02/2021 12:25:45] || Auto login credentials not found, login manually!
+[18/02/2021 16:01:56] ||  - - - - Bot started - - - - 
+[18/02/2021 16:02:09] || Auto logging in using credentials
+[18/02/2021 16:02:09] || AutoLogin...
+[18/02/2021 16:02:24] || Email login attempt to get 2FA code failed, enter manually
+[18/02/2021 17:25:37] ||  - - - - Bot started - - - - 
+[18/02/2021 18:34:16] ||  - - - - Bot started - - - - 
+[18/02/2021 18:34:28] || Auto logging in using credentials
+[18/02/2021 18:34:28] || AutoLogin...
+[18/02/2021 18:34:45] || Email login attempt to get 2FA code failed, enter manually
+[18/02/2021 18:35:34] || Starting autobidder
+[18/02/2021 18:35:34] || Bidding using input player list from GUI
+[18/02/2021 18:35:34] || Cleared old search data, will now get new data
+[19/02/2021 08:51:32] ||  - - - - Bot started - - - - 
+[19/02/2021 09:03:12] ||  - - - - Bot started - - - - 
+[19/02/2021 09:04:46] ||  - - - - Bot started - - - - 
+[19/02/2021 09:04:53] ||  - - - - Bot started - - - - 
+[19/02/2021 09:05:22] ||  - - - - Bot started - - - - 
+[19/02/2021 09:05:52] ||  - - - - Bot started - - - - 
+[19/02/2021 09:13:28] ||  - - - - Bot started - - - - 
+[19/02/2021 10:53:14] ||  - - - - Bot started - - - - 
+[19/02/2021 11:00:22] ||  - - - - Bot started - - - - 
+[19/02/2021 11:02:02] || Test function
+[19/02/2021 11:03:19] ||  - - - - Bot started - - - - 
+[19/02/2021 11:04:48] ||  - - - - Bot started - - - - 
+[19/02/2021 11:05:11] || Test function
+[19/02/2021 11:05:11] || Start the autobidding!
+[19/02/2021 11:13:34] || Added player to player list
+[19/02/2021 11:13:34] || Fetching player info
+[19/02/2021 11:15:29] || Test function
+[19/02/2021 11:15:58] || Test function
+[19/02/2021 11:15:58] || Start the autobidding!
+[19/02/2021 11:17:29] || Test function
+[19/02/2021 11:20:05] ||  - - - - Bot started - - - - 
+[19/02/2021 11:20:32] || Fetching player info
+[19/02/2021 11:20:32] || Added player to player list
+[19/02/2021 11:21:34] || Test function
+[19/02/2021 11:21:34] || Start the autobidding!
+[19/02/2021 11:24:49] ||  - - - - Bot started - - - - 
+[19/02/2021 11:25:16] || Test function
+[19/02/2021 11:25:16] || Start the autobidding!
+[19/02/2021 11:25:49] || Auto logging in using credentials
+[19/02/2021 11:25:49] || AutoLogin...
+[19/02/2021 11:26:05] || Email login attempt to get 2FA code failed, enter manually
+[19/02/2021 11:38:28] || Test function
+[19/02/2021 11:38:28] || Start the autobidding!
+[19/02/2021 11:38:55] || Test function
+[19/02/2021 11:38:55] || Start the autobidding!
+[19/02/2021 11:39:16] || Test function
+[19/02/2021 11:39:16] || Start the autobidding!
+[19/02/2021 11:39:41] || Test function
+[19/02/2021 11:39:41] || Start the autobidding!
+[19/02/2021 11:48:34] || Test function
+[19/02/2021 11:48:34] || Start the autobidding!
+[19/02/2021 11:49:11] || Test function
+[19/02/2021 11:49:11] || Start the autobidding!
+[19/02/2021 11:49:13] || Bids allowed: 48 Bid to make on each player: 23
+[19/02/2021 12:17:06] || Test function
+[19/02/2021 12:17:06] || Start the autobidding!
+[19/02/2021 12:17:58] || Test function
+[19/02/2021 12:17:58] || Start the autobidding!
+[19/02/2021 12:18:40] || Test function
+[19/02/2021 12:18:40] || Start the autobidding!
+[19/02/2021 12:19:38] || Test function
+[19/02/2021 12:19:38] || Start the autobidding!
+[19/02/2021 12:19:42] || NUMBER OF RESULTS FOR ANGEL 1
+[19/02/2021 12:19:42] || should be 5
+[19/02/2021 12:19:42] || waiting a sec Should click result number: 1
+[19/02/2021 12:24:54] || Test function
+[19/02/2021 12:24:54] || Start the autobidding!
+[19/02/2021 12:24:58] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 12:24:58] || should be 5
+[19/02/2021 12:24:59] || waiting a sec Should click result number: 4
+[19/02/2021 12:57:45] ||  - - - - Bot started - - - - 
+[19/02/2021 12:58:40] || Auto logging in using credentials
+[19/02/2021 12:58:40] || AutoLogin...
+[19/02/2021 12:58:55] || Email login attempt to get 2FA code failed, enter manually
+[19/02/2021 14:04:14] || Test function
+[19/02/2021 14:04:14] || Start the autobidding!
+[19/02/2021 14:04:20] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:04:20] || should be 5
+[19/02/2021 14:04:20] || waiting a sec Should click result number: 4
+[19/02/2021 14:04:59] || Test function
+[19/02/2021 14:04:59] || Start the autobidding!
+[19/02/2021 14:05:03] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:05:03] || should be 5
+[19/02/2021 14:05:03] || waiting a sec Should click result number: 4
+[19/02/2021 14:05:07] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
+[19/02/2021 14:07:59] || Test function
+[19/02/2021 14:07:59] || Start the autobidding!
+[19/02/2021 14:08:04] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:08:04] || should be 5
+[19/02/2021 14:08:04] || waiting a sec Should click result number: 4
+[19/02/2021 14:08:08] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
+[19/02/2021 14:09:01] || Test function
+[19/02/2021 14:09:01] || Start the autobidding!
+[19/02/2021 14:09:05] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:09:05] || should be 5
+[19/02/2021 14:09:06] || waiting a sec Should click result number: 4
+[19/02/2021 14:09:10] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
+[19/02/2021 14:09:21] || Bids made on : 1/5
+[19/02/2021 14:09:29] || Bids made on : 2/5
+[19/02/2021 14:09:36] || Bids made on : 3/5
+[19/02/2021 14:09:43] || Bids made on : 4/5
+[19/02/2021 14:09:50] || Bids made on : 5/5
+[19/02/2021 14:09:56] || Bids made on : 6/5
+[19/02/2021 14:09:56] || Final Number of bids made on : 6/5
+[19/02/2021 14:11:21] || Test function
+[19/02/2021 14:11:21] || Start the autobidding!
+[19/02/2021 14:11:25] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:11:25] || should be 5
+[19/02/2021 14:11:25] || waiting a sec Should click result number: 4
+[19/02/2021 14:11:30] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
+[19/02/2021 14:11:41] || Bids made on ÁNGEL: 1/5
+[19/02/2021 14:11:49] || Bids made on ÁNGEL: 2/5
+[19/02/2021 14:11:53] || Going to next page
+[19/02/2021 14:12:04] || Bids made on ÁNGEL: 3/5
+[19/02/2021 14:12:10] || Bids made on ÁNGEL: 4/5
+[19/02/2021 14:12:17] || Bids made on ÁNGEL: 5/5
+[19/02/2021 14:12:25] || Bids made on ÁNGEL: 6/5
+[19/02/2021 14:12:25] || Final Number of bids made on ÁNGEL: 6/5
+[19/02/2021 14:12:25] || Finished bidding on:ÁNGEL
+[19/02/2021 14:12:30] || NUMBER OF RESULTS FOR ANGEL 5
+[19/02/2021 14:12:30] || should be 5
+[19/02/2021 14:12:31] || waiting a sec Should click result number: 1
+[19/02/2021 14:12:35] || Bidding on RODRÍGUEZ up to FUTBIN price: 600. Will log market data to use in next pass! Purchase ceiling: 450.0
+[19/02/2021 14:12:42] || Going to next page
+[19/02/2021 14:12:49] || Going to next page
+[19/02/2021 14:12:56] || Going to next page
+[19/02/2021 14:13:04] || Going to next page
+[19/02/2021 14:13:06] || Player ID not found for: Rodríguez 84
+[19/02/2021 14:13:10] || Going to next page
+[19/02/2021 14:13:18] || Going to next page
+[19/02/2021 15:20:02] ||  - - - - Bot started - - - - 
+[19/02/2021 15:20:52] || Auto logging in using credentials
+[19/02/2021 15:20:52] || AutoLogin...
+[19/02/2021 15:21:06] || Email login attempt to get 2FA code failed, enter manually
+[19/02/2021 16:03:40] || Test function
+[19/02/2021 16:04:14] || Test function
+[19/02/2021 16:05:01] || Test function
+[19/02/2021 16:05:55] || Test function
+[19/02/2021 16:06:44] || Test function
+[19/02/2021 16:07:23] || Test function
+[19/02/2021 16:08:16] || Test function
+[19/02/2021 16:09:22] || Test function
+[19/02/2021 16:09:22] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:09:45] || Test function
+[19/02/2021 16:09:45] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:09:58] || Test function
+[19/02/2021 16:09:59] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:10:56] || Test function
+[19/02/2021 16:10:56] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:10:56] || ID mismatch -- minimum bin price array was empty
+[19/02/2021 16:10:56] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:12:10] || Test function
+[19/02/2021 16:12:10] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:12:10] || ID mismatch -- minimum bin price array was empty
+[19/02/2021 16:12:10] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:12:56] || Test function
+[19/02/2021 16:12:56] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:12:56] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:12:57] || Test function
+[19/02/2021 16:12:57] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:12:57] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:14:55] || Test function
+[19/02/2021 16:14:55] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:14:55] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:15:02] || Test function
+[19/02/2021 16:15:02] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:15:02] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:15:13] || Test function
+[19/02/2021 16:15:13] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:15:13] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:27:26] || Test function
+[19/02/2021 16:27:26] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:27:26] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:28:50] || Test function
+[19/02/2021 16:28:50] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:28:50] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:29:31] || Test function
+[19/02/2021 16:29:31] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:29:31] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:30:30] || Test function
+[19/02/2021 16:30:30] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:30:30] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:30:46] || Test function
+[19/02/2021 16:31:22] || Test function
+[19/02/2021 16:31:22] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:31:22] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:31:53] || Test function
+[19/02/2021 16:31:53] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:31:53] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:33:17] || Test function
+[19/02/2021 16:33:17] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:33:17] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:33:30] || Test function
+[19/02/2021 16:33:30] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:33:30] || Rodríguez min buy now from market data: 0
+[19/02/2021 16:36:44] || Test function
+[19/02/2021 16:36:44] || Rodríguez min buy now from market data: 2300
+[19/02/2021 16:36:44] || Rodríguez min buy now from market data: 0
+[19/02/2021 17:06:44] || Test function
+[19/02/2021 17:06:44] || Ángel min buy now from market data: 2300
+[19/02/2021 17:06:44] || Rodríguez min buy now from market data: 0
+[19/02/2021 17:15:46] || Test function
+[19/02/2021 17:15:46] || Start the autobidding!
+[19/02/2021 17:15:50] || waiting a sec Should click result number: 4
+[19/02/2021 17:15:54] || Bidding on ÁNGEL up to MARKET price: 2300. Purchase ceiling: 1725.0
+[19/02/2021 17:17:08] || Test function
+[19/02/2021 17:17:08] || Start the autobidding!
+[19/02/2021 17:17:13] || waiting a sec Should click result number: 4
+[19/02/2021 17:17:17] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
+[19/02/2021 17:17:28] || Bids made on ÁNGEL: 1/5
+[19/02/2021 17:17:33] || Going to next page
+[19/02/2021 17:17:43] || Bids made on ÁNGEL: 2/5
+[19/02/2021 17:17:51] || Bids made on ÁNGEL: 3/5
+[19/02/2021 17:17:55] || Going to next page
+[19/02/2021 17:18:05] || Bids made on ÁNGEL: 4/5
+[19/02/2021 17:18:11] || Bids made on ÁNGEL: 5/5
+[19/02/2021 17:18:19] || Bids made on ÁNGEL: 6/5
+[19/02/2021 17:18:19] || Final Number of bids made on ÁNGEL: 6/5
+[19/02/2021 17:18:19] || Finished bidding on:ÁNGEL
+[19/02/2021 17:18:25] || waiting a sec Should click result number: 4
+[19/02/2021 17:18:30] || Bidding on RODRÍGUEZ up to FUTBIN price: 600. Will log market data to use in next pass! Purchase ceiling: 450.0
+[19/02/2021 17:18:42] || Bids made on RODRÍGUEZ: 1/5
+[19/02/2021 17:18:49] || Bids made on RODRÍGUEZ: 2/5
+[19/02/2021 17:18:53] || Going to next page
+[19/02/2021 17:19:03] || Bids made on RODRÍGUEZ: 3/5
+[19/02/2021 17:19:11] || Bids made on RODRÍGUEZ: 4/5
+[19/02/2021 17:19:16] || Going to next page
+[19/02/2021 17:19:27] || Bids made on RODRÍGUEZ: 5/5
+[19/02/2021 17:19:36] || Bids made on RODRÍGUEZ: 6/5
+[19/02/2021 17:19:36] || Final Number of bids made on RODRÍGUEZ: 6/5
+[19/02/2021 17:19:36] || Finished bidding on:RODRÍGUEZ
+[19/02/2021 17:19:37] || Parsing market data to find most accurate sell prices...
+[19/02/2021 17:19:37] || Ángel min buy now from market data: 1000
+[19/02/2021 17:19:37] || Rodríguez min buy now from market data: 750
+[19/02/2021 17:19:37] || Going to watchlist now
+[19/02/2021 18:23:12] ||  - - - - Bot started - - - - 
+[19/02/2021 18:25:31] ||  - - - - Bot started - - - - 

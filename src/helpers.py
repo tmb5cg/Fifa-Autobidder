@@ -1,5 +1,8 @@
 import mainhelpers
+import helpers
+
 from mainhelpers import *
+from helpers import *
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,13 +10,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 
 from time import sleep
+from datetime import datetime
 import random
 import requests
 import csv
 from csv import reader
 
-import helpers
-from helpers import *
 
 
 def wait_for_shield_invisibility(driver, duration=0.25):
@@ -23,11 +25,17 @@ def wait_for_shield_invisibility(driver, duration=0.25):
     sleep(duration)
 
 def log_event(event):
+    # add some randomness
+    x = random.randint(1,10000)
+    x2 = x/10000
+    sleep(x2)
+
     file_object = open('./data/logs.txt', 'a')
     now = datetime.now()
     dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
 
     full_log = dt_string + " || " + event + "\n"
+    print(full_log)
     file_object.write(full_log)
     file_object.close()
 

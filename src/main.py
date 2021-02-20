@@ -1,15 +1,18 @@
 import thread_runner
-import function_runner
+# import function_runner
 import mainhelpers
 import helpers
+import newhelpers
 import autobidder_any
-import autobidder_list
+import autobidder
+# import autobidder_list
 
 from config import create_driver, URL
 from thread_runner import RunThread
-from function_runner import RunFunction
+# from function_runner import RunFunction
 from helpers import *
 from mainhelpers import *
+from newhelpers import *
 
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -42,18 +45,25 @@ class SeaofBTCapp(tk.Tk):
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
-        self.logins = Logins(self.container, self)
+        # self.logins = Logins(self.container, self)
         self.playerfilters = PlayerFilters(self.container, self)
         self.table = Table(self.container, self)
         self.mainbuttons = MainButtons(self.container, self)
         self.displaylogs = DisplayLogs(self.container, self)
 
-        self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
-        self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
-        self.table.grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
-        self.mainbuttons.grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
+        # self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
 
-        self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="10", pady="10")
+        # Add players box
+        self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
+
+        # Player input list box
+        self.table.grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
+
+        # Login / start bot / etc buttons
+        self.mainbuttons.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
+
+        # Log displayer
+        self.displaylogs.grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
 
 
 class DisplayLogs(tk.Frame):
@@ -65,16 +75,16 @@ class DisplayLogs(tk.Frame):
 
         tk.Frame.__init__(self, parent)
 
-        self.status2 = tk.Label(self, text="Bot Logs", font=LARGE_FONT)
+        self.status2 = tk.Label(self, text="Logs", font=LARGE_FONT)
         self.status2.grid(row = 0, column = 0)
 
         # Player list table
         columns = ['log']
         self.loggings = Treeview(self, columns=columns, show="headings")
-        self.loggings.column("log", width=200)
+        self.loggings.column("log", width=640)
 
         for col in columns[1:]:
-            self.loggings.column(col, width=200)
+            self.loggings.column(col, width=400)
             self.loggings.heading(col, text=col)
 
         #loggings.bind('<<TreeviewSelect>>', select_router)
@@ -104,48 +114,6 @@ class DisplayLogs(tk.Frame):
         txt.close()
         self.loggings.yview_moveto(1)
         self.after(100, self.update_logs)
-
-
-        # self.parent = parent
-        # self.controller = controller
-
-        # tk.Frame.__init__(self, parent)
-
-        # self.logs = tk.Label(self, text="Logs", font=LARGE_FONT)
-        # self.logs.grid(row = 0, column = 0)
-
-        # self.text = Text(self, height=20, setgrid=True, wrap=WORD, undo=True, pady=2, padx=3)
-        # xscroll = ttk.Scrollbar(self, command=self.text.xview, orient=HORIZONTAL)
-        # yscroll = ttk.Scrollbar(self, command=self.text.yview, orient=VERTICAL)
-        # self.text.configure(xscrollcommand=xscroll.set, yscrollcommand=yscroll.set)
-
-        # self.text.grid(row=0, column=0, sticky=NSEW)
-        # yscroll.grid(row=0, column=1, sticky=NSEW)
-        # self.rowconfigure(0, weight=1)
-        # self.columnconfigure(0, weight=1)
-        
-
-        # # Player list table
-        # # columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
-        # # self.router_tree_view = Treeview(self, columns=columns, show="headings")
-        # # self.router_tree_view.column("id", width=30)
-
-        # # for col in columns[1:]:
-        # #     self.router_tree_view.column(col, width=80)
-        # #     self.router_tree_view.heading(col, text=col)
-
-        # # #router_tree_view.bind('<<TreeviewSelect>>', select_router)
-        # # self.router_tree_view.grid(row=1,column=0)
-
-        # # LOAD IN TABLE
-        # txt = open("./data/logs.txt", "r")
-        # self.text = txt
-        # # for aline in txt:
-        # #     values2 = aline.strip("\n").split(",")
-        # #     # self.text.insert('', 'end', values=values2)
-        # #     self.text.insert(END, ''.join(txt))
-        # txt.close()
-
 
 
 
@@ -232,64 +200,6 @@ class PlayerFilters(tk.Frame):
         self.controller = controller
         self.playerlist = []
 
-        # # FUTBIN Link
-        # futbin_text = tk.StringVar()
-        # futbin_label = tk.Label(self, text='Futbin link: ', font=LARGE_FONT)
-        # futbin_entry = tk.Entry(self, textvariable=futbin_text)
-
-        # futbin_label.grid(row=7, column=0)
-        # futbin_entry.grid(row=7, column=1)
-
-        # Player name
-        # player_text = tk.StringVar()
-        # player_label = tk.Label(self, text='Player name', font=LARGE_FONT)
-        # player_entry = tk.Entry(self, textvariable=player_text)
-
-        # player_label.grid(row=8, column=0)
-        # player_entry.grid(row=8, column=1)
-
-        # # Buy price
-        # overall_text = tk.StringVar()
-        # overall_label = tk.Label(self, text='Player Overall', font=LARGE_FONT)
-        # overall_entry = tk.Entry(self, textvariable=overall_text)
-
-        # overall_label.grid(row=9, column=0)
-        # overall_entry.grid(row=9, column=1)
-
-        # # Buy price
-        # buyprice_text = tk.StringVar()
-        # buyprice_label = tk.Label(self, text='Buy Price', font=LARGE_FONT)
-        # buyprice_entry = tk.Entry(self, textvariable=buyprice_text)
-
-        # buyprice_label.grid(row=10, column=0)
-        # buyprice_entry.grid(row=10, column=1)
-
-        # # Sell price
-        # sellprice_text = tk.StringVar()
-        # sellprice_label = tk.Label(self, text='Sell Price', font=LARGE_FONT)
-        # sellprice_entry = tk.Entry(self, textvariable=sellprice_text)
-
-        # sellprice_label.grid(row=11, column=0)
-        # sellprice_entry.grid(row=11, column=1)
-
-
-        # BUTTONS
-        # self.add_btn = tk.Button(self, text='Add Player', width=12, command=self.add_player)
-        # self.add_btn.grid(row=12, column=0)
-        # self.remove_btn = tk.Button(self, text='Remove Player', width=12, command=self.remove_player)
-        # self.remove_btn.grid(row=12, column=1)
-
-        # self.overall_text = overall_text
-        # self.player_text = player_text
-        # self.buyprice_text = buyprice_text
-        # self.sellprice_text = sellprice_text
-
-
-
-        # FUTBIN Link entry -- new UI simplified 
-        # blank space
-
-
         blankspacelabel = tk.Label(self, text=' - - - - ', font=LARGE_FONT)
         blankspacelabel.grid(row=13, column=0)
 
@@ -308,33 +218,45 @@ class PlayerFilters(tk.Frame):
         self.remove_btn.grid(row=15, column=1)
 
 
-        # disclaimer1 = tk.StringVar()
-        # disclaimer_text1 = tk.Label(self, text='Enter Futbin URL to gather player data', font=SMALL_FONT)
-        # disclaimer_text1.grid(row=12, column=0)
+        disclaimer2 = tk.StringVar()
+        disclaimer_text2 = tk.Label(self, text='Futbin price will be used as truth in initial searches, during which market data will be collected and analyzed to find accurate market price!', font=SMALL_FONT, wraplength=400)
+        disclaimer_text2.grid(row=16, column=0, columnspan=2)
 
-        # disclaimer2 = tk.StringVar()
-        # disclaimer_text2 = tk.Label(self, text='Note: Futbin price will be used as truth in initial searches, during which market data will be collected and analyzed to find accurate market price!', font=SMALL_FONT, wraplength=400)
-        # disclaimer_text2.grid(row=16, column=0)
+        autobid_pct_text = tk.StringVar()
+        autobid_pct_label = tk.Label(self, text='Autobid up to %: ', font=SMALL_FONT)
+        autobid_pct_entry = tk.Entry(self, textvariable=autobid_pct_text)
+
+        autobid_pct_label.grid(row=18, column=0)
+        autobid_pct_entry.grid(row=18, column=1)
+
+
+        autobuy_pct_text = tk.StringVar()
+        autobuy_pct_label = tk.Label(self, text='Autobuy up to %: ', font=SMALL_FONT)
+        autobuy_pct_entry = tk.Entry(self, textvariable=autobuy_pct_text)
+
+        autobuy_pct_label.grid(row=19, column=0)
+        autobuy_pct_entry.grid(row=19, column=1)
 
         self.futbinlink_text = futbinlink_text
 
 
-    def add_player(self):
-        val = [0, ",", self.player_text.get(), ",", self.overall_text.get(), ",", self.buyprice_text.get(), ",", self.sellprice_text.get()]
+    # def add_player(self):
+    #     val = [0, ",", self.player_text.get(), ",", self.overall_text.get(), ",", self.buyprice_text.get(), ",", self.sellprice_text.get()]
 
-        full_entry = ""
-        for word in val:
-            full_entry += str(word)
-        hs = open("./data/user_playerlist_GUI.txt", "a", encoding="utf8")
-        hs.write(full_entry + "\n")
-        hs.close()
-        self.update_list()
+    #     full_entry = ""
+    #     for word in val:
+    #         full_entry += str(word)
+    #     hs = open("./data/player_list.txt", "a", encoding="utf8")
+    #     hs.write(full_entry + "\n")
+    #     hs.close()
+    #     self.update_list()
 
     def add_player_futbin(self):
         futbin_url = self.futbinlink_text.get()
 
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", futbin_url).start()
+        log_event("Added player to player list")
         self.update_list()
 
 
@@ -342,7 +264,7 @@ class PlayerFilters(tk.Frame):
         for i in self.controller.table.router_tree_view.get_children():
             self.controller.table.router_tree_view.delete(i)
 
-        txt = open("./data/user_playerlist_GUI.txt", "r", encoding="utf8")
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
 
         self.playerlist = []
         for aline in txt:
@@ -350,7 +272,7 @@ class PlayerFilters(tk.Frame):
             self.playerlist.append(values2)
             self.controller.table.router_tree_view.insert('', 'end', values=values2)
         txt.close()
-        self.after(100, self.update_list)
+        self.after(1000, self.update_list)
 
 
     def remove_player(self):
@@ -363,9 +285,9 @@ class PlayerFilters(tk.Frame):
 
         item_to_remove = item_to_remove[:-1]
 
-        with open("./data/user_playerlist_GUI.txt", "r", encoding="utf8") as f:
+        with open("./data/player_list.txt", "r", encoding="utf8") as f:
             lines = f.readlines()
-        with open("./data/user_playerlist_GUI.txt", "w", encoding="utf8") as f:
+        with open("./data/player_list.txt", "w", encoding="utf8") as f:
             for line in lines:
                 if line.strip("\n") != item_to_remove.strip("\n"):
                     f.write(line)
@@ -381,25 +303,25 @@ class Table(tk.Frame):
 
         tk.Frame.__init__(self, parent)
 
-        self.status = tk.Label(self, text="Bot Status Displayed Here", font=LARGE_FONT)
+        self.status = tk.Label(self, text="Status Displayed Here", font=LARGE_FONT)
         self.status.grid(row = 0, column = 0)
 
         # Player list table
         # columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
-        columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
+        columns = ["Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy %", "Max Price to pay"]
 
         self.router_tree_view = Treeview(self, columns=columns, show="headings")
         # self.router_tree_view.column("id", width=30)
 
         for col in columns[1:]:
-            self.router_tree_view.column(col, width=80)
+            self.router_tree_view.column(col, width=40)
             self.router_tree_view.heading(col, text=col)
 
         #router_tree_view.bind('<<TreeviewSelect>>', select_router)
         self.router_tree_view.grid(row=1,column=0)
 
         # LOAD IN TABLE
-        txt = open("./data/user_playerlist_GUI.txt", "r", encoding="utf8")
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
 
         self.playerlist = self.controller.playerfilters.playerlist
 
@@ -419,6 +341,7 @@ class MainButtons(tk.Frame):
         self.controller = controller
 
         # ~ ~ ~ ~ INITIATE BOT ~ ~ ~ ~ ~
+        log_event(" - - - - Bot started - - - - ")
         self.driver = create_driver()
         self.action = ActionChains(self.driver)
         self.driver.get(URL)
@@ -448,25 +371,12 @@ class MainButtons(tk.Frame):
 
         login_exists = path.exists("./data/logins.txt")
         if login_exists:
-            print("login file exists!")
             log_event("Auto logging in using credentials")
             thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
         else:
-            print("Login file does NOT exists!")
             log_event("Auto login credentials not found, login manually!")
             self.popupmsg("Logins.txt not found, login manually!")
-        # autologin_status = thread_runner.RunThread(self.queue, self.driver, "checkCredentials", self.controller.playerfilters.playerlist).start()
-
-        # if autologin_status == "True":
-        #     thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
-        # elif autologin_status == "False":
-        #     print("login manually. create message box saying must login manually")
-
-        # result = thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
-        # if (result == True):
-        #     print("success")
-        # if (result == False):
-        #     print("credentials not listed")
+   
         self.after(100, self.process_queue)
 
     def popupmsg(self, msg):
@@ -505,13 +415,14 @@ class MainButtons(tk.Frame):
         self.prog_bar.start()
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
-        importlib.reload(function_runner)
+        importlib.reload(autobidder)
+        # importlib.reload(function_runner)
 
         importlib.reload(helpers)
         importlib.reload(mainhelpers)
-
+        importlib.reload(newhelpers)
         importlib.reload(autobidder_any)
-        importlib.reload(autobidder_list)
+        # importlib.reload(autobidder_list)
 
         self.after(100, self.process_queue)
 
