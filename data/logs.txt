@@ -1,258 +1,580 @@
-[15/02/2021 15:20:23] || Bidding using input player list from GUI
-[15/02/2021 15:20:23] || Cleared old search data, will now get new data
-[15/02/2021 15:21:45] || Bidding using input player list from GUI
-[15/02/2021 15:21:45] || Cleared old search data, will now get new data
-[15/02/2021 15:22:46] || Bidding using input player list from GUI
-[15/02/2021 15:22:46] || Cleared old search data, will now get new data
-[15/02/2021 15:27:17] || Bidding using input player list from GUI
-[15/02/2021 15:27:17] || Cleared old search data, will now get new data
-[15/02/2021 15:27:30] || Searching for: Luis Rodrï¿½guez | 0
-[15/02/2021 15:40:22] || Bidding using input player list from GUI
-[15/02/2021 15:40:22] || Cleared old search data, will now get new data
-[15/02/2021 15:52:26] || Bidding using input player list from GUI
-[15/02/2021 15:52:26] || Cleared old search data, will now get new data
-[15/02/2021 15:52:46] || Searching for: Luis Rodrï¿½guez | 0
-[15/02/2021 18:25:27] || Bidding using input player list from GUI
-[15/02/2021 18:25:27] || Cleared old search data, will now get new data
-[18/02/2021 09:51:48] || AutoLogin credentials exist. Not guaranteed they are formatted correctly, but they exist
-[18/02/2021 12:25:35] || Auto login credentials not found, login manually!
-[18/02/2021 12:25:45] || Auto login credentials not found, login manually!
-[18/02/2021 16:01:56] ||  - - - - Bot started - - - - 
-[18/02/2021 16:02:09] || Auto logging in using credentials
-[18/02/2021 16:02:09] || AutoLogin...
-[18/02/2021 16:02:24] || Email login attempt to get 2FA code failed, enter manually
-[18/02/2021 17:25:37] ||  - - - - Bot started - - - - 
-[18/02/2021 18:34:16] ||  - - - - Bot started - - - - 
-[18/02/2021 18:34:28] || Auto logging in using credentials
-[18/02/2021 18:34:28] || AutoLogin...
-[18/02/2021 18:34:45] || Email login attempt to get 2FA code failed, enter manually
-[18/02/2021 18:35:34] || Starting autobidder
-[18/02/2021 18:35:34] || Bidding using input player list from GUI
-[18/02/2021 18:35:34] || Cleared old search data, will now get new data
-[19/02/2021 08:51:32] ||  - - - - Bot started - - - - 
-[19/02/2021 09:03:12] ||  - - - - Bot started - - - - 
-[19/02/2021 09:04:46] ||  - - - - Bot started - - - - 
-[19/02/2021 09:04:53] ||  - - - - Bot started - - - - 
-[19/02/2021 09:05:22] ||  - - - - Bot started - - - - 
-[19/02/2021 09:05:52] ||  - - - - Bot started - - - - 
-[19/02/2021 09:13:28] ||  - - - - Bot started - - - - 
-[19/02/2021 10:53:14] ||  - - - - Bot started - - - - 
-[19/02/2021 11:00:22] ||  - - - - Bot started - - - - 
-[19/02/2021 11:02:02] || Test function
-[19/02/2021 11:03:19] ||  - - - - Bot started - - - - 
-[19/02/2021 11:04:48] ||  - - - - Bot started - - - - 
-[19/02/2021 11:05:11] || Test function
-[19/02/2021 11:05:11] || Start the autobidding!
-[19/02/2021 11:13:34] || Added player to player list
-[19/02/2021 11:13:34] || Fetching player info
-[19/02/2021 11:15:29] || Test function
-[19/02/2021 11:15:58] || Test function
-[19/02/2021 11:15:58] || Start the autobidding!
-[19/02/2021 11:17:29] || Test function
-[19/02/2021 11:20:05] ||  - - - - Bot started - - - - 
-[19/02/2021 11:20:32] || Fetching player info
-[19/02/2021 11:20:32] || Added player to player list
-[19/02/2021 11:21:34] || Test function
-[19/02/2021 11:21:34] || Start the autobidding!
-[19/02/2021 11:24:49] ||  - - - - Bot started - - - - 
-[19/02/2021 11:25:16] || Test function
-[19/02/2021 11:25:16] || Start the autobidding!
-[19/02/2021 11:25:49] || Auto logging in using credentials
-[19/02/2021 11:25:49] || AutoLogin...
-[19/02/2021 11:26:05] || Email login attempt to get 2FA code failed, enter manually
-[19/02/2021 11:38:28] || Test function
-[19/02/2021 11:38:28] || Start the autobidding!
-[19/02/2021 11:38:55] || Test function
-[19/02/2021 11:38:55] || Start the autobidding!
-[19/02/2021 11:39:16] || Test function
-[19/02/2021 11:39:16] || Start the autobidding!
-[19/02/2021 11:39:41] || Test function
-[19/02/2021 11:39:41] || Start the autobidding!
-[19/02/2021 11:48:34] || Test function
-[19/02/2021 11:48:34] || Start the autobidding!
-[19/02/2021 11:49:11] || Test function
-[19/02/2021 11:49:11] || Start the autobidding!
-[19/02/2021 11:49:13] || Bids allowed: 48 Bid to make on each player: 23
-[19/02/2021 12:17:06] || Test function
-[19/02/2021 12:17:06] || Start the autobidding!
-[19/02/2021 12:17:58] || Test function
-[19/02/2021 12:17:58] || Start the autobidding!
-[19/02/2021 12:18:40] || Test function
-[19/02/2021 12:18:40] || Start the autobidding!
-[19/02/2021 12:19:38] || Test function
-[19/02/2021 12:19:38] || Start the autobidding!
-[19/02/2021 12:19:42] || NUMBER OF RESULTS FOR ANGEL 1
-[19/02/2021 12:19:42] || should be 5
-[19/02/2021 12:19:42] || waiting a sec Should click result number: 1
-[19/02/2021 12:24:54] || Test function
-[19/02/2021 12:24:54] || Start the autobidding!
-[19/02/2021 12:24:58] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 12:24:58] || should be 5
-[19/02/2021 12:24:59] || waiting a sec Should click result number: 4
-[19/02/2021 12:57:45] ||  - - - - Bot started - - - - 
-[19/02/2021 12:58:40] || Auto logging in using credentials
-[19/02/2021 12:58:40] || AutoLogin...
-[19/02/2021 12:58:55] || Email login attempt to get 2FA code failed, enter manually
-[19/02/2021 14:04:14] || Test function
-[19/02/2021 14:04:14] || Start the autobidding!
-[19/02/2021 14:04:20] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:04:20] || should be 5
-[19/02/2021 14:04:20] || waiting a sec Should click result number: 4
-[19/02/2021 14:04:59] || Test function
-[19/02/2021 14:04:59] || Start the autobidding!
-[19/02/2021 14:05:03] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:05:03] || should be 5
-[19/02/2021 14:05:03] || waiting a sec Should click result number: 4
-[19/02/2021 14:05:07] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
-[19/02/2021 14:07:59] || Test function
-[19/02/2021 14:07:59] || Start the autobidding!
-[19/02/2021 14:08:04] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:08:04] || should be 5
-[19/02/2021 14:08:04] || waiting a sec Should click result number: 4
-[19/02/2021 14:08:08] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
-[19/02/2021 14:09:01] || Test function
-[19/02/2021 14:09:01] || Start the autobidding!
-[19/02/2021 14:09:05] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:09:05] || should be 5
-[19/02/2021 14:09:06] || waiting a sec Should click result number: 4
-[19/02/2021 14:09:10] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
-[19/02/2021 14:09:21] || Bids made on : 1/5
-[19/02/2021 14:09:29] || Bids made on : 2/5
-[19/02/2021 14:09:36] || Bids made on : 3/5
-[19/02/2021 14:09:43] || Bids made on : 4/5
-[19/02/2021 14:09:50] || Bids made on : 5/5
-[19/02/2021 14:09:56] || Bids made on : 6/5
-[19/02/2021 14:09:56] || Final Number of bids made on : 6/5
-[19/02/2021 14:11:21] || Test function
-[19/02/2021 14:11:21] || Start the autobidding!
-[19/02/2021 14:11:25] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:11:25] || should be 5
-[19/02/2021 14:11:25] || waiting a sec Should click result number: 4
-[19/02/2021 14:11:30] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
-[19/02/2021 14:11:41] || Bids made on ÁNGEL: 1/5
-[19/02/2021 14:11:49] || Bids made on ÁNGEL: 2/5
-[19/02/2021 14:11:53] || Going to next page
-[19/02/2021 14:12:04] || Bids made on ÁNGEL: 3/5
-[19/02/2021 14:12:10] || Bids made on ÁNGEL: 4/5
-[19/02/2021 14:12:17] || Bids made on ÁNGEL: 5/5
-[19/02/2021 14:12:25] || Bids made on ÁNGEL: 6/5
-[19/02/2021 14:12:25] || Final Number of bids made on ÁNGEL: 6/5
-[19/02/2021 14:12:25] || Finished bidding on:ÁNGEL
-[19/02/2021 14:12:30] || NUMBER OF RESULTS FOR ANGEL 5
-[19/02/2021 14:12:30] || should be 5
-[19/02/2021 14:12:31] || waiting a sec Should click result number: 1
-[19/02/2021 14:12:35] || Bidding on RODRÍGUEZ up to FUTBIN price: 600. Will log market data to use in next pass! Purchase ceiling: 450.0
-[19/02/2021 14:12:42] || Going to next page
-[19/02/2021 14:12:49] || Going to next page
-[19/02/2021 14:12:56] || Going to next page
-[19/02/2021 14:13:04] || Going to next page
-[19/02/2021 14:13:06] || Player ID not found for: Rodríguez 84
-[19/02/2021 14:13:10] || Going to next page
-[19/02/2021 14:13:18] || Going to next page
-[19/02/2021 15:20:02] ||  - - - - Bot started - - - - 
-[19/02/2021 15:20:52] || Auto logging in using credentials
-[19/02/2021 15:20:52] || AutoLogin...
-[19/02/2021 15:21:06] || Email login attempt to get 2FA code failed, enter manually
-[19/02/2021 16:03:40] || Test function
-[19/02/2021 16:04:14] || Test function
-[19/02/2021 16:05:01] || Test function
-[19/02/2021 16:05:55] || Test function
-[19/02/2021 16:06:44] || Test function
-[19/02/2021 16:07:23] || Test function
-[19/02/2021 16:08:16] || Test function
-[19/02/2021 16:09:22] || Test function
-[19/02/2021 16:09:22] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:09:45] || Test function
-[19/02/2021 16:09:45] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:09:58] || Test function
-[19/02/2021 16:09:59] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:10:56] || Test function
-[19/02/2021 16:10:56] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:10:56] || ID mismatch -- minimum bin price array was empty
-[19/02/2021 16:10:56] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:12:10] || Test function
-[19/02/2021 16:12:10] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:12:10] || ID mismatch -- minimum bin price array was empty
-[19/02/2021 16:12:10] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:12:56] || Test function
-[19/02/2021 16:12:56] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:12:56] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:12:57] || Test function
-[19/02/2021 16:12:57] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:12:57] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:14:55] || Test function
-[19/02/2021 16:14:55] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:14:55] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:15:02] || Test function
-[19/02/2021 16:15:02] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:15:02] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:15:13] || Test function
-[19/02/2021 16:15:13] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:15:13] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:27:26] || Test function
-[19/02/2021 16:27:26] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:27:26] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:28:50] || Test function
-[19/02/2021 16:28:50] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:28:50] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:29:31] || Test function
-[19/02/2021 16:29:31] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:29:31] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:30:30] || Test function
-[19/02/2021 16:30:30] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:30:30] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:30:46] || Test function
-[19/02/2021 16:31:22] || Test function
-[19/02/2021 16:31:22] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:31:22] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:31:53] || Test function
-[19/02/2021 16:31:53] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:31:53] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:33:17] || Test function
-[19/02/2021 16:33:17] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:33:17] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:33:30] || Test function
-[19/02/2021 16:33:30] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:33:30] || Rodríguez min buy now from market data: 0
-[19/02/2021 16:36:44] || Test function
-[19/02/2021 16:36:44] || Rodríguez min buy now from market data: 2300
-[19/02/2021 16:36:44] || Rodríguez min buy now from market data: 0
-[19/02/2021 17:06:44] || Test function
-[19/02/2021 17:06:44] || Ángel min buy now from market data: 2300
-[19/02/2021 17:06:44] || Rodríguez min buy now from market data: 0
-[19/02/2021 17:15:46] || Test function
-[19/02/2021 17:15:46] || Start the autobidding!
-[19/02/2021 17:15:50] || waiting a sec Should click result number: 4
-[19/02/2021 17:15:54] || Bidding on ÁNGEL up to MARKET price: 2300. Purchase ceiling: 1725.0
-[19/02/2021 17:17:08] || Test function
-[19/02/2021 17:17:08] || Start the autobidding!
-[19/02/2021 17:17:13] || waiting a sec Should click result number: 4
-[19/02/2021 17:17:17] || Bidding on ÁNGEL up to FUTBIN price: 700. Will log market data to use in next pass! Purchase ceiling: 525.0
-[19/02/2021 17:17:28] || Bids made on ÁNGEL: 1/5
-[19/02/2021 17:17:33] || Going to next page
-[19/02/2021 17:17:43] || Bids made on ÁNGEL: 2/5
-[19/02/2021 17:17:51] || Bids made on ÁNGEL: 3/5
-[19/02/2021 17:17:55] || Going to next page
-[19/02/2021 17:18:05] || Bids made on ÁNGEL: 4/5
-[19/02/2021 17:18:11] || Bids made on ÁNGEL: 5/5
-[19/02/2021 17:18:19] || Bids made on ÁNGEL: 6/5
-[19/02/2021 17:18:19] || Final Number of bids made on ÁNGEL: 6/5
-[19/02/2021 17:18:19] || Finished bidding on:ÁNGEL
-[19/02/2021 17:18:25] || waiting a sec Should click result number: 4
-[19/02/2021 17:18:30] || Bidding on RODRÍGUEZ up to FUTBIN price: 600. Will log market data to use in next pass! Purchase ceiling: 450.0
-[19/02/2021 17:18:42] || Bids made on RODRÍGUEZ: 1/5
-[19/02/2021 17:18:49] || Bids made on RODRÍGUEZ: 2/5
-[19/02/2021 17:18:53] || Going to next page
-[19/02/2021 17:19:03] || Bids made on RODRÍGUEZ: 3/5
-[19/02/2021 17:19:11] || Bids made on RODRÍGUEZ: 4/5
-[19/02/2021 17:19:16] || Going to next page
-[19/02/2021 17:19:27] || Bids made on RODRÍGUEZ: 5/5
-[19/02/2021 17:19:36] || Bids made on RODRÍGUEZ: 6/5
-[19/02/2021 17:19:36] || Final Number of bids made on RODRÍGUEZ: 6/5
-[19/02/2021 17:19:36] || Finished bidding on:RODRÍGUEZ
-[19/02/2021 17:19:37] || Parsing market data to find most accurate sell prices...
-[19/02/2021 17:19:37] || Ángel min buy now from market data: 1000
-[19/02/2021 17:19:37] || Rodríguez min buy now from market data: 750
-[19/02/2021 17:19:37] || Going to watchlist now
-[19/02/2021 18:23:12] ||  - - - - Bot started - - - - 
-[19/02/2021 18:25:31] ||  - - - - Bot started - - - - 
+[21/02/2021 15:56:23] ||  - - - - Bot started - - - - 
+[21/02/2021 15:58:20] ||  - - - - Bot started - - - - 
+[21/02/2021 16:02:30] ||  - - - - Bot started - - - - 
+[21/02/2021 16:07:24] || Added player to player list
+[21/02/2021 16:07:24] || Fetching player info
+[21/02/2021 16:08:06] ||  - - - - Bot started - - - - 
+[21/02/2021 16:08:28] || Fetching player info
+[21/02/2021 16:08:29] || Added player to player list
+[21/02/2021 16:09:10] ||  - - - - Bot started - - - - 
+[21/02/2021 16:09:16] || Fetching player info
+[21/02/2021 16:09:16] || Added player to player list
+[21/02/2021 16:10:07] || Auto logging in using credentials
+[21/02/2021 16:10:08] || AutoLogin...
+[21/02/2021 16:10:24] || Unable to fetch access code from email (see ReadMe for help on this), enter it manually
+[21/02/2021 16:11:23] || Autobidder started
+[21/02/2021 16:11:28] || waiting a sec Should click result number: 4
+[21/02/2021 16:11:33] || Bidding on ÁNGEL up to MARKET price: 700. Purchase ceiling: 595.0
+[21/02/2021 16:11:41] || Going to next page
+[21/02/2021 16:11:45] || Time remaining of players on page exceeded 40 minutes, RETURN
+[21/02/2021 16:11:45] || Finished bidding on:ÁNGEL
+[21/02/2021 16:11:51] || waiting a sec Should click result number: 4
+[21/02/2021 16:11:56] || Bidding on RODRÍGUEZ up to FUTBIN price: 1200. Will determine actual market price while searching. Purchase ceiling: 1020.0
+[21/02/2021 16:12:09] || Bids made on RODRÍGUEZ: 1/5
+[21/02/2021 16:12:13] || Going to next page
+[21/02/2021 16:12:19] || Going to next page
+[21/02/2021 16:12:26] || Going to next page
+[21/02/2021 16:12:36] || Bids made on RODRÍGUEZ: 2/5
+[21/02/2021 16:12:42] || Going to next page
+[21/02/2021 16:12:45] || Time remaining of players on page exceeded 40 minutes, RETURN
+[21/02/2021 16:12:46] || Finished bidding on:RODRÍGUEZ
+[21/02/2021 16:12:47] || Parsing market data to find most accurate sell prices...
+[21/02/2021 16:12:48] || Ángel min buy now from market data: 700
+[21/02/2021 16:12:49] || Rodríguez min buy now from market data: 1100
+[21/02/2021 16:12:50] || Going to watchlist. Time for war
+[21/02/2021 16:12:53] || Num active bids: 2
+[21/02/2021 16:13:09] || Num active bids: 2
+[21/02/2021 16:13:24] || Num active bids: 2
+[21/02/2021 16:13:40] || Num active bids: 2
+[21/02/2021 16:13:56] || Num active bids: 2
+[21/02/2021 16:14:12] || Num active bids: 2
+[21/02/2021 16:14:29] || Num active bids: 2
+[21/02/2021 16:14:44] || Num active bids: 2
+[21/02/2021 16:14:59] || Num active bids: 2
+[21/02/2021 16:15:00] || Num active bids: 2
+[21/02/2021 16:15:01] || Num active bids: 2
+[21/02/2021 16:15:02] || Num active bids: 2
+[21/02/2021 16:15:02] || Num active bids: 2
+[21/02/2021 16:15:03] || Num active bids: 2
+[21/02/2021 16:15:05] || Num active bids: 2
+[21/02/2021 16:15:06] || Num active bids: 2
+[21/02/2021 16:15:07] || Num active bids: 2
+[21/02/2021 16:15:08] || Num active bids: 2
+[21/02/2021 16:15:08] || Num active bids: 2
+[21/02/2021 16:15:09] || Num active bids: 2
+[21/02/2021 16:15:09] || Num active bids: 2
+[21/02/2021 16:15:10] || Num active bids: 2
+[21/02/2021 16:15:10] || Num active bids: 2
+[21/02/2021 16:15:11] || Num active bids: 2
+[21/02/2021 16:15:12] || Num active bids: 2
+[21/02/2021 16:15:13] || Num active bids: 2
+[21/02/2021 16:15:14] || Num active bids: 2
+[21/02/2021 16:15:15] || Num active bids: 2
+[21/02/2021 16:15:15] || Num active bids: 2
+[21/02/2021 16:15:16] || Num active bids: 2
+[21/02/2021 16:15:16] || Num active bids: 2
+[21/02/2021 16:15:17] || Num active bids: 2
+[21/02/2021 16:15:18] || Num active bids: 2
+[21/02/2021 16:15:19] || Num active bids: 2
+[21/02/2021 16:15:19] || Num active bids: 2
+[21/02/2021 16:15:20] || Num active bids: 2
+[21/02/2021 16:15:21] || Num active bids: 2
+[21/02/2021 16:15:23] || Num active bids: 2
+[21/02/2021 16:15:23] || Num active bids: 2
+[21/02/2021 16:15:24] || Num active bids: 2
+[21/02/2021 16:15:25] || Num active bids: 2
+[21/02/2021 16:15:26] || Num active bids: 2
+[21/02/2021 16:15:26] || Num active bids: 2
+[21/02/2021 16:15:27] || Num active bids: 2
+[21/02/2021 16:15:29] || Num active bids: 2
+[21/02/2021 16:15:29] || Num active bids: 2
+[21/02/2021 16:15:30] || Num active bids: 2
+[21/02/2021 16:15:31] || Num active bids: 2
+[21/02/2021 16:15:32] || Num active bids: 2
+[21/02/2021 16:15:33] || Num active bids: 2
+[21/02/2021 16:15:34] || Num active bids: 2
+[21/02/2021 16:15:35] || Num active bids: 2
+[21/02/2021 16:15:35] || Num active bids: 2
+[21/02/2021 16:15:36] || Num active bids: 2
+[21/02/2021 16:15:37] || Num active bids: 2
+[21/02/2021 16:15:38] || Num active bids: 2
+[21/02/2021 16:15:38] || Num active bids: 2
+[21/02/2021 16:15:39] || Num active bids: 2
+[21/02/2021 16:15:40] || Num active bids: 2
+[21/02/2021 16:15:41] || Num active bids: 2
+[21/02/2021 16:15:42] || Num active bids: 2
+[21/02/2021 16:15:42] || Num active bids: 2
+[21/02/2021 16:15:43] || Num active bids: 2
+[21/02/2021 16:15:44] || Num active bids: 2
+[21/02/2021 16:15:44] || Num active bids: 2
+[21/02/2021 16:15:45] || Num active bids: 2
+[21/02/2021 16:15:45] || Num active bids: 2
+[21/02/2021 16:15:46] || Num active bids: 2
+[21/02/2021 16:15:47] || Num active bids: 2
+[21/02/2021 16:15:47] || Num active bids: 2
+[21/02/2021 16:15:48] || Num active bids: 2
+[21/02/2021 16:15:48] || Num active bids: 2
+[21/02/2021 16:15:49] || Num active bids: 2
+[21/02/2021 16:15:50] || Num active bids: 2
+[21/02/2021 16:15:51] || Num active bids: 2
+[21/02/2021 16:15:52] || Num active bids: 2
+[21/02/2021 16:15:53] || Num active bids: 2
+[21/02/2021 16:15:54] || Num active bids: 2
+[21/02/2021 16:15:55] || Num active bids: 2
+[21/02/2021 16:15:55] || User is not on Watchlist, breaking method here
+[21/02/2021 16:15:55] || inside transferlist method now
+[21/02/2021 16:25:19] || Added player to player list
+[21/02/2021 16:25:19] || Fetching player info
+[21/02/2021 16:25:38] || Autobidder started
+[21/02/2021 16:25:44] || waiting a sec Should click result number: 1
+[21/02/2021 16:25:48] || Bidding on LAMELA up to FUTBIN price: 1700. Will determine actual market price while searching. Purchase ceiling: 1445.0
+[21/02/2021 16:25:57] || Going to next page
+[21/02/2021 16:26:08] || Bids made on LAMELA: 1/5
+[21/02/2021 16:26:17] || Bids made on LAMELA: 2/5
+[21/02/2021 16:26:22] || Going to next page
+[21/02/2021 16:26:31] || Going to next page
+[21/02/2021 16:26:42] || Bids made on LAMELA: 3/5
+[21/02/2021 16:26:46] || Going to next page
+[21/02/2021 16:26:56] || Bids made on LAMELA: 4/5
+[21/02/2021 16:27:00] || Going to next page
+[21/02/2021 16:27:10] || Bids made on LAMELA: 5/5
+[21/02/2021 16:27:17] || Bids made on LAMELA: 6/5
+[21/02/2021 16:27:17] || Final Number of bids made on LAMELA: 6/5
+[21/02/2021 16:27:18] || Finished bidding on:LAMELA
+[21/02/2021 16:27:19] || Parsing market data to find most accurate sell prices...
+[21/02/2021 16:27:20] || Lamela min buy now from market data: 1700
+[21/02/2021 16:27:20] || Going to watchlist. Time for war
+[21/02/2021 16:27:24] || Num active bids: 7
+[21/02/2021 16:27:40] || Num active bids: 7
+[21/02/2021 16:27:55] || Num active bids: 7
+[21/02/2021 16:28:12] || Num active bids: 7
+[21/02/2021 16:28:27] || Num active bids: 7
+[21/02/2021 16:28:43] || Num active bids: 7
+[21/02/2021 16:28:59] || Num active bids: 7
+[21/02/2021 16:29:14] || Num active bids: 7
+[21/02/2021 16:29:30] || Num active bids: 7
+[21/02/2021 16:29:46] || Num active bids: 7
+[21/02/2021 16:30:02] || Num active bids: 7
+[21/02/2021 16:30:18] || Num active bids: 7
+[21/02/2021 16:30:34] || User is not on Watchlist, breaking method here
+[21/02/2021 16:30:34] || inside transferlist method now
+[21/02/2021 16:30:52] || Num active bids: 7
+[21/02/2021 16:30:56] || Num active bids: 7
+[21/02/2021 16:30:59] || Num active bids: 7
+[21/02/2021 16:31:03] || Num active bids: 7
+[21/02/2021 16:31:07] || Num active bids: 7
+[21/02/2021 16:31:11] || Num active bids: 7
+[21/02/2021 16:31:15] || Num active bids: 7
+[21/02/2021 16:31:18] || Num active bids: 7
+[21/02/2021 16:31:22] || Num active bids: 7
+[21/02/2021 16:31:26] || Num active bids: 7
+[21/02/2021 16:31:30] || Num active bids: 7
+[21/02/2021 16:31:34] || Num active bids: 7
+[21/02/2021 16:31:38] || Num active bids: 7
+[21/02/2021 16:31:38] || Num active bids: 7
+[21/02/2021 16:31:39] || Num active bids: 7
+[21/02/2021 16:31:39] || Num active bids: 7
+[21/02/2021 16:31:40] || Num active bids: 7
+[21/02/2021 16:31:40] || Num active bids: 7
+[21/02/2021 16:31:41] || Num active bids: 7
+[21/02/2021 16:31:41] || Num active bids: 7
+[21/02/2021 16:31:42] || Num active bids: 7
+[21/02/2021 16:31:42] || Num active bids: 7
+[21/02/2021 16:31:43] || Num active bids: 7
+[21/02/2021 16:31:44] || Num active bids: 7
+[21/02/2021 16:31:44] || Num active bids: 7
+[21/02/2021 16:31:44] || Num active bids: 7
+[21/02/2021 16:31:45] || Num active bids: 7
+[21/02/2021 16:31:46] || Num active bids: 7
+[21/02/2021 16:31:47] || Num active bids: 7
+[21/02/2021 16:31:48] || Num active bids: 7
+[21/02/2021 16:31:48] || Num active bids: 7
+[21/02/2021 16:31:49] || Num active bids: 7
+[21/02/2021 16:31:50] || Num active bids: 7
+[21/02/2021 16:31:51] || Num active bids: 7
+[21/02/2021 16:31:52] || Num active bids: 7
+[21/02/2021 16:31:53] || Num active bids: 7
+[21/02/2021 16:31:54] || Num active bids: 7
+[21/02/2021 16:31:55] || Num active bids: 7
+[21/02/2021 16:31:56] || Num active bids: 7
+[21/02/2021 16:31:56] || Num active bids: 7
+[21/02/2021 16:31:57] || Num active bids: 7
+[21/02/2021 16:31:57] || Num active bids: 7
+[21/02/2021 16:31:58] || Num active bids: 7
+[21/02/2021 16:31:59] || Num active bids: 7
+[21/02/2021 16:32:00] || Num active bids: 7
+[21/02/2021 16:32:01] || Num active bids: 7
+[21/02/2021 16:32:02] || Num active bids: 7
+[21/02/2021 16:32:02] || Num active bids: 7
+[21/02/2021 16:32:03] || Num active bids: 7
+[21/02/2021 16:32:04] || Num active bids: 7
+[21/02/2021 16:32:05] || Num active bids: 7
+[21/02/2021 16:32:05] || Num active bids: 7
+[21/02/2021 16:32:06] || Num active bids: 7
+[21/02/2021 16:32:06] || Num active bids: 7
+[21/02/2021 16:32:07] || Num active bids: 7
+[21/02/2021 16:32:08] || Num active bids: 7
+[21/02/2021 16:32:08] || Num active bids: 7
+[21/02/2021 16:32:09] || Num active bids: 7
+[21/02/2021 16:32:10] || Num active bids: 7
+[21/02/2021 16:32:11] || Num active bids: 7
+[21/02/2021 16:32:12] || Num active bids: 7
+[21/02/2021 16:32:13] || Num active bids: 7
+[21/02/2021 16:32:14] || Num active bids: 7
+[21/02/2021 16:32:14] || Num active bids: 7
+[21/02/2021 16:32:14] || Num active bids: 7
+[21/02/2021 16:32:15] || Num active bids: 7
+[21/02/2021 16:32:16] || Num active bids: 7
+[21/02/2021 16:32:16] || Num active bids: 7
+[21/02/2021 16:32:17] || Num active bids: 7
+[21/02/2021 16:32:18] || Num active bids: 7
+[21/02/2021 16:32:19] || Num active bids: 7
+[21/02/2021 16:32:19] || Num active bids: 7
+[21/02/2021 16:32:20] || Num active bids: 7
+[21/02/2021 16:32:21] || Num active bids: 7
+[21/02/2021 16:32:22] || Num active bids: 7
+[21/02/2021 16:32:23] || Num active bids: 7
+[21/02/2021 16:32:23] || Num active bids: 7
+[21/02/2021 16:32:24] || Num active bids: 7
+[21/02/2021 16:32:25] || Num active bids: 7
+[21/02/2021 16:32:25] || Num active bids: 7
+[21/02/2021 16:32:26] || Num active bids: 7
+[21/02/2021 16:32:26] || Num active bids: 7
+[21/02/2021 16:32:27] || Num active bids: 7
+[21/02/2021 16:32:29] || Num active bids: 7
+[21/02/2021 16:32:30] || Num active bids: 7
+[21/02/2021 16:32:31] || Num active bids: 7
+[21/02/2021 16:32:32] || Num active bids: 7
+[21/02/2021 16:32:33] || Num active bids: 7
+[21/02/2021 16:32:33] || Num active bids: 7
+[21/02/2021 16:40:21] || Num active bids: 4
+[21/02/2021 16:40:22] || Num active bids: 4
+[21/02/2021 16:40:23] || Num active bids: 4
+[21/02/2021 16:40:24] || Num active bids: 4
+[21/02/2021 16:40:25] || Num active bids: 4
+[21/02/2021 16:40:25] || Num active bids: 4
+[21/02/2021 16:40:26] || Num active bids: 4
+[21/02/2021 16:40:26] || Num active bids: 4
+[21/02/2021 16:40:27] || Num active bids: 4
+[21/02/2021 16:40:28] || Num active bids: 4
+[21/02/2021 16:40:29] || Num active bids: 4
+[21/02/2021 16:40:29] || Num active bids: 4
+[21/02/2021 16:40:31] || Num active bids: 4
+[21/02/2021 16:40:32] || Num active bids: 4
+[21/02/2021 16:40:32] || Num active bids: 4
+[21/02/2021 16:40:33] || Num active bids: 4
+[21/02/2021 16:40:34] || Num active bids: 4
+[21/02/2021 16:40:34] || User is not on Watchlist, breaking method here
+[21/02/2021 16:40:34] || inside transferlist method now
+[21/02/2021 16:41:38] || Num active bids: 4
+[21/02/2021 16:41:39] || Num active bids: 4
+[21/02/2021 16:41:40] || Num active bids: 4
+[21/02/2021 16:41:41] || Num active bids: 4
+[21/02/2021 16:41:42] || Num active bids: 4
+[21/02/2021 16:41:42] || Num active bids: 4
+[21/02/2021 16:41:44] || Num active bids: 4
+[21/02/2021 16:41:44] || Num active bids: 4
+[21/02/2021 16:41:44] || Num active bids: 4
+[21/02/2021 16:41:45] || Num active bids: 4
+[21/02/2021 16:41:46] || Num active bids: 4
+[21/02/2021 16:41:46] || Num active bids: 4
+[21/02/2021 16:41:47] || Num active bids: 4
+[21/02/2021 16:41:48] || Num active bids: 4
+[21/02/2021 16:41:49] || Num active bids: 4
+[21/02/2021 16:41:50] || Num active bids: 4
+[21/02/2021 16:41:51] || Num active bids: 4
+[21/02/2021 16:41:51] || Num active bids: 4
+[21/02/2021 16:41:52] || Num active bids: 4
+[21/02/2021 16:41:53] || Num active bids: 4
+[21/02/2021 16:41:54] || User is not on Watchlist, breaking method here
+[21/02/2021 16:41:55] || inside transferlist method now
+[21/02/2021 16:43:00] || Num active bids: 4
+[21/02/2021 16:43:00] || Num active bids: 4
+[21/02/2021 16:43:01] || Num active bids: 4
+[21/02/2021 16:43:02] || Num active bids: 4
+[21/02/2021 16:43:02] || Num active bids: 4
+[21/02/2021 16:43:03] || Num active bids: 4
+[21/02/2021 16:43:04] || Num active bids: 4
+[21/02/2021 16:43:06] || Num active bids: 4
+[21/02/2021 16:43:07] || Num active bids: 4
+[21/02/2021 16:43:07] || Num active bids: 4
+[21/02/2021 16:43:08] || Num active bids: 4
+[21/02/2021 16:43:09] || Num active bids: 4
+[21/02/2021 16:43:10] || Num active bids: 4
+[21/02/2021 16:43:10] || Num active bids: 4
+[21/02/2021 16:43:11] || Num active bids: 4
+[21/02/2021 16:43:12] || User is not on Watchlist, breaking method here
+[21/02/2021 16:43:13] || inside transferlist method now
+[21/02/2021 16:44:39] || Num active bids: 4
+[21/02/2021 16:45:32] || Num active bids: 4
+[21/02/2021 16:45:33] || Checking if we should outbid Lamela || Stop bidding at: 1615.0 || CurBid: 1300
+[21/02/2021 16:45:37] || Bid succesfully went through!
+[21/02/2021 16:45:38] || Successfully outbid Lamela || Stop price: 1615.0 || CurBid: 1300
+[21/02/2021 16:45:38] || Checking if we should outbid Lamela || Stop bidding at: 1615.0 || CurBid: 750
+[21/02/2021 16:45:42] || Bid succesfully went through!
+[21/02/2021 16:45:42] || Successfully outbid Lamela || Stop price: 1615.0 || CurBid: 750
+[21/02/2021 16:45:43] || Checking if we should outbid Lamela || Stop bidding at: 1615.0 || CurBid: 800
+[21/02/2021 16:45:47] || Bid succesfully went through!
+[21/02/2021 16:45:47] || Successfully outbid Lamela || Stop price: 1615.0 || CurBid: 800
+[21/02/2021 16:45:51] || Num active bids: 4
+[21/02/2021 16:45:55] || Num active bids: 4
+[21/02/2021 16:45:59] || Num active bids: 4
+[21/02/2021 16:46:02] || Num active bids: 4
+[21/02/2021 16:46:06] || Num active bids: 4
+[21/02/2021 16:46:10] || Num active bids: 4
+[21/02/2021 16:46:14] || Num active bids: 4
+[21/02/2021 16:46:18] || Num active bids: 4
+[21/02/2021 16:46:23] || Num active bids: 4
+[21/02/2021 16:46:27] || Num active bids: 4
+[21/02/2021 16:46:31] || Num active bids: 4
+[21/02/2021 16:48:58] || User is not on Watchlist, breaking method here
+[21/02/2021 16:48:58] || inside transferlist method now
+[21/02/2021 16:49:00] || Num active bids: 3
+[21/02/2021 16:49:01] || Checking if we should outbid Lamela || Stop bidding at: 1615.0 || CurBid: 1400
+[21/02/2021 16:49:05] || Bid succesfully went through!
+[21/02/2021 16:49:06] || Successfully outbid Lamela || Stop price: 1615.0 || CurBid: 1400
+[21/02/2021 16:49:06] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:06] || Num active bids: 3
+[21/02/2021 16:49:07] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:08] || Num active bids: 3
+[21/02/2021 16:49:09] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:09] || Num active bids: 3
+[21/02/2021 16:49:10] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:11] || Num active bids: 3
+[21/02/2021 16:49:11] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:12] || Num active bids: 3
+[21/02/2021 16:49:13] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:13] || Num active bids: 3
+[21/02/2021 16:49:13] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:14] || Num active bids: 3
+[21/02/2021 16:49:15] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:16] || Num active bids: 3
+[21/02/2021 16:49:17] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:17] || Num active bids: 3
+[21/02/2021 16:49:18] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:19] || Num active bids: 3
+[21/02/2021 16:49:20] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:20] || Num active bids: 3
+[21/02/2021 16:49:21] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:21] || Num active bids: 3
+[21/02/2021 16:49:22] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:23] || Num active bids: 3
+[21/02/2021 16:49:23] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:24] || Num active bids: 3
+[21/02/2021 16:49:25] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:25] || Num active bids: 3
+[21/02/2021 16:49:26] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:26] || Num active bids: 3
+[21/02/2021 16:49:27] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:28] || Num active bids: 3
+[21/02/2021 16:49:29] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:30] || Num active bids: 3
+[21/02/2021 16:49:31] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:32] || Num active bids: 3
+[21/02/2021 16:49:32] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:33] || Num active bids: 3
+[21/02/2021 16:49:34] || Checking if we should outbid Rodríguez || Stop bidding at: None || CurBid: 950
+[21/02/2021 16:49:34] || Num active bids: 3
+[21/02/2021 16:55:38] || Num active bids: 2
+[21/02/2021 16:55:41] || Num active bids: 2
+[21/02/2021 16:55:45] || Num active bids: 2
+[21/02/2021 16:55:48] || Num active bids: 2
+[21/02/2021 16:55:52] || Num active bids: 2
+[21/02/2021 16:55:55] || Num active bids: 2
+[21/02/2021 16:55:59] || Num active bids: 2
+[21/02/2021 16:56:03] || Num active bids: 2
+[21/02/2021 16:56:07] || Num active bids: 2
+[21/02/2021 16:56:11] || Num active bids: 2
+[21/02/2021 16:56:14] || Num active bids: 2
+[21/02/2021 16:56:18] || Num active bids: 2
+[21/02/2021 16:56:21] || Num active bids: 2
+[21/02/2021 16:56:25] || Num active bids: 2
+[21/02/2021 16:56:29] || Num active bids: 2
+[21/02/2021 16:56:33] || Num active bids: 2
+[21/02/2021 16:56:36] || Num active bids: 2
+[21/02/2021 16:56:41] || Num active bids: 2
+[21/02/2021 16:56:44] || Num active bids: 2
+[21/02/2021 16:56:48] || Num active bids: 2
+[21/02/2021 16:56:51] || Num active bids: 2
+[21/02/2021 16:56:55] || Num active bids: 2
+[21/02/2021 16:56:59] || Num active bids: 2
+[21/02/2021 16:57:02] || Num active bids: 2
+[21/02/2021 16:57:06] || Num active bids: 2
+[21/02/2021 16:57:10] || Num active bids: 2
+[21/02/2021 17:05:05] || Added player to player list
+[21/02/2021 17:05:05] || Fetching player info
+[21/02/2021 17:05:22] || Num active bids: 2
+[21/02/2021 17:06:26] || Num active bids: 2
+[21/02/2021 17:06:43] || Num active bids: 2
+[21/02/2021 17:06:44] || Checking if we should outbid Rodríguez || Stop bidding at: 950.0 || CurBid: 750
+[21/02/2021 17:06:48] || Bid succesfully went through!
+[21/02/2021 17:06:48] || Successfully outbid Rodríguez || Stop price: 950.0 || CurBid: 750
+[21/02/2021 17:06:48] || Checking if we should outbid Rodríguez || Stop bidding at: 950.0 || CurBid: 500
+[21/02/2021 17:06:51] || Bid succesfully went through!
+[21/02/2021 17:06:52] || Successfully outbid Rodríguez || Stop price: 950.0 || CurBid: 500
+[21/02/2021 17:08:34] || Num active bids: 1
+[21/02/2021 17:08:35] || Num active bids: 1
+[21/02/2021 17:08:43] || Num active bids: 1
+[21/02/2021 17:08:43] || Num active bids: 1
+[21/02/2021 17:08:45] || Num active bids: 1
+[21/02/2021 17:08:46] || Num active bids: 1
+[21/02/2021 17:10:47] || Num active bids: 0
+[21/02/2021 17:10:48] || No active bids detected... now need to expired and send to TL
+[21/02/2021 17:11:00] || Cleared expired players
+[21/02/2021 17:11:01] || inside transferlist method now
+[21/02/2021 17:28:12] || User is not on Watchlist, breaking method here
+[21/02/2021 17:28:12] || inside transferlist method now
+[21/02/2021 17:29:05] || Num active bids: 6
+[21/02/2021 17:29:05] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:06] || Num active bids: 6
+[21/02/2021 17:29:07] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:07] || Num active bids: 6
+[21/02/2021 17:29:08] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:08] || Num active bids: 6
+[21/02/2021 17:29:09] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:10] || Num active bids: 6
+[21/02/2021 17:29:11] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:12] || Num active bids: 6
+[21/02/2021 17:29:13] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:14] || Num active bids: 6
+[21/02/2021 17:29:14] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:15] || Num active bids: 6
+[21/02/2021 17:29:16] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:16] || Num active bids: 6
+[21/02/2021 17:29:16] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:17] || Num active bids: 6
+[21/02/2021 17:29:18] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:18] || Num active bids: 6
+[21/02/2021 17:29:19] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:19] || Num active bids: 6
+[21/02/2021 17:29:20] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:20] || Num active bids: 6
+[21/02/2021 17:29:21] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:22] || Num active bids: 6
+[21/02/2021 17:29:23] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:23] || Num active bids: 6
+[21/02/2021 17:29:24] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:24] || Num active bids: 6
+[21/02/2021 17:29:25] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:25] || Num active bids: 6
+[21/02/2021 17:29:26] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:27] || Num active bids: 6
+[21/02/2021 17:29:28] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:29] || Num active bids: 6
+[21/02/2021 17:29:30] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:30] || User is not on Watchlist, breaking method here
+[21/02/2021 17:29:31] || inside transferlist method now
+[21/02/2021 17:29:43] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:44] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:45] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:45] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:46] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:46] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:47] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:47] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:48] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:49] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:50] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:50] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:50] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:51] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:52] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:53] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:53] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:54] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:55] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:55] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:57] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:57] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:58] || No cards were found to be outbid. Rerunning watchlist manager.
+[21/02/2021 17:29:59] || User is not on Watchlist, breaking method here
+[21/02/2021 17:30:00] || inside transferlist method now
+[21/02/2021 17:30:36] || Player outbid --> Lamela
+[21/02/2021 17:30:36] || Player outbid --> Lamela --> proceed to outbid. Current bid of 900 gives potential profit of 715.0 coins.
+[21/02/2021 17:30:40] || Bid succesfully went through!
+[21/02/2021 17:30:40] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 900
+[21/02/2021 17:30:41] || Player outbid --> Rodríguez
+[21/02/2021 17:30:41] || Player outbid --> Rodríguez --> proceed to outbid. Current bid of 550 gives potential profit of 400.0 coins.
+[21/02/2021 17:30:44] || Bid succesfully went through!
+[21/02/2021 17:30:45] || Player outbid --> Rodríguez --> SUCCESS. || Stop price: 950.0 || CurBid: 550
+[21/02/2021 17:31:14] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:16] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:16] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:17] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:18] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:18] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:19] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:19] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:19] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:20] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:21] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:21] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:22] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:22] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:31:23] || Line 148 failure: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=88.0.4324.182)
+
+[21/02/2021 17:31:24] || Player outbid --> Lamela
+[21/02/2021 17:31:25] || Player outbid --> Lamela --> proceed to outbid. Current bid of 700 gives potential profit of 915.0 coins.
+[21/02/2021 17:31:29] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[21/02/2021 17:31:29] || Player outbid --> Lamela --> ERROR. Refreshing page!
+[21/02/2021 17:31:42] || Going back to watchlist
+[21/02/2021 17:31:48] || Player outbid --> Lamela
+[21/02/2021 17:31:48] || Player outbid --> Lamela --> proceed to outbid. Current bid of 700 gives potential profit of 915.0 coins.
+[21/02/2021 17:31:52] || Bid succesfully went through!
+[21/02/2021 17:31:53] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 700
+[21/02/2021 17:31:54] || Player outbid --> Lamela
+[21/02/2021 17:31:55] || Player outbid --> Lamela --> proceed to outbid. Current bid of 750 gives potential profit of 865.0 coins.
+[21/02/2021 17:31:59] || Bid succesfully went through!
+[21/02/2021 17:31:59] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 750
+[21/02/2021 17:32:00] || Player outbid --> Lamela
+[21/02/2021 17:32:00] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1400 gives potential profit of 215.0 coins.
+[21/02/2021 17:32:04] || Bid succesfully went through!
+[21/02/2021 17:32:04] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 1400
+[21/02/2021 17:32:05] || Player outbid --> Rodríguez
+[21/02/2021 17:32:05] || Player outbid --> Rodríguez --> proceed to outbid. Current bid of 400 gives potential profit of 550.0 coins.
+[21/02/2021 17:32:09] || Bid succesfully went through!
+[21/02/2021 17:32:09] || Player outbid --> Rodríguez --> SUCCESS. || Stop price: 950.0 || CurBid: 400
+[21/02/2021 17:32:10] || Player outbid --> Lamela
+[21/02/2021 17:32:11] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1100 gives potential profit of 515.0 coins.
+[21/02/2021 17:32:14] || Bid succesfully went through!
+[21/02/2021 17:32:15] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 1100
+[21/02/2021 17:32:17] || Player outbid --> Rodríguez
+[21/02/2021 17:32:17] || Player outbid --> Rodríguez --> proceed to outbid. Current bid of 800 gives potential profit of 150.0 coins.
+[21/02/2021 17:32:20] || Bid succesfully went through!
+[21/02/2021 17:32:20] || Player outbid --> Rodríguez --> SUCCESS. || Stop price: 950.0 || CurBid: 800
+[21/02/2021 17:32:33] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:33] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:34] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:35] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:35] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:36] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:36] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:37] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:37] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:39] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:40] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:40] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:41] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:32:42] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:16] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:17] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:17] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:18] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:19] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:20] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:33:21] || Line 148 failure: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=88.0.4324.182)
+
+[21/02/2021 17:33:44] || Player outbid --> Rodríguez
+[21/02/2021 17:33:44] || Player outbid --> Rodríguez --> proceed to outbid. Current bid of 800 gives potential profit of 150.0 coins.
+[21/02/2021 17:33:48] || Bid succesfully went through!
+[21/02/2021 17:33:49] || Player outbid --> Rodríguez --> SUCCESS. || Stop price: 950.0 || CurBid: 800
+[21/02/2021 17:34:15] || Player outbid --> Lamela
+[21/02/2021 17:34:16] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1300 gives potential profit of 315.0 coins.
+[21/02/2021 17:34:19] || Bid succesfully went through!
+[21/02/2021 17:34:20] || Player outbid --> Lamela --> SUCCESS. || Stop price: 1615.0 || CurBid: 1300
+[21/02/2021 17:34:52] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:52] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:53] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:53] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:54] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:55] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:56] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:56] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:57] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:58] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:58] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:34:59] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:35:01] || First card processing... waiting for them to go away. Rerunning watchlist manager.
+[21/02/2021 17:35:54] || Line 103 failure: maximum recursion depth exceeded while calling a Python object

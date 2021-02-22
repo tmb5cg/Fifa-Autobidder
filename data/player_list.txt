@@ -1,2 +1,2 @@
-Ángel Luís Rodríguez Díaz,ÁNGEL,79,Getafe CF,Spain,Non-Rare,ST,177633,1281,700,51,1000,.75,
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,600,60,750,.75,
+Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1700,60,1700,0.85
+Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,1000,2,0,0.85

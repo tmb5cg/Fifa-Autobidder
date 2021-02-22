@@ -91,7 +91,9 @@ def getFutbinDataAndPopulateTable(driver, futbin_url):
     lastupdated = int(lastupdated)
     # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
     futbin_id = int(futbin_id)
-    agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated]
+    market_price = 0
+    buy_pct = .85
+    agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated, market_price, buy_pct]
             # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
 
     full_entry = ""
@@ -305,7 +307,6 @@ def getAllPlayerInfoWatchlist(driver):
                 buynow = int(buynow)
 
             id = getPlayerIDFromTargets(name, rating)
-    #        print("player id from targets" + str(id))
             if (id == 0):
                 id = getPlayerID(name, rating)
                 print("ID not found in Targets, general id search found " + str(id))
@@ -649,7 +650,7 @@ def get_access_code():
         M.login(EMAIL_CREDENTIALS["email"], EMAIL_CREDENTIALS["password"])
     except imaplib.IMAP4.error:
         print("Login to email failed")
-        log_event("Email login attempt to get 2FA code failed, enter manually")
+        log_event("Unable to fetch access code from email (see ReadMe for help on this), enter it manually")
         sys.exit(1)
 
     print("Waiting for access code...")

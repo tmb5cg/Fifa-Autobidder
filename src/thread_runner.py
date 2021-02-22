@@ -1,19 +1,22 @@
 import mainhelpers
 import helpers
-import autobidder_any
+import autobuyer
 import autobidder
+import newhelpers 
 
+from newhelpers import *
 from helpers import *
 from mainhelpers import *
 
 from autobidder import Autobidder
-from autobidder_any import AutobidderAny
+from autobuyer import Autobuyer
 
 from config import USER
 import threading
 import os.path
 from os import path
 
+# from autobidder_any import AutobidderAny
 # from autobidder_list import AutobidderPlayerlist
 # import function_runner
 # import autobidder_list
@@ -32,24 +35,25 @@ class RunThread(threading.Thread):
 
     def run(self):
         if self.action == "test":
-            self.queue.put("Test button")
-            log_event("Test function")
+            self.queue.put("Running test function")
+            # log_event("Test function")
 
-            autobidder = Autobidder(self.driver)
+            autobidder = Autobidder(self.driver, self.queue)
             autobidder.start()
 
+        if self.action == "autobidder":
+            self.queue.put("Starting autobidder")
+            # log_event("Test function")
 
+            autobidder = Autobidder(self.driver, self.queue)
+            autobidder.manageWatchlist()
 
+        if self.action == "autobuyer":
+            self.queue.put("Starting autobuyer")
+            # log_event("Test function")
 
-
-
-
-
-
-
-
-
-
+            autobuyer = Autobuyer(self.driver, self.queue)
+            autobuyer.start()
 
         if self.action == "login":
             self.queue.put("Logging in")
@@ -63,17 +67,33 @@ class RunThread(threading.Thread):
             log_event("Fetching player info")
 
             futbin_url = self.searchdata
-            getFutbinDataAndPopulateTable(self.driver, futbin_url)
+            self.helper = Helper(self.driver)
+            self.helper.getFutbinDataAndPopulateTable(futbin_url)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         if self.action == "bidusinglist":
             self.queue.put("Bidding using player list")
-            log_event("Starting autobidder")
+            # log_event("Starting autobidder")
 
-            autobidder = AutobidderAny(self.driver, self.searchdata)
-            autobidder.run("playerlist")
+            # autobidder = AutobidderAny(self.driver, self.searchdata)
+            # autobidder.run("playerlist")
 
         if self.action == "bidanyone":
             self.queue.put("Bidding on Common Golds")
-            autobidder = AutobidderAny(self.driver, self.searchdata)
-            autobidder.run("playerlist")
+            # autobidder = AutobidderAny(self.driver, self.searchdata)
+            # autobidder.run("playerlist")

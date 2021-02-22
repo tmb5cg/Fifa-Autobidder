@@ -15,6 +15,7 @@ import requests
 import csv
 from csv import reader
 from datetime import datetime
+import json
 
 class Helper:
     def __init__(self, driver):
@@ -29,6 +30,10 @@ class Helper:
             values = aline.strip("\n").split(",")
             self.playerlist.append(values)
         txt.close()
+
+        # Global sell and buy ceilings to be captured from UI
+        self.sellceiling = .95
+        self.priceceiling = .95
 
     # Action: evaluates transfer list, watchlist size etc
     # Returns: number of cards able to bid on, depending on input list size
@@ -203,7 +208,7 @@ class Helper:
                 if bids_made < bids_allowed+1:
                     if "highest-bid" not in bidStatus:
                         if timeremainingmins < 40:
-                            if timeremainingmins > 3:
+                            if timeremainingmins > 2:
                                 if curbid <= maxbidprice:
                                     self.makebid_individualplayer(playernumber, curbid)
                                     bids_made += 1
@@ -269,6 +274,8 @@ class Helper:
                 return "Failure"
             else:
                 log_event("Bid succesfully went through!")
+                # self.update_autobidder_logs("newbid")
+
 
         sleeptime = random.randint(3000, 5000)
         sleep(sleeptime/1000)
@@ -396,6 +403,22 @@ class Helper:
 
     # Action: Retrieves player internal ID from name and rating
     def getPlayerID(self, cardname, rating):
+        inputoverall = int(rating)
+        inputcardname = cardname.lower()
+        # First attempts to find ID in user input list
+        for player in self.playerlist:
+            p_overall = int(player[2])
+            p_cardname = player[1]
+            p_cardname = p_cardname.lower()
+
+            diff = p_overall - inputoverall
+
+            pid = int(player[7])
+            if (diff == 0):
+                if (p_cardname == inputcardname):
+                    return pid
+
+        # If not found in small player list, check master list (takes longer)
         with open('./data/players_database.csv', 'r', encoding="utf8") as read_obj:
             csv_reader = reader(read_obj)
 
@@ -519,6 +542,7 @@ class Helper:
             hs.close()
 
     # Action: clears old market search data logs
+    # TO DO: make this a general 'clean up for startup', set market prices to 0 and futbin prices to 0 , on bot startup have it fetch new futbin price
     def clearOldSearchData():
         hs = open("./data/market_logs.txt", "r+", encoding="utf8")
         hs.truncate(0)
@@ -545,6 +569,54 @@ class Helper:
                         return card
             return "Not found"
 
+    # Returns price ceiling to stop bidding at during bidwars
+    def getPlayerPriceCeiling(self, playerid):
+        for player in self.playerlist:
+            pid = int(player[7])
+            diff = pid - int(playerid)
+            if (diff == 0):
+                futbinprice = int(player[9])
+                marketprice = int(player[11])
+                if (diff == 0):
+                    if (marketprice == 0):
+                        return (futbinprice * self.priceceiling)
+                    else:
+                        return (marketprice * self.priceceiling)
+            
+        # # Get target players IDs
+        # txt = open("./data/player_list.txt", "r", encoding="utf8")
+        # for aline in txt:
+        #     values2 = aline.strip("\n").split(",")
+        #     line_id = int(values2[7])
+        #     inputid = int(playerid)
+        #     diff = line_id - inputid
+
+        #     futbinprice = int(values2[9])
+        #     marketprice = int(values2[11])
+        #     if (diff == 0):
+        #         if (marketprice == 0):
+        #             return (futbinprice * .85)
+        #         else:
+        #             return (marketprice * .85)
+        # txt.close()
+
+    # Returns price to sell player at
+    def getPlayerSellPrice(self, playerid):
+        # Get target players IDs
+        for player in self.playerlist:
+            pid = int(player[7])
+            diff = pid - int(playerid)
+            if (diff == 0):
+                futbinprice = int(player[9])
+                marketprice = int(player[11])
+                if (diff == 0):
+                    if (marketprice == 0):
+                        return (futbinprice * self.sellceiling)
+                    else:
+                        return (marketprice * self.sellceiling)
+
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
+
     # Action: sends won players to transfer list 
     def send_won_players_to_transferlist(self):
         sleep(1)
@@ -568,95 +640,185 @@ class Helper:
                 self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[3]/button[8]").click()
                 self.send_won_players_to_transferlist()
 
-    def getAllPlayerInfoWatchlist(driver):
-        players_on_page = driver.find_elements_by_tag_name("li.listFUTItem")
-        page = driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
+    # Evaluates and detects outbid players on watchlist
+    # Returns: ?
+    def getAllPlayerInfoWatchlist(self):
+        try:
+            players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
+            page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
 
-        playerdata = []
-        playernumber = 1
-        for card in players_on_page:
-            # Only look at top 4 players
-            if playernumber < 4:
-                bidstatus = card.get_attribute("class")
-                cardinfo = card.text.splitlines()
+            playerdata = []
+            playernumber = 1
+            for card in players_on_page:
+                # Only look at top 5 players
+                if playernumber < 6:
+                    bidstatus = card.get_attribute("class")
+                    cardinfo = card.text.splitlines()
 
-                if (len(cardinfo) == 15):
-                    rating = cardinfo[0]
-                    name = cardinfo[2]
-                    startprice = 0
-                    curbid_or_finalsoldprice = 0
-                    buynow = 0
-                    time = 0
+                    # Unsure what this does
+                    if (len(cardinfo) == 15):
+                        rating = cardinfo[0]
+                        name = cardinfo[2]
+                        startprice = 0
+                        curbid_or_finalsoldprice = 0
+                        buynow = 0
+                        time = 0
 
-                    rating = int(rating)
-                    # print("Location: TRANSFERLIST || Player Unlisted")
-                else:
-                    rating = cardinfo[0]
-                    name = cardinfo[2]
-                    startprice = cardinfo[16]
-                    curbid_or_finalsoldprice = cardinfo[18]
-                    buynow = cardinfo[20]
-                    time = cardinfo[22]
-
-                    # clean rating
-                    rating = int(rating)
-
-                    # clean timeremaining
-                    seconds = 0
-                    if "<5" in time:
-                        seconds = 5
-                    elif "<10" in time:
-                        seconds = 10
-                    elif "<15" in time:
-                        seconds = 15
-                    elif "<30" in time:
-                        seconds = 30
-                    elif "1 Minute" in time:
-                        seconds = 60
-                    elif "Minutes" in time:
-                        time = time[:-8]
-                        time = int(time)
-                        time = 60*time
-                        seconds = time
-                    elif "Expired" in time:
-                        seconds = -5
-                    elif "Processing" in time:
-                        seconds = -5
+                        rating = int(rating)
+                        # print("Location: TRANSFERLIST || Player Unlisted")
                     else:
-                        print("weird, assume it is >1 hour")
-                        seconds = 60*65
+                        rating = cardinfo[0]
+                        name = cardinfo[2]
+                        startprice = cardinfo[16]
+                        curbid_or_finalsoldprice = cardinfo[18]
+                        buynow = cardinfo[20]
+                        time = cardinfo[22]
 
-                    time = int(seconds)
+                        # clean rating
+                        rating = int(rating)
 
-                    # clean startprice
-                    if "," in startprice:
-                        startprice = startprice.replace(",", "")
+                        # clean timeremaining
+                        seconds = 0
+                        if "<5" in time:
+                            seconds = 5
+                        elif "<10" in time:
+                            seconds = 10
+                        elif "<15" in time:
+                            seconds = 15
+                        elif "<30" in time:
+                            seconds = 30
+                        elif "1 Minute" in time:
+                            seconds = 60
+                        elif "Minutes" in time:
+                            time = time[:-8]
+                            time = int(time)
+                            time = 60*time
+                            seconds = time
+                        elif "Expired" in time:
+                            seconds = -5
+                        elif "Processing" in time:
+                            seconds = -5
+                        else:
+                            print("weird, assume it is >1 hour")
+                            seconds = 60*65
 
-                    startprice = int(startprice)
+                        time = int(seconds)
 
-                    # clean current bid or finalsoldprice
-                    if "---" in curbid_or_finalsoldprice:
-                        curbid_or_finalsoldprice = startprice-50
-                    elif "," in curbid_or_finalsoldprice:
-                        curbid_or_finalsoldprice = curbid_or_finalsoldprice.replace(",", "")
+                        # clean startprice
+                        if "," in startprice:
+                            startprice = startprice.replace(",", "")
 
-                    curbid_or_finalsoldprice = int(curbid_or_finalsoldprice)
+                        startprice = int(startprice)
 
-                    # clean buy now
-                    if "," in buynow:
-                        buynow = buynow.replace(",", "")
-                    buynow = int(buynow)
+                        # clean current bid or finalsoldprice
+                        if "---" in curbid_or_finalsoldprice:
+                            curbid_or_finalsoldprice = startprice-50
+                        elif "," in curbid_or_finalsoldprice:
+                            curbid_or_finalsoldprice = curbid_or_finalsoldprice.replace(",", "")
 
-                id = getPlayerIDFromTargets(name, rating)
-        #        print("player id from targets" + str(id))
-                if (id == 0):
-                    id = getPlayerID(name, rating)
-                    print("ID not found in Targets, general id search found " + str(id))
-                info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
-                playerdata.append(info)
+                        curbid_or_finalsoldprice = int(curbid_or_finalsoldprice)
+
+                        # clean buy now
+                        if "," in buynow:
+                            buynow = buynow.replace(",", "")
+                        buynow = int(buynow)
+
+                    id = self.getPlayerID(name, rating)
+                    if (id == 0):
+                        log_event("ID not found in Targets, general id search found for name " + str(name) + " rating" + str(rating))
+                    info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
+                    playerdata.append(info)
                 playernumber += 1
 
-        return playerdata
+            return playerdata
+        except:
+            # If method reaches here, the first card on watchlist likely dissappeared in the middle of parsing
+            return "processing"
+
+
+    # Outbids people on watchlist
+    def makebid_individualplayerWatchlist(self, playernumber, bidprice):
+        sleep(1)
+        originalbid = bidprice
+        bidprice = bidprice + 50
+
+        page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
+
+        if page == "TRANSFER TARGETS":
+            playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[1]/ul/li[" + str(playernumber) + "]/div"
+        else:
+            playerbutton = "/html/body/main/section/section/div[2]/div/div/section[1]/div/ul/li[" + str(playernumber) + "]/div"
+
+        self.driver.find_element_by_xpath(playerbutton)
+        self.driver.find_element_by_xpath(playerbutton).click()
+        sleep(0.5)
+
+        try:
+            bid_price_box = self.driver.find_element_by_css_selector('input.numericInput.filled')
+            bid_price_box.click()
+            bid_price_box.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+            bid_price_box.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+            bid_price_box.send_keys(bidprice)
+            sleep(0.5)
+
+            # Click make bid method
+            if page == "TRANSFER TARGETS":
+                self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/button[1]").click()
+            else:
+                self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section[2]/div/div/div[2]/div[2]/button[1]").click()
+
+        except:
+            log_event("Bid method failed")
+
+        if (page == "TRANSFER TARGETS"):
+            sleep(1)
+            curbidprice_afterbidding = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[1]/div/div[2]/span[2]").text
+            if "," in curbidprice_afterbidding:
+                curbidprice_afterbidding = curbidprice_afterbidding.replace(",", "")
+            curbidprice_afterbidding = int(curbidprice_afterbidding)
+
+            diff = originalbid - curbidprice_afterbidding
+
+            if (diff == 0):
+                log_event("Bid did not go through! Will now return 0 and hopefully refresh. Original bid:" + str(originalbid) + "Current bid after bidding: " + str(curbidprice_afterbidding))
+                return "Failure"
+            else:
+                log_event("Bid succesfully went through!")
+                return "Success"
+        sleep(1)
+
+    # During bid wars, oftentimes bids will not go through - this refreshes the webapp
+    def refreshPageAndGoToWatchlist(self):
+        sleep(1)
+        self.driver.refresh()
+
+        WebDriverWait(self.driver, 30).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, 'icon-transfer'))
+        )
+
+        sleep(0.5)
+
+        log_event("Going back to watchlist")
+        self.go_to_watchlist()
+        sleep(0.5)
+
+    # Returns number of active bids 
+    def get_num_activebids(self):
+        try:
+            players = self.driver.find_elements_by_tag_name("li.listFUTItem")
+            playernumber = 1
+            count = 0
+            for player in players:
+                bidStatus = player.get_attribute("class")
+                if "highest-bid" in bidStatus:
+                    count+=1
+                elif "outbid" in bidStatus:
+                    count+=1
+        
+                return count
+        except:
+            return 1
+
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Button clicks
 
     def clearExpired(self):
@@ -676,44 +838,148 @@ class Helper:
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Navigation
 
 
-def go_to_transfer_market(self):
-    self.driver.find_element(By.CLASS_NAME, 'icon-transfer').click()
+    def go_to_transfer_market(self):
+        self.driver.find_element(By.CLASS_NAME, 'icon-transfer').click()
 
-    sleeptime = random.randint(1, 5)
+        sleeptime = random.randint(1, 5)
 
-    sleep(sleeptime)
-    WebDriverWait(self.driver, 10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, 'ut-tile-transfer-market'))
-    )
-    sleep(sleeptime)
-    self.driver.find_element(By.CLASS_NAME, 'ut-tile-transfer-market').click()
-
-
-def go_to_watchlist(self):
-    sleep(1.5)
-    self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
-    sleep(1.5)
-    self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]').click()
-    sleep(2)
+        sleep(sleeptime)
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, 'ut-tile-transfer-market'))
+        )
+        sleep(sleeptime)
+        self.driver.find_element(By.CLASS_NAME, 'ut-tile-transfer-market').click()
 
 
-def go_to_transferlist(self):
-    sleep(20)
-    self.driver.find_element(By.XPATH, "/html/body/main/section/nav/button[3]").click()
-    sleep(10)
-    self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div[3]").click()
-    sleep(10)
+    def go_to_watchlist(self):
+        sleep(0.5)
+        self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
+        sleep(0.5)
+        self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]').click()
+        sleep(2)
 
 
-def go_to_login_page(self):
-    WebDriverWait(self.driver, 15).until(
-        EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))
-    )
-    print("Logging in...")
+    def go_to_transferlist(self):
+        sleep(20)
+        self.driver.find_element(By.XPATH, "/html/body/main/section/nav/button[3]").click()
+        sleep(10)
+        self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div[3]").click()
+        sleep(10)
 
-    sleep(random.randint(5, 10))
-    self.driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
 
-    WebDriverWait(self.driver, 10).until(
-        EC.visibility_of_element_located((By.ID, 'email'))
-    )
+    def go_to_login_page(self):
+        WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))
+        )
+        print("Logging in...")
+
+        sleep(random.randint(5, 10))
+        self.driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
+
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.ID, 'email'))
+        )
+
+
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Logging / other
+    # TO DO - call this function inside bid methods etc
+    # def update_autobidder_logs(self, req):
+
+    #     if (req == "newbid"):
+    #         with open("./data/autobidder_stats.json", "r") as jsonFile:
+    #             data = json.load(jsonFile)
+
+    #         data["Bids made"] = new_value
+
+    #         with open("./data/autobidder_stats.json", "w") as jsonFile:
+    #             json.dump(data, jsonFile)
+
+    def getFutbinDataAndPopulateTable(self, futbin_url):
+        browser = self.driver
+        driver = self.driver
+
+        tab_url = futbin_url 
+
+        browser.execute_script("window.open('');")
+        browser.switch_to.window(browser.window_handles[1])
+        browser.get(tab_url)
+ 
+        name = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[2]/td"))).text
+        team = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[3]/td/a"))).text
+        nation = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[12]/div[3]/div[1]/div/ul/li[1]/a"))).text
+        cardtype = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[15]/div/div/div[1]/div[2]/table/tbody/tr[12]/td"))).text
+        rating = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[2]"))).text
+        cardname = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[3]"))).text
+        position = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[8]/div[13]/div[2]/div/div/div[1]/div/a/div/div[4]"))).text
+
+        internals_location = driver.find_element(By.XPATH, "/html/body/div[8]/div[5]/div")
+        internal_id = int(internals_location.get_attribute("data-baseid"))
+        futbin_id = internals_location.get_attribute("data-id")
+        
+        # price, lastupdated = get_futbin_price_lastupdated(fifa_id)
+
+        r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(internal_id))
+
+        data = r.json()
+        price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
+        lastupdated = data[str(internal_id)]["prices"]["xbox"]["updated"]
+
+        # 18 mins ago
+        # 48 mins ago
+        # 1 hour ago
+        # 2 hours ago
+        if (lastupdated == "Never"):
+            return 0, 100
+        elif ("mins ago" in lastupdated):
+            lastupdated = lastupdated[:-9]
+            lastupdated = int(lastupdated)
+        elif("hour ago" in lastupdated):
+            lastupdated = lastupdated[:-9]
+            lastupdated = int(lastupdated) * 60
+        elif("hours ago" in lastupdated):
+            lastupdated = lastupdated[:-10]
+            lastupdated = int(lastupdated) * 60
+        elif("seconds" in lastupdated):
+            lastupdated = 1
+        elif("second" in lastupdated):
+            lastupdated = 1
+        else:
+            return 0, 100
+
+        price = price.replace(",", "")
+        price = int(price)
+
+        # MINUTES
+        lastupdated = int(lastupdated)
+        # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
+        futbin_id = int(futbin_id)
+        market_price = 0
+        buy_pct = .85
+        agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated, market_price, buy_pct]
+                # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
+
+        full_entry = ""
+        for word in agg:
+            word = str(word)
+            word_comma = word + ","
+            full_entry += word_comma
+
+        # Remove last comma
+        full_entry = full_entry[:-1]
+        print(full_entry)
+
+        # Add new line to end
+        hs = open("./data/player_list.txt", "a", encoding="utf8")
+        hs.write(full_entry + "\n")
+        hs.close()
+
+        print(agg)
+
+        # "/html/body/div[8]/div[5]/div" <-- this div has an attribute "data-baseid" which is what we want, also "data-player-resource" which is the same, and finally "data-id" gives internal futbin ID
+
+        # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
+        browser.close()
+
+        # Switch back to the first tab with URL A
+        browser.switch_to.window(browser.window_handles[0])
+        # log_event("Fetched player info")
