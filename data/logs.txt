@@ -47,3 +47,4 @@
 [24/02/2021 10:26:16] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1200
 [24/02/2021 10:26:40] || Bid succesfully went through!
 [24/02/2021 10:26:40] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1400
+[24/02/2021 18:32:50] ||  - - - - Bot started - - - - 

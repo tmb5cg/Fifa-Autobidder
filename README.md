@@ -3,7 +3,7 @@
 
 ## How it works
 
-![](demo.gif)
+![](./readme/windows_gui.png)
 
 Bot uses selenium framework to run fut web app. This is the best way to not get banned, because it is very similar to a normal user activity.
 
