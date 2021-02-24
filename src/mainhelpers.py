@@ -608,9 +608,9 @@ def login(driver, user):
     WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))
     )
-    print("Logging in...")
+    # print("Logging in...")
 
-    sleep(random.randint(5, 10))
+    sleep(random.randint(3, 5))
     driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
 
     WebDriverWait(driver, 10).until(

@@ -35,6 +35,9 @@ class Autobidder:
             self.playerlist.append(values)
         txt.close()
 
+        # Clear out old market data
+        self.helper.clearOldUserData()
+
     def start(self):
         self.queue.put("Updating queue from inside autobidder...")
         log_event("Autobidder started")
@@ -43,7 +46,10 @@ class Autobidder:
 
         # bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
         bidsallowed = 10
-        bidstomake_eachplayer = 5
+        bidstomake_eachplayer = 10
+
+        self.helper.user_num_target_players = num_players_to_bid_on
+        self.helper.user_num_bids_each_target = bidstomake_eachplayer
         
         for player in self.playerlist:
             # "Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy Percent"
@@ -91,73 +97,88 @@ class Autobidder:
 
 
     def manageWatchlist(self):
-        # Make sure we are on watchlist, else break (for debugging)
-        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
-        if (page.lower() == "transfer targets"):
-            num_activebids = self.helper.get_num_activebids()
-            if (num_activebids != 0):
-                # Evaluate 5 cards closest to expiration, returns "processing" if exception
-                active_bids = self.helper.getAllPlayerInfoWatchlist()
-                if (active_bids != "processing"):
-                    firstplayer = active_bids[0]
-                    firstplayer_timeremaining = firstplayer[7]
-                    # Triple check that first player is not Processing (else will throw exception, redundant but necessary)
-                    if (0 < firstplayer_timeremaining):
-                        # If method reaches here, everything should be good to go...
-                        for card in active_bids:
-                            bidStatus = card[1]
-                            if "outbid" in bidStatus:
-                                playername = card[3]
-                                playernumber = card[0]
-                                curbid = card[5]
-                                timeremainingseconds = card[7]
-                                timeremainingmins = timeremainingseconds/60
-                                id = card[8]
-                                sellprice = self.helper.getPlayerSellPrice(id)
-                                stopPrice = self.helper.getPlayerPriceCeiling(id)
-                                log_event("Player outbid --> " + str(playername))
-                                if (curbid < stopPrice):
-                                    log_event("Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
-                                    result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
-                                    if result == "Failure":
-                                        log_event("Player outbid --> " + str(playername) + " --> ERROR. Refreshing page!")
-                                        sleep(1)
-                                        self.helper.refreshPageAndGoToWatchlist()
-                                    if result == "Success":
-                                        log_event("Player outbid --> " + str(playername) + " --> SUCCESS. || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
-                                        self.manageWatchlist()  
-                                else:
-                                    log_event("Player outbid --> " + str(playername) + " --> will not outbid. Current bid of " + str(curbid) + " is " + str(curbid-stopPrice) + " coins above market value.")
-                        # log_event("No cards were found to be outbid. Rerunning watchlist manager.")
-                        self.manageWatchlist()
-
-
-
-
-
-
-
-
-
-
-
-
-
+        status = 1
+        while (status == 1):
+            # Make sure we are on watchlist, else break (for debugging)
+            page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
+            if (page.lower() == "transfer targets"):
+                num_activebids = self.helper.get_num_activebids()
+                if (num_activebids != 0):
+                    # Evaluate 5 cards closest to expiration, returns "processing" if exception
+                    active_bids = self.helper.getAllPlayerInfoWatchlist()
+                    if (active_bids != "processing"):
+                        firstplayer = active_bids[0]
+                        firstplayer_timeremaining = firstplayer[7]
+                        # Triple check that first player is not Processing (else will throw exception, redundant but necessary)
+                        if (0 < firstplayer_timeremaining):
+                            # If method reaches here, everything should be good to go...
+                            # Iterate over cards on watchlist
+                            for card in active_bids:
+                                bidStatus = card[1]
+                                if "outbid" in bidStatus:
+                                    playername = card[3]
+                                    playernumber = card[0]
+                                    curbid = card[5]
+                                    timeremainingseconds = card[7]
+                                    timeremainingmins = timeremainingseconds/60
+                                    id = card[8]
+                                    sellprice = self.helper.getPlayerSellPrice(id)
+                                    stopPrice = self.helper.getPlayerPriceCeiling(id)
+                                    # log_event("Player outbid --> " + str(playername))
+                                    if (curbid < stopPrice):
+                                        # log_event("Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
+                                        result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
+                                        if result == "Failure":
+                                            log_event("Player outbid --> " + str(playername) + " --> ERROR. Refreshing page")
+                                            sleep(1)
+                                            self.helper.refreshPageAndGoToWatchlist()
+                                        if result == "Success":
+                                            # log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
+                                    else:
+                                        # log_event("Player outbid --> " + str(playername) + " --> will not outbid. Current bid of " + str(curbid) + " is " + str(curbid-stopPrice) + " coins above market value.")
                 else:
-                    log_event("First card processing... waiting for them to go away. Rerunning watchlist manager.")
-                    self.manageWatchlist()
-            except Exception as e: # work on python 3.x
-                log_event('Line 148 failure: ' + str(e))
-                self.manageWatchlist()
-            else:
-                log_event("No active bids detected... now need to expired and send to TL")
-                sleep(10)
-                self.helper.clearExpired()
-                log_event("Cleared expired players")
-                self.manageTransferlist()
-        else:
-            log_event("User is not on Watchlist, breaking method here")
-            self.manageTransferlist()
+                    status = 0
+            else: 
+                status = 0
+        log_event("No active bids, or not on watch list")
+        self.manageTransferlist()
+
+
+
+
+
+
+
+
+
+
+
+
+        #         else:
+        #             log_event("First card processing... waiting for them to go away. Rerunning watchlist manager.")
+        #             self.manageWatchlist()
+        #     except Exception as e: # work on python 3.x
+        #         log_event('Line 148 failure: ' + str(e))
+        #         self.manageWatchlist()
+        #     else:
+        #         log_event("No active bids detected... now need to expired and send to TL")
+        #         sleep(10)
+        #         self.helper.clearExpired()
+        #         log_event("Cleared expired players")
+        #         self.manageTransferlist()
+        # else:
+        #     log_event("User is not on Watchlist, breaking method here")
+        #     self.manageTransferlist()
 
     def manageTransferlist(self):
-        log_event("inside transferlist method now")
+        log_event("inside transferlist method now, clear expired and send players to TL")
+        # send won to transfer list
+        sleep(10)
+
+        # Make sure we are still on watchlist
+        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
+        if (page.lower() == "transfer targets"):
+            self.helper.send_won_players_to_transferlist()
+            log_event("Sent won players to TL")
+            self.helper.clearExpired()
+            log_event("Cleared expired")

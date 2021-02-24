@@ -112,7 +112,7 @@ class PlayerFilters(tk.Frame):
 
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", futbin_url).start()
-        log_event("Added player to player list")
+        # log_event("Added player to player list")
         self.update_list()
 
     def update_list(self):

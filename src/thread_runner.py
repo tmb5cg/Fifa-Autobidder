@@ -44,9 +44,12 @@ class RunThread(threading.Thread):
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
             # log_event("Test function")
+            
+            # testhelper = Helper(self.driver)
 
+            # testhelper.update_autobidder_logs()
             autobidder = Autobidder(self.driver, self.queue)
-            autobidder.manageWatchlist()
+            autobidder.start()
 
         if self.action == "autobuyer":
             self.queue.put("Starting autobuyer")
@@ -64,7 +67,7 @@ class RunThread(threading.Thread):
 
         if self.action == "getFutbinDataFromURL":
             self.queue.put("Fetching player info")
-            log_event("Fetching player info")
+            log_event("Fetching player info...")
 
             futbin_url = self.searchdata
             self.helper = Helper(self.driver)

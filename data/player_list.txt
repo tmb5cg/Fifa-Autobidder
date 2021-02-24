@@ -1,2 +1,1 @@
-Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1700,60,1700,0.85
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,1000,2,0,0.85
+Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1600,57,1600,0.85
