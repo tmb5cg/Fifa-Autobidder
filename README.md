@@ -1,44 +1,27 @@
-# FIFA 21 Web App Autobidder & Autobuyer
- 
- 
- Will add GIF and screengrabs of GUI 
-## Starter tips 
-- cd into main folder and enter [make run]
-- Probably need to download chromedriver on your own, look up how to change the internal variables to help hide it from bot detectors
-- Probably better off just working with my code and integrating into an existing working Selenium bot 
-- You need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
-- Probably need to install bunch of random packages, like Tkinter (for GUI), open the project in a good IDE to find which are needed, good luck dealing with python PATH stuff, always is super confusing to me
-- Logins.txt you enter credentials, the 'save logins' button I never got around to making functional so just manually enter
-- Must click login button first, then after you've entered the web app can run the autobidder
-
-Threading is great because errors and anything wierd will not crash Chromedriver, you can edit code in real time and hit Reload Functions button
-Will upload image of GUI later today, maybe a nice GIF 
-
-## Intro
-
-FIFA 21 web app autobuyer/autobidder built with a GUI. I decided to release the code to this project since I am too busy with actual work. I made a million coins using this sparingly and want to revive my energy to fix it, so if you find this helpful please add to the code via GitHub. I spent all my dev time on the autobidder for some reason, in its current state. There is a lot of unused autobuyer code and general methods. Beautifying the code, rewriting and reorganizing file structure took up the bulk of the time as I hoped to eventually create a perfect Autobuyer. 
-
-If anyone sees this, feel free to reach out with issues or suggestions. This is my first read me and is probably incredibly unhelpful, in fact I'm assuming anyone using this has a programming background. In the future, I will create a hold-your-hand guide if people want but yea feel free to work on my project, would love to collaborate with someone too. 
-
-## General Structure
-Need to enable 3rd party logins to Gmail so login code can be auto pulled. Shoutout to mrgretwon for original starter code. 
-
-Main.py --> Tkinter GUI with buttons and actions, each button passes action to Thread Runner 
-ThreadRunner --> creates separate threads for actions so GUI is interactable, also makes debugging easy (click reload functions button to edit code without restarting webdriver). Calls function runner
-FunctionRunner --> Creates autobuyer object and calls methods
-
-There is a Bid Using Any tool that pulls prices data from futbin, I tested it a little bit but never had time to make perfect. It works decently well, and I think has potential. Opens a new tab to aggregate all Futbin price data at once so Futbin doesn't block your IP
-
-## Notes
-I used this for the past couple months and had 0 issues, but using common sense goes without saying. If you start getting more and more captcha's, take a break.
-
-Security measures:
-- **Chromedriver flags removed**
-- **Chromedriver build variables renamed**: 
-- **Doesn't run headless, has actual window size / resolution etc sent back to EA (if they even check that)
-- **Lots of sleep / pause durations between actions**: 
+# FUT Sniping BOT - FIFA 21 Autobuyer
 
 
+## How it works
+
+![](demo.gif)
+
+Bot uses selenium framework to run fut web app. This is the best way to not get banned, because it is very similar to a normal user activity.
+
+First step is logging in. You can do it manually or automatically.
+If automatically - Bot have access to your email inbox, so it can read the newest ea message with an access code.
+After running the web app, your filters are used to find a player (name and max price). 
+
+The min price is increased before every search to have the results refreshed every time. 
+By default bot clicks **+** button of min price 20 times, and starts again from 0.
+You can change the number of increases using `INCREASE_COUNT` variable in the `config.py` file.
+
+When the player is found, bot buys him, but sometimes it's too late. The result appears in the console:
+- **Success**: *"Success! You bought player_name for X coins."*
+- **Failed**: *"Found something, but it was too late."*
+
+The bot stops working when you have no more money, or after 5 bought players (because you have to assign them, the feature is not done yet).
+
+The current status is described in the console logs, so you have real-time access to information about the activities performed.
 
 ## Installation
 
@@ -46,8 +29,73 @@ Security measures:
 pip install -r requirements.txt
 ```
 
-Download chromedriver from Google, for some reason it doesn't download from Github well. Make sure to put it in the host folder. I have never really used GitHub so I'm not sure how to create an accurate requirements.txt
+## Configuration
 
-## Test
+Everything is configured using `config.py` file.
 
-Hopefully you understand my code because this readme isn't helpful at all
+Enter the name of the player name and the maximum number of coins you want to spend for him.
+Example:
+
+```
+PLAYER = {
+    "name": "Sterling",
+    "cost": 100000,
+}
+```
+
+### Automatic login
+
+If you want to automatically login to web app, change this variable to False:
+
+```
+LOGIN_MANUALLY = False
+```
+
+Provide your credentials:
+
+```
+USER = {
+    "email": "your_email@example.com",
+    "password": "your_password",
+}
+```
+
+You have to also provide your email credentials. It's needed to check the access code sent to your email address. 
+**Remember to allow external tools in your mail configuration.**
+
+```
+EMAIL_CREDENTIALS = {
+    "email": "your_email@example.com",
+    "password": "your_password",
+}
+```
+
+## Running
+
+**Linux/Mac systems**
+
+Run:
+
+```
+make run
+```
+
+**Windows**
+
+Set the PYTHONPATH variable with the value of the code directory - [check this link](https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-so-it-finds-my-modules-packages).
+
+Run:
+
+```
+python src\main.py
+```
+
+
+## Info
+
+Currently it works on Linux, Mac and Windows systems with Chrome version >=86.
+
+It's just first version of fut web app bot. The project will be further developed and new features will appear.
+ 
+Good luck!
+

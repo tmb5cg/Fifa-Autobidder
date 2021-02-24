@@ -1,102 +1,49 @@
-[23/02/2021 18:16:54] ||  - - - - Bot started - - - - 
-[23/02/2021 18:17:29] || Fetching player info...
-[23/02/2021 18:17:33] || Added player RODRÍGUEZ
-[23/02/2021 18:17:42] || Auto logging in using credentials
-[23/02/2021 18:17:42] || AutoLogin...
-[23/02/2021 18:20:59] || Autobidder started
-[23/02/2021 18:21:09] || Bidding on RODRÍGUEZ up to FUTBIN price: 900. Will determine actual market price while searching. Purchase ceiling: 765.0
-[23/02/2021 18:21:18] || Going to next page
-[23/02/2021 18:21:29] || Bids made on RODRÍGUEZ: 1/10
-[23/02/2021 18:21:58] || Fetching player info...
-[23/02/2021 18:22:02] || Added player LAMELA
-[23/02/2021 18:22:10] || Autobidder started
-[23/02/2021 18:22:19] || Bidding on LAMELA up to FUTBIN price: 1600. Will determine actual market price while searching. Purchase ceiling: 1360.0
-[23/02/2021 18:22:32] || Bids made on LAMELA: 1/10
-[23/02/2021 18:22:40] || Bids made on LAMELA: 2/10
-[23/02/2021 18:22:48] || Bids made on LAMELA: 3/10
-[23/02/2021 18:22:52] || Going to next page
-[23/02/2021 18:23:02] || Bids made on LAMELA: 4/10
-[23/02/2021 18:23:08] || Going to next page
-[23/02/2021 18:23:18] || Bids made on LAMELA: 5/10
-[23/02/2021 18:23:26] || Bids made on LAMELA: 6/10
-[23/02/2021 18:23:33] || Bids made on LAMELA: 7/10
-[23/02/2021 18:23:38] || Going to next page
-[23/02/2021 18:23:49] || Bids made on LAMELA: 8/10
-[23/02/2021 18:23:56] || Bids made on LAMELA: 9/10
-[23/02/2021 18:24:00] || Going to next page
-[23/02/2021 18:24:11] || Bids made on LAMELA: 10/10
-[23/02/2021 18:24:16] || Going to next page
-[23/02/2021 18:24:20] || Time remaining of players on page exceeded 50 minutes, RETURN
-[23/02/2021 18:24:21] || Finished bidding on:LAMELA
-[23/02/2021 18:24:22] || Parsing market data to find most accurate sell prices...
-[23/02/2021 18:24:23] || Lamela min buy now from market data: 1600
-[23/02/2021 18:24:23] || Going to watchlist. Time for war
-[23/02/2021 18:24:27] || Player outbid --> Lamela
-[23/02/2021 18:24:28] || Player outbid --> Lamela --> proceed to outbid. Current bid of 800 gives potential profit of 720.0 coins.
-[23/02/2021 18:24:31] || Bid succesfully went through!
-[23/02/2021 18:24:31] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 800
-[23/02/2021 18:26:26] || Player outbid --> Lamela
-[23/02/2021 18:26:27] || Player outbid --> Lamela --> proceed to outbid. Current bid of 900 gives potential profit of 620.0 coins.
-[23/02/2021 18:26:31] || Bid succesfully went through!
-[23/02/2021 18:26:32] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 900
-[23/02/2021 18:26:32] || Player outbid --> Lamela
-[23/02/2021 18:26:33] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1200 gives potential profit of 320.0 coins.
-[23/02/2021 18:26:36] || Bid succesfully went through!
-[23/02/2021 18:26:37] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 1200
-[23/02/2021 18:26:58] || Player outbid --> Lamela
-[23/02/2021 18:26:58] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1000 gives potential profit of 520.0 coins.
-[23/02/2021 18:27:02] || Bid succesfully went through!
-[23/02/2021 18:27:02] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 1000
-[23/02/2021 18:27:11] || Player outbid --> Lamela
-[23/02/2021 18:27:11] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1200 gives potential profit of 320.0 coins.
-[23/02/2021 18:27:15] || Bid succesfully went through!
-[23/02/2021 18:27:16] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 1200
-[23/02/2021 18:28:37] || Player outbid --> Lamela
-[23/02/2021 18:28:37] || Player outbid --> Lamela --> proceed to outbid. Current bid of 900 gives potential profit of 620.0 coins.
-[23/02/2021 18:28:41] || Bid succesfully went through!
-[23/02/2021 18:28:42] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 900
-[23/02/2021 18:28:45] || Player outbid --> Lamela
-[23/02/2021 18:28:45] || Player outbid --> Lamela --> proceed to outbid. Current bid of 1400 gives potential profit of 120.0 coins.
-[23/02/2021 18:28:49] || Bid succesfully went through!
-[23/02/2021 18:28:49] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1520.0 || CurBid: 1400
-[23/02/2021 18:29:00] || Player outbid --> Lamela
-[23/02/2021 18:29:01] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:02] || Player outbid --> Lamela
-[23/02/2021 18:29:03] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:04] || Player outbid --> Lamela
-[23/02/2021 18:29:04] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:05] || Player outbid --> Lamela
-[23/02/2021 18:29:05] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:06] || Player outbid --> Lamela
-[23/02/2021 18:29:06] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:07] || Player outbid --> Lamela
-[23/02/2021 18:29:07] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:09] || Player outbid --> Lamela
-[23/02/2021 18:29:09] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:10] || Player outbid --> Lamela
-[23/02/2021 18:29:10] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:11] || Player outbid --> Lamela
-[23/02/2021 18:29:12] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:13] || Player outbid --> Lamela
-[23/02/2021 18:29:14] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:14] || Player outbid --> Lamela
-[23/02/2021 18:29:15] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:15] || Player outbid --> Lamela
-[23/02/2021 18:29:16] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:17] || Player outbid --> Lamela
-[23/02/2021 18:29:17] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:18] || Player outbid --> Lamela
-[23/02/2021 18:29:19] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:20] || Player outbid --> Lamela
-[23/02/2021 18:29:20] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:21] || Player outbid --> Lamela
-[23/02/2021 18:29:22] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:23] || Player outbid --> Lamela
-[23/02/2021 18:29:23] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:25] || Player outbid --> Lamela
-[23/02/2021 18:29:25] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:26] || Player outbid --> Lamela
-[23/02/2021 18:29:27] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:29:27] || Player outbid --> Lamela
-[23/02/2021 18:29:27] || Player outbid --> Lamela --> will not outbid. Current bid of 1600 is 80.0 coins above market value.
-[23/02/2021 18:35:35] || Player outbid --> Rodríguez
+[24/02/2021 10:19:08] ||  - - - - Bot started - - - - 
+[24/02/2021 10:19:29] || Fetching player info...
+[24/02/2021 10:19:38] || Added player LAMELA
+[24/02/2021 10:19:43] || Auto logging in using credentials
+[24/02/2021 10:19:44] || AutoLogin...
+[24/02/2021 10:20:29] || Autobidder started
+[24/02/2021 10:20:39] || Bidding on LAMELA up to FUTBIN price: 1600. Will determine actual market price while searching. Purchase ceiling: 1360.0
+[24/02/2021 10:20:53] || Bids made on LAMELA: 1/10
+[24/02/2021 10:21:01] || Bids made on LAMELA: 2/10
+[24/02/2021 10:21:09] || Bids made on LAMELA: 3/10
+[24/02/2021 10:21:17] || Bids made on LAMELA: 4/10
+[24/02/2021 10:21:26] || Bids made on LAMELA: 5/10
+[24/02/2021 10:21:31] || Going to next page
+[24/02/2021 10:21:42] || Bids made on LAMELA: 6/10
+[24/02/2021 10:21:49] || Bids made on LAMELA: 7/10
+[24/02/2021 10:21:53] || Going to next page
+[24/02/2021 10:22:03] || Bids made on LAMELA: 8/10
+[24/02/2021 10:22:11] || Bids made on LAMELA: 9/10
+[24/02/2021 10:22:19] || Bids made on LAMELA: 10/10
+[24/02/2021 10:22:23] || Going to next page
+[24/02/2021 10:22:33] || Bids made on LAMELA: 11/10
+[24/02/2021 10:22:34] || Final Number of bids made on LAMELA: 11/10
+[24/02/2021 10:22:35] || Finished bidding on:LAMELA
+[24/02/2021 10:22:37] || Parsing market data to find most accurate sell prices...
+[24/02/2021 10:22:37] || Lamela min buy now from market data: 1700
+[24/02/2021 10:22:38] || Going to watchlist. Time for war
+[24/02/2021 10:22:53] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[24/02/2021 10:22:53] || Player outbid --> Lamela --> ERROR. Refreshing page
+[24/02/2021 10:23:06] || Going back to watchlist
+[24/02/2021 10:23:14] || Bid succesfully went through!
+[24/02/2021 10:23:15] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 750
+[24/02/2021 10:23:19] || Bid succesfully went through!
+[24/02/2021 10:23:19] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 700
+[24/02/2021 10:24:58] || Bid succesfully went through!
+[24/02/2021 10:24:59] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 900
+[24/02/2021 10:25:17] || Bid succesfully went through!
+[24/02/2021 10:25:17] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1000
+[24/02/2021 10:25:22] || Bid succesfully went through!
+[24/02/2021 10:25:22] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 800
+[24/02/2021 10:25:33] || Bid succesfully went through!
+[24/02/2021 10:25:34] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1200
+[24/02/2021 10:25:50] || Bid succesfully went through!
+[24/02/2021 10:25:50] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1400
+[24/02/2021 10:25:55] || Bid succesfully went through!
+[24/02/2021 10:25:55] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 900
+[24/02/2021 10:26:15] || Bid succesfully went through!
+[24/02/2021 10:26:16] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1200
+[24/02/2021 10:26:40] || Bid succesfully went through!
+[24/02/2021 10:26:40] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1400

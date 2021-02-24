@@ -50,6 +50,7 @@ class Autobidder:
 
         self.helper.user_num_target_players = num_players_to_bid_on
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
+        self.helper.update_autobidder_logs()
         
         for player in self.playerlist:
             # "Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy Percent"
@@ -102,6 +103,7 @@ class Autobidder:
             # Make sure we are on watchlist, else break (for debugging)
             page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
             if (page.lower() == "transfer targets"):
+                self.helper.update_autobidder_logs()
                 num_activebids = self.helper.get_num_activebids()
                 if (num_activebids != 0):
                     # Evaluate 5 cards closest to expiration, returns "processing" if exception
@@ -133,9 +135,7 @@ class Autobidder:
                                             sleep(1)
                                             self.helper.refreshPageAndGoToWatchlist()
                                         if result == "Success":
-                                            # log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
-                                    else:
-                                        # log_event("Player outbid --> " + str(playername) + " --> will not outbid. Current bid of " + str(curbid) + " is " + str(curbid-stopPrice) + " coins above market value.")
+                                            log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
                 else:
                     status = 0
             else: 

@@ -443,7 +443,7 @@ class DisplayLogs(tk.Frame):
         self.loggings.grid(row=1,column=0)
 
         # LOAD IN TABLE
-        txt = open("./data/logs.txt", "r")
+        txt = open("./data/logs.txt", "r", encoding="latin-1")
 
         #self.playerlist = []
         for aline in txt:
@@ -457,7 +457,7 @@ class DisplayLogs(tk.Frame):
         for i in self.loggings.get_children():
             self.loggings.delete(i)
 
-        txt = open("./data/logs.txt", "r")
+        txt = open("./data/logs.txt", "r", encoding="latin-1")
 
         self.playerlist = []
         for aline in txt:
@@ -542,6 +542,6 @@ class Logins(tk.Frame):
         msg = "this doesn't work lol"
         self.controller.table.status["text"] = str(msg)
 
-
+# TODO insert create logins.txt method here, that makes first line say not entered - update msgbox method
 app = GUI()
 app.mainloop()

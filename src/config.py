@@ -49,7 +49,7 @@ URL = "https://www.ea.com/fifa/ultimate-team/web-app/"
 
 EA_EMAIL = "EA@e.ea.com"
 
-txt = open("logins.txt", "r")
+txt = open("./data/logins.txt", "r")
 counter = 0
 credentials = []
 for aline in txt:

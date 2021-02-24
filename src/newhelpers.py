@@ -172,6 +172,7 @@ class Helper:
         self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[2]/ul/button[" + str(result_to_click) + "]").click()
 
     # Action: Evaluates current market page, calls makebid_individualplayer to make bids
+    # TODO: Make this nonrecursive!!! and any other methods
     def bid_on_current_page(self, name, futbinprice, bids_allowed, bids_made, futbindata):
         futbinprice = int(futbinprice)
         maxbidprice = round(futbinprice * .85)
@@ -179,6 +180,8 @@ class Helper:
         sleep(2)
         players_on_page = self.getAllPlayerInfo()
         for card in players_on_page:
+            # Testing if logger works
+            # self.update_autobidder_logs()
             # [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
             playernumber = card[0]
             bidStatus = card[1]
@@ -289,7 +292,7 @@ class Helper:
             else:
                 log_event("Bid succesfully went through!")
 
-
+        self.update_autobidder_logs()
         sleeptime = random.randint(3000, 5000)
         sleep(sleeptime/1000)
 
