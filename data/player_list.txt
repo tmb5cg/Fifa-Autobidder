@@ -1,1 +1,1 @@
-Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1600,5,1700,0.85
+Francisco Reis Ferreira,FERRO,77,Valencia CF,Portugal,non-rare,CB,242236,28084,2000,27,0,0.85

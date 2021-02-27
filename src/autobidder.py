@@ -1,10 +1,10 @@
-import helpers
-import mainhelpers
+# import helpers
+# import mainhelpers
 import newhelpers
 
 from newhelpers import *
-from helpers import *
-from mainhelpers import *
+# from helpers import *
+# from mainhelpers import *
 
 import csv
 from time import sleep
@@ -44,9 +44,9 @@ class Autobidder:
 
         num_players_to_bid_on = len(self.playerlist)
 
-        # bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
-        bidsallowed = 10
-        bidstomake_eachplayer = 10
+        bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
+        # bidsallowed = 10
+        # bidstomake_eachplayer = 10
 
         self.helper.user_num_target_players = num_players_to_bid_on
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
@@ -81,7 +81,7 @@ class Autobidder:
                 log_event("Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
 
             # Bid on players on current page -- 6 seconds spent in search tab
-            clickSearch(self.driver)
+            self.helper.clickSearch()
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
 
             log_event("Finished bidding on:" + str(cardname))
@@ -135,19 +135,14 @@ class Autobidder:
                                             sleep(1)
                                             self.helper.refreshPageAndGoToWatchlist()
                                         if result == "Success":
-                                            log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
+                                            log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || CurBid: " + str(curbid) + " || Stop price: " + str(stopPrice) + " || Potential Profit: " + str(sellprice - curbid))
                 else:
                     status = 0
+                    # self.manageTransferlist()
             else: 
                 status = 0
         log_event("No active bids, or not on watch list")
         self.manageTransferlist()
-
-
-
-
-
-
 
 
 
@@ -171,14 +166,19 @@ class Autobidder:
         #     self.manageTransferlist()
 
     def manageTransferlist(self):
-        log_event("inside transferlist method now, clear expired and send players to TL")
+        log_event("Bidding round finished, will now send players to transfer list and list them!")
         # send won to transfer list
-        sleep(10)
+        sleep(3)
+
+        # # Send won to Transfer list
+        self.helper.send_won_players_to_transferlist()
+
+        # log_event("Sent won players to transfer list!")
 
         # Make sure we are still on watchlist
-        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
-        if (page.lower() == "transfer targets"):
-            self.helper.send_won_players_to_transferlist()
-            log_event("Sent won players to TL")
-            self.helper.clearExpired()
-            log_event("Cleared expired")
+        # page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
+        # if (page.lower() == "transfer targets"):
+        #     self.helper.send_won_players_to_transferlist()
+        #     log_event("Sent won players to TL")
+        #     self.helper.clearExpired()
+        #     log_event("Cleared expired")

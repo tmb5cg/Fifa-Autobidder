@@ -1,0 +1,383 @@
+[24/02/2021 10:19:08] ||  - - - - Bot started - - - - 
+[24/02/2021 10:19:29] || Fetching player info...
+[24/02/2021 10:19:38] || Added player LAMELA
+[24/02/2021 10:19:43] || Auto logging in using credentials
+[24/02/2021 10:19:44] || AutoLogin...
+[24/02/2021 10:20:29] || Autobidder started
+[24/02/2021 10:20:39] || Bidding on LAMELA up to FUTBIN price: 1600. Will determine actual market price while searching. Purchase ceiling: 1360.0
+[24/02/2021 10:20:53] || Bids made on LAMELA: 1/10
+[24/02/2021 10:21:01] || Bids made on LAMELA: 2/10
+[24/02/2021 10:21:09] || Bids made on LAMELA: 3/10
+[24/02/2021 10:21:17] || Bids made on LAMELA: 4/10
+[24/02/2021 10:21:26] || Bids made on LAMELA: 5/10
+[24/02/2021 10:21:31] || Going to next page
+[24/02/2021 10:21:42] || Bids made on LAMELA: 6/10
+[24/02/2021 10:21:49] || Bids made on LAMELA: 7/10
+[24/02/2021 10:21:53] || Going to next page
+[24/02/2021 10:22:03] || Bids made on LAMELA: 8/10
+[24/02/2021 10:22:11] || Bids made on LAMELA: 9/10
+[24/02/2021 10:22:19] || Bids made on LAMELA: 10/10
+[24/02/2021 10:22:23] || Going to next page
+[24/02/2021 10:22:33] || Bids made on LAMELA: 11/10
+[24/02/2021 10:22:34] || Final Number of bids made on LAMELA: 11/10
+[24/02/2021 10:22:35] || Finished bidding on:LAMELA
+[24/02/2021 10:22:37] || Parsing market data to find most accurate sell prices...
+[24/02/2021 10:22:37] || Lamela min buy now from market data: 1700
+[24/02/2021 10:22:38] || Going to watchlist. Time for war
+[24/02/2021 10:22:53] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[24/02/2021 10:22:53] || Player outbid --> Lamela --> ERROR. Refreshing page
+[24/02/2021 10:23:06] || Going back to watchlist
+[24/02/2021 10:23:14] || Bid succesfully went through!
+[24/02/2021 10:23:15] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 750
+[24/02/2021 10:23:19] || Bid succesfully went through!
+[24/02/2021 10:23:19] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 700
+[24/02/2021 10:24:58] || Bid succesfully went through!
+[24/02/2021 10:24:59] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 900
+[24/02/2021 10:25:17] || Bid succesfully went through!
+[24/02/2021 10:25:17] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1000
+[24/02/2021 10:25:22] || Bid succesfully went through!
+[24/02/2021 10:25:22] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 800
+[24/02/2021 10:25:33] || Bid succesfully went through!
+[24/02/2021 10:25:34] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1200
+[24/02/2021 10:25:50] || Bid succesfully went through!
+[24/02/2021 10:25:50] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1400
+[24/02/2021 10:25:55] || Bid succesfully went through!
+[24/02/2021 10:25:55] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 900
+[24/02/2021 10:26:15] || Bid succesfully went through!
+[24/02/2021 10:26:16] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1200
+[24/02/2021 10:26:40] || Bid succesfully went through!
+[24/02/2021 10:26:40] || SUCCESS Player outbid --> Lamela --> SUCCESS. || Stop price: 1445.0 || CurBid: 1400
+[24/02/2021 18:32:50] ||  - - - - Bot started - - - - 
+[27/02/2021 12:09:43] ||  - - - - Bot started - - - - 
+[27/02/2021 12:13:14] ||  - - - - Bot started - - - - 
+[27/02/2021 12:41:45] ||  - - - - Bot started - - - - 
+[27/02/2021 13:00:51] ||  - - - - Bot started - - - - 
+[27/02/2021 13:14:39] ||  - - - - Bot started - - - - 
+[27/02/2021 13:17:33] ||  - - - - Bot started - - - - 
+[27/02/2021 13:18:24] ||  - - - - Bot started - - - - 
+[27/02/2021 13:18:41] ||  - - - - Bot started - - - - 
+[27/02/2021 13:19:33] ||  - - - - Bot started - - - - 
+[27/02/2021 13:19:38] || 1
+[27/02/2021 13:19:40] || 0
+[27/02/2021 13:19:44] || 1
+[27/02/2021 13:19:51] || 0
+[27/02/2021 13:19:52] || 1
+[27/02/2021 13:19:54] || 0
+[27/02/2021 13:19:55] || 1
+[27/02/2021 13:19:56] || 0
+[27/02/2021 13:19:57] || 1
+[27/02/2021 13:19:58] || 0
+[27/02/2021 13:20:04] || 1
+[27/02/2021 13:20:08] || 0
+[27/02/2021 13:21:04] || 1
+[27/02/2021 13:35:31] ||  - - - - Bot started - - - - 
+[27/02/2021 13:36:10] ||  - - - - Bot started - - - - 
+[27/02/2021 13:36:29] ||  - - - - Bot started - - - - 
+[27/02/2021 13:36:35] || <module 'ntpath' from 'C:\\Users\\Tucker\\AppData\\Local\\Programs\\Python\\Python39\\lib\\ntpath.py'>
+[27/02/2021 13:37:20] ||  - - - - Bot started - - - - 
+[27/02/2021 13:37:25] || <module 'ntpath' from 'C:\\Users\\Tucker\\AppData\\Local\\Programs\\Python\\Python39\\lib\\ntpath.py'>
+[27/02/2021 13:38:25] ||  - - - - Bot started - - - - 
+[27/02/2021 13:39:17] ||  - - - - Bot started - - - - 
+[27/02/2021 13:39:28] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:41:16] ||  - - - - Bot started - - - - 
+[27/02/2021 13:41:24] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:41:24] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\
+[27/02/2021 13:47:32] ||  - - - - Bot started - - - - 
+[27/02/2021 13:47:38] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:47:38] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2data
+[27/02/2021 13:48:40] ||  - - - - Bot started - - - - 
+[27/02/2021 13:48:45] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:48:46] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\data
+[27/02/2021 13:50:16] ||  - - - - Bot started - - - - 
+[27/02/2021 13:50:20] || Login file exists
+[27/02/2021 13:50:45] ||  - - - - Bot started - - - - 
+[27/02/2021 13:50:51] || Login file exists
+[27/02/2021 13:52:21] || Login file exists
+[27/02/2021 13:52:36] ||  - - - - Bot started - - - - 
+[27/02/2021 13:52:41] || Login file exists
+[27/02/2021 13:54:36] ||  - - - - Bot started - - - - 
+[27/02/2021 13:54:43] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:54:44] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\data
+[27/02/2021 13:56:38] ||  - - - - Bot started - - - - 
+[27/02/2021 13:56:47] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\src\main.py
+[27/02/2021 13:56:48] || C:\Users\Tucker\Documents\GitHub\FIFA21UTBOTv2\data
+[27/02/2021 13:59:36] ||  - - - - Bot started - - - - 
+[27/02/2021 13:59:45] || Autologin enabled
+[27/02/2021 14:41:13] ||  - - - - Bot started - - - - 
+[27/02/2021 14:41:21] || Autologin enabled
+[27/02/2021 14:41:21] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 14:42:48] ||  - - - - Bot started - - - - 
+[27/02/2021 14:42:59] || Autologin enabled
+[27/02/2021 14:42:59] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 14:43:03] || Auto logging in...
+[27/02/2021 14:44:38] ||  - - - - Bot started - - - - 
+[27/02/2021 14:44:45] || Autologin enabled
+[27/02/2021 14:44:45] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 14:46:03] || Fetching player info...
+[27/02/2021 14:46:06] || Added player RODRï¿½GUEZ
+[27/02/2021 14:46:16] || Auto logging in...
+[27/02/2021 14:48:11] || Autobidder started
+[27/02/2021 14:49:07] || Autobidder started
+[27/02/2021 14:49:28] || Autobidder started
+[27/02/2021 14:49:37] || Bidding on RODRï¿½GUEZ up to FUTBIN price: 700. Will determine actual market price while searching. Purchase ceiling: 595.0
+[27/02/2021 14:52:42] || Autobidder started
+[27/02/2021 14:54:33] || Autobidder started
+[27/02/2021 14:54:36] || Bid to make on each player: 50
+[27/02/2021 14:56:26] || Autobidder started
+[27/02/2021 14:56:29] || Bid to make on each player: 50
+[27/02/2021 14:56:38] || Bidding on RODRï¿½GUEZ up to FUTBIN price: 700. Will determine actual market price while searching. Purchase ceiling: 595.0
+[27/02/2021 14:56:50] || Bids made on RODRï¿½GUEZ: 1/50
+[27/02/2021 14:56:58] || Bids made on RODRï¿½GUEZ: 2/50
+[27/02/2021 14:57:07] || Bids made on RODRï¿½GUEZ: 3/50
+[27/02/2021 14:57:14] || Bids made on RODRï¿½GUEZ: 4/50
+[27/02/2021 14:57:19] || Going to next page
+[27/02/2021 14:57:31] || Bids made on RODRï¿½GUEZ: 5/50
+[27/02/2021 14:57:39] || Bids made on RODRï¿½GUEZ: 6/50
+[27/02/2021 14:57:47] || Bids made on RODRï¿½GUEZ: 7/50
+[27/02/2021 14:57:52] || Going to next page
+[27/02/2021 14:58:02] || Bids made on RODRï¿½GUEZ: 8/50
+[27/02/2021 14:58:11] || Bids made on RODRï¿½GUEZ: 9/50
+[27/02/2021 14:58:20] || Bids made on RODRï¿½GUEZ: 10/50
+[27/02/2021 14:58:28] || Bids made on RODRï¿½GUEZ: 11/50
+[27/02/2021 14:58:35] || Bids made on RODRï¿½GUEZ: 12/50
+[27/02/2021 14:58:40] || Going to next page
+[27/02/2021 14:58:50] || Bids made on RODRï¿½GUEZ: 13/50
+[27/02/2021 14:58:54] || Going to next page
+[27/02/2021 14:59:01] || Going to next page
+[27/02/2021 14:59:11] || Bids made on RODRï¿½GUEZ: 14/50
+[27/02/2021 14:59:20] || Bids made on RODRï¿½GUEZ: 15/50
+[27/02/2021 14:59:27] || Bids made on RODRï¿½GUEZ: 16/50
+[27/02/2021 14:59:36] || Bids made on RODRï¿½GUEZ: 17/50
+[27/02/2021 14:59:43] || Bids made on RODRï¿½GUEZ: 18/50
+[27/02/2021 14:59:52] || Bids made on RODRï¿½GUEZ: 19/50
+[27/02/2021 14:59:57] || Going to next page
+[27/02/2021 15:00:07] || Bids made on RODRï¿½GUEZ: 20/50
+[27/02/2021 15:00:16] || Bids made on RODRï¿½GUEZ: 21/50
+[27/02/2021 15:00:23] || Bids made on RODRï¿½GUEZ: 22/50
+[27/02/2021 15:00:30] || Bids made on RODRï¿½GUEZ: 23/50
+[27/02/2021 15:00:35] || Going to next page
+[27/02/2021 15:00:46] || Bids made on RODRï¿½GUEZ: 24/50
+[27/02/2021 15:00:54] || Bids made on RODRï¿½GUEZ: 25/50
+[27/02/2021 15:01:02] || Bids made on RODRï¿½GUEZ: 26/50
+[27/02/2021 15:01:10] || Bids made on RODRï¿½GUEZ: 27/50
+[27/02/2021 15:01:19] || Bids made on RODRï¿½GUEZ: 28/50
+[27/02/2021 15:01:26] || Bids made on RODRï¿½GUEZ: 29/50
+[27/02/2021 15:01:30] || Going to next page
+[27/02/2021 15:01:41] || Bids made on RODRï¿½GUEZ: 30/50
+[27/02/2021 15:01:49] || Bids made on RODRï¿½GUEZ: 31/50
+[27/02/2021 15:01:57] || Bids made on RODRï¿½GUEZ: 32/50
+[27/02/2021 15:02:05] || Bids made on RODRï¿½GUEZ: 33/50
+[27/02/2021 15:02:11] || Going to next page
+[27/02/2021 15:02:15] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 15:02:15] || Finished bidding on:RODRï¿½GUEZ
+[27/02/2021 15:02:16] || Parsing market data to find most accurate sell prices...
+[27/02/2021 15:02:16] || Rodrï¿½guez min buy now from market data: 700
+[27/02/2021 15:02:17] || Going to watchlist. Time for war
+[27/02/2021 15:02:24] || Bid succesfully went through!
+[27/02/2021 15:02:25] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:05:47] || Bid succesfully went through!
+[27/02/2021 15:05:47] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:06:41] || Bid succesfully went through!
+[27/02/2021 15:06:41] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:09:27] || Bid succesfully went through!
+[27/02/2021 15:09:28] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:09:49] || Bid succesfully went through!
+[27/02/2021 15:09:49] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:09:53] || Bid succesfully went through!
+[27/02/2021 15:09:53] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:09:57] || Bid succesfully went through!
+[27/02/2021 15:09:57] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:17:09] || Bid succesfully went through!
+[27/02/2021 15:17:09] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:25:17] || Bid succesfully went through!
+[27/02/2021 15:25:18] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:27:18] || Bid succesfully went through!
+[27/02/2021 15:27:19] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 500
+[27/02/2021 15:28:03] || Bid succesfully went through!
+[27/02/2021 15:28:03] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:28:26] || Bid succesfully went through!
+[27/02/2021 15:28:26] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:28:52] || Bid succesfully went through!
+[27/02/2021 15:28:52] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:29:28] || Bid succesfully went through!
+[27/02/2021 15:29:29] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:36:34] || Bid succesfully went through!
+[27/02/2021 15:36:35] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 15:41:30] || Bid succesfully went through!
+[27/02/2021 15:41:30] || SUCCESS Player outbid --> Rodrï¿½guez --> SUCCESS. || Stop price: 595.0 || CurBid: 400
+[27/02/2021 17:36:09] || No active bids, or not on watch list
+[27/02/2021 17:36:10] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 17:36:16] || Num players won: 28
+[27/02/2021 17:40:54] ||  - - - All players listed for transfer - - - 
+[27/02/2021 17:40:55] || Total investment: 12950
+[27/02/2021 17:40:55] || Market sell prices gives sellback of 21000
+[27/02/2021 17:40:56] || Guaranteed Profit: 8050
+[27/02/2021 17:40:56] || Time spent: 29.7 Minutes
+[27/02/2021 17:49:51] ||  - - - - Bot started - - - - 
+[27/02/2021 17:50:44] || Fetching player info...
+[27/02/2021 17:51:03] || Added player OSCAR
+[27/02/2021 17:51:48] || Autologin enabled
+[27/02/2021 17:51:49] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 17:58:07] ||  - - - - Bot started - - - - 
+[27/02/2021 17:58:24] || Autologin enabled
+[27/02/2021 17:58:24] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 17:58:33] || Auto logging in...
+[27/02/2021 17:58:55] || Your EA Security Code is: 520116
+[27/02/2021 17:58:57] || Logged in successfully!
+[27/02/2021 18:02:49] ||  - - - - Bot started - - - - 
+[27/02/2021 18:03:10] ||  - - - - Bot started - - - - 
+[27/02/2021 18:04:29] ||  - - - - Bot started - - - - 
+[27/02/2021 18:05:27] ||  - - - - Bot started - - - - 
+[27/02/2021 18:05:43] || Autologin enabled
+[27/02/2021 18:05:43] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 18:05:49] || Auto logging in...
+[27/02/2021 18:06:11] || Your EA Security Code is: 097448
+[27/02/2021 18:06:14] || Logged in successfully!
+[27/02/2021 18:06:59] || Autobidder started
+[27/02/2021 18:07:02] || Bid to make on each player: 24
+[27/02/2021 18:07:13] || Bidding on RODRÍGUEZ up to MARKET price: 700. Purchase ceiling: 595.0
+[27/02/2021 18:07:24] || Bids made on RODRÍGUEZ: 1/24
+[27/02/2021 18:07:33] || Bids made on RODRÍGUEZ: 2/24
+[27/02/2021 18:07:37] || Going to next page
+[27/02/2021 18:07:48] || Bids made on RODRÍGUEZ: 3/24
+[27/02/2021 18:07:56] || Bids made on RODRÍGUEZ: 4/24
+[27/02/2021 18:08:03] || Bids made on RODRÍGUEZ: 5/24
+[27/02/2021 18:08:09] || Going to next page
+[27/02/2021 18:08:19] || Bids made on RODRÍGUEZ: 6/24
+[27/02/2021 18:08:26] || Bids made on RODRÍGUEZ: 7/24
+[27/02/2021 18:08:34] || Bids made on RODRÍGUEZ: 8/24
+[27/02/2021 18:08:39] || Going to next page
+[27/02/2021 18:08:50] || Bids made on RODRÍGUEZ: 9/24
+[27/02/2021 18:08:59] || Bids made on RODRÍGUEZ: 10/24
+[27/02/2021 18:09:02] || Going to next page
+[27/02/2021 18:09:15] || Bids made on RODRÍGUEZ: 11/24
+[27/02/2021 18:09:22] || Bids made on RODRÍGUEZ: 12/24
+[27/02/2021 18:09:22] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 18:09:23] || Finished bidding on:RODRÍGUEZ
+[27/02/2021 18:09:34] || Bidding on OSCAR up to FUTBIN price: 1500. Will determine actual market price while searching. Purchase ceiling: 1275.0
+[27/02/2021 18:09:42] || Going to next page
+[27/02/2021 18:09:51] || Going to next page
+[27/02/2021 18:09:59] || Going to next page
+[27/02/2021 18:10:06] || Going to next page
+[27/02/2021 18:10:18] || Bids made on OSCAR: 1/24
+[27/02/2021 18:10:25] || Bids made on OSCAR: 2/24
+[27/02/2021 18:10:32] || Bids made on OSCAR: 3/24
+[27/02/2021 18:10:41] || Bids made on OSCAR: 4/24
+[27/02/2021 18:10:49] || Bids made on OSCAR: 5/24
+[27/02/2021 18:10:57] || Bids made on OSCAR: 6/24
+[27/02/2021 18:11:02] || Going to next page
+[27/02/2021 18:11:13] || Bids made on OSCAR: 7/24
+[27/02/2021 18:11:21] || Bids made on OSCAR: 8/24
+[27/02/2021 18:11:30] || Bids made on OSCAR: 9/24
+[27/02/2021 18:11:36] || Bids made on OSCAR: 10/24
+[27/02/2021 18:11:40] || Going to next page
+[27/02/2021 18:11:48] || Going to next page
+[27/02/2021 18:11:51] || Player ID not found for: Oscar 86
+[27/02/2021 18:11:52] || Player ID not found for: Oscar 86
+[27/02/2021 18:12:02] || Bids made on OSCAR: 11/24
+[27/02/2021 18:12:07] || Going to next page
+[27/02/2021 18:12:11] || Player ID not found for: Oscar 86
+[27/02/2021 18:12:19] || Bids made on OSCAR: 12/24
+[27/02/2021 18:12:28] || Bids made on OSCAR: 13/24
+[27/02/2021 18:12:35] || Bids made on OSCAR: 14/24
+[27/02/2021 18:12:43] || Bids made on OSCAR: 15/24
+[27/02/2021 18:12:50] || Bids made on OSCAR: 16/24
+[27/02/2021 18:12:55] || Going to next page
+[27/02/2021 18:12:58] || Player ID not found for: Oscar 86
+[27/02/2021 18:13:06] || Bids made on OSCAR: 17/24
+[27/02/2021 18:13:13] || Bids made on OSCAR: 18/24
+[27/02/2021 18:13:20] || Bids made on OSCAR: 19/24
+[27/02/2021 18:13:28] || Bids made on OSCAR: 20/24
+[27/02/2021 18:13:33] || Going to next page
+[27/02/2021 18:13:46] || Bids made on OSCAR: 21/24
+[27/02/2021 18:13:53] || Bids made on OSCAR: 22/24
+[27/02/2021 18:14:01] || Bids made on OSCAR: 23/24
+[27/02/2021 18:14:08] || Bids made on OSCAR: 24/24
+[27/02/2021 18:14:13] || Going to next page
+[27/02/2021 18:14:25] || Bids made on OSCAR: 25/24
+[27/02/2021 18:14:25] || Final Number of bids made on OSCAR: 25/24
+[27/02/2021 18:14:25] || Finished bidding on:OSCAR
+[27/02/2021 18:14:27] || Parsing market data to find most accurate sell prices...
+[27/02/2021 18:14:27] || Rodríguez min buy now from market data: 700
+[27/02/2021 18:14:28] || Oscar min buy now from market data: 1600
+[27/02/2021 18:14:28] || Going to watchlist. Time for war
+[27/02/2021 18:14:41] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 750 || Stop price: 1360.0 || Potential Profit: 675.0
+[27/02/2021 18:14:46] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 750 || Stop price: 1360.0 || Potential Profit: 675.0
+[27/02/2021 18:15:01] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 850 || Stop price: 1360.0 || Potential Profit: 575.0
+[27/02/2021 18:15:07] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 950 || Stop price: 1360.0 || Potential Profit: 475.0
+[27/02/2021 18:15:13] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:15:20] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:15:25] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 900 || Stop price: 1360.0 || Potential Profit: 525.0
+[27/02/2021 18:15:43] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 750 || Stop price: 1360.0 || Potential Profit: 675.0
+[27/02/2021 18:16:12] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:850Current bid after bidding: 850
+[27/02/2021 18:16:13] || Player outbid --> Oscar --> ERROR. Refreshing page
+[27/02/2021 18:16:27] || Going back to watchlist
+[27/02/2021 18:16:36] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1000 || Stop price: 1360.0 || Potential Profit: 425.0
+[27/02/2021 18:16:40] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 750 || Stop price: 1360.0 || Potential Profit: 675.0
+[27/02/2021 18:16:45] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:16:50] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 900 || Stop price: 1360.0 || Potential Profit: 525.0
+[27/02/2021 18:16:57] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 750 || Stop price: 1360.0 || Potential Profit: 675.0
+[27/02/2021 18:17:02] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1000 || Stop price: 1360.0 || Potential Profit: 425.0
+[27/02/2021 18:17:12] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1200 || Stop price: 1360.0 || Potential Profit: 225.0
+[27/02/2021 18:17:17] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 900 || Stop price: 1360.0 || Potential Profit: 525.0
+[27/02/2021 18:17:30] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:17:33] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 850 || Stop price: 1360.0 || Potential Profit: 575.0
+[27/02/2021 18:17:39] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:1300Current bid after bidding: 1300
+[27/02/2021 18:17:39] || Player outbid --> Oscar --> ERROR. Refreshing page
+[27/02/2021 18:17:52] || Going back to watchlist
+[27/02/2021 18:18:01] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:18:04] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 950 || Stop price: 1360.0 || Potential Profit: 475.0
+[27/02/2021 18:18:09] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:18:13] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:18:19] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:18:26] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:18:48] || Error in updating GUI labels
+[27/02/2021 18:19:27] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:1300Current bid after bidding: 1300
+[27/02/2021 18:19:27] || Player outbid --> Oscar --> ERROR. Refreshing page
+[27/02/2021 18:19:40] || Going back to watchlist
+[27/02/2021 18:19:49] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:19:53] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:19:57] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:20:01] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:20:06] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:20:12] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1300 || Stop price: 1360.0 || Potential Profit: 125.0
+[27/02/2021 18:21:45] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:1100Current bid after bidding: 1100
+[27/02/2021 18:21:46] || Player outbid --> Oscar --> ERROR. Refreshing page
+[27/02/2021 18:21:57] || Going back to watchlist
+[27/02/2021 18:22:06] || SUCCESS Player outbid --> Oscar --> SUCCESS. || CurBid: 1100 || Stop price: 1360.0 || Potential Profit: 325.0
+[27/02/2021 18:22:15] || No active bids, or not on watch list
+[27/02/2021 18:22:16] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 18:22:22] || Num players won: 0
+[27/02/2021 18:22:23] ||  - - - All players listed for transfer - - - 
+[27/02/2021 18:22:24] || Total investment: 0
+[27/02/2021 18:22:24] || Market sell prices gives sellback of 0
+[27/02/2021 18:22:24] || Guaranteed Profit: 0
+[27/02/2021 18:22:25] || Time spent: 29.7 Minutes
+[27/02/2021 18:32:53] ||  - - - - Bot started - - - - 
+[27/02/2021 18:33:17] || Fetching player info...
+[27/02/2021 18:33:24] || Added player FERRO
+[27/02/2021 18:34:18] ||  - - - - Bot started - - - - 

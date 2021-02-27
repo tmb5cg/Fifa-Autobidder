@@ -1,6 +1,6 @@
-from config import EMAIL_CREDENTIALS, EA_EMAIL
-import helpers 
-from helpers import log_event, wait_for_shield_invisibility
+# # from config import EMAIL_CREDENTIALS, EA_EMAIL
+# import helpers 
+# from helpers import log_event, wait_for_shield_invisibility
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,6 +16,18 @@ import csv
 from csv import reader
 from datetime import datetime
 import json
+
+from selenium import webdriver
+import platform
+import os
+from selenium.webdriver.support import ui
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ChromeOptions, Chrome
 
 class Helper:
     def __init__(self, driver):
@@ -42,15 +54,23 @@ class Helper:
         self.user_bids_made = 0
         self.user_transferlist_size = 0
         self.user_activebids = 0
-        self.user_coins = 0
         self.user_players_won = 0
         self.user_projected_profit = 0
         self.user_actual_profit = 0
+
+        self.user_watchlist_winning = 0
+        self.user_watchlist_outbid = 0
+        self.user_watchlist_totalsize = 0
+        self.user_transferlist_selling = 0
+        self.user_transferlist_sold = 0
+        self.user_transferlist_totalsize = 0
+        self.user_num_coins = 0
 
     # Action: evaluates transfer list, watchlist size etc
     # Returns: number of cards able to bid on, depending on input list size
     def getWatchlistTransferlistSize(self):
 
+        # Click Transfer Market tab
         sleep(1)
         self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
         sleep(1)
@@ -65,44 +85,51 @@ class Helper:
 
         num_coins = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/div[1]/div[1]').text
 
-        transferlist_selling = int(transferlist_selling)
-        transferlist_sold = int(transferlist_sold)
-        transferlist_totalsize = int(transferlist_totalsize)
+        self.user_transferlist_selling = int(transferlist_selling)
+        self.user_transferlist_sold = int(transferlist_sold)
+        self.user_transferlist_totalsize = int(transferlist_totalsize)
 
-        watchlist_winning = int(watchlist_winning)
-        watchlist_outbid = int(watchlist_outbid)
-        watchlist_totalsize = int(watchlist_totalsize)
+        self.user_watchlist_winning = int(watchlist_winning)
+        self.user_watchlist_outbid = int(watchlist_outbid)
+        self.user_watchlist_totalsize = int(watchlist_totalsize)
 
-        data = [watchlist_winning, watchlist_outbid, watchlist_totalsize, transferlist_selling, transferlist_sold, transferlist_totalsize, num_coins]
+        self.user_num_coins = str(num_coins)
 
-        # Log data for display in GUI - remove old data first
-        file = open("./data/user_stats.txt", "r+")
-        file.truncate(0)
-        file.close()
+        data = [self.user_watchlist_winning, self.user_watchlist_outbid, self.user_watchlist_totalsize, self.user_transferlist_selling, self.user_transferlist_sold, self.user_transferlist_totalsize, num_coins]
 
-        full_entry = ""
-        for word in data:
-            word = str(word)
-            word_comma = word + ","
-            full_entry += word_comma
+        # # Log data for display in GUI - remove old data first
+        # file = open("./data/user_stats.txt", "r+")
+        # file.truncate(0)
+        # file.close()
 
-        # Remove last comma
-        full_entry = full_entry[:-1]
-        log_event("Current state: " + str(full_entry))
+        # full_entry = ""
+        # for word in data:
+        #     word = str(word)
+        #     word_comma = word + ","
+        #     full_entry += word_comma
 
-        # Add new line to end
-        hs = open("./data/user_stats.txt", "a", encoding="utf8")
-        hs.write(full_entry + "\n")
-        hs.close()
+        # # Remove last comma
+        # full_entry = full_entry[:-1]
+        # log_event("Current state: " + str(full_entry))
+
+        # # Add new line to end
+        # hs = open("./data/user_stats.txt", "a", encoding="utf8")
+        # hs.write(full_entry + "\n")
+        # hs.close()
 
         num_players_to_bid_on = len(self.playerlist)
+        self.user_num_target_players = num_players_to_bid_on
 
         if (num_players_to_bid_on != 1):
-            bidsallowed = 50 - data[2]
+            bidsallowed = 50 - int(data[2])
             bidstomake_eachplayer = round(bidsallowed/num_players_to_bid_on) - 1
+
+            self.user_num_bids_each_target = bidstomake_eachplayer
         elif (num_players_to_bid_on == 1):
-            bidsallowed = 50 - data[2]
+            bidsallowed = 50 - int(data[2])
             bidstomake_eachplayer = bidsallowed
+
+            self.user_num_bids_each_target = bidstomake_eachplayer
         else:
             bidsallowed = 0
             bidstomake_eachplayer = 0
@@ -172,7 +199,7 @@ class Helper:
         self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[2]/ul/button[" + str(result_to_click) + "]").click()
 
     # Action: Evaluates current market page, calls makebid_individualplayer to make bids
-    # TODO: Make this nonrecursive!!! and any other methods
+    # TODO: Make this nonrecursive and any other methods
     def bid_on_current_page(self, name, futbinprice, bids_allowed, bids_made, futbindata):
         futbinprice = int(futbinprice)
         maxbidprice = round(futbinprice * .85)
@@ -222,7 +249,8 @@ class Helper:
             else:
                 if bids_made < bids_allowed+1:
                     if "highest-bid" not in bidStatus:
-                        if timeremainingmins < 50:
+                        #TODO make this config variable
+                        if timeremainingmins < 30:
                             if timeremainingmins > 2:
                                 if curbid <= maxbidprice:
                                     self.makebid_individualplayer(playernumber, curbid)
@@ -245,7 +273,7 @@ class Helper:
 
         self.bid_on_current_page(name, futbinprice, bids_allowed, bids_made, futbindata)
 
-    # Action: Bids on player
+    # Action: Bids on player during initial market search
     def makebid_individualplayer(self, playernumber, bidprice):
         originalbid = bidprice
         bidprice = bidprice + 50
@@ -296,7 +324,7 @@ class Helper:
         sleeptime = random.randint(3000, 5000)
         sleep(sleeptime/1000)
 
-    # Action: Logs all data on current page of market
+    # Action: Logs all data on current page of market, to be used later to find accurate buy now
     def getAllPlayerInfo(self):
         players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
         page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
@@ -397,7 +425,7 @@ class Helper:
 
             # Remove last comma
             full_entry = full_entry[:-1]
-            print(full_entry)
+            # print(full_entry)
 
             # Add new line to end
             hs = open("./data/market_logs.txt", "a", encoding="utf8")
@@ -463,7 +491,7 @@ class Helper:
             log_event("Player ID not found for: " + str(cardname) + " " + str(rating))
             return 0
 
-    # Action: Parses market logs from searches to find accurate sell price, and updates player_list.txt
+    # Action: Parses market logs from searches to find accurate sell price, and updates player_list.txt - terribly inefficient but it works for now
     def get_lowestbin_from_searchdata(self):
         #info = [date, time, playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
 
@@ -624,12 +652,13 @@ class Helper:
                     else:
                         return (marketprice * self.sellceiling)
 
+
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
 
     # Action: sends won players to transfer list 
     def send_won_players_to_transferlist(self):
         # Get num players to send
-        sleep(1)
+        sleep(3)
         playersOnPage = self.driver.find_elements_by_tag_name("li.listFUTItem")
         
         num_players_won = 0
@@ -639,51 +668,101 @@ class Helper:
 
             if "won" in bidStatus:
                 num_players_won += 1
-        
-        topmost_player = 0
-        for player in playersOnPage:
-            bidStatus = player.get_attribute("class")
-            bidStatus = str(bidStatus)
-
-            if "won" in bidStatus:
-                topmost_player = player
-                break
-        
-
+                self.user_players_won += 1
+      
         log_event("Num players won: " + str(num_players_won))
+
+        total_spent = 0
+        total_projected_sellprice = 0
+        total_projected_profit = 0
+        count = 1
         for x in range(num_players_won):
-            # click topmost player x amount of times, since it operates like queue
-            topmost_player.click()
+            # log_event("X: " + str(x) + "Count: " + str(count) + " NumPWon - Count: " + str(num_players_won - count) + " NumPWon - X: " + str(num_players_won - x))
+            boughtprice_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[2]/div[2]/span[2]"
+            boughtprice = self.driver.find_element_by_xpath(boughtprice_location).text
+            boughtprice = str(boughtprice)
 
-            sleeptime = random.randint(4000,10000)
-            sleeptime = sleeptime/10000
-            sleep(sleeptime)
+            if "," in boughtprice:
+                boughtprice = boughtprice.replace(",", "")
+            
+            bought_price_int = int(boughtprice)
+            total_spent += bought_price_int
 
-            # Send to transfer list
-            self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[3]/button[8]").click()
+            playerrating_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
+            playername_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[2]"
 
-            sleeptime = random.randint(4000,10000)
-            sleeptime = sleeptime/10000
-            sleep(sleeptime)
+            playerrating = str(self.driver.find_element_by_xpath(playerrating_location).text)
+            playername = str(self.driver.find_element_by_xpath(playername_location).text)
 
-        # count = num_players_won
-        # while (count != 0):
-        #     for player in playersOnPage:
-        #         bidStatus = player.get_attribute("class")
-        #         bidStatus = str(bidStatus)
+            # Get ID and sell price from above data
+            playerid = self.getPlayerID(playername, playerrating)
+            playersellprice = self.getPlayerSellPrice(playerid)
 
-        #         if "won" in bidStatus:
-        #             # playerbutton = /html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div
-        #             #playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[1]/ul/li[" + str(playernumber) + "]/div"
+            # log_event("Player " + str(playername) + " " + str(playerid) + " bought for " + str(bought_price_int) + " sell price " + str(playersellprice))
 
-        #             # Click player
-        #             player.click()
+            player_profit = int(playersellprice) - bought_price_int
+            # log_event("Player profit : " + str(player_profit))
 
-        #             sleep(1)
+            total_projected_sellprice += int(playersellprice)
+            total_projected_profit += player_profit
+            self.user_projected_profit += player_profit
 
-        #             # Send to transfer list
-        #             self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[3]/button[8]").click()
-        #             self.send_won_players_to_transferlist()
+            sleep_approx(1.5)
+
+            # LIST FOR TRANSFER:
+
+            # Click bottom most player
+            playersOnPage[num_players_won - count].click()
+            sleep_approx(1.5)
+
+            list_on_transfermarket_button_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
+            self.driver.find_element_by_xpath(list_on_transfermarket_button_location).click()
+            sleep_approx(1.5)
+            
+            startprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+            buynowprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+            listplayer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+
+            # START PRICE
+            startpricebox = self.driver.find_element_by_xpath(startprice_location)
+            startpricebox.click()
+            startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+            startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+
+            listprice = int(round(playersellprice, -2))
+
+            startpricebox.send_keys(listprice)
+
+            sleep_approx(1.5)
+
+            # BUY NOW
+            buynowbox = self.driver.find_element_by_xpath(buynowprice_location)
+            buynowbox.click()
+            buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+            buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+
+            buynowprice = listprice - 100
+
+            buynowbox.send_keys(listprice)
+
+            sleep_approx(1.5)
+
+            listplayerbutton = self.driver.find_element_by_xpath(listplayer_location).click()
+            sleep_approx(1.5)
+         
+            count += 1
+
+        self.user_projected_profit += total_projected_profit
+        
+        self.user_num_counts = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/div[1]/div[1]").text
+        time_spent = "29.7 Minutes"
+        log_event(" - - - All players listed for transfer - - - ")
+        log_event("Total investment: " + str(total_spent))
+        log_event("Market sell prices gives sellback of " + str(total_projected_sellprice))
+        log_event("Guaranteed Profit: " + str(total_projected_profit))
+        log_event("Time spent: " + time_spent)
+
+        
 
     # Evaluates and detects outbid players on watchlist
     # Returns: ?
@@ -770,7 +849,7 @@ class Helper:
 
                     id = self.getPlayerID(name, rating)
                     if (id == 0):
-                        log_event("ID not found in Targets, general id search found for name " + str(name) + " rating" + str(rating))
+                        log_event("Error - ID not found in Targets, general id search found for name " + str(name) + " rating" + str(rating))
                     info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
                     playerdata.append(info)
                 playernumber += 1
@@ -829,7 +908,7 @@ class Helper:
                 self.user_bids_made = self.user_bids_made - 1
                 return "Failure"
             else:
-                log_event("Bid succesfully went through!")
+                # log_event("Bid succesfully went through!")
                 self.user_bids_made += 1
                 return "Success"
         sleep(1)
@@ -850,7 +929,7 @@ class Helper:
         self.go_to_watchlist()
         sleep(0.5)
 
-    # Returns number of active bids. Also stores number won, expired, etc. for display on 
+    # Returns number of active bids. Also stores number won, expired, etc. for display on GUI
     def get_num_activebids(self):
         try:
             players = self.driver.find_elements_by_tag_name("li.listFUTItem")
@@ -877,6 +956,7 @@ class Helper:
             return activebids_counter
         except:
             return 1
+
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Button clicks
 
@@ -907,8 +987,8 @@ class Helper:
         self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/button[1]').click()
         sleep(1)
 
-# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Navigation
 
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Navigation
 
     def go_to_transfer_market(self):
         self.driver.find_element(By.CLASS_NAME, 'icon-transfer').click()
@@ -950,10 +1030,11 @@ class Helper:
         )
 
 
-# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Logging / other
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ General
+
     # Action: updates GUI with current state variables
     def update_autobidder_logs(self):
-        with open('./data/autobidder_stats.json', 'r') as f:
+        with open('./data/gui_stats.json', 'r') as f:
             json_data = json.load(f)
             # json_data2 = json_data[0] 
             json_data[0]["# of Targets"] = self.user_num_target_players
@@ -963,17 +1044,25 @@ class Helper:
             json_data[0]['Bids made'] = self.user_bids_made
             json_data[0]['Transfer list size'] = self.user_transferlist_size
             json_data[0]['Active bids'] = self.user_activebids
-            json_data[0]['Current coins'] = self.user_coins
+            json_data[0]['Current coins'] = self.user_num_coins
             json_data[0]['Players won'] = self.user_players_won
-            json_data[0]['Projected Profit'] = "--"
+            json_data[0]['Projected Profit'] = self.user_projected_profit
             json_data[0]['Actual profit'] = "--"
 
+            json_data[0]['watchlist_winning'] = self.user_watchlist_winning
+            json_data[0]['watchlist_outbid'] = self.user_watchlist_outbid
+            json_data[0]['watchlist_totalsize'] = self.user_watchlist_totalsize
+            json_data[0]['transferlist_selling'] = self.user_transferlist_selling
+            json_data[0]['transferlist_sold'] = self.user_transferlist_sold
+            json_data[0]['transferlist_totalsize'] = self.user_transferlist_totalsize
+            json_data[0]['num_coins'] = self.user_num_coins
 
-        with open('./data/autobidder_stats.json', 'w') as f:
+
+        with open('./data/gui_stats.json', 'w') as f:
             f.write(json.dumps(json_data))
 
     # Action: clears old market search data logs
-    # TO DO: make this a general 'clean up for startup', set market prices to 0 and futbin prices to 0 , on bot startup have it fetch new futbin price
+    # TODO: have this reset json stats to 0, set mkt prices to 0, fetch new futbin price
     def clearOldUserData(self):
         file = open("./data/market_logs.txt", "r+")
         file.truncate(0)
@@ -1069,3 +1158,109 @@ class Helper:
         # Switch back to the first tab with URL A
         browser.switch_to.window(browser.window_handles[0])
         # log_event("Fetched player info")
+
+
+
+
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ NON CLASS METHODS
+def login(driver, user, email_credentials):
+    WebDriverWait(driver, 15).until(
+        EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))
+    )
+    # print("Logging in...")
+
+    sleep(random.randint(2, 4))
+    driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
+
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.ID, 'email'))
+    )
+
+
+    sleep(1)
+    driver.find_element(By.ID, 'email').send_keys(user["email"])
+    sleep(1)
+    driver.find_element(By.ID, 'password').send_keys(user["password"])
+    sleep(1)
+    driver.find_element(By.ID, 'btnLogin').click()
+    sleep(1)
+
+
+    WebDriverWait(driver, 15).until(
+        EC.element_to_be_clickable((By.ID, 'btnSendCode'))
+    ).click()
+
+    access_code = get_access_code(email_credentials)
+
+    driver.find_element(By.ID, 'oneTimeCode').send_keys(access_code)
+    sleep(1)
+    driver.find_element(By.ID, 'btnSubmit').click()
+
+    log_event("Logged in successfully!")
+    WebDriverWait(driver, 30).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, 'icon-transfer'))
+    )
+    sleep(2)
+
+
+def get_access_code(email_credentials):
+    EA_EMAIL = "EA@e.ea.com"
+    M = imaplib.IMAP4_SSL("imap.gmail.com")
+
+    try:
+        M.login(email_credentials["email"], email_credentials["password"])
+    except imaplib.IMAP4.error:
+        # print("Login to email failed")
+        log_event("Unable to fetch access code from email (see ReadMe for help on this), enter it manually")
+        sys.exit(1)
+
+    print("Waiting for access code...")
+    sleep(3)
+    message_numbers_list = []
+    message_numbers = []
+
+    while not message_numbers_list:
+        M.select()
+        status, message_numbers = M.search(None, f'FROM "{EA_EMAIL}" UNSEEN')
+        message_numbers_list = message_numbers[0].split()
+
+    message_number = message_numbers[0].split()[0]
+    _, msg = M.fetch(message_number, '(RFC822)')
+    raw_email = msg[0][1].decode('utf-8')
+
+    email_message = email.message_from_string(raw_email)
+
+    log_event(email_message['Subject'])
+
+    access_code = ''.join(filter(str.isdigit, email_message['Subject']))
+
+    return access_code
+
+def wait_for_shield_invisibility(driver, duration=0.25):
+    WebDriverWait(driver, 10).until(
+        EC.invisibility_of_element_located((By.CLASS_NAME, 'ut-click-shield showing interaction'))
+    )
+    sleep(duration)
+
+def log_event(event):
+    # add some randomness
+    x = random.randint(1,10000)
+    x2 = x/10000
+    sleep(x2)
+
+    file_object = open('./data/gui_logs.txt', 'a')
+    now = datetime.now()
+    dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+
+    full_log = dt_string + " || " + event + "\n"
+    print(full_log)
+    file_object.write(full_log)
+    file_object.close()
+
+def sleep_approx(seconds):
+    lowerbound = (seconds-0.5)*10000
+    upperbound = (seconds+0.5)*10000
+
+    sleeptime = random.randint(lowerbound,upperbound)
+    sleeptime = sleeptime/10000
+    sleep(sleeptime)

@@ -1,17 +1,17 @@
-import mainhelpers
-import helpers
+# import mainhelpers
+# import helpers
 import autobuyer
 import autobidder
 import newhelpers 
 
 from newhelpers import *
-from helpers import *
-from mainhelpers import *
+# from helpers import *
+# from mainhelpers import *
 
 from autobidder import Autobidder
 from autobuyer import Autobuyer
 
-from config import USER
+# from config import USER
 import threading
 import os.path
 from os import path
@@ -39,7 +39,7 @@ class RunThread(threading.Thread):
             # log_event("Test function")
 
             autobidder = Autobidder(self.driver, self.queue)
-            autobidder.start()
+            autobidder.manageWatchlist()
 
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
@@ -60,9 +60,28 @@ class RunThread(threading.Thread):
 
         if self.action == "login":
             self.queue.put("Logging in")
-            log_event("AutoLogin...")
+            # log_event("AutoLogin...")
+            
+            txt = open("./data/logins.txt", "r")
+            counter = 0
+            credentials = []
+            for aline in txt:
+                counter += 1
+                line = aline.strip("\n")
+                credentials.append(str(line))
+            txt.close()
 
-            login(self.driver, USER)
+            USER = {
+                "email": credentials[0],
+                "password": credentials[1],
+            }
+
+            EMAIL_CREDENTIALS = {
+                "email": credentials[2],
+                "password": credentials[3],
+            }
+
+            login(self.driver, USER, EMAIL_CREDENTIALS)
 
 
         if self.action == "getFutbinDataFromURL":

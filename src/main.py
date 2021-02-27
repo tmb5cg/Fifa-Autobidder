@@ -1,18 +1,18 @@
 import thread_runner
 # import function_runner
-import mainhelpers
-import helpers
+# import mainhelpers
+# import helpers
 import newhelpers
 # import autobidder_any
 import autobidder
 import autobuyer
 # import autobidder_list
 
-from config import create_driver, URL
+# from config import create_driver, URL
 from thread_runner import RunThread
 # from function_runner import RunFunction
-from helpers import *
-from mainhelpers import *
+# from helpers import *
+# from mainhelpers import *
 from newhelpers import *
 
 from selenium.webdriver.common.action_chains import ActionChains
@@ -29,6 +29,19 @@ from tkinter import ttk
 import os.path
 from os import path
 import json
+
+from selenium import webdriver
+import platform
+import os
+from selenium.webdriver.support import ui
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ChromeOptions, Chrome
+
 
 LARGE_FONT= ("Verdana", 12)
 SMALL_FONT = ("Verdana", 8)
@@ -102,10 +115,52 @@ class PlayerFilters(tk.Frame):
 
         self.futbinlink_text = futbinlink_text
 
-        self.login = tk.Button(self, text='LOGIN', width=30, command=self.login).grid(row=5, column=0, columnspan = 2, pady=25)
-        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=6, column=0, columnspan=2)
+        loginLabel = tk.Label(self, text='Auto Login: ')
+        loginLabel.grid(row = 5, column = 0)
+
+        self.autologin_choice = tk.IntVar()
+        self.autologin_choice.set(0)  # initializing the choice, i.e. Python
+
+        self.autologinFalse = tk.Radiobutton(self, text="Disabled", padx = 20,  variable=self.autologin_choice,  command=self.loginChoice, value=0).grid(row=6, column = 1)
+        self.autologinTrue = tk.Radiobutton(self, text="Enabled", padx = 20,  variable=self.autologin_choice,  command=self.loginChoice, value=1).grid(row=5, column = 1)
+
+        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=7, column=0, columnspan = 2, pady=25)
+        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=8, column=0, columnspan=2)
 
 
+
+    def loginChoice(self):
+        choice = str(self.autologin_choice.get())
+
+        if (choice == "1"):
+            login_exists = path.exists("./data/logins.txt")
+            if (login_exists):
+                log_event("Autologin enabled")
+                msg = "AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: \n Line 1: EA login \n Line 2: EA password \n Line 3: Email login (optional - used for auto fetching code, see readme) \n Line 4: Email password (optional - see above) "
+                self.popupmsg(msg)
+            else:
+                pathstr = os.path.abspath(__file__)
+                pathstr = str(pathstr)
+
+                slash = pathstr[-8]
+                pathstr_new = pathstr[:-11]
+                pathstr_new = pathstr_new + "data"
+
+
+                log_event(pathstr)
+                log_event(pathstr_new)
+
+                save_path = pathstr_new
+                file_name = "logins.txt"
+
+                completeName = os.path.join(save_path, file_name)
+                # print(completeName)
+              
+                file1 = open(completeName, "w")
+                file1.write("EA login \nEA password\nEmail login (enter some fake random email if not using auto-code fetch)\nLine 4: Email password (same as above, fill with fake password, it might cause an exception otherwise. Main benefit of autologin is code fetching so you probably should just login manually if not using)")
+                file1.close()
+                msg = "AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: \n Line 1: EA login \n Line 2: EA password \n Line 3: Email login (used for auto fetching code, see readme) \n Line 4: Email password (used for code fetching)\nLogging in manually is probably easier"
+                self.popupmsg(msg)
 
     def add_player_futbin(self):
         futbin_url = self.futbinlink_text.get()
@@ -148,27 +203,40 @@ class PlayerFilters(tk.Frame):
         self.update_list()
 
     def login(self):
-        # self.progress()
-        # self.prog_bar.start()
-        self.queue = queue.Queue()
+        choice = str(self.autologin_choice.get())
 
-        login_exists = path.exists("./data/logins.txt")
-        if login_exists:
-            log_event("Auto logging in using credentials")
-            thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "login", self.controller.playerfilters.playerlist).start()
-        else:
-            log_event("Auto login credentials not found, login manually!")
-            self.popupmsg("Logins.txt not found, login manually!")
-   
-        self.after(100, self.process_queue)
+        if (choice == "1"):
+            self.queue = queue.Queue()
+
+            login_exists = path.exists("./data/logins.txt")
+            if login_exists:
+                log_event("Auto logging in...")
+                txt = open("./data/logins.txt", "r")
+                counter = 0
+                for aline in txt:
+                    counter += 1
+                txt.close()
+
+                # Double check logins.txt has 4 lines before attempting sign in to avoid error
+                if (counter == 4):
+                    thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "login", self.controller.playerfilters.playerlist).start()
+
+                else:
+                    self.popupmsg("Logins.txt formatted wrong, login manually")
+
+                # self.after(100, self.process_queue)
+
+            else:
+                self.popupmsg("Logins.txt not found, login manually")
 
     def popupmsg(self, msg):
         popup = tk.Tk()
-        popup.wm_title("Auto login error")
+        popup.wm_title("Note")
         label = ttk.Label(popup, text=msg, font=NORM_FONT)
         label.pack(side="top", fill="x", pady=10)
         B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
         B1.pack()
+        log_event(str(msg))
         popup.mainloop()
 
     def reloadfunctions(self):
@@ -177,8 +245,8 @@ class PlayerFilters(tk.Frame):
             self.queue = queue.Queue()
             importlib.reload(thread_runner)
             importlib.reload(autobidder)
-            importlib.reload(helpers)
-            importlib.reload(mainhelpers)
+            # importlib.reload(helpers)
+            # importlib.reload(mainhelpers)
             importlib.reload(newhelpers)
             # importlib.reload(autobidder_any)
             # importlib.reload(autobidder_list)
@@ -234,9 +302,9 @@ class MainButtons(tk.Frame):
 
         # ~ ~ ~ ~ INITIATE BOT ~ ~ ~ ~ ~
         log_event(" - - - - Bot started - - - - ")
-        self.driver = create_driver()
+        self.driver = self.create_driver()
         self.action = ActionChains(self.driver)
-        self.driver.get(URL)
+        self.driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
 
         tk.Frame.__init__(self, parent)
         self.playerlist = self.controller.playerfilters.playerlist
@@ -249,7 +317,7 @@ class MainButtons(tk.Frame):
         self.autobuyer.grid(row=0, column=1)
 
         # Load Autobidder stats
-        autobidderstats_json = open('./data/autobidder_stats.json')
+        autobidderstats_json = open('./data/gui_stats.json')
         json1_str = autobidderstats_json.read()
         autobidder_data = json.loads(json1_str)[0]
         
@@ -291,39 +359,77 @@ class MainButtons(tk.Frame):
 
         self.update_stat_labels()
 
+    # Creates webdriver instance to be passed to all methods
+    def create_driver(self):
+        system = platform.system()
+
+        if system == 'Darwin':
+            path = 'chrome_mac/chromedriver'
+        elif system == 'Linux':
+            path = 'chrome_linux/chromedriver'
+        elif system == 'Windows':
+            path = os.getcwd() + '\chrome_windows\chromedriver.exe'
+
+        option = webdriver.ChromeOptions()
+
+
+        # Removes navigator.webdriver flag
+
+        # For older ChromeDriver under version 79.0.3945.16
+        option.add_argument("--ignore-certificate-error")
+        option.add_argument("--ignore-ssl-errors")
+        option.add_experimental_option("excludeSwitches", ["enable-automation"])
+        option.add_experimental_option('useAutomationExtension', False)
+
+        # For ChromeDriver version 79.0.3945.16 or over
+        option.add_argument('--disable-blink-features=AutomationControlled')
+
+        # driver = webdriver.Chrome(
+        #     executable_path=path,
+        #     options=option
+        # )
+
+        driver = webdriver.Chrome(executable_path=path, options=option)
+        driver.maximize_window()
+
+        return driver
+
     # Continuously updates log table, inefficient but it works
     def update_stat_labels(self):
-        # Load Autobidder stats
-        autobidderstats_json = open('./data/autobidder_stats.json')
-        json1_str = autobidderstats_json.read()
-        autobidder_data = json.loads(json1_str)[0]
-        
-        autobiddervals = []
-        for key, value in autobidder_data.items():
-            autobiddervals.append(value)
+        try:
+            # Load Autobidder stats
+            autobidderstats_json = open('./data/gui_stats.json')
+            json1_str = autobidderstats_json.read()
+            autobidder_data = json.loads(json1_str)[0]
+            
+            autobiddervals = []
+            for key, value in autobidder_data.items():
+                autobiddervals.append(value)
 
-        # Load Autobuyer stats
-        autobuyerstats_json = open('./data/autobuyer_stats.json')
-        json2_str = autobuyerstats_json.read()
-        autobuyer_data = json.loads(json2_str)[0]
-        
-        autobuyervals = []
-        for key, value in autobuyer_data.items():
-            autobuyervals.append(value)
+            # Load Autobuyer stats
+            autobuyerstats_json = open('./data/autobuyer_stats.json')
+            json2_str = autobuyerstats_json.read()
+            autobuyer_data = json.loads(json2_str)[0]
+            
+            autobuyervals = []
+            for key, value in autobuyer_data.items():
+                autobuyervals.append(value)
 
-        count = 0
-        for label in self.autobidder_labels:
-            val = label.get()
-            label.set(autobiddervals[count])
-            count+=1
-        
-        count = 0
-        for label in self.autobuyer_labels:
-            val = label.get()
-            label.set(autobuyervals[count])
-            count+=1
+            count = 0
+            for label in self.autobidder_labels:
+                val = label.get()
+                label.set(autobiddervals[count])
+                count+=1
+            
+            count = 0
+            for label in self.autobuyer_labels:
+                val = label.get()
+                label.set(autobuyervals[count])
+                count+=1
 
-        self.after(100, self.update_stat_labels)
+            self.after(100, self.update_stat_labels)
+        except:
+            log_event("Error in updating GUI labels")
 
     # These functions are called on button press
     def testfunc(self):
@@ -353,8 +459,8 @@ class MainButtons(tk.Frame):
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
-        importlib.reload(helpers)
-        importlib.reload(mainhelpers)
+        # importlib.reload(helpers)
+        # importlib.reload(mainhelpers)
         importlib.reload(newhelpers)
         # importlib.reload(autobidder_any)
         # importlib.reload(autobidder_list)
@@ -372,50 +478,7 @@ class MainButtons(tk.Frame):
         except queue.Empty:
             self.after(100, self.process_queue)
 
-    # def login(self):
-    #     self.progress()
-    #     self.prog_bar.start()
-    #     self.queue = queue.Queue()
 
-    #     login_exists = path.exists("./data/logins.txt")
-    #     if login_exists:
-    #         log_event("Auto logging in using credentials")
-    #         thread_runner.RunThread(self.queue, self.driver, "login", self.controller.playerfilters.playerlist).start()
-    #     else:
-    #         log_event("Auto login credentials not found, login manually!")
-    #         self.popupmsg("Logins.txt not found, login manually!")
-   
-    #     self.after(100, self.process_queue)
-
-    # def popupmsg(self, msg):
-    #     popup = tk.Tk()
-    #     popup.wm_title("!")
-    #     label = ttk.Label(popup, text=msg, font=NORM_FONT)
-    #     label.pack(side="top", fill="x", pady=10)
-    #     B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
-    #     B1.pack()
-    #     popup.mainloop()
-
-    # def bidUsingList(self):
-    #     self.progress()
-    #     self.prog_bar.start()
-    #     self.queue = queue.Queue()
-    #     thread_runner.RunThread(self.queue, self.driver, "bidusinglist", self.controller.playerfilters.playerlist).start()
-    #     self.after(100, self.process_queue)
-
-    # def bidAnyone(self):
-    #     self.progress()
-    #     self.prog_bar.start()
-    #     self.queue = queue.Queue()
-    #     thread_runner.RunThread(self.queue, self.driver, "bidanyone", self.controller.playerfilters.playerlist).start()
-    #     self.after(100, self.process_queue)
-
-    # def progress(self):
-    #     self.prog_bar = ttk.Progressbar(
-    #         self, orient="horizontal",
-    #         length=200, mode="indeterminate"
-    #         )
-    #     self.prog_bar.grid(row = 8, column = 3)
 
 # Bottom right
 class DisplayLogs(tk.Frame):
@@ -443,7 +506,7 @@ class DisplayLogs(tk.Frame):
         self.loggings.grid(row=1,column=0)
 
         # LOAD IN TABLE
-        txt = open("./data/logs.txt", "r", encoding="latin-1")
+        txt = open("./data/gui_logs.txt", "r", encoding="latin-1")
 
         #self.playerlist = []
         for aline in txt:
@@ -457,7 +520,7 @@ class DisplayLogs(tk.Frame):
         for i in self.loggings.get_children():
             self.loggings.delete(i)
 
-        txt = open("./data/logs.txt", "r", encoding="latin-1")
+        txt = open("./data/gui_logs.txt", "r", encoding="latin-1")
 
         self.playerlist = []
         for aline in txt:
@@ -468,79 +531,6 @@ class DisplayLogs(tk.Frame):
         self.after(100, self.update_logs)
 
 
-# - - - - - - Deprecated - - - - - -
-class Logins(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self,parent)
-
-        self.controller = controller
-        self.parent = parent
-
-        # GET LOGIN CREDENTIALS
-        txt = open("logins.txt", "r")
-        counter = 0
-
-        credentials = []
-        for aline in txt:
-            counter+=1
-            line = aline.strip("\n")
-            credentials.append(str(line))
-        txt.close()
-
-        # Email
-        email_text = tk.StringVar()
-        email_label = tk.Label(self, text='EA Login', font=LARGE_FONT)
-        email_entry = tk.Entry(self, textvariable=email_text, show="*")
-
-        email_label.grid(row=1, column = 0)
-        email_entry.grid(row=1, column = 1)
-
-        # Password
-        ea_password_text = tk.StringVar()
-        ea_password_label = tk.Label(self, text='EA Password', font=LARGE_FONT)
-        ea_password_entry = tk.Entry(self, textvariable=ea_password_text, show="*")
-
-        ea_password_label.grid(row=2, column = 0)
-        ea_password_entry.grid(row=2, column = 1)
-
-        # BLANK space
-        blankspace = tk.Label(self, text='', font=LARGE_FONT).grid(row=3, column = 0)
-
-        # Gmail Login
-        gmail_text = tk.StringVar()
-        gmail_label = tk.Label(self, text='Gmail Login (2FA)', font=LARGE_FONT)
-        gmail_entry = tk.Entry(self, textvariable=gmail_text, show="*")
-
-        gmail_label.grid(row=4, column = 0)
-        gmail_entry.grid(row=4, column = 1)
-
-        # Gmail Password
-        gmail_password_text = tk.StringVar()
-        gmail_password_label = tk.Label(self, text='Gmail Password', font=LARGE_FONT)
-        gmail_password_entry = tk.Entry(self, textvariable=gmail_password_text, show="*")
-
-        gmail_password_label.grid(row=5, column = 0)
-        gmail_password_entry.grid(row=5, column = 1)
-
-        # BLANK space
-        blankspace2 = tk.Label(self, text='', font=LARGE_FONT).grid(row=6, column = 0)
-
-        email_entry.insert(END, credentials[0])
-        ea_password_entry.insert(END, credentials[1])
-        gmail_entry.insert(END, credentials[2])
-        gmail_password_entry.insert(END, credentials[3])
-
-        # Save changes to passwords.txt
-        self.savelogins = tk.Button(self, text='Save Logins', width=12, command=self.updatelogins).grid(row=6, column=1)
-        blankspace2 = tk.Label(self, text='', font=LARGE_FONT).grid(row=7, column = 0)
-        blankspace3 = tk.Label(self, text='', font=LARGE_FONT).grid(row=8, column = 0)
-
-
-    def updatelogins(self):
-        print("too lazy to do this, go into passwords.txt and manually do it")
-        msg = "this doesn't work lol"
-        self.controller.table.status["text"] = str(msg)
 
 # TODO insert create logins.txt method here, that makes first line say not entered - update msgbox method
 app = GUI()

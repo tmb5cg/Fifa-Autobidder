@@ -1,9 +1,35 @@
-# FUT Sniping BOT - FIFA 21 Autobuyer
+# TMB's Sniping BOT - FIFA 21 Autobuyer + Autobidder
 
 
 ## How it works
 
 ![](./readme/windows_gui.png)
+
+The only all-in-one Autobuyer and Autobidder that works on Mac, Windows, and Linux.
+
+Originally built for me and my friends as a fun side project, I'm making it open source since I am not actively updating it. This is my first experience with tkinter (for GUI) as well as Selenium WebDriver, which is a library that can interact with any site.
+
+Check out our Discord here: 
+
+This bot is built entirely in Python and features a User Interface for easy operation.
+Built in Python, this bot uses Selenium to interact with FIFA 21 Webapp. Unlike other bots, its actions can be monitored by the user. It is also safer than other Javascript injection bots, as the only Javascript injected is Selenium's, rendering EA's bot detection useless. 
+
+Features:
+- Dynamic GUI displays logs and stats in real time from autobidder and autobuyer methods.
+- All methods are threaded separately, so GUI is always active
+
+
+[insert gif of autobidding]
+
+Initial bids will reap low profit, but once you fight off other bidders, you have the player cornered. You will start winning players for 350 that you can sell for 800. These margins at high volumes reap ~30k coins an hour.
+
+
+Project Structure
+-Main.py is gui tkinter, creates selenium driver
+-on button click, calls thread runner which creates autobidder. driver is passed along
+- autobidder creates helper
+
+
 
 Bot uses selenium framework to run fut web app. This is the best way to not get banned, because it is very similar to a normal user activity.
 
