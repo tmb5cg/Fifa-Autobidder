@@ -1,1 +1,5 @@
-Francisco Reis Ferreira,FERRO,77,Valencia CF,Portugal,non-rare,CB,242236,28084,2000,27,0,0.85
+Francisco Reis Ferreira,FERRO,77,Valencia CF,Portugal,non-rare,CB,242236,28084,900,44,1300,0.85
+Gabriel dos S. Magalhães,GABRIEL,78,Arsenal,Brazil,Non-Rare,CB,232580,1549,950,21,0,0.85
+Mattia Caldara,CALDARA,78,Atalanta,Italy,Non-Rare,CB,220477,1523,1600,11,0,0.85
+Duje Ćaleta-Car,ĆALETA-CAR,78,OM,Croatia,Non-Rare,CB,225263,1537,1100,25,0,0.85
+Víctor Laguardia Cisneros,LAGUARDIA,78,D. Alavés,Spain,Non-Rare,CB,194222,1444,1100,11,0,0.85

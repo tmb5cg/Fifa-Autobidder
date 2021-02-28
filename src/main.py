@@ -110,7 +110,7 @@ class PlayerFilters(tk.Frame):
 
 
         disclaimer2 = tk.StringVar()
-        disclaimer_text2 = tk.Label(self, text='Futbin price will be used as truth in initial searches, during which market data will be collected to find real-time market price', font=SMALL_FONT, wraplength=400)
+        disclaimer_text2 = tk.Label(self, text='Futbin price will be used as truth in initial searches, after which logged market data collected via search will be analyzed and used as true price', font=SMALL_FONT, wraplength=400)
         disclaimer_text2.grid(row=4, column=0, columnspan=2)
 
         self.futbinlink_text = futbinlink_text

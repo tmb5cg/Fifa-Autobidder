@@ -173,6 +173,9 @@ class Autobidder:
         # # Send won to Transfer list
         self.helper.send_won_players_to_transferlist()
 
+        log_event("Sleeping for 5 minutes and heading back to war")
+        self.start()
+
         # log_event("Sent won players to transfer list!")
 
         # Make sure we are still on watchlist

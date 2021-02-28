@@ -1243,6 +1243,9 @@ def wait_for_shield_invisibility(driver, duration=0.25):
     sleep(duration)
 
 def log_event(event):
+    # Update GUI logs
+    self.update_autobidder_logs()
+    
     # add some randomness
     x = random.randint(1,10000)
     x2 = x/10000
