@@ -3,13 +3,13 @@
 
 ## Intro
 
-Note - Originally built for me and my friends as a fun side project, I'm making it open source because it deserves street credit. This is my first experience with tkinter (for GUI) as well as Selenium WebDriver, which is a library that can interact with any site.
+_Originally built for me and my friends as a fun side project, I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)
 
 An Autobidder is a form of bot deployed on the Transfer Market in FIFA Ultimate Team's web application.
 
-Unlike the more common and widely known (look up link to story about bots) botting methods such as an Autobuyers (link to Chithak's) or player snipers (link to discord 'filters'), which rely on a combination of speed and luck (such as that one snipe that makes your week), Autobidding as a botting method relies on lower margins at higher volumes - without any luck involved. This makes Autobidding not only more lucrative long term, but also more consistent, safer and secure in comparison.
+Unlike the more common and widely known [botting methods](https://www.techtudo.com.br/noticias/2021/01/proibido-no-fifa-21-veja-praticas-que-dao-ban-no-jogo-de-futebol-da-ea-esports.ghtml) such as an [Autobuyers or player snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer), which rely on a combination of speed and luck (and riskily pushing the limits of EA's bot detection), Autobidding as a botting method relies on lower margins at higher volumes - without any luck involved. This makes Autobidding not only more lucrative long term, but also more consistent, safer and secure in comparison.
 
-The preferred botting method used by coin farmers working on industrial scales (yes this is a thing - trust me), it is one of the lesser known botting methods employed by FIFA nerds for a variety of reasons. The main reason being its complexity (but also maybe because it is less fun, you're not running the chance of sniping Gullit for 20k coins)
+The preferred botting method used by coin farmers working on industrial scales (yes this is a thing - trust me), it is one of the lesser known botting methods employed by FIFA nerds for a variety of reasons. The main reason is its **complexity** (but also maybe because it is less fun)
 
 In terms of complexity, a simple Autobuyer can be built in as simple as a '''for''' loop clicking search, checking for a result, and trying again. An Autobidder requires managing multiple bidding wars in real time.
 
@@ -17,13 +17,13 @@ Used effectively, once your competitors are scared away after trying to tire out
 
 Compared to an autobuyer, auto bidding excels in terms of:
 - Consistency
-- - Does not rely on luck, more importantly not competing with other bots (think of how many bots just searched for Ronaldo as you read this)
+    - Does not rely on luck, more importantly not competing with other bots (think of how many bots just searched for Ronaldo as you read this)
 - Efficiency
-- - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
+    - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
 - Security / Detectability
-- - Selenium's Javascript injection is the only indication of something 'off' - thankfully Selenium in itself is harmless, and no different than an Adblocker's injected Javascript
+    - Selenium's Javascript injection is the only indication of something 'off' - thankfully Selenium in itself is harmless, and no different than an Adblocker's injected Javascript
 - Complexity
-- - This was a lot of work so I hope someone finds this useful
+    - This was a lot of work so I hope someone finds this useful
 
 It is for these reasons I sought to create the ultimate Autobidder entirely on my own to maximize profits while also flying as low profile as possible.
 
@@ -151,13 +151,6 @@ A '''logins.txt''' file will be created in the data folder, which must be struct
 Email credentials are necessary to fetch the authorization code.
 
 **Remember to enable third party app access in Gmail, see here:** 
-
-```
-EMAIL_CREDENTIALS = {
-    "email": "your_email@example.com",
-    "password": "your_password",
-}
-```
 
 ## Running
 
