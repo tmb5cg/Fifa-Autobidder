@@ -6,7 +6,9 @@
 ![](./readme/windows_gui.png)
 
 
-https://user-images.githubusercontent.com/58413404/109426177-37160500-79ba-11eb-94b5-f04f570f6b47.mp4
+Mac Login:
+
+![](https://user-images.githubusercontent.com/58413404/109426177-37160500-79ba-11eb-94b5-f04f570f6b47.mp4)
 
 
 
