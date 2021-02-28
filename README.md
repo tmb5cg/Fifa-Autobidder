@@ -8,7 +8,7 @@
 
 Mac Login:
 
-![](./readme/maclogin compressed.gif)
+![](/readme/maclogin compressed.gif)
 
 
 
