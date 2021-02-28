@@ -1,0 +1,191 @@
+[27/02/2021 20:42:43] ||  - - - - Bot started - - - - 
+[27/02/2021 20:42:52] || Autologin enabled
+[27/02/2021 20:42:53] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[27/02/2021 20:42:56] || Auto logging in...
+[27/02/2021 20:43:19] || Your EA Security Code is: 967550
+[27/02/2021 20:43:22] || Logged in successfully!
+[27/02/2021 20:43:38] || Autobidder started
+[27/02/2021 20:43:41] || Bid to make on each player: 8
+[27/02/2021 20:43:50] || Bidding on FERRO up to MARKET price: 1300. Purchase ceiling: 1105.0
+[27/02/2021 20:44:02] || Bids made on FERRO: 1/8
+[27/02/2021 20:44:10] || Bids made on FERRO: 2/8
+[27/02/2021 20:44:18] || Bids made on FERRO: 3/8
+[27/02/2021 20:44:26] || Bids made on FERRO: 4/8
+[27/02/2021 20:44:34] || Bids made on FERRO: 5/8
+[27/02/2021 20:44:42] || Bids made on FERRO: 6/8
+[27/02/2021 20:44:51] || Bids made on FERRO: 7/8
+[27/02/2021 20:44:59] || Bids made on FERRO: 8/8
+[27/02/2021 20:45:07] || Bids made on FERRO: 9/8
+[27/02/2021 20:45:08] || Final Number of bids made on FERRO: 9/8
+[27/02/2021 20:45:09] || Finished bidding on:FERRO
+[27/02/2021 20:45:20] || Bidding on GABRIEL up to FUTBIN price: 950. Will determine actual market price while searching. Purchase ceiling: 807.5
+[27/02/2021 20:45:32] || Bids made on GABRIEL: 1/8
+[27/02/2021 20:45:40] || Bids made on GABRIEL: 2/8
+[27/02/2021 20:45:48] || Bids made on GABRIEL: 3/8
+[27/02/2021 20:45:51] || Going to next page
+[27/02/2021 20:46:03] || Bids made on GABRIEL: 4/8
+[27/02/2021 20:46:11] || Bids made on GABRIEL: 5/8
+[27/02/2021 20:46:18] || Bids made on GABRIEL: 6/8
+[27/02/2021 20:46:25] || Bids made on GABRIEL: 7/8
+[27/02/2021 20:46:26] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 20:46:26] || Finished bidding on:GABRIEL
+[27/02/2021 20:46:37] || Bidding on CALDARA up to FUTBIN price: 1600. Will determine actual market price while searching. Purchase ceiling: 1360.0
+[27/02/2021 20:46:46] || Going to next page
+[27/02/2021 20:46:57] || Bids made on CALDARA: 1/8
+[27/02/2021 20:47:06] || Bids made on CALDARA: 2/8
+[27/02/2021 20:47:11] || Going to next page
+[27/02/2021 20:47:18] || Going to next page
+[27/02/2021 20:47:26] || Going to next page
+[27/02/2021 20:47:36] || Bids made on CALDARA: 3/8
+[27/02/2021 20:47:41] || Going to next page
+[27/02/2021 20:47:45] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 20:47:46] || Finished bidding on:CALDARA
+[27/02/2021 20:47:56] || Bidding on ĆALETA-CAR up to FUTBIN price: 1100. Will determine actual market price while searching. Purchase ceiling: 935.0
+[27/02/2021 20:48:07] || Bids made on ĆALETA-CAR: 1/8
+[27/02/2021 20:48:14] || Bids made on ĆALETA-CAR: 2/8
+[27/02/2021 20:48:17] || Going to next page
+[27/02/2021 20:48:28] || Bids made on ĆALETA-CAR: 3/8
+[27/02/2021 20:48:36] || Bids made on ĆALETA-CAR: 4/8
+[27/02/2021 20:48:43] || Bids made on ĆALETA-CAR: 5/8
+[27/02/2021 20:48:51] || Bids made on ĆALETA-CAR: 6/8
+[27/02/2021 20:48:59] || Bids made on ĆALETA-CAR: 7/8
+[27/02/2021 20:49:03] || Going to next page
+[27/02/2021 20:49:14] || Bids made on ĆALETA-CAR: 8/8
+[27/02/2021 20:49:21] || Bids made on ĆALETA-CAR: 9/8
+[27/02/2021 20:49:21] || Final Number of bids made on ĆALETA-CAR: 9/8
+[27/02/2021 20:49:22] || Finished bidding on:ĆALETA-CAR
+[27/02/2021 20:49:34] || Bidding on LAGUARDIA up to FUTBIN price: 1100. Will determine actual market price while searching. Purchase ceiling: 935.0
+[27/02/2021 20:49:46] || Bids made on LAGUARDIA: 1/8
+[27/02/2021 20:49:54] || Bids made on LAGUARDIA: 2/8
+[27/02/2021 20:49:55] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 20:49:55] || Finished bidding on:LAGUARDIA
+[27/02/2021 20:49:56] || Parsing market data to find most accurate sell prices...
+[27/02/2021 20:49:57] || Ferro min buy now from market data: 1300
+[27/02/2021 20:49:58] || Gabriel min buy now from market data: 1000
+[27/02/2021 20:49:59] || Caldara min buy now from market data: 1500
+[27/02/2021 20:49:59] || Ćaleta-Car min buy now from market data: 1100
+[27/02/2021 20:49:59] || Laguardia min buy now from market data: 1100
+[27/02/2021 20:50:00] || Going to watchlist. Time for war
+[27/02/2021 20:52:13] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 450 || Stop price: 935.0 || Potential Profit: 595.0
+[27/02/2021 20:52:18] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 500 || Stop price: 935.0 || Potential Profit: 545.0
+[27/02/2021 20:52:24] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 20:56:32] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 700 || Stop price: 1275.0 || Potential Profit: 820.0
+[27/02/2021 20:57:19] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 450 || Stop price: 1105.0 || Potential Profit: 785.0
+[27/02/2021 20:57:38] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 700 || Stop price: 1105.0 || Potential Profit: 535.0
+[27/02/2021 20:57:44] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 450 || Stop price: 935.0 || Potential Profit: 595.0
+[27/02/2021 20:57:49] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 800 || Stop price: 1105.0 || Potential Profit: 435.0
+[27/02/2021 20:58:13] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 900 || Stop price: 1105.0 || Potential Profit: 335.0
+[27/02/2021 20:58:18] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 550 || Stop price: 935.0 || Potential Profit: 495.0
+[27/02/2021 20:58:21] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 450 || Stop price: 850.0 || Potential Profit: 452.5
+[27/02/2021 20:58:26] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 1000 || Stop price: 1105.0 || Potential Profit: 235.0
+[27/02/2021 20:58:30] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:650Current bid after bidding: 650
+[27/02/2021 20:58:30] || Player outbid --> Ćaleta-Car --> ERROR. Refreshing page
+[27/02/2021 20:58:45] || Going back to watchlist
+[27/02/2021 20:58:52] || Bid method failed
+[27/02/2021 20:58:54] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:650Current bid after bidding: 650
+[27/02/2021 20:58:54] || Player outbid --> Ćaleta-Car --> ERROR. Refreshing page
+[27/02/2021 20:59:09] || Going back to watchlist
+[27/02/2021 20:59:18] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 800 || Stop price: 1275.0 || Potential Profit: 720.0
+[27/02/2021 20:59:25] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 750 || Stop price: 850.0 || Potential Profit: 152.5
+[27/02/2021 20:59:29] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 800 || Stop price: 1275.0 || Potential Profit: 720.0
+[27/02/2021 20:59:33] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 700 || Stop price: 1275.0 || Potential Profit: 820.0
+[27/02/2021 20:59:38] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 450 || Stop price: 1105.0 || Potential Profit: 785.0
+[27/02/2021 21:00:34] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 900 || Stop price: 1275.0 || Potential Profit: 620.0
+[27/02/2021 21:00:44] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 800 || Stop price: 1275.0 || Potential Profit: 720.0
+[27/02/2021 21:00:54] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 1000 || Stop price: 1275.0 || Potential Profit: 520.0
+[27/02/2021 21:00:59] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 1200 || Stop price: 1275.0 || Potential Profit: 320.0
+[27/02/2021 21:01:04] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 450 || Stop price: 1105.0 || Potential Profit: 785.0
+[27/02/2021 21:01:08] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 900 || Stop price: 1275.0 || Potential Profit: 620.0
+[27/02/2021 21:01:14] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 1000 || Stop price: 1275.0 || Potential Profit: 520.0
+[27/02/2021 21:01:23] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:1200Current bid after bidding: 1200
+[27/02/2021 21:01:24] || Player outbid --> Caldara --> ERROR. Refreshing page
+[27/02/2021 21:01:37] || Going back to watchlist
+[27/02/2021 21:01:46] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 1200 || Stop price: 1275.0 || Potential Profit: 320.0
+[27/02/2021 21:01:51] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 700 || Stop price: 1105.0 || Potential Profit: 535.0
+[27/02/2021 21:01:57] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 700 || Stop price: 850.0 || Potential Profit: 202.5
+[27/02/2021 21:02:02] || SUCCESS Player outbid --> Ferro --> SUCCESS. || CurBid: 700 || Stop price: 1105.0 || Potential Profit: 535.0
+[27/02/2021 21:03:44] || SUCCESS Player outbid --> Laguardia --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:03:48] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 400 || Stop price: 850.0 || Potential Profit: 502.5
+[27/02/2021 21:03:52] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 400 || Stop price: 850.0 || Potential Profit: 502.5
+[27/02/2021 21:05:51] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 650 || Stop price: 850.0 || Potential Profit: 252.5
+[27/02/2021 21:05:56] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 650 || Stop price: 850.0 || Potential Profit: 252.5
+[27/02/2021 21:07:44] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:08:09] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:08:47] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 600 || Stop price: 935.0 || Potential Profit: 445.0
+[27/02/2021 21:08:53] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 700 || Stop price: 935.0 || Potential Profit: 345.0
+[27/02/2021 21:09:02] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:09:23] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 750 || Stop price: 850.0 || Potential Profit: 152.5
+[27/02/2021 21:09:31] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 450 || Stop price: 850.0 || Potential Profit: 452.5
+[27/02/2021 21:09:40] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 500 || Stop price: 850.0 || Potential Profit: 402.5
+[27/02/2021 21:09:44] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 450 || Stop price: 850.0 || Potential Profit: 452.5
+[27/02/2021 21:10:10] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:600Current bid after bidding: 600
+[27/02/2021 21:10:11] || Player outbid --> Gabriel --> ERROR. Refreshing page
+[27/02/2021 21:10:26] || Going back to watchlist
+[27/02/2021 21:10:35] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 450 || Stop price: 935.0 || Potential Profit: 595.0
+[27/02/2021 21:10:39] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 450 || Stop price: 850.0 || Potential Profit: 452.5
+[27/02/2021 21:10:52] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 650 || Stop price: 850.0 || Potential Profit: 252.5
+[27/02/2021 21:10:56] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 550 || Stop price: 935.0 || Potential Profit: 495.0
+[27/02/2021 21:11:01] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 550 || Stop price: 850.0 || Potential Profit: 352.5
+[27/02/2021 21:11:05] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 650 || Stop price: 935.0 || Potential Profit: 395.0
+[27/02/2021 21:11:11] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 600 || Stop price: 850.0 || Potential Profit: 302.5
+[27/02/2021 21:11:15] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 750 || Stop price: 935.0 || Potential Profit: 295.0
+[27/02/2021 21:11:19] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 600 || Stop price: 850.0 || Potential Profit: 302.5
+[27/02/2021 21:11:24] || SUCCESS Player outbid --> Gabriel --> SUCCESS. || CurBid: 750 || Stop price: 850.0 || Potential Profit: 152.5
+[27/02/2021 21:11:27] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 850 || Stop price: 935.0 || Potential Profit: 195.0
+[27/02/2021 21:11:47] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:600Current bid after bidding: 600
+[27/02/2021 21:11:48] || Player outbid --> Ćaleta-Car --> ERROR. Refreshing page
+[27/02/2021 21:11:59] || Going back to watchlist
+[27/02/2021 21:12:22] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 650 || Stop price: 935.0 || Potential Profit: 395.0
+[27/02/2021 21:12:27] || SUCCESS Player outbid --> Laguardia --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:12:32] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 750 || Stop price: 935.0 || Potential Profit: 295.0
+[27/02/2021 21:12:41] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 850 || Stop price: 935.0 || Potential Profit: 195.0
+[27/02/2021 21:14:06] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:750Current bid after bidding: 750
+[27/02/2021 21:14:06] || Player outbid --> Caldara --> ERROR. Refreshing page
+[27/02/2021 21:14:19] || Going back to watchlist
+[27/02/2021 21:14:27] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 400 || Stop price: 935.0 || Potential Profit: 645.0
+[27/02/2021 21:14:31] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 750 || Stop price: 1275.0 || Potential Profit: 770.0
+[27/02/2021 21:15:22] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 500 || Stop price: 935.0 || Potential Profit: 545.0
+[27/02/2021 21:15:28] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 600 || Stop price: 935.0 || Potential Profit: 445.0
+[27/02/2021 21:15:36] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 900 || Stop price: 935.0 || Potential Profit: 145.0
+[27/02/2021 21:15:41] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 850 || Stop price: 1275.0 || Potential Profit: 670.0
+[27/02/2021 21:15:48] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 950 || Stop price: 1275.0 || Potential Profit: 570.0
+[27/02/2021 21:15:58] || SUCCESS Player outbid --> Caldara --> SUCCESS. || CurBid: 1100 || Stop price: 1275.0 || Potential Profit: 420.0
+[27/02/2021 21:16:06] || Bid did not go through! Will now return 0 and hopefully refresh. Original bid:550Current bid after bidding: 550
+[27/02/2021 21:16:06] || Player outbid --> Ćaleta-Car --> ERROR. Refreshing page
+[27/02/2021 21:16:20] || Going back to watchlist
+[27/02/2021 21:16:28] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 550 || Stop price: 935.0 || Potential Profit: 495.0
+[27/02/2021 21:16:41] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 650 || Stop price: 935.0 || Potential Profit: 395.0
+[27/02/2021 21:16:47] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 750 || Stop price: 935.0 || Potential Profit: 295.0
+[27/02/2021 21:16:55] || SUCCESS Player outbid --> Ćaleta-Car --> SUCCESS. || CurBid: 850 || Stop price: 935.0 || Potential Profit: 195.0
+[27/02/2021 21:17:36] || No active bids, or not on watch list
+[27/02/2021 21:17:36] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 21:17:43] || Num players won: 22
+[27/02/2021 21:20:32] || No active bids, or not on watch list
+[27/02/2021 21:20:33] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 21:20:39] || Num players won: 13
+[27/02/2021 21:21:51] || No active bids, or not on watch list
+[27/02/2021 21:21:52] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 21:21:58] || Num players won: 0
+[27/02/2021 21:21:59] ||  - - - All players listed for transfer - - - 
+[27/02/2021 21:22:00] || Total investment: 0
+[27/02/2021 21:22:00] || Market sell prices gives sellback of 0
+[27/02/2021 21:22:01] || Guaranteed Profit: 0
+[27/02/2021 21:22:02] || Time spent: 29.7 Minutes
+[27/02/2021 21:22:07] || Num players expired: 13
+[27/02/2021 21:22:09] || Sleeping for 5 minutes and heading back to war
+[27/02/2021 21:22:20] || No active bids, or not on watch list
+[27/02/2021 21:22:21] || Bidding round finished, will now send players to transfer list and list them!
+[27/02/2021 21:22:27] || Num players won: 13
+[27/02/2021 21:24:10] || Autobidder started
+[27/02/2021 21:24:13] || Bid to make on each player: 9
+[27/02/2021 21:24:23] || Bidding on FERRO up to MARKET price: 1300. Purchase ceiling: 1105.0
+[27/02/2021 21:24:34] || Bids made on FERRO: 1/9
+[27/02/2021 21:24:42] || Bids made on FERRO: 2/9
+[27/02/2021 21:24:47] || Going to next page
+[27/02/2021 21:24:50] || Time remaining of players on page exceeded 50 minutes, RETURN
+[27/02/2021 21:24:51] || Finished bidding on:FERRO
+[27/02/2021 21:25:01] || Bidding on GABRIEL up to MARKET price: 1000. Purchase ceiling: 850.0

@@ -49,7 +49,7 @@ class RunThread(threading.Thread):
 
             # testhelper.update_autobidder_logs()
             autobidder = Autobidder(self.driver, self.queue)
-            autobidder.start()
+            autobidder.manageWatchlist()
 
         if self.action == "autobuyer":
             self.queue.put("Starting autobuyer")

@@ -911,6 +911,8 @@ class Helper:
                 # log_event("Bid succesfully went through!")
                 self.user_bids_made += 1
                 return "Success"
+
+        self.update_autobidder_logs()
         sleep(1)
 
     # During bid wars, oftentimes bids will not go through - this refreshes the webapp
@@ -1244,7 +1246,7 @@ def wait_for_shield_invisibility(driver, duration=0.25):
 
 def log_event(event):
     # Update GUI logs
-    self.update_autobidder_logs()
+    
     
     # add some randomness
     x = random.randint(1,10000)

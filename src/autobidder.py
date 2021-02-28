@@ -172,8 +172,11 @@ class Autobidder:
 
         # # Send won to Transfer list
         self.helper.send_won_players_to_transferlist()
+        sleep(2)
+        self.helper.clearExpired()
 
         log_event("Sleeping for 5 minutes and heading back to war")
+        sleep(60*2)
         self.start()
 
         # log_event("Sent won players to transfer list!")
