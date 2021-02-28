@@ -5,6 +5,13 @@
 
 ![](./readme/windows_gui.png)
 
+
+Mac Login:
+
+![](https://user-images.githubusercontent.com/58413404/109426177-37160500-79ba-11eb-94b5-f04f570f6b47.mp4)
+
+
+
 The only all-in-one Autobuyer and Autobidder that works on Mac, Windows, and Linux.
 
 Originally built for me and my friends as a fun side project, I'm making it open source since I am not actively updating it. This is my first experience with tkinter (for GUI) as well as Selenium WebDriver, which is a library that can interact with any site.
