@@ -190,3 +190,87 @@
 [27/02/2021 21:24:51] || Finished bidding on:FERRO
 [27/02/2021 21:25:01] || Bidding on GABRIEL up to MARKET price: 1000. Purchase ceiling: 850.0
 [28/02/2021 11:16:18] ||  - - - - Bot started - - - - 
+[28/02/2021 12:25:53] ||  - - - - Bot started - - - - 
+[28/02/2021 12:28:58] || Fetching player info...
+[28/02/2021 12:29:17] || Added player RODRÍGUEZ
+[28/02/2021 12:47:10] ||  - - - - Bot started - - - - 
+[28/02/2021 12:50:09] ||  - - - - Bot started - - - - 
+[28/02/2021 12:50:50] ||  - - - - Bot started - - - - 
+[28/02/2021 13:04:18] ||  - - - - Bot started - - - - 
+[28/02/2021 13:05:58] ||  - - - - Bot started - - - - 
+[28/02/2021 13:09:07] ||  - - - - Bot started - - - - 
+[28/02/2021 13:09:24] ||  - - - - Bot started - - - - 
+[28/02/2021 13:09:32] ||  - - - - Bot started - - - - 
+[28/02/2021 13:11:00] ||  - - - - Bot started - - - - 
+[28/02/2021 13:12:38] ||  - - - - Bot started - - - - 
+[28/02/2021 13:12:54] || Autologin enabled
+[28/02/2021 13:12:55] || AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[28/02/2021 13:13:50] ||  - - - - Bot started - - - - 
+[13:19:05] - - - - Bot started - - - - 
+[13:32:14] - - - - Bot started - - - - 
+[13:32:59] - - - - Bot started - - - - 
+[13:33:08]Not yet implemented
+[13:33:16]Not yet implemented
+[13:34:32] - - - - Bot started - - - - 
+[13:34:42]Not yet implemented
+[13:35:23]  - - - - Bot started - - - - 
+[13:42:01]  - - - - Bot started - - - - 
+[13:42:26]  - - - - Bot started - - - - 
+[13:42:47]  - - - - Bot started - - - - 
+[13:43:47]  - - - - Bot started - - - - 
+[13:43:54]  - - - - Bot started - - - - 
+[13:44:49]  - - - - Bot started - - - - 
+[13:48:44]  - - - - Bot started - - - - 
+[13:49:05]  - - - - Bot started - - - - 
+[13:49:27]  - - - - Bot started - - - - 
+[13:56:48]  - - - - Bot started - - - - 
+[13:59:03]  - - - - Bot started - - - - 
+[13:59:36] Not yet implemented
+[13:59:50] Autologin enabled
+[13:59:51] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[13:59:55] Not yet implemented
+[14:02:42]  - - - - Bot started - - - - 
+[14:05:14]  - - - - Bot started - - - - 
+[14:05:43]  - - - - Bot started - - - - 
+[14:06:21]  - - - - Bot started - - - - 
+[14:08:37]  - - - - Bot started - - - - 
+[14:10:15]  - - - - Bot started - - - - 
+[14:10:34]  - - - - Bot started - - - - 
+[14:11:27]  - - - - Bot started - - - - 
+[14:14:07]  - - - - Bot started - - - - 
+[14:15:34]  - - - - Bot started - - - - 
+[14:16:05]  - - - - Bot started - - - - 
+[15:24:24]  - - - - Bot started - - - - 
+[15:24:44] Not yet implemented
+[15:26:01]  - - - - Bot started - - - - 
+[17:44:19] Autologin enabled
+[17:44:20] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:44:37]  - - - - Bot started - - - - 
+[17:45:17]  - - - - Bot started - - - - 
+[17:45:34] Autologin enabled
+[17:45:34] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:46:44]  - - - - Bot started - - - - 
+[17:46:53] Autologin not enabled, must login manually
+[17:46:58] Autologin enabled
+[17:46:58] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:47:10] Autologin not enabled, must login manually

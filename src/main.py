@@ -69,19 +69,23 @@ class GUI(tk.Tk):
 
         # self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
 
-        # TOP LEFT Add players box
-        self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
+        # TOP RIGHT Main UI
+        # self.playerfilters.pack(side=LEFT, anchor = NW) #grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
+        self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="5", pady="5")
 
-        # TOP RIGHT Player targets table
-        self.table.grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
+        # MIDDLE RIGHT Player Input List Table
+        # self.table.pack(side=LEFT, anchor = W) #grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
+        self.table.grid(row=1, column=0, sticky="nsew", padx="5", pady="5")
 
-        # BOTTOM LEFT Login / start bot / etc buttons
-        self.mainbuttons.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
+        # FULL LEFT Autobidder / Buyer Stats
+        # self.mainbuttons.pack(side=RIGHT, anchor=NE) #grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
+        self.mainbuttons.grid(row=0, column=1, rowspan=3, sticky="nsew", padx="5", pady="5")
 
-        # BOTTOM RIGHT Log displayer
-        self.displaylogs.grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
+        # BOTTOM RIGHT Logs
+        # self.displaylogs.pack(side=LEFT, anchor=SW) #grid(row=1, column=2, sticky="nsew", padx="10", pady="10")
+        self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")
 
-# Top left 
+# Top right 
 class PlayerFilters(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -116,20 +120,24 @@ class PlayerFilters(tk.Frame):
         self.futbinlink_text = futbinlink_text
 
         loginLabel = tk.Label(self, text='Auto Login: ')
+        botChoice = tk.Label(self, text='Bot Method: ')
         loginLabel.grid(row = 5, column = 0)
+        botChoice.grid(row = 7, column = 0)
 
         self.autologin_choice = tk.IntVar()
-        self.autologin_choice.set(0)  # initializing the choice, i.e. Python
+        self.bot_choice = tk.IntVar()
+        self.autologin_choice.set(0) 
+        self.bot_choice.set(0)
 
-        self.autologinFalse = tk.Radiobutton(self, text="Disabled", padx = 20,  variable=self.autologin_choice,  command=self.loginChoice, value=0).grid(row=6, column = 1)
-        self.autologinTrue = tk.Radiobutton(self, text="Enabled", padx = 20,  variable=self.autologin_choice,  command=self.loginChoice, value=1).grid(row=5, column = 1)
+        self.autologinFalse = tk.Radiobutton(self, text="Disabled", padx = 20,  variable=self.autologin_choice,  command=self.chooseLoginType, value=0).grid(row=5, column = 1)
+        self.autologinTrue = tk.Radiobutton(self, text="Enabled", padx = 20,  variable=self.autologin_choice,  command=self.chooseLoginType, value=1).grid(row=6, column = 1)
+        self.botchoiceAutobidder = tk.Radiobutton(self, text="AutoBidder", padx = 20,  variable=self.bot_choice,  command=self.chooseBotType, value=0).grid(row=7, column = 1)
+        self.botchoiceAutobuyer = tk.Radiobutton(self, text="AutoBuyer", padx = 20,  variable=self.bot_choice,  command=self.chooseBotType, value=1).grid(row=8, column = 1)
 
-        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=7, column=0, columnspan = 2, pady=25)
-        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=8, column=0, columnspan=2)
+        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=9, column=0, columnspan = 2, pady=25)
+        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=10, column=0, columnspan=2)
 
-
-
-    def loginChoice(self):
+    def chooseLoginType(self):
         choice = str(self.autologin_choice.get())
 
         if (choice == "1"):
@@ -161,6 +169,19 @@ class PlayerFilters(tk.Frame):
                 file1.close()
                 msg = "AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: \n Line 1: EA login \n Line 2: EA password \n Line 3: Email login (used for auto fetching code, see readme) \n Line 4: Email password (used for code fetching)\nLogging in manually is probably easier"
                 self.popupmsg(msg)
+
+    def chooseBotType(self):
+        choice = str(self.bot_choice.get())
+
+        # Show and hide autobidder / autobuyer stats based on user input
+        if (choice == "1"):
+            self.controller.mainbuttons.autobidder.grid_remove()
+            self.controller.mainbuttons.autobuyer.grid()
+            msg = "Not yet implemented"
+            self.popupmsg(msg)
+        if (choice == "0"):
+            self.controller.mainbuttons.autobuyer.grid_remove()
+            self.controller.mainbuttons.autobidder.grid()
 
     def add_player_futbin(self):
         futbin_url = self.futbinlink_text.get()
@@ -205,6 +226,7 @@ class PlayerFilters(tk.Frame):
     def login(self):
         choice = str(self.autologin_choice.get())
 
+
         if (choice == "1"):
             self.queue = queue.Queue()
 
@@ -228,6 +250,9 @@ class PlayerFilters(tk.Frame):
 
             else:
                 self.popupmsg("Logins.txt not found, login manually")
+        else:
+            msg = "Autologin not enabled, must login manually"
+            self.popupmsg(msg)
 
     def popupmsg(self, msg):
         popup = tk.Tk()
@@ -240,24 +265,16 @@ class PlayerFilters(tk.Frame):
         popup.mainloop()
 
     def reloadfunctions(self):
-            # self.progress()
-            # self.prog_bar.start()
-            self.queue = queue.Queue()
-            importlib.reload(thread_runner)
-            importlib.reload(autobidder)
-            # importlib.reload(helpers)
-            # importlib.reload(mainhelpers)
-            importlib.reload(newhelpers)
-            # importlib.reload(autobidder_any)
-            # importlib.reload(autobidder_list)
-            # importlib.reload(function_runner)
+        self.queue = queue.Queue()
+        importlib.reload(thread_runner)
+        importlib.reload(autobidder)
+        importlib.reload(newhelpers)
 
 
-# Top right
+# Middle right
 class Table(tk.Frame):
 
     def __init__(self, parent, controller):
-
         self.parent = parent
         self.controller = controller
 
@@ -267,14 +284,18 @@ class Table(tk.Frame):
         self.status.grid(row = 0, column = 0)
 
         # Player list table
-        # columns = ['id', 'Playername', 'Overall', 'Buy price', 'Sell price']
-        columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy %", "Max Price to pay"]
+        columns = ["Name", "Rating", "Futbin Price", "Real Price", "Buy %", "Max Bid"]
 
-        self.router_tree_view = Treeview(self, columns=columns, show="headings")
+        self.router_tree_view = Treeview(self, columns=columns, show="headings", height=5)
         # self.router_tree_view.column("id", width=30)
 
-        for col in columns[1:]:
-            self.router_tree_view.column(col, width=40)
+        # Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+        for col in columns:
+            colwidth = 70
+            if col == "Card name":
+                colwidth = 135
+            self.router_tree_view.column(col, width=colwidth)
             self.router_tree_view.heading(col, text=col)
 
         #router_tree_view.bind('<<TreeviewSelect>>', select_router)
@@ -288,11 +309,26 @@ class Table(tk.Frame):
         #self.playerlist = []
         for aline in txt:
             values2 = aline.strip("\n").split(",")
+            # print(values2)
             self.playerlist.append(values2)
-            self.router_tree_view.insert('', 'end', values=values2)
+            cardname = values2[1]
+            rating = values2[2]
+            futbinprice = values2[9]
+            realprice = values2[11]
+            buypct = values2[12]
+
+            values_small_view = []
+            values_small_view.append(cardname)
+            values_small_view.append(rating)
+            values_small_view.append(futbinprice)
+            values_small_view.append(realprice)
+            values_small_view.append(buypct)
+
+            # print(values_small_view)
+            self.router_tree_view.insert('', 'end', values=values_small_view)
         txt.close()
 
-# Bottom left
+# Full Left
 class MainButtons(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -353,10 +389,10 @@ class MainButtons(tk.Frame):
         num_autobidder_labels = len(autobidder_data)
         num_autobuyer_labels = len(autobuyer_data)
 
-
         self.test2 = tk.Button(self.autobidder, text='Start Autobidder', width=15, command=self.startAutobidder).grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
         self.test3 = tk.Button(self.autobuyer, text='Start Autobuyer', width=15, command=self.startAutobuyer).grid(row=num_autobuyer_labels+1, column=0, columnspan = 2)
 
+        self.autobuyer.grid_remove()
         self.update_stat_labels()
 
     # Creates webdriver instance to be passed to all methods
@@ -372,9 +408,6 @@ class MainButtons(tk.Frame):
 
         option = webdriver.ChromeOptions()
 
-
-        # Removes navigator.webdriver flag
-
         # For older ChromeDriver under version 79.0.3945.16
         option.add_argument("--ignore-certificate-error")
         option.add_argument("--ignore-ssl-errors")
@@ -383,11 +416,6 @@ class MainButtons(tk.Frame):
 
         # For ChromeDriver version 79.0.3945.16 or over
         option.add_argument('--disable-blink-features=AutomationControlled')
-
-        # driver = webdriver.Chrome(
-        #     executable_path=path,
-        #     options=option
-        # )
 
         driver = webdriver.Chrome(executable_path=path, options=option)
         driver.maximize_window()
@@ -433,48 +461,31 @@ class MainButtons(tk.Frame):
 
     # These functions are called on button press
     def testfunc(self):
-        # self.progress()
-        # self.prog_bar.start()
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist).start()
         self.after(100, self.process_queue)
 
     def startAutobidder(self):
-            # self.progress()
-            # self.prog_bar.start()
             self.queue = queue.Queue()
             thread_runner.RunThread(self.queue, self.driver, "autobidder", self.controller.playerfilters.playerlist).start()
             self.after(100, self.process_queue)
 
     def startAutobuyer(self):
-            # self.progress()
-            # self.prog_bar.start()
             self.queue = queue.Queue()
             thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist).start()
             self.after(100, self.process_queue)
 
     def reloadfunctions(self):
-        # self.progress()
-        # self.prog_bar.start()
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
-        # importlib.reload(helpers)
-        # importlib.reload(mainhelpers)
         importlib.reload(newhelpers)
-        # importlib.reload(autobidder_any)
-        # importlib.reload(autobidder_list)
-        # importlib.reload(function_runner)
-
         self.after(100, self.process_queue)
 
     def process_queue(self):
         try:
             msg = self.queue.get(0)
-            # print("QUEUE MESSAGE IS!!!:  " + str(msg))
             self.controller.table.status["text"] = str(msg)
-            # Show result of the task if needed
-            # self.prog_bar.stop()
         except queue.Empty:
             self.after(100, self.process_queue)
 
@@ -496,10 +507,10 @@ class DisplayLogs(tk.Frame):
         # Player list table
         columns = ['log']
         self.loggings = Treeview(self, columns=columns, show="headings")
-        self.loggings.column("log", width=640)
+        self.loggings.column("log", width=415)
 
         for col in columns[1:]:
-            self.loggings.column(col, width=400)
+            self.loggings.column(col, width=1)
             self.loggings.heading(col, text=col)
 
         #loggings.bind('<<TreeviewSelect>>', select_router)

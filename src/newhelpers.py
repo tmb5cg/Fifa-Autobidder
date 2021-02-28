@@ -1255,9 +1255,9 @@ def log_event(event):
 
     file_object = open('./data/gui_logs.txt', 'a')
     now = datetime.now()
-    dt_string = now.strftime("[%d/%m/%Y %H:%M:%S]")
+    dt_string = now.strftime("[%H:%M:%S] ")
 
-    full_log = dt_string + " || " + event + "\n"
+    full_log = dt_string + event + "\n"
     print(full_log)
     file_object.write(full_log)
     file_object.close()
