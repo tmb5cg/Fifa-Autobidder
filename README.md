@@ -16,10 +16,6 @@ Used effectively, once your competitors give up trying to compete with a compute
 
 It is for these reasons I sought to create the ultimate Autobidder entirely on my own to maximize profits while also flying as low profile as possible.
 
-Compared to an autobuyer, auto bidding excels in terms of:
-
-
-
 ## Overview
 
 Mac             |  Windows
