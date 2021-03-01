@@ -3,15 +3,15 @@
 
 ## Intro
 
-_Originally built for me and my friends as a fun side project, I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)
+_Note: I built this for my friends and I as a fun side project. I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)_
 
-An Autobidder is a form of bot deployed on the Transfer Market in FIFA Ultimate Team's web application.
+This project is an Autobidder, a trading bought built to buy and sell players on the FUT (FIFA Ultimate Team) Transfer Market. 
 
-Unlike the more common and widely known [botting methods](https://www.techtudo.com.br/noticias/2021/01/proibido-no-fifa-21-veja-praticas-que-dao-ban-no-jogo-de-futebol-da-ea-esports.ghtml) such as an [Autobuyers or player snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer), which rely on a combination of speed and luck (and riskily pushing the limits of EA's bot detection), Autobidding as a botting method relies on lower margins at higher volumes - without any luck involved. This makes Autobidding not only more lucrative long term, but also more consistent, safer and secure in comparison.
+Unlike the more common and widely known botting methods, such as [Autobuyers or player snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on a combination of speed and luck (and riskily pushing the limits of EA's bot detection), Autobidding relies on lower margins at higher volumes - without any luck involved. This makes Autobidding not only more lucrative long term, but also more consistent, safer and more secure in comparison.
 
-The preferred botting method used by coin farmers working on industrial scales (yes this is a thing - trust me), it is one of the lesser known botting methods employed by FIFA nerds for a variety of reasons. The main reason is its **complexity** (but also maybe because it is less fun)
+Autobidding is the preferred botting method used by coin farmers working on industrial scales (this is indeed a thing). It is one of the lesser known botting methods employed by FIFA nerds for a variety of reasons, **the main reason** being its complexity (but also maybe because it is less fun).
 
-In terms of complexity, a simple Autobuyer can be built in as simple as a '''for''' loop clicking search, checking for a result, and trying again. An Autobidder requires managing multiple bidding wars in real time.
+For example, a simple Autobuyer can be built in as simple as a '''for''' loop that clicks search, checks for a result, and tries again. An Autobidder requires managing multiple bidding wars in real time, knowing when to push back, and when to leave the table.
 
 Used effectively, once your competitors are scared away after trying to tire out a computer, the market is cornered and auctions will be won for significantly under market value. While everyone else is trying to snipe Ronaldo for 5k, and all of them competing with each other for the same snipe, small but consistent gains at scale will prevail (we're living in a simulation).
 
