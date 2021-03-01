@@ -62,7 +62,7 @@ On the initial pass through the market, Futbin's price will be used as ceiling. 
 
 ## Installation
 
-First, download a fresh version of Chromedriver straight from Google here (insert link) as it must match your machine's version of Chrome. Replace the existing chromedriver that matches your platform in either the chrome_linux, chrome_mac, or chrome_windows folders.
+First, go [here](https://chromedriver.chromium.org/downloads) and download the latest release (Google will link you to the correct version). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
 
 Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
 
@@ -117,7 +117,9 @@ I suspect this will cause the biggest number of issues.
 
 ### Chomedriver
 
-If the bot is correctly starting, and you are sure Python is not the issue, then Chromedriver is the issue. The Chromedriver files ([chrome_windows](./chrome_windows) and [chrome_mac](./chrome_mac)) are the versions used by my system. In order for Chromedriver to work, it must match your systems version of Chrome. This can easily be fixed by redownloading Chromedriver.
+If the bot is correctly starting, and you are sure Python is not the issue, then Chromedriver is the issue. The Chromedriver files ([chrome_windows](./chrome_windows) and [chrome_mac](./chrome_mac)) are the versions used by my system. 
+
+In order for Chromedriver to work, it must match your systems version of Chrome. This can easily be fixed by redownloading Chromedriver.
 
 Go [here](https://chromedriver.chromium.org/downloads) and download the latest release (Google will link you to the correct version). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
 
@@ -144,7 +146,7 @@ A *logins.txt* file will be created in the data folder, which must be structured
 
 Email credentials are necessary to fetch the authorization code.
 
-**Remember to enable third party app access in Gmail, see [here](https://support.google.com/accounts/answer/3466521?hl=en_):**
+**Remember to enable third party app access in Gmail, see [here](https://support.google.com/accounts/answer/3466521?hl=en_)**
 
 ## Running
 
