@@ -20,13 +20,11 @@ Used effectively, once your competitors give up trying to compete with a compute
 
 It is for these reasons I sought to create the ultimate Autobidder entirely on my own to maximize profits while also flying as low profile as possible.
 
-## Overview
+## Overview & Features
 
-bidwar1_lowframerate.gif
-
-Bidding war             |  Autolist
+Bidding war             |  Autolisting
 :-------------------------:|:-------------------------:
-![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/gui_windows.PNG)
+![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/transferlisting1.gif)
 
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
