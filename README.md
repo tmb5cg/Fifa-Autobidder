@@ -77,15 +77,15 @@ Command Prompt:
 cd Desktop\FIFA21UTBOTv2
 ```
 
-Then run the following to install Selenium and any other requirements (see requirements.txt): 
+Then run the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
 
 ```
 pip install -r requirements.txt
 ```
 
-Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ```pip install [xyz] ```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
+Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
 
-For any other errors, see *troubleshooting*. 
+For any other errors, see *troubleshooting*.
 
 ## Troubleshooting
 
