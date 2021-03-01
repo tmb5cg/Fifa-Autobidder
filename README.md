@@ -1,5 +1,9 @@
 # TMB's FIFA 21 Autobidder
 
+Mac             |  Windows
+:-------------------------:|:-------------------------:
+![](./demos/GUI_mac.png)  |  ![](./demos/gui_windows.PNG)
+
 ## Intro
 
 _Note: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to this botting community [Discord](https://discord.gg/gd9UqAtr)._
@@ -17,10 +21,6 @@ Used effectively, once your competitors give up trying to compete with a compute
 It is for these reasons I sought to create the ultimate Autobidder entirely on my own to maximize profits while also flying as low profile as possible.
 
 ## Overview
-
-Mac             |  Windows
-:-------------------------:|:-------------------------:
-![](./demos/GUI_mac.png)  |  ![](./demos/gui_windows.PNG)
 
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
