@@ -54,12 +54,6 @@ Project Structure
 - on button click, calls thread runner which creates autobidder. driver is passed along
 - autobidder creates helper
 
-![](./demos/windows_gui.png)
-
-Mac Login:
-
-![](https://user-images.githubusercontent.com/58413404/109426177-37160500-79ba-11eb-94b5-f04f570f6b47.mp4)
-
 The first step is logging in, either manually or automatically.
 
 Once logged in, click the Start Autobidder button.
