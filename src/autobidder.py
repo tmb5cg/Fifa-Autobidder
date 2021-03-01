@@ -131,11 +131,11 @@ class Autobidder:
                                         # log_event("Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
                                         result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                         if result == "Failure":
-                                            log_event("Player outbid --> " + str(playername) + " --> ERROR. Refreshing page")
+                                            log_event("Error outbidding " + str(playername) + ". Refreshing page")
                                             sleep(1)
                                             self.helper.refreshPageAndGoToWatchlist()
                                         if result == "Success":
-                                            log_event("SUCCESS Player outbid --> " + str(playername) + " --> SUCCESS. || CurBid: " + str(curbid) + " || Stop price: " + str(stopPrice) + " || Potential Profit: " + str(sellprice - curbid))
+                                            log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " || Est. Profit: " + str(sellprice - curbid))
                 else:
                     status = 0
                     # self.manageTransferlist()
@@ -143,27 +143,6 @@ class Autobidder:
                 status = 0
         log_event("No active bids, or not on watch list")
         self.manageTransferlist()
-
-
-
-
-
-
-        #         else:
-        #             log_event("First card processing... waiting for them to go away. Rerunning watchlist manager.")
-        #             self.manageWatchlist()
-        #     except Exception as e: # work on python 3.x
-        #         log_event('Line 148 failure: ' + str(e))
-        #         self.manageWatchlist()
-        #     else:
-        #         log_event("No active bids detected... now need to expired and send to TL")
-        #         sleep(10)
-        #         self.helper.clearExpired()
-        #         log_event("Cleared expired players")
-        #         self.manageTransferlist()
-        # else:
-        #     log_event("User is not on Watchlist, breaking method here")
-        #     self.manageTransferlist()
 
     def manageTransferlist(self):
         log_event("Bidding round finished, will now send players to transfer list and list them!")
