@@ -46,7 +46,8 @@ Features:
 
 Mac             |  Windows
 :-------------------------:|:-------------------------:
-![](./demos/mac_login_compressed.gif)  |  ![](.to do)
+![](./demos/mac_login_compressed.gif)  |  ![](to do)
+
 Initial bids will reap low profit, but once you fight off other bidders, you have the player cornered. You will start winning players for 350 that you can sell for 800. These margins at high volumes reap ~30k coins an hour.
 
 Project Structure
