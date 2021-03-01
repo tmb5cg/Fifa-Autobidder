@@ -18,14 +18,7 @@ It is for these reasons I sought to create the ultimate Autobidder entirely on m
 
 Compared to an autobuyer, auto bidding excels in terms of:
 
-- Consistency
-  - Does not rely on luck, more importantly not competing with other bots (think of how many bots just searched for Ronaldo as you read this)
-- Efficiency
-  - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
-- Security / Detectability
-  - Selenium's Javascript injection is the only indication of something 'off' - thankfully Selenium in itself is harmless, and no different than an Adblocker's injected Javascript
-- Complexity
-  - This was a lot of work so I hope someone finds this useful
+
 
 ## Overview
 
@@ -44,9 +37,16 @@ Features:
 - All methods are threaded separately, so GUI is always active
 - Optional AutoLogin + authentication code entry (requires enabling 3rd party access in Gmail)
 
-Mac             |  Windows
-:-------------------------:|:-------------------------:
-![](./demos/maclogin_compressed.gif)  |  ![](to do)
+Avantages:
+
+- Consistent profits
+  - Does not rely on luck, more importantly not competing with other bots (think of how many bots just searched for Ronaldo as you read this)
+- Efficiency
+  - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
+- Security / Detectability
+  - Selenium's Javascript injection is the only indication of something 'off' - thankfully Selenium in itself is harmless, and no different than an Adblocker's injected Javascript
+- Complexity
+  - This was a lot of work so I hope someone finds this useful
 
 Initial bids will reap low profit, but once you fight off other bidders, you have the player cornered. You will start winning players for 350 that you can sell for 800. These margins at high volumes reap ~30k coins an hour.
 
@@ -134,6 +134,10 @@ To add a player, retrieve their Futbin (insert link) URL and click Add Player. T
 The maximum bid ceiling is hard set to 85%, and will be customizeable in a later update. The sell price is 95% of market price.
 
 ### Automatic login
+
+Mac             |  Windows
+:-------------------------:|:-------------------------:
+![](./demos/maclogin_compressed.gif)  |  ![](to do)
 
 If you would like to automatically login, enable Auto Login via the UI.
 
