@@ -975,9 +975,14 @@ class Helper:
                 num_players_expired += 1
 
         log_event("Num players expired: " + str(num_players_expired))
-        sleep(1)
-        self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div/section[4]/header/button').click()
-        sleep(1)
+
+        if num_players_expired > 3:
+            try:
+                sleep(1)
+                self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div/section[4]/header/button').click()
+                sleep(1)
+            except:
+                log_event("Clear expired button click did not work, please manually click")
 
     def clickSearch(self):
         sleep(1)
