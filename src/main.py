@@ -1,47 +1,32 @@
-import thread_runner
-# import function_runner
-# import mainhelpers
-# import helpers
-import newhelpers
-# import autobidder_any
-import autobidder
-import autobuyer
-# import autobidder_list
-
-# from config import create_driver, URL
-from thread_runner import RunThread
-# from function_runner import RunFunction
-# from helpers import *
-# from mainhelpers import *
-from newhelpers import *
-
-from selenium.webdriver.common.action_chains import ActionChains
-
-from importlib import reload
 import importlib
-import queue
-
-from tkinter import *
-import tkinter as tk
-from tkinter.ttk import Treeview
-from tkinter import ttk
-
-import os.path
-from os import path
 import json
+import os
+import os.path
+import platform
+import queue
+import tkinter as tk
+from importlib import reload
+from os import path
+from tkinter import *
+from tkinter import ttk
+from tkinter.ttk import Treeview
 
 from selenium import webdriver
-import platform
-import os
-from selenium.webdriver.support import ui
 from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver import ChromeOptions, Chrome
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import ui
+from selenium.webdriver.support.wait import WebDriverWait
 
+import autobidder
+import autobuyer
+import newhelpers
+import thread_runner
+from newhelpers import *
+from thread_runner import RunThread
 
 LARGE_FONT= ("Verdana", 12)
 SMALL_FONT = ("Verdana", 8)
@@ -270,7 +255,6 @@ class PlayerFilters(tk.Frame):
         importlib.reload(autobidder)
         importlib.reload(newhelpers)
 
-
 # Middle right
 class Table(tk.Frame):
 
@@ -280,7 +264,7 @@ class Table(tk.Frame):
 
         tk.Frame.__init__(self, parent)
 
-        self.status = tk.Label(self, text="Status Displayed Here", font=LARGE_FONT)
+        self.status = tk.Label(self, text="Player List", font=LARGE_FONT)
         self.status.grid(row = 0, column = 0)
 
         # Player list table
@@ -489,8 +473,6 @@ class MainButtons(tk.Frame):
         except queue.Empty:
             self.after(100, self.process_queue)
 
-
-
 # Bottom right
 class DisplayLogs(tk.Frame):
 
@@ -541,8 +523,7 @@ class DisplayLogs(tk.Frame):
         self.loggings.yview_moveto(1)
         self.after(100, self.update_logs)
 
-
-
 # TODO insert create logins.txt method here, that makes first line say not entered - update msgbox method
 app = GUI()
+app.title("TMB's FIFA 21 Autobidder")
 app.mainloop()
