@@ -31,7 +31,7 @@ Compared to an autobuyer, auto bidding excels in terms of:
 
 Mac             |  Windows
 :-------------------------:|:-------------------------:
-![](./demos/GUI_mac.PNG)  |  ![](./demos/gui_windows.png)
+![](./demos/GUI_mac.png)  |  ![](./demos/gui_windows.PNG)
 
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
