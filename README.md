@@ -3,7 +3,7 @@
 
 ## Intro
 
-_Note: I built this for my friends and me as a fun side project. I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to this botting community [Discord](https://discord.gg/gd9UqAtr).
+_Note: I built this for my friends and me as a fun side project. I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to this botting community [Discord](https://discord.gg/gd9UqAtr)._
 
 This project is an Autobidder trading bought that buys and sells players on the FUT (FIFA 21 Ultimate Team) Transfer Market.
 
