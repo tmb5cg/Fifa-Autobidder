@@ -83,7 +83,7 @@ Then run the following to install Selenium and any other requirements (see requi
 pip install -r requirements.txt
 ```
 
-Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ''' pip install [xyz] '''. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
+Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ```pip install [xyz] ```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
 
 For any other errors, see *troubleshooting*. 
 
