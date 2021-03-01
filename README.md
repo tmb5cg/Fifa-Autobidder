@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
 
-For any other errors, see *troubleshooting*.
+For any other errors, see *troubleshooting* below.
 
 ## Troubleshooting
 
@@ -93,7 +93,7 @@ For any other errors, see *troubleshooting*.
 
 Python3 or greater is required to run the program. The most likely cause for errors is having an outdated Python version installed. To see your version of Python:
 
-#### Mac
+##### Mac
 
 Open Terminal and type:
 
@@ -101,7 +101,7 @@ Open Terminal and type:
 python --version
 ```
 
-#### Windows
+##### Windows
 
 Open Command Prompt and type:
 
@@ -115,9 +115,9 @@ If you know you have Python 3 installed, but see 2.x, your system's Python PATH 
 
 I suspect this will cause the biggest number of issues.
 
-#### Chomedriver
+### Chomedriver
 
-If the bot is correctly starting, and you are sure Python is not the issue, then Chromedriver is the issue. The Chromedriver files (folder chrome_windows / chrome_mac) are the versions used by my system. In order for Chromedriver to work, it must match your systems version of Chrome. This can easily be fixed by redownloading Chromedriver.
+If the bot is correctly starting, and you are sure Python is not the issue, then Chromedriver is the issue. The Chromedriver files ([chrome_windows](./chrome_windows) and [chrome_mac](./chrome_mac)) are the versions used by my system. In order for Chromedriver to work, it must match your systems version of Chrome. This can easily be fixed by redownloading Chromedriver.
 
 Go [here](https://chromedriver.chromium.org/downloads) and download the latest release (Google will link you to the correct version). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
 
