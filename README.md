@@ -22,6 +22,12 @@ It is for these reasons I sought to create the ultimate Autobidder entirely on m
 
 ## Overview
 
+bidwar1_lowframerate.gif
+
+Bidding war             |  Autolist
+:-------------------------:|:-------------------------:
+![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/gui_windows.PNG)
+
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
 Unlike other bots, its operations can be monitored in real time, and appears identical to a human's actions. It is also safer than other Javascript injection bots, as the only Javascript injected is Selenium's, rendering EA's bot detection useless. Chromedriver flags have also been obfuscated, although the scale of EA's bot detection seems tiny so this is done out of an abundance of caution.
@@ -46,7 +52,7 @@ Avantages:
 
 Initial bids will reap low profit, but once you fight off other bidders, you have the player cornered. You will start winning players for 350 that you can sell for 800. These margins at high volumes reap ~30k coins an hour.
 
-Project Structure
+Project Structure (update this)
 
 - Main.py is gui tkinter, creates selenium driver
 - on button click, calls thread runner which creates autobidder. driver is passed along
@@ -60,7 +66,7 @@ On the initial pass through the market, Futbin's price will be used as ceiling. 
 
 ## Installation
 
-First, go [here](https://chromedriver.chromium.org/downloads) and download the latest release (Google will link you to the correct version). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
+First download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
 
 Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
 
@@ -81,9 +87,11 @@ Then run the following to install Selenium and any other requirements (see [requ
 pip install -r requirements.txt
 ```
 
-Make sure pip is installed (see here). If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
+Make sure pip is installed ([see here](https://pip.pypa.io/en/stable/installing/)). 
 
-For any other errors, see *troubleshooting* below.
+If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository and I'd be happy to trouble shoot. 
+
+For any other errors, it is likely your system's Python interpreter. See *troubleshooting* below.
 
 ## Troubleshooting
 
@@ -104,7 +112,7 @@ python --version
 Open Command Prompt and type:
 
 ```
-[to do - placeholder, sorry]
+python --version
 ```
 
 If you see Python 2.x, see [here](https://docs.python-guide.org/starting/install3/osx/) for installing Python 3.
@@ -119,7 +127,7 @@ If the bot is correctly starting, and you are sure Python is not the issue, then
 
 In order for Chromedriver to work, it must match your systems version of Chrome. This can easily be fixed by redownloading Chromedriver.
 
-Go [here](https://chromedriver.chromium.org/downloads) and download the latest release (Google will link you to the correct version). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
+Go [here](https://chromedriver.chromium.org/downloads) and download the latest release. Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download.
 
 ## Configuration
 
@@ -160,7 +168,7 @@ In Terminal, run:
 make run
 ```
 
-See [troubleshooting] for help. 
+See [troubleshooting] for help.
 
 **Windows**
 
@@ -177,7 +185,6 @@ python src\main.py
 I encourage you to reach out with any errors, and would love contributors.
 
 Good luck!
-
 
 # To do
 
