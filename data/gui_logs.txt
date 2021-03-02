@@ -1,3 +1,243 @@
 [21:25:20]  - - - - Bot started - - - - 
 [21:25:59] Fetching player info...
 [21:26:21] Added player LAMELA
+[15:14:12]  - - - - Bot started - - - - 
+[15:14:38]  - - - - Bot started - - - - 
+[15:14:58]  - - - - Bot started - - - - 
+[15:33:44]  - - - - Bot started - - - - 
+[15:35:12]  - - - - Bot started - - - - 
+[15:35:38] I001
+[15:41:50]  - - - - Bot started - - - - 
+[15:41:59] I001
+[15:42:00] ['RODRÍGUEZ', 78, 700, 0, '0.85']
+[15:44:46]  - - - - Bot started - - - - 
+[15:44:55] I001
+[15:44:56] ['RODRÍGUEZ', 78, 700, 0, '0.85']
+[15:44:56] item to remove: RODRÍGUEZ,78,700,0,0.85,
+[15:52:20]  - - - - Bot started - - - - 
+[15:52:30] Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[16:04:13]  - - - - Bot started - - - - 
+[16:05:26] Fetching player info...
+[16:05:45] Added player LAMELA
+[16:05:57] Fetching player info...
+[16:06:13] Added player RODRÍGUEZ
+[16:07:24] Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1200,47,0,0.85
+
+[16:07:25] Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,950,60,0,0.85
+
+[16:10:20]  - - - - Bot started - - - - 
+[16:12:23]  - - - - Bot started - - - - 
+[16:12:31] LAMELA
+[16:12:40] RODRÍGUEZ
+[16:16:58]  - - - - Bot started - - - - 
+[16:17:14] JONC
+[16:17:14] should keep: u
+[16:17:14] should keep: r
+[16:17:15] should keep: o
+[16:17:16] should keep: o
+[16:17:17] should keep: c
+[16:17:49]  - - - - Bot started - - - - 
+[16:18:07]  - - - - Bot started - - - - 
+[16:18:17] DOOK
+[16:18:17] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[16:18:17] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:18:18] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:18:19] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:18:19] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[16:19:12]  - - - - Bot started - - - - 
+[16:19:22] JONC
+[16:19:23] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[16:19:24] line[0]: L
+[16:19:24] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:19:24] line[0]: E
+[16:19:25] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:19:25] line[0]: J
+[16:19:25] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[16:19:26] line[0]: D
+[16:19:26] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[16:19:27] line[0]: S
+[17:28:56]  - - - - Bot started - - - - 
+[17:29:10] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:29:10] line[0]: L
+[17:29:10] Line in txt file stripped: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+[17:29:11] Player to remove in table stripped: DOOK
+[17:29:11] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:12] line[0]: E
+[17:29:12] Line in txt file stripped: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:13] Player to remove in table stripped: DOOK
+[17:29:13] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:14] line[0]: J
+[17:29:14] Line in txt file stripped: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:15] Player to remove in table stripped: DOOK
+[17:29:15] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:15] line[0]: D
+[17:29:16] Line in txt file stripped: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:16] Player to remove in table stripped: DOOK
+[17:29:16] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:17] line[0]: S
+[17:29:17] Line in txt file stripped: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:18] Player to remove in table stripped: DOOK
+[17:29:33] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:29:33] line[0]: L
+[17:29:33] Line in txt file stripped: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+[17:29:34] Player to remove in table stripped: LAMELA
+[17:29:34] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:34] line[0]: E
+[17:29:35] Line in txt file stripped: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:36] Player to remove in table stripped: LAMELA
+[17:29:36] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:37] line[0]: J
+[17:29:37] Line in txt file stripped: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:37] Player to remove in table stripped: LAMELA
+[17:29:38] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:39] line[0]: D
+[17:29:39] Line in txt file stripped: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:39] Player to remove in table stripped: LAMELA
+[17:29:40] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:40] line[0]: S
+[17:29:40] Line in txt file stripped: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:40] Player to remove in table stripped: LAMELA
+[17:29:45] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:29:45] line[0]: L
+[17:29:46] Line in txt file stripped: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+[17:29:47] Player to remove in table stripped: HOOOOOOs
+[17:29:47] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:48] line[0]: E
+[17:29:48] Line in txt file stripped: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:48] Player to remove in table stripped: HOOOOOOs
+[17:29:48] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:49] line[0]: J
+[17:29:50] Line in txt file stripped: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:51] Player to remove in table stripped: HOOOOOOs
+[17:29:52] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:29:53] line[0]: D
+[17:29:53] Line in txt file stripped: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:54] Player to remove in table stripped: HOOOOOOs
+[17:29:54] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:55] line[0]: S
+[17:29:55] Line in txt file stripped: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:29:55] Player to remove in table stripped: HOOOOOOs
+[17:30:04] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:30:05] line[0]: L
+[17:30:05] Line in txt file stripped: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+[17:30:06] Player to remove in table stripped: DOOK
+[17:30:06] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:30:07] line[0]: E
+[17:30:08] Line in txt file stripped: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:30:08] Player to remove in table stripped: DOOK
+[17:30:09] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:30:09] line[0]: J
+[17:30:09] Line in txt file stripped: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:30:10] Player to remove in table stripped: DOOK
+[17:30:11] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:30:11] line[0]: D
+[17:30:12] Line in txt file stripped: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:30:12] Player to remove in table stripped: DOOK
+[17:30:13] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:30:14] line[0]: S
+[17:30:15] Line in txt file stripped: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:30:16] Player to remove in table stripped: DOOK
+[17:31:05]  - - - - Bot started - - - - 
+[17:31:15] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:31:15] line[0]: L
+[17:31:16] Line in txt file stripped: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+[17:31:17] Player to remove in table stripped: JONC
+[17:31:17] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:31:18] line[0]: E
+[17:31:18] Line in txt file stripped: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:31:18] Player to remove in table stripped: JONC
+[17:31:19] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:31:19] line[0]: J
+[17:31:19] Line in txt file stripped: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:31:19] Player to remove in table stripped: JONC
+[17:31:20] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:31:20] line[0]: D
+[17:31:21] Line in txt file stripped: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:31:21] Player to remove in table stripped: JONC
+[17:31:22] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:31:23] line[0]: S
+[17:31:24] Line in txt file stripped: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:31:25] Player to remove in table stripped: JONC
+[17:32:58]  - - - - Bot started - - - - 
+[17:33:06] line: Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
+
+[17:33:06] line[0]: L
+[17:33:07] line: Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:33:07] line[0]: E
+[17:33:07] line: Jon Carlo,JONC,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:33:08] line[0]: J
+[17:33:08] line: Dook Solo,DOOK,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+
+[17:33:09] line[0]: D
+[17:33:09] line: Sco Hoos,HOOOOOOs,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+[17:33:10] line[0]: S
+[17:34:56]  - - - - Bot started - - - - 
+[17:35:06] Not yet implemented
+[17:35:12] Autologin enabled
+[17:35:12] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:35:15] Not yet implemented
+[17:39:07]  - - - - Bot started - - - - 
+[17:40:55]  - - - - Bot started - - - - 
+[17:42:30]  - - - - Bot started - - - - 
+[17:43:01]  - - - - Bot started - - - - 
+[18:06:41]  - - - - Bot started - - - - 
+[18:07:25]  - - - - Bot started - - - - 
+[18:17:58]  - - - - Bot started - - - - 
+[18:18:34] Fetching player info...
+[18:19:01] Added player LAMELA
+[18:19:42] Fetching player info...
+[18:19:47] Added player RODRÍGUEZ
+[18:21:14]  - - - - Bot started - - - - 
+[18:22:42] Fetching player info...
+[18:22:47] Added player OCHOA
+[18:23:33] Autologin not enabled, must login manually
+[18:23:37] Autologin enabled
+[18:23:38] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[18:23:44] Auto logging in...
+[18:24:03] Your EA Security Code is: 106207
+[18:24:06] Logged in successfully!
+[18:52:05] Test function
+[18:52:52] Click clear expired
+[18:55:11] Test function
+[18:56:51] Listed player 188152 for BIN: 1300
+[18:57:01] Listed player 188152 for BIN: 1300
+[18:57:11] Listed player 188152 for BIN: 1300

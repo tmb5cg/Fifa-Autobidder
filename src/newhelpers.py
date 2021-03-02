@@ -655,7 +655,7 @@ class Helper:
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
 
-    # Action: sends won players to transfer list 
+    # Action: lists won players on transfer market
     def send_won_players_to_transferlist(self):
         # Get num players to send
         sleep(3)
@@ -1017,11 +1017,11 @@ class Helper:
         sleep(2)
 
     def go_to_transferlist(self):
-        sleep(20)
+        sleep(5)
         self.driver.find_element(By.XPATH, "/html/body/main/section/nav/button[3]").click()
-        sleep(10)
+        sleep(5)
         self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div[3]").click()
-        sleep(10)
+        sleep(1)
 
     def go_to_login_page(self):
         WebDriverWait(self.driver, 15).until(
@@ -1038,6 +1038,165 @@ class Helper:
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ General
+
+
+    def get_futbin_price_lastupdated(self, ID):
+        r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(ID))
+        # r = requests.get('https://www.futbin.com/20/playerGraph?type=daily_graph&year=20&player={0}'.format(ID))
+        data = r.json()
+
+        price = data[str(ID)]["prices"]["xbox"]["LCPrice"]
+        lastupdated = data[str(ID)]["prices"]["xbox"]["updated"]
+
+        # 18 mins ago
+        # 48 mins ago
+        # 1 hour ago
+        # 2 hours ago
+        if (lastupdated == "Never"):
+            return 0, 100
+        elif ("mins ago" in lastupdated):
+            lastupdated = lastupdated[:-9]
+            lastupdated = int(lastupdated)
+        elif("hour ago" in lastupdated):
+            lastupdated = lastupdated[:-9]
+            lastupdated = int(lastupdated) * 60
+        elif("hours ago" in lastupdated):
+            lastupdated = lastupdated[:-10]
+            lastupdated = int(lastupdated) * 60
+        elif("seconds" in lastupdated):
+            lastupdated = 1
+        elif("second" in lastupdated):
+            lastupdated = 1
+        else:
+            return 0, 100
+
+        price = price.replace(",", "")
+        price = int(price)
+
+        # MINUTES
+        lastupdated = int(lastupdated)
+        #print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
+        return price, lastupdated
+
+    # Lists all players on transfer list using futbin prices
+    def manageTransferlist(self):
+        self.go_to_transferlist()
+        players = self.getAllPlayerInfo()
+        playerids = []
+
+        clickRelistAll = False
+        clickClearExpired = False
+        unlistedplayerscount = 0
+        for player in players:
+            #info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
+            print(player)
+            playerid = player[8]
+            bidstatus = player[1]
+            name = player[3]
+
+            if bidstatus == "listFUTItem":
+                unlistedplayerscount += 1
+            if playerid not in playerids:
+                playerids.append(playerid)
+
+            if "expired" in bidstatus:
+                clickRelistAll = True
+            if "won" in bidstatus:
+                clickClearExpired = True
+
+        print(playerids)
+        if clickRelistAll:
+            log_event("Click relist all")
+            self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[2]/header/button").click()
+            # click yes to prompt about relisting
+            sleep(2)
+            self.driver.find_element(By.XPATH, "/html/body/div[4]/section/div/div/button[2]").click()
+            sleep(2)
+        if clickClearExpired:
+            log_event("Click clear expired")
+            self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button").click()
+
+        # Get player prices
+        priceData = []
+        for id in playerids:
+            futbinprice, lastupdated = self.get_futbin_price_lastupdated(id)
+            futbinprice = int(futbinprice)
+            data = [id, futbinprice]
+            priceData.append(data)
+            print("Retrieved player price ID: " + str(id) + " || Price: " + str(futbinprice))
+            sleep(5)
+
+        # List players now that all others are relisted + cleared expired
+        # players = getAllPlayerInfo(self.driver)
+
+        total_sell_prices = 0
+        for x in range(unlistedplayerscount):
+            # x += 1
+            # will always click play number 1
+            playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div"
+
+            startpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+            buynowpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+            listfortransfer = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+
+            playernamelocation = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]"
+            playerratinglocation = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
+
+            playername = self.driver.find_element(By.XPATH, playernamelocation).text
+            playerrating = self.driver.find_element(By.XPATH, playerratinglocation).text
+
+            currentplayerid = self.getPlayerID(playername, playerrating)
+
+            # Get sell price
+            for data in priceData:
+                id = data[0]
+                futbinprice = data[1]
+                if currentplayerid == id:
+                    print("Price ID match found, will now list player for " + str(futbinprice))
+                    if futbinprice > 1000:
+                        buynowprice = futbinprice - 100
+                        startprice = buynowprice - 100
+                    elif futbinprice < 1000:
+                        buynowprice = futbinprice - 50
+                        startprice = buynowprice - 50
+                    else:
+                        log_event("Wtf")
+
+                    # Add sell price to sum
+                    total_sell_prices += buynowprice
+                    self.user_projected_profit += buynowprice
+
+                    # Click player
+                    self.driver.find_element(By.XPATH, playerbutton).click()
+                    sleep(1)
+                    # Click list for transfer
+                    self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
+                    sleep(1)
+
+                    buynowBox = self.driver.find_element(By.XPATH, buynowpriceinput)
+                    buynowBox.click()
+                    sleep(1)
+                    buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    buynowBox.send_keys(buynowprice)
+
+                    sleep(1)
+                    startpriceBox = self.driver.find_element(By.XPATH, startpriceinput)
+                    startpriceBox.click()
+                    sleep(1)
+                    startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    startpriceBox.send_keys(startprice)
+                    sleep(1)
+
+                    # List for transfer!
+                    self.driver.find_element(By.XPATH, listfortransfer).click()
+                    log_event("Listed player " + str(id) + " for BIN: " + str(buynowprice))
+                    self.update_autobidder_logs()
+                    sleep(3)
+
+        print("Transferlist succesfully handled! Sleeping for 3 minutes and researching TM.")
+        sleep(5)
 
     # Action: updates GUI with current state variables
     def update_autobidder_logs(self):
@@ -1170,6 +1329,14 @@ class Helper:
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ NON CLASS METHODS
+
+def getText(driver, xpath):
+    result = driver.get_element_by_xpath(xpath).text
+    return result
+
+def clickElement(driver, xpath):
+    driver.get_element_by_xpath(xpath).click()
+
 def login(driver, user, email_credentials):
     WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located((By.XPATH, '//*[@class="ut-login-content"]//button'))

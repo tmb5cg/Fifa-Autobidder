@@ -185,27 +185,64 @@ class PlayerFilters(tk.Frame):
         self.playerlist = []
         for aline in txt:
             values2 = aline.strip("\n").split(",")
-            self.playerlist.append(values2)
-            self.controller.table.router_tree_view.insert('', 'end', values=values2)
+            # print(values2)
+            cardname = values2[1]
+            rating = values2[2]
+            futbinprice = values2[9]
+            realprice = values2[11]
+            buypct = values2[12]
+
+            values_small_view = []
+            values_small_view.append(cardname)
+            values_small_view.append(rating)
+            values_small_view.append(futbinprice)
+            values_small_view.append(realprice)
+            values_small_view.append(buypct)
+
+            self.controller.table.router_tree_view.insert('', 'end', values=values_small_view)
         txt.close()
-        self.after(1000, self.update_list)
+
+        # Every 10 seconds refresh
+        self.after(10000, self.update_list)
 
     def remove_player(self):
         index = self.controller.table.router_tree_view.selection()[0]
         selected_item = self.controller.table.router_tree_view.item(index)['values']
+        player_to_remove_name = selected_item[0]
 
-        item_to_remove = ""
-        for word in selected_item:
-            item_to_remove = item_to_remove + str(word) + ","
+        # print(player_to_remove_name)
 
-        item_to_remove = item_to_remove[:-1]
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
 
-        with open("./data/player_list.txt", "r", encoding="utf8") as f:
-            lines = f.readlines()
-        with open("./data/player_list.txt", "w", encoding="utf8") as f:
-            for line in lines:
-                if line.strip("\n") != item_to_remove.strip("\n"):
-                    f.write(line)
+
+        entries_to_stay = []
+        for line in txt:
+            line = line.strip("\n")
+            line_arr = line.split(",")
+
+            name = line_arr[1]
+
+            print(name)
+
+            if (name != player_to_remove_name):
+                print((line_arr))
+                entries_to_stay.append(line)
+            else:
+                print("to remove: " + str(line_arr))
+
+        txt.close()
+
+        # Truncate file
+        file = open("./data/player_list.txt", "r+")
+        file.truncate(0)
+        file.close()
+
+        # Re-append old data
+        hs = open("./data/player_list.txt", "a", encoding="utf8")
+        for line in entries_to_stay:
+            hs.write(line + "\n")
+        hs.close()
+
         self.update_list()
 
     def login(self):

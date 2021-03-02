@@ -1,2 +1,3 @@
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
-Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,900,14,0,0.85
+Erik Lamela,LAMELA,80,Spurs,Argentina,Rare,RM,170368,727,1200,48,0,0.85
+Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,900,60,0,0.85
+Guillermo Ochoa,OCHOA,79,América,Mexico,Non-Rare,GK,140233,928,850,18,0,0.85

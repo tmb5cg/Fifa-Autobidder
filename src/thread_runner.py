@@ -43,11 +43,11 @@ class RunThread(threading.Thread):
 
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
-            # log_event("Test function")
+            log_event("Test function")
             
             # testhelper = Helper(self.driver)
 
-            # testhelper.update_autobidder_logs()
+            # testhelper.start()
             autobidder = Autobidder(self.driver, self.queue)
             autobidder.start()
 
