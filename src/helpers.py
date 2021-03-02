@@ -333,8 +333,19 @@ class Helper:
         sleeptime = random.randint(3000, 5000)
         sleep(sleeptime/1000)
 
+    def getNumCoins_and_update_uservar(self):
+        num_coins = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/div[1]/div[1]').text
+        num_coins = str(num_coins)
+        if "," in num_coins:
+            num_coins = num_coins.replace(",", "")
+
+        num_coins = int(num_coins)
+        self.user_num_coins = num_coins
+
     # Action: Logs all data on current page of market, to be used later to find accurate buy now
     def getAllPlayerInfo(self):
+        self.getNumCoins_and_update_uservar()
+
         players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
         page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
 
@@ -782,6 +793,7 @@ class Helper:
     # Returns: ?
     def getAllPlayerInfoWatchlist(self):
         try:
+            self.getNumCoins_and_update_uservar()
             players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
             page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
 
