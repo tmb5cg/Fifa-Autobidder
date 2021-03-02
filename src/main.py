@@ -23,9 +23,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import autobidder
 import autobuyer
-import newhelpers
+import helpers
 import thread_runner
-from newhelpers import *
+from helpers import *
 from thread_runner import RunThread
 
 LARGE_FONT= ("Verdana", 12)
@@ -174,6 +174,8 @@ class PlayerFilters(tk.Frame):
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", futbin_url).start()
         # log_event("Added player to player list")
+        msg = "Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. \n Players like Giroud for example, are not good because there are 4 different Giroud cards. \n I recommend random non-rare golds selling for just under or just above 1,000 coins. "
+        self.popupmsg(msg)
         self.update_list()
 
     def update_list(self):
@@ -290,7 +292,7 @@ class PlayerFilters(tk.Frame):
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
-        importlib.reload(newhelpers)
+        importlib.reload(helpers)
 
 # Middle right
 class Table(tk.Frame):
@@ -500,7 +502,7 @@ class MainButtons(tk.Frame):
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
-        importlib.reload(newhelpers)
+        importlib.reload(helpers)
         self.after(100, self.process_queue)
 
     def process_queue(self):

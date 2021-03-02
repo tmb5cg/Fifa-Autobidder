@@ -1,26 +1,13 @@
-# import mainhelpers
-# import helpers
-import autobuyer
-import autobidder
-import newhelpers 
-
-from newhelpers import *
-# from helpers import *
-# from mainhelpers import *
-
-from autobidder import Autobidder
-from autobuyer import Autobuyer
-
-# from config import USER
-import threading
 import os.path
+import threading
 from os import path
 
-# from autobidder_any import AutobidderAny
-# from autobidder_list import AutobidderPlayerlist
-# import function_runner
-# import autobidder_list
-
+import autobidder
+import autobuyer
+import helpers
+from autobidder import Autobidder
+from autobuyer import Autobuyer
+from helpers import *
 
 
 # Each button starts a new thread

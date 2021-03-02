@@ -6,7 +6,7 @@ Mac             |  Windows
 
 ## Intro
 
-_Note: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to this botting community [Discord](https://discord.gg/gd9UqAtr)._
+_Note: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect (yet) and so use at your own risk. I will be making updates daily. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to the FUTAPI [Discord](https://discord.gg/gd9UqAtr)._
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 21 Ultimate Team) Transfer Market.
 

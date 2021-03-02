@@ -1,47 +1,39 @@
-# # from config import EMAIL_CREDENTIALS, EA_EMAIL
-# import helpers 
-# from helpers import log_event, wait_for_shield_invisibility
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
-
+import csv
 import email
 import imaplib
-import sys
-from time import sleep
+import json
+import os
+import platform
 import random
-import requests
-import csv
+import sys
 from csv import reader
 from datetime import datetime
-import json
+from time import sleep
 
+import requests
 from selenium import webdriver
-import platform
-import os
-from selenium.webdriver.support import ui
 from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver import ChromeOptions, Chrome
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import ui
+from selenium.webdriver.support.wait import WebDriverWait
 
 class Helper:
     def __init__(self, driver):
         self.driver = driver
-        self.playerlist = []
+        # self.playerlist = []
 
         # Get input list of target players
-        src = "./data/player_list.txt"
-        txt = open(src, "r", encoding="utf8")
+        # src = "./data/player_list.txt"
+        # txt = open(src, "r", encoding="utf8")
 
-        for aline in txt:
-            values = aline.strip("\n").split(",")
-            self.playerlist.append(values)
-        txt.close()
+        # for aline in txt:
+        #     values = aline.strip("\n").split(",")
+        #     self.playerlist.append(values)
+        # txt.close()
 
         # Global sell and buy ceilings to be captured from UI
         self.sellceiling = .95
@@ -65,6 +57,20 @@ class Helper:
         self.user_transferlist_sold = 0
         self.user_transferlist_totalsize = 0
         self.user_num_coins = 0
+
+    def getPlayerListFromGUI(self):
+        playerlist = []
+        # Tried to be cheeky and only have this called on initialization, but this made adding / removing to player list in real time impossible
+        # Get input list of target players
+        src = "./data/player_list.txt"
+        txt = open(src, "r", encoding="utf8")
+
+        for aline in txt:
+            values = aline.strip("\n").split(",")
+            playerlist.append(values)
+        txt.close()
+
+        return playerlist
 
     # Action: evaluates transfer list, watchlist size etc
     # Returns: number of cards able to bid on, depending on input list size
@@ -117,7 +123,8 @@ class Helper:
         # hs.write(full_entry + "\n")
         # hs.close()
 
-        num_players_to_bid_on = len(self.playerlist)
+        playerlist = self.getPlayerListFromGUI()
+        num_players_to_bid_on = len(playerlist)
         self.user_num_target_players = num_players_to_bid_on
 
         if (num_players_to_bid_on != 1):
@@ -450,7 +457,7 @@ class Helper:
         inputoverall = int(rating)
         inputcardname = cardname.lower()
         # First attempts to find ID in user input list
-        for player in self.playerlist:
+        for player in self.getPlayerListFromGUI():
             p_overall = int(player[2])
             p_cardname = player[1]
             p_cardname = p_cardname.lower()
@@ -489,6 +496,9 @@ class Helper:
 
             # If not found, raise error
             log_event("Player ID not found for: " + str(cardname) + " " + str(rating))
+            log_event("This is a dangerous player to use, not well tested")
+            log_event("Currently only tested on players with only 1 card version!")
+            log_event("If this annoys you, please reach out on GitHub and I'll update it")
             return 0
 
     # Action: Parses market logs from searches to find accurate sell price, and updates player_list.txt - terribly inefficient but it works for now
@@ -640,7 +650,7 @@ class Helper:
     # Returns price to sell player at
     def getPlayerSellPrice(self, playerid):
         # Get target players IDs
-        for player in self.playerlist:
+        for player in self.getPlayerListFromGUI():
             pid = int(player[7])
             diff = pid - int(playerid)
             if (diff == 0):
@@ -651,6 +661,8 @@ class Helper:
                         return (futbinprice * self.sellceiling)
                     else:
                         return (marketprice * self.sellceiling)
+            else:
+                lastupdated, futbinprice = self.get_futbin_price_lastupdated(playerID)
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
@@ -921,9 +933,15 @@ class Helper:
         self.user_requests_made += 1
         self.driver.refresh()
 
+        wait_for_shield_invisibility(self.driver)
+
+
         WebDriverWait(self.driver, 30).until(
             EC.visibility_of_element_located((By.CLASS_NAME, 'icon-transfer'))
         )
+
+        wait_for_shield_invisibility(self.driver)
+
 
         sleep(0.5)
 

@@ -241,3 +241,790 @@
 [18:56:51] Listed player 188152 for BIN: 1300
 [18:57:01] Listed player 188152 for BIN: 1300
 [18:57:11] Listed player 188152 for BIN: 1300
+[19:54:40]  - - - - Bot started - - - - 
+[19:55:26] Fetching player info...
+[19:55:44] Added player GIROUD
+[19:56:01] Fetching player info...
+[19:56:07] Added player NDOMBELE
+[20:03:45] Autologin not enabled, must login manually
+[20:03:50] Autologin enabled
+[20:03:50] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[20:04:00] Auto logging in...
+[20:04:19] Your EA Security Code is: 206649
+[20:04:23] Logged in successfully!
+[20:10:14] Test function
+[20:10:15] Autobidder started
+[20:10:17] Bid to make on each player: 24
+[20:10:27] Bidding on GIROUD up to FUTBIN price: 1400. Will determine actual market price while searching. Purchase ceiling: 1190.0
+[20:10:30] Player ID not found for: Giroud 84
+[20:10:31] Player ID not found for: Giroud 84
+[20:10:32] Player ID not found for: Giroud 84
+[20:10:33] Player ID not found for: Giroud 84
+[20:10:33] Player ID not found for: Giroud 82
+[20:10:35] Player ID not found for: Giroud 84
+[20:10:44] Bids made on GIROUD: 1/24
+[20:10:48] Going to next page
+[20:10:51] Player ID not found for: Giroud 84
+[20:10:52] Player ID not found for: Giroud 84
+[20:10:53] Player ID not found for: Giroud 84
+[20:10:53] Player ID not found for: Giroud 82
+[20:10:54] Player ID not found for: Giroud 84
+[20:10:55] Player ID not found for: Giroud 84
+[20:10:56] Player ID not found for: Giroud 84
+[20:11:01] Going to next page
+[20:11:04] Player ID not found for: Giroud 84
+[20:11:04] Player ID not found for: Giroud 84
+[20:11:05] Player ID not found for: Giroud 84
+[20:11:05] Player ID not found for: Giroud 84
+[20:11:06] Player ID not found for: Giroud 84
+[20:11:07] Player ID not found for: Giroud 84
+[20:11:07] Player ID not found for: Giroud 84
+[20:11:08] Player ID not found for: Giroud 84
+[20:11:09] Player ID not found for: Giroud 84
+[20:11:10] Player ID not found for: Giroud 84
+[20:11:11] Player ID not found for: Giroud 84
+[20:11:11] Player ID not found for: Giroud 84
+[20:11:12] Player ID not found for: Giroud 84
+[20:11:18] Going to next page
+[20:11:21] Player ID not found for: Giroud 82
+[20:11:21] Player ID not found for: Giroud 84
+[20:11:22] Player ID not found for: Giroud 84
+[20:11:23] Player ID not found for: Giroud 84
+[20:11:23] Player ID not found for: Giroud 84
+[20:11:23] Player ID not found for: Giroud 84
+[20:11:24] Player ID not found for: Giroud 84
+[20:11:25] Player ID not found for: Giroud 84
+[20:11:26] Player ID not found for: Giroud 84
+[20:11:26] Player ID not found for: Giroud 84
+[20:11:27] Player ID not found for: Giroud 84
+[20:11:27] Player ID not found for: Giroud 84
+[20:11:28] Player ID not found for: Giroud 84
+[20:11:29] Player ID not found for: Giroud 84
+[20:11:30] Player ID not found for: Giroud 84
+[20:11:31] Player ID not found for: Giroud 84
+[20:11:31] Player ID not found for: Giroud 84
+[20:11:32] Player ID not found for: Giroud 84
+[20:11:36] Going to next page
+[20:11:39] Player ID not found for: Giroud 84
+[20:11:40] Player ID not found for: Giroud 84
+[20:11:41] Player ID not found for: Giroud 84
+[20:11:42] Player ID not found for: Giroud 84
+[20:11:42] Player ID not found for: Giroud 84
+[20:11:43] Player ID not found for: Giroud 84
+[20:11:43] Player ID not found for: Giroud 84
+[20:11:44] Player ID not found for: Giroud 84
+[20:11:45] Player ID not found for: Giroud 84
+[20:11:46] Player ID not found for: Giroud 84
+[20:11:47] Player ID not found for: Giroud 84
+[20:11:47] Player ID not found for: Giroud 84
+[20:11:48] Player ID not found for: Giroud 84
+[20:11:49] Player ID not found for: Giroud 84
+[20:11:49] Player ID not found for: Giroud 84
+[20:11:50] Time remaining of players on page exceeded 50 minutes, RETURN
+[20:11:50] Finished bidding on:GIROUD
+[20:12:00] Bidding on NDOMBELE up to FUTBIN price: 1400. Will determine actual market price while searching. Purchase ceiling: 1190.0
+[20:12:10] Going to next page
+[20:12:21] Bids made on NDOMBELE: 1/24
+[20:12:29] Bids made on NDOMBELE: 2/24
+[20:12:37] Bids made on NDOMBELE: 3/24
+[20:12:41] Going to next page
+[20:12:52] Bids made on NDOMBELE: 4/24
+[20:12:56] Going to next page
+[20:13:08] Bids made on NDOMBELE: 5/24
+[20:13:13] Going to next page
+[20:13:15] Player ID not found for: Ndombele 83
+[20:13:20] Going to next page
+[20:13:23] Time remaining of players on page exceeded 50 minutes, RETURN
+[20:13:24] Finished bidding on:NDOMBELE
+[20:13:26] Parsing market data to find most accurate sell prices...
+[20:13:26] Giroud min buy now from market data: 1300
+[20:13:26] Ndombele min buy now from market data: 1400
+[20:13:27] Going to watchlist. Time for war
+[20:15:35] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:750Current bid after bidding: 750
+[20:15:36] Error outbidding Ndombele. Refreshing page
+[20:15:49] Going back to watchlist
+[20:21:43] Test function
+[20:21:43] Autobidder started
+[20:21:46] Bid to make on each player: 22
+[20:21:56] Bidding on GIROUD up to MARKET price: 1300. Purchase ceiling: 1105.0
+[20:21:59] Player ID not found for: Giroud 84
+[20:22:00] This is a dangerous player to use, not well tested
+[20:22:00] Currently only tested on players with only 1 card version!
+[20:22:00] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:01] Player ID not found for: Giroud 84
+[20:22:01] This is a dangerous player to use, not well tested
+[20:22:01] Currently only tested on players with only 1 card version!
+[20:22:02] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:02] Player ID not found for: Giroud 84
+[20:22:03] This is a dangerous player to use, not well tested
+[20:22:03] Currently only tested on players with only 1 card version!
+[20:22:04] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:04] Player ID not found for: Giroud 84
+[20:22:05] This is a dangerous player to use, not well tested
+[20:22:05] Currently only tested on players with only 1 card version!
+[20:22:05] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:05] Player ID not found for: Giroud 84
+[20:22:06] This is a dangerous player to use, not well tested
+[20:22:07] Currently only tested on players with only 1 card version!
+[20:22:07] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:07] Player ID not found for: Giroud 84
+[20:22:07] This is a dangerous player to use, not well tested
+[20:22:08] Currently only tested on players with only 1 card version!
+[20:22:08] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:08] Player ID not found for: Giroud 84
+[20:22:08] This is a dangerous player to use, not well tested
+[20:22:09] Currently only tested on players with only 1 card version!
+[20:22:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:11] Player ID not found for: Giroud 84
+[20:22:11] This is a dangerous player to use, not well tested
+[20:22:11] Currently only tested on players with only 1 card version!
+[20:22:11] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:12] Player ID not found for: Giroud 84
+[20:22:12] This is a dangerous player to use, not well tested
+[20:22:13] Currently only tested on players with only 1 card version!
+[20:22:13] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:14] Player ID not found for: Giroud 84
+[20:22:15] This is a dangerous player to use, not well tested
+[20:22:15] Currently only tested on players with only 1 card version!
+[20:22:16] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:16] Player ID not found for: Giroud 84
+[20:22:17] This is a dangerous player to use, not well tested
+[20:22:17] Currently only tested on players with only 1 card version!
+[20:22:18] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:18] Player ID not found for: Giroud 84
+[20:22:19] This is a dangerous player to use, not well tested
+[20:22:19] Currently only tested on players with only 1 card version!
+[20:22:20] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:21] Player ID not found for: Giroud 82
+[20:22:21] This is a dangerous player to use, not well tested
+[20:22:22] Currently only tested on players with only 1 card version!
+[20:22:22] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:23] Player ID not found for: Giroud 84
+[20:22:23] This is a dangerous player to use, not well tested
+[20:22:24] Currently only tested on players with only 1 card version!
+[20:22:25] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:28] Going to next page
+[20:22:31] Player ID not found for: Giroud 84
+[20:22:31] This is a dangerous player to use, not well tested
+[20:22:32] Currently only tested on players with only 1 card version!
+[20:22:33] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:33] Player ID not found for: Giroud 84
+[20:22:34] This is a dangerous player to use, not well tested
+[20:22:34] Currently only tested on players with only 1 card version!
+[20:22:35] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:36] Player ID not found for: Giroud 84
+[20:22:37] This is a dangerous player to use, not well tested
+[20:22:38] Currently only tested on players with only 1 card version!
+[20:22:38] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:38] Player ID not found for: Giroud 84
+[20:22:39] This is a dangerous player to use, not well tested
+[20:22:40] Currently only tested on players with only 1 card version!
+[20:22:40] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:40] Player ID not found for: Giroud 84
+[20:22:40] This is a dangerous player to use, not well tested
+[20:22:40] Currently only tested on players with only 1 card version!
+[20:22:41] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:42] Player ID not found for: Giroud 84
+[20:22:43] This is a dangerous player to use, not well tested
+[20:22:43] Currently only tested on players with only 1 card version!
+[20:22:44] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:44] Player ID not found for: Giroud 84
+[20:22:45] This is a dangerous player to use, not well tested
+[20:22:46] Currently only tested on players with only 1 card version!
+[20:22:46] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:47] Player ID not found for: Giroud 84
+[20:22:47] This is a dangerous player to use, not well tested
+[20:22:47] Currently only tested on players with only 1 card version!
+[20:22:48] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:49] Player ID not found for: Giroud 84
+[20:22:49] This is a dangerous player to use, not well tested
+[20:22:50] Currently only tested on players with only 1 card version!
+[20:22:51] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:51] Player ID not found for: Giroud 84
+[20:22:51] This is a dangerous player to use, not well tested
+[20:22:51] Currently only tested on players with only 1 card version!
+[20:22:52] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:53] Player ID not found for: Giroud 84
+[20:22:53] This is a dangerous player to use, not well tested
+[20:22:54] Currently only tested on players with only 1 card version!
+[20:22:55] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:55] Player ID not found for: Giroud 84
+[20:22:56] This is a dangerous player to use, not well tested
+[20:22:57] Currently only tested on players with only 1 card version!
+[20:22:57] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:57] Player ID not found for: Giroud 84
+[20:22:57] This is a dangerous player to use, not well tested
+[20:22:57] Currently only tested on players with only 1 card version!
+[20:22:57] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:58] Player ID not found for: Giroud 84
+[20:22:58] This is a dangerous player to use, not well tested
+[20:22:58] Currently only tested on players with only 1 card version!
+[20:22:58] If this annoys you, please reach out on GitHub and I'll update it
+[20:22:59] Player ID not found for: Giroud 84
+[20:22:59] This is a dangerous player to use, not well tested
+[20:23:00] Currently only tested on players with only 1 card version!
+[20:23:01] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:01] Player ID not found for: Giroud 84
+[20:23:02] This is a dangerous player to use, not well tested
+[20:23:03] Currently only tested on players with only 1 card version!
+[20:23:03] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:04] Player ID not found for: Giroud 84
+[20:23:04] This is a dangerous player to use, not well tested
+[20:23:05] Currently only tested on players with only 1 card version!
+[20:23:05] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:06] Player ID not found for: Giroud 84
+[20:23:06] This is a dangerous player to use, not well tested
+[20:23:06] Currently only tested on players with only 1 card version!
+[20:23:06] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:06] Player ID not found for: Giroud 84
+[20:23:07] This is a dangerous player to use, not well tested
+[20:23:08] Currently only tested on players with only 1 card version!
+[20:23:08] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:09] Player ID not found for: Giroud 84
+[20:23:09] This is a dangerous player to use, not well tested
+[20:23:10] Currently only tested on players with only 1 card version!
+[20:23:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:15] Going to next page
+[20:23:18] Player ID not found for: Giroud 84
+[20:23:19] This is a dangerous player to use, not well tested
+[20:23:19] Currently only tested on players with only 1 card version!
+[20:23:19] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:19] Player ID not found for: Giroud 84
+[20:23:20] This is a dangerous player to use, not well tested
+[20:23:21] Currently only tested on players with only 1 card version!
+[20:23:21] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:22] Player ID not found for: Giroud 84
+[20:23:23] This is a dangerous player to use, not well tested
+[20:23:24] Currently only tested on players with only 1 card version!
+[20:23:25] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:25] Player ID not found for: Giroud 84
+[20:23:25] This is a dangerous player to use, not well tested
+[20:23:26] Currently only tested on players with only 1 card version!
+[20:23:27] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:27] Player ID not found for: Giroud 84
+[20:23:28] This is a dangerous player to use, not well tested
+[20:23:28] Currently only tested on players with only 1 card version!
+[20:23:28] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:29] Player ID not found for: Giroud 84
+[20:23:29] This is a dangerous player to use, not well tested
+[20:23:30] Currently only tested on players with only 1 card version!
+[20:23:31] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:31] Player ID not found for: Giroud 84
+[20:23:32] This is a dangerous player to use, not well tested
+[20:23:32] Currently only tested on players with only 1 card version!
+[20:23:33] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:34] Player ID not found for: Giroud 84
+[20:23:34] This is a dangerous player to use, not well tested
+[20:23:35] Currently only tested on players with only 1 card version!
+[20:23:35] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:36] Player ID not found for: Giroud 84
+[20:23:37] This is a dangerous player to use, not well tested
+[20:23:38] Currently only tested on players with only 1 card version!
+[20:23:39] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:40] Player ID not found for: Giroud 84
+[20:23:40] This is a dangerous player to use, not well tested
+[20:23:41] Currently only tested on players with only 1 card version!
+[20:23:42] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:43] Player ID not found for: Giroud 84
+[20:23:43] This is a dangerous player to use, not well tested
+[20:23:44] Currently only tested on players with only 1 card version!
+[20:23:45] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:45] Player ID not found for: Giroud 84
+[20:23:46] This is a dangerous player to use, not well tested
+[20:23:46] Currently only tested on players with only 1 card version!
+[20:23:47] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:48] Player ID not found for: Giroud 82
+[20:23:48] This is a dangerous player to use, not well tested
+[20:23:48] Currently only tested on players with only 1 card version!
+[20:23:49] If this annoys you, please reach out on GitHub and I'll update it
+[20:23:57] Bids made on GIROUD: 1/10
+[20:24:01] Going to next page
+[20:24:04] Player ID not found for: Giroud 82
+[20:24:04] This is a dangerous player to use, not well tested
+[20:24:05] Currently only tested on players with only 1 card version!
+[20:24:06] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:06] Player ID not found for: Giroud 84
+[20:24:07] This is a dangerous player to use, not well tested
+[20:24:08] Currently only tested on players with only 1 card version!
+[20:24:09] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:09] Player ID not found for: Giroud 82
+[20:24:09] This is a dangerous player to use, not well tested
+[20:24:10] Currently only tested on players with only 1 card version!
+[20:24:11] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:12] Player ID not found for: Giroud 82
+[20:24:12] This is a dangerous player to use, not well tested
+[20:24:12] Currently only tested on players with only 1 card version!
+[20:24:13] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:14] Player ID not found for: Giroud 82
+[20:24:14] This is a dangerous player to use, not well tested
+[20:24:14] Currently only tested on players with only 1 card version!
+[20:24:15] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:15] Player ID not found for: Giroud 82
+[20:24:15] This is a dangerous player to use, not well tested
+[20:24:15] Currently only tested on players with only 1 card version!
+[20:24:15] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:16] Player ID not found for: Giroud 82
+[20:24:16] This is a dangerous player to use, not well tested
+[20:24:16] Currently only tested on players with only 1 card version!
+[20:24:17] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:18] Player ID not found for: Giroud 82
+[20:24:19] This is a dangerous player to use, not well tested
+[20:24:19] Currently only tested on players with only 1 card version!
+[20:24:20] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:21] Time remaining of players on page exceeded 50 minutes, RETURN
+[20:24:21] Finished bidding on:GIROUD
+[20:24:32] Bidding on NDOMBELE up to MARKET price: 1400. Purchase ceiling: 1190.0
+[20:24:37] Player ID not found for: Ndombele 83
+[20:24:37] This is a dangerous player to use, not well tested
+[20:24:38] Currently only tested on players with only 1 card version!
+[20:24:39] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:39] Player ID not found for: Ndombele 83
+[20:24:40] This is a dangerous player to use, not well tested
+[20:24:41] Currently only tested on players with only 1 card version!
+[20:24:41] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:43] Player ID not found for: Ndombele 83
+[20:24:43] This is a dangerous player to use, not well tested
+[20:24:43] Currently only tested on players with only 1 card version!
+[20:24:44] If this annoys you, please reach out on GitHub and I'll update it
+[20:24:52] Bids made on NDOMBELE: 1/10
+[20:25:01] Bids made on NDOMBELE: 2/10
+[20:25:06] Going to next page
+[20:25:09] Player ID not found for: Ndombele 83
+[20:25:10] This is a dangerous player to use, not well tested
+[20:25:10] Currently only tested on players with only 1 card version!
+[20:25:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:12] Player ID not found for: Ndombele 83
+[20:25:12] This is a dangerous player to use, not well tested
+[20:25:12] Currently only tested on players with only 1 card version!
+[20:25:13] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:14] Player ID not found for: Ndombele 83
+[20:25:14] This is a dangerous player to use, not well tested
+[20:25:14] Currently only tested on players with only 1 card version!
+[20:25:15] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:16] Player ID not found for: Ndombele 83
+[20:25:16] This is a dangerous player to use, not well tested
+[20:25:16] Currently only tested on players with only 1 card version!
+[20:25:17] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:17] Player ID not found for: Ndombele 83
+[20:25:17] This is a dangerous player to use, not well tested
+[20:25:17] Currently only tested on players with only 1 card version!
+[20:25:18] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:19] Player ID not found for: Ndombele 83
+[20:25:19] This is a dangerous player to use, not well tested
+[20:25:19] Currently only tested on players with only 1 card version!
+[20:25:19] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:24] Going to next page
+[20:25:27] Player ID not found for: Ndombele 83
+[20:25:28] This is a dangerous player to use, not well tested
+[20:25:29] Currently only tested on players with only 1 card version!
+[20:25:29] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:34] Going to next page
+[20:25:38] Player ID not found for: Ndombele 83
+[20:25:38] This is a dangerous player to use, not well tested
+[20:25:39] Currently only tested on players with only 1 card version!
+[20:25:39] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:40] Player ID not found for: Ndombele 83
+[20:25:40] This is a dangerous player to use, not well tested
+[20:25:41] Currently only tested on players with only 1 card version!
+[20:25:41] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:46] Going to next page
+[20:25:49] Player ID not found for: Ndombele 83
+[20:25:50] This is a dangerous player to use, not well tested
+[20:25:50] Currently only tested on players with only 1 card version!
+[20:25:50] If this annoys you, please reach out on GitHub and I'll update it
+[20:25:50] Player ID not found for: Ndombele 83
+[20:25:50] This is a dangerous player to use, not well tested
+[20:25:51] Currently only tested on players with only 1 card version!
+[20:25:51] If this annoys you, please reach out on GitHub and I'll update it
+[20:26:01] Bids made on NDOMBELE: 3/10
+[20:26:06] Going to next page
+[20:26:09] Player ID not found for: Ndombele 83
+[20:26:09] This is a dangerous player to use, not well tested
+[20:26:10] Currently only tested on players with only 1 card version!
+[20:26:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:26:11] Time remaining of players on page exceeded 50 minutes, RETURN
+[20:26:11] Finished bidding on:NDOMBELE
+[20:26:13] Parsing market data to find most accurate sell prices...
+[20:26:13] Giroud min buy now from market data: 1300
+[20:26:14] Ndombele min buy now from market data: 1400
+[20:26:14] Going to watchlist. Time for war
+[20:26:55] Outbid Ndombele | CurBid: 1100 | Stop: 1190.0 || Est. Profit: 230.0
+[20:27:16] Outbid Ndombele | CurBid: 1000 | Stop: 1190.0 || Est. Profit: 330.0
+[20:28:24] Outbid Ndombele | CurBid: 1100 | Stop: 1190.0 || Est. Profit: 230.0
+[20:44:49] Outbid Giroud | CurBid: 950 | Stop: 1105.0 || Est. Profit: 285.0
+[20:52:31] Outbid Ndombele | CurBid: 750 | Stop: 1190.0 || Est. Profit: 580.0
+[20:53:03] Outbid Ndombele | CurBid: 850 | Stop: 1190.0 || Est. Profit: 480.0
+[20:53:12] Outbid Ndombele | CurBid: 950 | Stop: 1190.0 || Est. Profit: 380.0
+[20:53:44] No active bids, or not on watch list
+[20:53:44] Bidding round finished, will now send players to transfer list and list them!
+[20:53:51] Num players won: 5
+[20:54:37]  - - - All players listed for transfer - - - 
+[20:54:37] Total investment: 5500
+[20:54:38] Market sell prices gives sellback of 6460
+[20:54:39] Guaranteed Profit: 960
+[20:54:40] Time spent: 29.7 Minutes
+[20:54:43] Num players expired: 0
+[20:54:44] Sleeping for 5 minutes and heading back to war
+[20:56:44] Autobidder started
+[20:56:47] Bid to make on each player: 23
+[20:56:58] Bidding on GIROUD up to MARKET price: 1300. Purchase ceiling: 1105.0
+[20:57:02] Player ID not found for: Giroud 84
+[20:57:02] This is a dangerous player to use, not well tested
+[20:57:03] Currently only tested on players with only 1 card version!
+[20:57:03] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:04] Player ID not found for: Giroud 84
+[20:57:05] This is a dangerous player to use, not well tested
+[20:57:05] Currently only tested on players with only 1 card version!
+[20:57:06] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:06] Player ID not found for: Giroud 84
+[20:57:07] This is a dangerous player to use, not well tested
+[20:57:07] Currently only tested on players with only 1 card version!
+[20:57:07] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:07] Player ID not found for: Giroud 84
+[20:57:08] This is a dangerous player to use, not well tested
+[20:57:08] Currently only tested on players with only 1 card version!
+[20:57:09] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:09] Player ID not found for: Giroud 84
+[20:57:09] This is a dangerous player to use, not well tested
+[20:57:10] Currently only tested on players with only 1 card version!
+[20:57:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:11] Player ID not found for: Giroud 84
+[20:57:11] This is a dangerous player to use, not well tested
+[20:57:12] Currently only tested on players with only 1 card version!
+[20:57:13] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:13] Player ID not found for: Giroud 84
+[20:57:13] This is a dangerous player to use, not well tested
+[20:57:14] Currently only tested on players with only 1 card version!
+[20:57:14] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:15] Player ID not found for: Giroud 84
+[20:57:16] This is a dangerous player to use, not well tested
+[20:57:16] Currently only tested on players with only 1 card version!
+[20:57:17] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:18] Player ID not found for: Giroud 84
+[20:57:18] This is a dangerous player to use, not well tested
+[20:57:19] Currently only tested on players with only 1 card version!
+[20:57:20] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:20] Player ID not found for: Giroud 84
+[20:57:21] This is a dangerous player to use, not well tested
+[20:57:21] Currently only tested on players with only 1 card version!
+[20:57:22] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:22] Player ID not found for: Giroud 84
+[20:57:22] This is a dangerous player to use, not well tested
+[20:57:22] Currently only tested on players with only 1 card version!
+[20:57:23] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:24] Player ID not found for: Giroud 84
+[20:57:24] This is a dangerous player to use, not well tested
+[20:57:24] Currently only tested on players with only 1 card version!
+[20:57:25] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:25] Player ID not found for: Giroud 84
+[20:57:26] This is a dangerous player to use, not well tested
+[20:57:27] Currently only tested on players with only 1 card version!
+[20:57:28] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:29] Player ID not found for: Giroud 84
+[20:57:29] This is a dangerous player to use, not well tested
+[20:57:30] Currently only tested on players with only 1 card version!
+[20:57:30] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:30] Player ID not found for: Giroud 84
+[20:57:31] This is a dangerous player to use, not well tested
+[20:57:31] Currently only tested on players with only 1 card version!
+[20:57:32] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:33] Player ID not found for: Giroud 84
+[20:57:33] This is a dangerous player to use, not well tested
+[20:57:34] Currently only tested on players with only 1 card version!
+[20:57:35] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:39] Going to next page
+[20:57:42] Player ID not found for: Giroud 84
+[20:57:42] This is a dangerous player to use, not well tested
+[20:57:43] Currently only tested on players with only 1 card version!
+[20:57:43] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:44] Player ID not found for: Giroud 84
+[20:57:44] This is a dangerous player to use, not well tested
+[20:57:45] Currently only tested on players with only 1 card version!
+[20:57:45] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:46] Player ID not found for: Giroud 84
+[20:57:46] This is a dangerous player to use, not well tested
+[20:57:47] Currently only tested on players with only 1 card version!
+[20:57:48] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:48] Player ID not found for: Giroud 84
+[20:57:48] This is a dangerous player to use, not well tested
+[20:57:48] Currently only tested on players with only 1 card version!
+[20:57:49] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:49] Player ID not found for: Giroud 84
+[20:57:50] This is a dangerous player to use, not well tested
+[20:57:51] Currently only tested on players with only 1 card version!
+[20:57:51] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:52] Player ID not found for: Giroud 84
+[20:57:53] This is a dangerous player to use, not well tested
+[20:57:53] Currently only tested on players with only 1 card version!
+[20:57:54] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:55] Player ID not found for: Giroud 84
+[20:57:55] This is a dangerous player to use, not well tested
+[20:57:56] Currently only tested on players with only 1 card version!
+[20:57:56] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:57] Player ID not found for: Giroud 84
+[20:57:58] This is a dangerous player to use, not well tested
+[20:57:58] Currently only tested on players with only 1 card version!
+[20:57:58] If this annoys you, please reach out on GitHub and I'll update it
+[20:57:59] Player ID not found for: Giroud 84
+[20:57:59] This is a dangerous player to use, not well tested
+[20:58:00] Currently only tested on players with only 1 card version!
+[20:58:00] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:01] Player ID not found for: Giroud 84
+[20:58:02] This is a dangerous player to use, not well tested
+[20:58:03] Currently only tested on players with only 1 card version!
+[20:58:03] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:04] Player ID not found for: Giroud 84
+[20:58:04] This is a dangerous player to use, not well tested
+[20:58:05] Currently only tested on players with only 1 card version!
+[20:58:06] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:06] Player ID not found for: Giroud 84
+[20:58:06] This is a dangerous player to use, not well tested
+[20:58:06] Currently only tested on players with only 1 card version!
+[20:58:06] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:07] Player ID not found for: Giroud 84
+[20:58:08] This is a dangerous player to use, not well tested
+[20:58:08] Currently only tested on players with only 1 card version!
+[20:58:09] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:09] Player ID not found for: Giroud 84
+[20:58:09] This is a dangerous player to use, not well tested
+[20:58:10] Currently only tested on players with only 1 card version!
+[20:58:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:11] Player ID not found for: Giroud 84
+[20:58:11] This is a dangerous player to use, not well tested
+[20:58:11] Currently only tested on players with only 1 card version!
+[20:58:12] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:12] Player ID not found for: Giroud 84
+[20:58:13] This is a dangerous player to use, not well tested
+[20:58:13] Currently only tested on players with only 1 card version!
+[20:58:14] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:18] Going to next page
+[20:58:21] Player ID not found for: Giroud 84
+[20:58:22] This is a dangerous player to use, not well tested
+[20:58:23] Currently only tested on players with only 1 card version!
+[20:58:24] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:24] Player ID not found for: Giroud 82
+[20:58:24] This is a dangerous player to use, not well tested
+[20:58:25] Currently only tested on players with only 1 card version!
+[20:58:26] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:26] Player ID not found for: Giroud 84
+[20:58:26] This is a dangerous player to use, not well tested
+[20:58:27] Currently only tested on players with only 1 card version!
+[20:58:27] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:27] Player ID not found for: Giroud 84
+[20:58:27] This is a dangerous player to use, not well tested
+[20:58:28] Currently only tested on players with only 1 card version!
+[20:58:28] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:29] Player ID not found for: Giroud 84
+[20:58:29] This is a dangerous player to use, not well tested
+[20:58:30] Currently only tested on players with only 1 card version!
+[20:58:30] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:31] Player ID not found for: Giroud 82
+[20:58:32] This is a dangerous player to use, not well tested
+[20:58:32] Currently only tested on players with only 1 card version!
+[20:58:33] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:33] Player ID not found for: Giroud 84
+[20:58:34] This is a dangerous player to use, not well tested
+[20:58:34] Currently only tested on players with only 1 card version!
+[20:58:35] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:36] Player ID not found for: Giroud 84
+[20:58:37] This is a dangerous player to use, not well tested
+[20:58:37] Currently only tested on players with only 1 card version!
+[20:58:38] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:39] Player ID not found for: Giroud 84
+[20:58:39] This is a dangerous player to use, not well tested
+[20:58:40] Currently only tested on players with only 1 card version!
+[20:58:40] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:41] Player ID not found for: Giroud 84
+[20:58:42] This is a dangerous player to use, not well tested
+[20:58:43] Currently only tested on players with only 1 card version!
+[20:58:43] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:44] Player ID not found for: Giroud 82
+[20:58:45] This is a dangerous player to use, not well tested
+[20:58:45] Currently only tested on players with only 1 card version!
+[20:58:45] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:46] Player ID not found for: Giroud 84
+[20:58:46] This is a dangerous player to use, not well tested
+[20:58:46] Currently only tested on players with only 1 card version!
+[20:58:47] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:48] Player ID not found for: Giroud 82
+[20:58:48] This is a dangerous player to use, not well tested
+[20:58:49] Currently only tested on players with only 1 card version!
+[20:58:50] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:51] Player ID not found for: Giroud 82
+[20:58:51] This is a dangerous player to use, not well tested
+[20:58:52] Currently only tested on players with only 1 card version!
+[20:58:52] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:53] Player ID not found for: Giroud 84
+[20:58:53] This is a dangerous player to use, not well tested
+[20:58:54] Currently only tested on players with only 1 card version!
+[20:58:54] If this annoys you, please reach out on GitHub and I'll update it
+[20:58:55] Player ID not found for: Giroud 84
+[20:58:55] This is a dangerous player to use, not well tested
+[20:58:56] Currently only tested on players with only 1 card version!
+[20:58:56] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:01] Going to next page
+[20:59:04] Player ID not found for: Giroud 84
+[20:59:04] This is a dangerous player to use, not well tested
+[20:59:04] Currently only tested on players with only 1 card version!
+[20:59:05] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:06] Player ID not found for: Giroud 84
+[20:59:06] This is a dangerous player to use, not well tested
+[20:59:07] Currently only tested on players with only 1 card version!
+[20:59:07] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:08] Player ID not found for: Giroud 84
+[20:59:09] This is a dangerous player to use, not well tested
+[20:59:10] Currently only tested on players with only 1 card version!
+[20:59:10] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:11] Player ID not found for: Giroud 84
+[20:59:12] This is a dangerous player to use, not well tested
+[20:59:12] Currently only tested on players with only 1 card version!
+[20:59:12] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:13] Player ID not found for: Giroud 84
+[20:59:13] This is a dangerous player to use, not well tested
+[20:59:14] Currently only tested on players with only 1 card version!
+[20:59:14] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:14] Player ID not found for: Giroud 84
+[20:59:15] This is a dangerous player to use, not well tested
+[20:59:16] Currently only tested on players with only 1 card version!
+[20:59:16] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:17] Player ID not found for: Giroud 84
+[20:59:17] This is a dangerous player to use, not well tested
+[20:59:18] Currently only tested on players with only 1 card version!
+[20:59:19] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:19] Player ID not found for: Giroud 84
+[20:59:20] This is a dangerous player to use, not well tested
+[20:59:20] Currently only tested on players with only 1 card version!
+[20:59:21] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:21] Player ID not found for: Giroud 84
+[20:59:21] This is a dangerous player to use, not well tested
+[20:59:22] Currently only tested on players with only 1 card version!
+[20:59:23] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:23] Player ID not found for: Giroud 84
+[20:59:24] This is a dangerous player to use, not well tested
+[20:59:24] Currently only tested on players with only 1 card version!
+[20:59:25] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:25] Time remaining of players on page exceeded 50 minutes, RETURN
+[20:59:25] Finished bidding on:GIROUD
+[20:59:37] Bidding on NDOMBELE up to MARKET price: 1400. Purchase ceiling: 1190.0
+[20:59:41] Player ID not found for: Ndombele 83
+[20:59:41] This is a dangerous player to use, not well tested
+[20:59:42] Currently only tested on players with only 1 card version!
+[20:59:42] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:43] Player ID not found for: Ndombele 83
+[20:59:44] This is a dangerous player to use, not well tested
+[20:59:44] Currently only tested on players with only 1 card version!
+[20:59:45] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:45] Player ID not found for: Ndombele 83
+[20:59:46] This is a dangerous player to use, not well tested
+[20:59:47] Currently only tested on players with only 1 card version!
+[20:59:47] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:48] Player ID not found for: Ndombele 83
+[20:59:49] This is a dangerous player to use, not well tested
+[20:59:49] Currently only tested on players with only 1 card version!
+[20:59:50] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:50] Player ID not found for: Ndombele 83
+[20:59:50] This is a dangerous player to use, not well tested
+[20:59:51] Currently only tested on players with only 1 card version!
+[20:59:51] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:52] Player ID not found for: Ndombele 83
+[20:59:52] This is a dangerous player to use, not well tested
+[20:59:53] Currently only tested on players with only 1 card version!
+[20:59:53] If this annoys you, please reach out on GitHub and I'll update it
+[20:59:54] Player ID not found for: Ndombele 83
+[20:59:55] This is a dangerous player to use, not well tested
+[20:59:55] Currently only tested on players with only 1 card version!
+[20:59:56] If this annoys you, please reach out on GitHub and I'll update it
+[21:00:04] Bids made on NDOMBELE: 1/10
+[21:00:08] Going to next page
+[21:00:10] Player ID not found for: Ndombele 83
+[21:00:11] This is a dangerous player to use, not well tested
+[21:00:11] Currently only tested on players with only 1 card version!
+[21:00:12] If this annoys you, please reach out on GitHub and I'll update it
+[21:00:12] Player ID not found for: Ndombele 83
+[21:00:13] This is a dangerous player to use, not well tested
+[21:00:13] Currently only tested on players with only 1 card version!
+[21:00:14] If this annoys you, please reach out on GitHub and I'll update it
+[21:00:14] Player ID not found for: Ndombele 83
+[21:00:15] This is a dangerous player to use, not well tested
+[21:00:16] Currently only tested on players with only 1 card version!
+[21:00:17] If this annoys you, please reach out on GitHub and I'll update it
+[21:00:17] Player ID not found for: Ndombele 83
+[21:00:18] This is a dangerous player to use, not well tested
+[21:00:19] Currently only tested on players with only 1 card version!
+[21:00:20] If this annoys you, please reach out on GitHub and I'll update it
+[21:00:25] Going to next page
+[21:00:36] Bids made on NDOMBELE: 2/10
+[21:00:40] Going to next page
+[21:00:51] Bids made on NDOMBELE: 3/10
+[21:01:00] Bids made on NDOMBELE: 4/10
+[21:01:04] Going to next page
+[21:01:08] Time remaining of players on page exceeded 50 minutes, RETURN
+[21:01:08] Finished bidding on:NDOMBELE
+[21:01:10] Parsing market data to find most accurate sell prices...
+[21:01:11] Giroud min buy now from market data: 1300
+[21:01:11] Ndombele min buy now from market data: 1400
+[21:01:12] Going to watchlist. Time for war
+[21:04:05] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[21:04:05] Error outbidding Ndombele. Refreshing page
+[21:04:20] Going back to watchlist
+[21:13:54] Test function
+[21:13:55] Autobidder started
+[21:13:58] Bid to make on each player: 21
+[21:14:08] Bidding on GIROUD up to MARKET price: 1300. Purchase ceiling: 1105.0
+[21:14:12] Player ID not found for: Giroud 84
+[21:14:12] This is a dangerous player to use, not well tested
+[21:14:13] Currently only tested on players with only 1 card version!
+[21:14:14] If this annoys you, please reach out on GitHub and I'll update it
+[21:14:14] Player ID not found for: Giroud 82
+[21:14:15] This is a dangerous player to use, not well tested
+[21:14:16] Currently only tested on players with only 1 card version!
+[21:14:17] If this annoys you, please reach out on GitHub and I'll update it
+[21:14:38] Fetching player info...
+[21:14:50] Added player RODRÍGUEZ
+[21:15:09] Fetching player info...
+[21:15:16] Added player OCHOA
+[21:15:26] Test function
+[21:15:26] Autobidder started
+[21:15:29] Bid to make on each player: 21
+[21:15:39] Bidding on RODRÍGUEZ up to FUTBIN price: 950. Will determine actual market price while searching. Purchase ceiling: 807.5
+[21:15:50] Bids made on RODRÍGUEZ: 1/10
+[21:15:58] Bids made on RODRÍGUEZ: 2/10
+[21:16:07] Bids made on RODRÍGUEZ: 3/10
+[21:16:14] Bids made on RODRÍGUEZ: 4/10
+[21:16:19] Going to next page
+[21:16:23] Time remaining of players on page exceeded 50 minutes, RETURN
+[21:16:23] Finished bidding on:RODRÍGUEZ
+[21:16:34] Bidding on OCHOA up to FUTBIN price: 900. Will determine actual market price while searching. Purchase ceiling: 765.0
+[21:16:45] Bids made on OCHOA: 1/10
+[21:16:52] Bids made on OCHOA: 2/10
+[21:17:00] Bids made on OCHOA: 3/10
+[21:17:09] Bids made on OCHOA: 4/10
+[21:17:10] Time remaining of players on page exceeded 50 minutes, RETURN
+[21:17:10] Finished bidding on:OCHOA
+[21:17:12] Parsing market data to find most accurate sell prices...
+[21:17:12] Rodríguez min buy now from market data: 950
+[21:17:12] Ochoa min buy now from market data: 900
+[21:17:13] Going to watchlist. Time for war
+[21:17:55] Error in updating GUI labels
+[21:17:58] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[21:17:59] Error outbidding Rodríguez. Refreshing page
+[21:18:14] Going back to watchlist
+[21:21:26] Test function
+[21:21:26] Autobidder started
+[21:21:29] Bid to make on each player: 18
+[21:21:38] Bidding on RODRÍGUEZ up to MARKET price: 950. Purchase ceiling: 807.5
+[21:21:47] Going to next page
+[21:21:59] Bids made on RODRÍGUEZ: 1/10
+[21:21:59] Time remaining of players on page exceeded 50 minutes, RETURN
+[21:22:00] Finished bidding on:RODRÍGUEZ
+[21:25:01] Fetching player info...
+[21:25:17] Added player JANUZAJ
+[21:25:34] Fetching player info...
+[21:25:49] Added player ODRIOZOLA
+[21:26:02] Fetching player info...
+[21:26:14] Added player MELENDO
+[21:30:09] Auto logging in...

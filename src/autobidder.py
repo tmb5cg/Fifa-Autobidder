@@ -1,23 +1,20 @@
-# import helpers
-# import mainhelpers
-import newhelpers
-
-from newhelpers import *
-# from helpers import *
-# from mainhelpers import *
-
 import csv
-from time import sleep
-from decimal import Decimal
 from datetime import datetime
-from selenium.webdriver.support import ui
+from decimal import Decimal
+from time import sleep
+
 from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver import ChromeOptions, Chrome
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import ui
+from selenium.webdriver.support.wait import WebDriverWait
+
+import helpers
+from helpers import *
+
 
 class Autobidder:
     def __init__(self, driver, queue):
@@ -46,7 +43,7 @@ class Autobidder:
 
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
         # bidsallowed = 10
-        # bidstomake_eachplayer = 10
+        bidstomake_eachplayer = 10
 
         self.helper.user_num_target_players = num_players_to_bid_on
         self.helper.user_num_bids_each_target = bidstomake_eachplayer

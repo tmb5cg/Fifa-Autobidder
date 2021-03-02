@@ -1,8 +1,8 @@
 # import helpers
 # import mainhelpers
-import newhelpers
+import helpers
 
-from newhelpers import *
+from helpers import *
 # from helpers import *
 # from mainhelpers import *
 
