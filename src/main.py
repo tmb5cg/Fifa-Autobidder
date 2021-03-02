@@ -51,6 +51,7 @@ class GUI(tk.Tk):
         self.table = Table(self.container, self)
         self.mainbuttons = MainButtons(self.container, self)
         self.displaylogs = DisplayLogs(self.container, self)
+        # self.disclaimers = Disclaimers(self.container, self)
 
         # self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
 
@@ -62,13 +63,40 @@ class GUI(tk.Tk):
         # self.table.pack(side=LEFT, anchor = W) #grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
         self.table.grid(row=1, column=0, sticky="nsew", padx="5", pady="5")
 
-        # FULL LEFT Autobidder / Buyer Stats
+        # FULL RIGHT Autobidder / Buyer Stats
         # self.mainbuttons.pack(side=RIGHT, anchor=NE) #grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
         self.mainbuttons.grid(row=0, column=1, rowspan=3, sticky="nsew", padx="5", pady="5")
 
         # BOTTOM RIGHT Logs
         # self.displaylogs.pack(side=LEFT, anchor=SW) #grid(row=1, column=2, sticky="nsew", padx="10", pady="10")
         self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")
+        # self.disclaimers.grid(row=1, column=1, sticky="se", padx="5", pady="5")
+
+        # msg = "Welcome. Here are some recommendations: \n 1. Use players with only 1 card version, such as non rare golds, ideally from the top 10 nations since they are desirable for SBC fodder. \n 2. Your goal is to fight off whoever is trying to manually control the player's bids. Stick to max 3 target players. Probably best to start with only one. \n 3. If using at off-time, you might find bids with 5-10 minute gaps in expiration time. You want to find players with lots of cards expiring quickly so you can intimidate whoever is controlling the player at the time. \n 4. Be aware other people have autobidders. If you find every bid is going up to the price ceiling, maybe try another player. \n 5. This bot is unfinished and therefore NOT perfect (it will enventually be perfect. I promise) so please DO NOT turn it on and not monitor it, my friend reported some bids going at max bid. If this occurrs, please reach out to me! \n 5. Manual intervention while its running will cause issues. If you want it to STOP, manually go to a different tab in the webapp and it will throw and error (watch your terminal). This is normal. If you don't see a scary Selenium error, try again - your goal is to break the bot's thread so it can be restarted. Then you can click Start Autobidder again (you don't need to relogin).  \n 6. Make sure to redownload the bot and replace the SRC folder (this is the only code that would need updating) daily, I am adding lots of bug fixes and such every day! "
+        # popup = tk.Tk()
+        # popup.wm_title("Note")
+        # label = ttk.Label(popup, text=msg, font=NORM_FONT)
+        # label.pack(side="top", fill="x", pady=10)
+        # B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
+        # B1.pack()
+
+        
+# class Disclaimers(tk.Frame):
+
+#     def __init__(self, parent, controller):
+#         tk.Frame.__init__(self, parent)
+
+#         self.parent = parent
+#         self.controller = controller
+#         self.playerlist = []
+
+
+
+#         msg = "Welcome. Here are some recommendations: \n 1. Use players with only 1 card version, such as non rare golds, ideally from the top 10 nations since they are desirable for SBC fodder. \n 2. Your goal is to fight off whoever is trying to manually control the player's bids. Stick to max 3 target players. Probably best to start with only one. \n 3. If using at off-time, you might find bids with 5-10 minute gaps in expiration time. You want to find players with lots of cards expiring quickly so you can intimidate whoever is controlling the player at the time. \n 4. Be aware other people have autobidders. If you find every bid is going up to the price ceiling, maybe try another player. \n 5. This bot is unfinished and therefore NOT perfect (it will enventually be perfect. I promise) so please DO NOT turn it on and not monitor it, my friend reported some bids going at max bid. If this occurrs, please reach out to me! \n 5. Manual intervention while its running will cause issues. If you want it to STOP, manually go to a different tab in the webapp and it will throw and error (watch your terminal). This is normal. If you don't see a scary Selenium error, try again - your goal is to break the bot's thread so it can be restarted. Then you can click Start Autobidder again (you don't need to relogin).  \n 6. Make sure to redownload the bot and replace the SRC folder (this is the only code that would need updating) daily, I am adding lots of bug fixes and such every day! "
+        
+#         disclaimer3 = tk.StringVar()
+#         disclaimer_text3 = tk.Label(self, text=msg, font=SMALL_FONT, wraplength=100)
+#         disclaimer_text3.grid(row=0, column=0, columnspan=2)
 
 # Top right 
 class PlayerFilters(tk.Frame):

@@ -58,6 +58,8 @@ class Helper:
         self.user_transferlist_totalsize = 0
         self.user_num_coins = 0
 
+        self.user_sum_of_all_current_bids_on_watchlist = 0
+
     def getPlayerListFromGUI(self):
         playerlist = []
         # Tried to be cheeky and only have this called on initialization, but this made adding / removing to player list in real time impossible
@@ -785,6 +787,7 @@ class Helper:
 
             playerdata = []
             playernumber = 1
+            sum_of_all_current_bids_on_watchlist = 0
             for card in players_on_page:
                 # Only look at top 5 players
                 if playernumber < 6:
@@ -853,6 +856,7 @@ class Helper:
                             curbid_or_finalsoldprice = curbid_or_finalsoldprice.replace(",", "")
 
                         curbid_or_finalsoldprice = int(curbid_or_finalsoldprice)
+                        sum_of_all_current_bids_on_watchlist += curbid_or_finalsoldprice
 
                         # clean buy now
                         if "," in buynow:
@@ -865,6 +869,7 @@ class Helper:
                     info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
                     playerdata.append(info)
                 playernumber += 1
+            self.user_sum_of_all_current_bids_on_watchlist = sum_of_all_current_bids_on_watchlist
 
             return playerdata
         except:
