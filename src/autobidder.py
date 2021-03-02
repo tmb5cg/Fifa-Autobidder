@@ -151,12 +151,15 @@ class Autobidder:
         # send won to transfer list
         sleep(3)
 
-        # # Send won to Transfer list
-        self.helper.send_won_players_to_transferlist()
-        sleep(2)
-        self.helper.clearExpired()
+        try:
+            # # Send won to Transfer list
+            self.helper.send_won_players_to_transferlist()
+            sleep(2)
+            self.helper.clearExpired()
+        except:
+            log_event("error here line 160 autobidder.py")
 
-        log_event("Sleeping for 5 minutes and heading back to war")
+        log_event("Sleeping for 2 minutes and heading back to war")
         sleep(60*2)
         self.start()
 
