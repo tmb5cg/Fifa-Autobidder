@@ -1058,11 +1058,14 @@ class Helper:
         self.driver.find_element(By.CLASS_NAME, 'ut-tile-transfer-market').click()
 
     def go_to_watchlist(self):
-        sleep(0.5)
-        self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
-        sleep(0.5)
-        self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]').click()
-        sleep(2)
+        wait_for_shield_invisibility(self.driver)
+        try:
+            self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
+            sleep(0.5)
+            self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]').click()
+            sleep(2)
+        except:
+            self.go_to_watchlist()
 
     def go_to_transferlist(self):
         sleep(5)

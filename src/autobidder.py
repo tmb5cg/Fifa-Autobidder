@@ -163,21 +163,25 @@ class Autobidder:
         self.manageTransferlist()
 
     def manageTransferlist(self):
-        log_event("Bidding round finished, will now send players to transfer list and list them!")
-        # send won to transfer list
-        sleep(3)
+        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
+        if (page.lower() == "transfer targets"):
+            log_event("Bidding round finished, will now send players to transfer list and list them!")
+            # send won to transfer list
+            sleep(3)
 
-        try:
-            # # Send won to Transfer list
-            self.helper.send_won_players_to_transferlist()
-            sleep(2)
-            self.helper.clearExpired()
-        except:
-            log_event("error here line 160 autobidder.py")
+            try:
+                # # Send won to Transfer list
+                self.helper.send_won_players_to_transferlist()
+                sleep(2)
+                self.helper.clearExpired()
+            except:
+                log_event("error here line 160 autobidder.py")
 
-        log_event("Sleeping for 2 minutes and heading back to war")
-        sleep(60*2)
-        self.start()
+            log_event("Sleeping for 2 minutes and heading back to war")
+            sleep(60*2)
+            self.start()
+        else:
+            log_event("Weird error, click start Autobidder again")
 
         # log_event("Sent won players to transfer list!")
 

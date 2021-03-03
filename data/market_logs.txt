@@ -1,0 +1,168 @@
+03/03/2021,13:01:12,1,listFUTItem has-auction-data selected,78,Rodríguez,1200,1150,1300,60,192045
+03/03/2021,13:01:12,2,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,60,192045
+03/03/2021,13:01:12,3,listFUTItem has-auction-data,78,Rodríguez,3000,2950,3100,60,192045
+03/03/2021,13:01:12,4,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,120,192045
+03/03/2021,13:01:12,5,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,300,192045
+03/03/2021,13:01:12,6,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,300,192045
+03/03/2021,13:01:12,7,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,360,192045
+03/03/2021,13:01:12,8,listFUTItem has-auction-data highest-bid,78,Rodríguez,350,350,10000,420,192045
+03/03/2021,13:01:12,9,listFUTItem has-auction-data,78,Rodríguez,1000,950,10000,480,192045
+03/03/2021,13:01:12,10,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,480,192045
+03/03/2021,13:01:12,11,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,540,192045
+03/03/2021,13:01:12,12,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,540,192045
+03/03/2021,13:01:12,13,listFUTItem has-auction-data,78,Rodríguez,1200,1150,10000,540,192045
+03/03/2021,13:01:12,14,listFUTItem has-auction-data,78,Rodríguez,1500,1450,10000,540,192045
+03/03/2021,13:01:12,15,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,540,192045
+03/03/2021,13:01:12,16,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,60,192045
+03/03/2021,13:01:13,17,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,60,192045
+03/03/2021,13:01:13,18,listFUTItem has-auction-data highest-bid,78,Rodríguez,350,350,10000,720,192045
+03/03/2021,13:01:13,19,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,780,192045
+03/03/2021,13:01:13,20,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,780,192045
+03/03/2021,13:01:26,1,listFUTItem has-auction-data selected,78,Rodríguez,1200,1150,1300,780,192045
+03/03/2021,13:01:27,2,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,840,192045
+03/03/2021,13:01:27,3,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,900,192045
+03/03/2021,13:01:27,4,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,900,192045
+03/03/2021,13:01:27,5,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,900,192045
+03/03/2021,13:01:27,6,listFUTItem has-auction-data,78,Rodríguez,1200,1150,10000,900,192045
+03/03/2021,13:01:27,7,listFUTItem has-auction-data,78,Rodríguez,350,300,7000,900,192045
+03/03/2021,13:01:27,8,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,960,192045
+03/03/2021,13:01:27,9,listFUTItem has-auction-data,78,Rodríguez,1100,1050,1200,960,192045
+03/03/2021,13:01:27,10,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,1020,192045
+03/03/2021,13:01:27,11,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1020,192045
+03/03/2021,13:01:27,12,listFUTItem has-auction-data,78,Rodríguez,900,850,950,1020,192045
+03/03/2021,13:01:27,13,listFUTItem has-auction-data,78,Rodríguez,800,750,950,1020,192045
+03/03/2021,13:01:27,14,listFUTItem has-auction-data,78,Rodríguez,1200,1150,1300,1080,192045
+03/03/2021,13:01:27,15,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1080,192045
+03/03/2021,13:01:27,16,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1140,192045
+03/03/2021,13:01:27,17,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,1200,192045
+03/03/2021,13:01:27,18,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1200,192045
+03/03/2021,13:01:27,19,listFUTItem has-auction-data,78,Rodríguez,1100,1050,1200,60,192045
+03/03/2021,13:01:27,20,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1320,192045
+03/03/2021,13:02:07,1,listFUTItem has-auction-data selected,78,Rodríguez,1000,950,1100,1380,192045
+03/03/2021,13:02:07,2,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1380,192045
+03/03/2021,13:02:07,3,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,1380,192045
+03/03/2021,13:02:07,4,listFUTItem has-auction-data,78,Rodríguez,350,300,10000,1440,192045
+03/03/2021,13:02:07,5,listFUTItem has-auction-data,78,Rodríguez,1200,1150,7000,1440,192045
+03/03/2021,13:02:07,6,listFUTItem has-auction-data,78,Rodríguez,1100,1050,1200,1500,192045
+03/03/2021,13:02:07,7,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1500,192045
+03/03/2021,13:02:07,8,listFUTItem has-auction-data,78,Rodríguez,900,850,1100,1560,192045
+03/03/2021,13:02:07,9,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1560,192045
+03/03/2021,13:02:07,10,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1620,192045
+03/03/2021,13:02:07,11,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1620,192045
+03/03/2021,13:02:07,12,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1620,192045
+03/03/2021,13:02:07,13,listFUTItem has-auction-data,78,Rodríguez,400,350,10000,1620,192045
+03/03/2021,13:02:07,14,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1620,192045
+03/03/2021,13:02:07,15,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1620,192045
+03/03/2021,13:02:07,16,listFUTItem has-auction-data,78,Rodríguez,1000,950,1100,1680,192045
+03/03/2021,13:02:07,17,listFUTItem has-auction-data,78,Rodríguez,950,900,1000,1680,192045
+03/03/2021,13:02:07,18,listFUTItem has-auction-data,78,Rodríguez,1000,950,1500,1740,192045
+03/03/2021,13:02:08,19,listFUTItem has-auction-data,78,Rodríguez,1000,950,2000,1800,192045
+03/03/2021,13:02:08,20,listFUTItem has-auction-data,78,Rodríguez,550,500,1000,1800,192045
+03/03/2021,13:02:48,1,listFUTItem has-auction-data selected,79,Ochoa,900,850,950,15,140233
+03/03/2021,13:02:48,2,listFUTItem has-auction-data,79,Ochoa,900,850,950,60,140233
+03/03/2021,13:02:48,3,listFUTItem has-auction-data,79,Ochoa,900,850,950,60,140233
+03/03/2021,13:02:48,4,listFUTItem has-auction-data,79,Ochoa,850,800,2000,120,140233
+03/03/2021,13:02:48,5,listFUTItem has-auction-data,79,Ochoa,950,900,1000,180,140233
+03/03/2021,13:02:49,6,listFUTItem has-auction-data,79,Ochoa,900,850,950,240,140233
+03/03/2021,13:02:49,7,listFUTItem has-auction-data,79,Ochoa,850,800,10000,240,140233
+03/03/2021,13:02:49,8,listFUTItem has-auction-data,79,Ochoa,900,850,1600,240,140233
+03/03/2021,13:02:49,9,listFUTItem has-auction-data,79,Ochoa,950,900,1000,300,140233
+03/03/2021,13:02:49,10,listFUTItem has-auction-data,79,Ochoa,850,800,10000,300,140233
+03/03/2021,13:02:49,11,listFUTItem has-auction-data,79,Ochoa,900,850,950,300,140233
+03/03/2021,13:02:49,12,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,1000,360,140233
+03/03/2021,13:02:49,13,listFUTItem has-auction-data,79,Ochoa,1000,950,1500,360,140233
+03/03/2021,13:02:49,14,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,1800,420,140233
+03/03/2021,13:02:49,15,listFUTItem has-auction-data highest-bid,79,Ochoa,700,700,1000,420,140233
+03/03/2021,13:02:49,16,listFUTItem has-auction-data,79,Ochoa,900,850,950,480,140233
+03/03/2021,13:02:49,17,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,10000,480,140233
+03/03/2021,13:02:49,18,listFUTItem has-auction-data,79,Ochoa,1100,1050,1200,480,140233
+03/03/2021,13:02:49,19,listFUTItem has-auction-data,79,Ochoa,950,900,1000,480,140233
+03/03/2021,13:02:49,20,listFUTItem has-auction-data,79,Ochoa,850,800,900,480,140233
+03/03/2021,13:02:56,1,listFUTItem has-auction-data selected highest-bid,79,Ochoa,350,350,10000,480,140233
+03/03/2021,13:02:56,2,listFUTItem has-auction-data,79,Ochoa,950,900,1000,480,140233
+03/03/2021,13:02:56,3,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,10000,540,140233
+03/03/2021,13:02:56,4,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,10000,540,140233
+03/03/2021,13:02:56,5,listFUTItem has-auction-data,79,Ochoa,850,800,1000,540,140233
+03/03/2021,13:02:56,6,listFUTItem has-auction-data,79,Ochoa,1000,950,2000,540,140233
+03/03/2021,13:02:56,7,listFUTItem has-auction-data,79,Ochoa,850,800,1100,600,140233
+03/03/2021,13:02:56,8,listFUTItem has-auction-data,79,Ochoa,1000,950,1300,600,140233
+03/03/2021,13:02:56,9,listFUTItem has-auction-data,79,Ochoa,1200,1150,1300,600,140233
+03/03/2021,13:02:56,10,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,600,140233
+03/03/2021,13:02:56,11,listFUTItem has-auction-data,79,Ochoa,950,900,1000,60,140233
+03/03/2021,13:02:56,12,listFUTItem has-auction-data,79,Ochoa,1000,950,1500,60,140233
+03/03/2021,13:02:56,13,listFUTItem has-auction-data,79,Ochoa,900,850,950,60,140233
+03/03/2021,13:02:56,14,listFUTItem has-auction-data,79,Ochoa,1100,1050,1200,60,140233
+03/03/2021,13:02:57,15,listFUTItem has-auction-data,79,Ochoa,950,900,1000,60,140233
+03/03/2021,13:02:57,16,listFUTItem has-auction-data,79,Ochoa,850,800,1000,720,140233
+03/03/2021,13:02:57,17,listFUTItem has-auction-data highest-bid,79,Ochoa,350,350,1000,720,140233
+03/03/2021,13:02:57,18,listFUTItem has-auction-data,79,Ochoa,950,900,1000,780,140233
+03/03/2021,13:02:57,19,listFUTItem has-auction-data,79,Ochoa,900,850,950,780,140233
+03/03/2021,13:02:57,20,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,780,140233
+03/03/2021,13:03:04,1,listFUTItem has-auction-data selected,79,Ochoa,900,850,950,780,140233
+03/03/2021,13:03:04,2,listFUTItem has-auction-data,79,Ochoa,350,300,10000,780,140233
+03/03/2021,13:03:04,3,listFUTItem has-auction-data,79,Ochoa,900,850,950,840,140233
+03/03/2021,13:03:04,4,listFUTItem has-auction-data,79,Ochoa,2000,1950,10000,840,140233
+03/03/2021,13:03:04,5,listFUTItem has-auction-data,79,Ochoa,850,800,900,840,140233
+03/03/2021,13:03:04,6,listFUTItem has-auction-data,79,Ochoa,1100,1050,1200,840,140233
+03/03/2021,13:03:04,7,listFUTItem has-auction-data,79,Ochoa,900,850,950,900,140233
+03/03/2021,13:03:04,8,listFUTItem has-auction-data,79,Ochoa,900,850,950,900,140233
+03/03/2021,13:03:04,9,listFUTItem has-auction-data,79,Ochoa,850,800,900,900,140233
+03/03/2021,13:03:04,10,listFUTItem has-auction-data,79,Ochoa,850,800,900,900,140233
+03/03/2021,13:03:04,11,listFUTItem has-auction-data,79,Ochoa,350,300,10000,960,140233
+03/03/2021,13:03:04,12,listFUTItem has-auction-data,79,Ochoa,900,850,950,960,140233
+03/03/2021,13:03:04,13,listFUTItem has-auction-data,79,Ochoa,850,800,950,960,140233
+03/03/2021,13:03:04,14,listFUTItem has-auction-data,79,Ochoa,950,900,1000,960,140233
+03/03/2021,13:03:04,15,listFUTItem has-auction-data,79,Ochoa,350,300,10000,1020,140233
+03/03/2021,13:03:04,16,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1020,140233
+03/03/2021,13:03:04,17,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:04,18,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1080,140233
+03/03/2021,13:03:04,19,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1080,140233
+03/03/2021,13:03:04,20,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:34,1,listFUTItem has-auction-data selected,79,Ochoa,1300,1250,2200,1020,140233
+03/03/2021,13:03:34,2,listFUTItem has-auction-data,79,Ochoa,850,800,900,1020,140233
+03/03/2021,13:03:34,3,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,1080,140233
+03/03/2021,13:03:34,4,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,1080,140233
+03/03/2021,13:03:35,5,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:35,6,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:35,7,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1140,140233
+03/03/2021,13:03:35,8,listFUTItem has-auction-data,79,Ochoa,900,850,950,1140,140233
+03/03/2021,13:03:35,9,listFUTItem has-auction-data,79,Ochoa,850,800,900,1140,140233
+03/03/2021,13:03:35,10,listFUTItem has-auction-data,79,Ochoa,1700,1650,1800,1140,140233
+03/03/2021,13:03:35,11,listFUTItem has-auction-data,79,Ochoa,1700,1650,2000,1200,140233
+03/03/2021,13:03:35,12,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1200,140233
+03/03/2021,13:03:35,13,listFUTItem has-auction-data,79,Ochoa,1100,1050,1200,60,140233
+03/03/2021,13:03:35,14,listFUTItem has-auction-data,79,Ochoa,900,850,950,1320,140233
+03/03/2021,13:03:35,15,listFUTItem has-auction-data,79,Ochoa,850,800,900,1380,140233
+03/03/2021,13:03:35,16,listFUTItem has-auction-data,79,Ochoa,900,850,950,1380,140233
+03/03/2021,13:03:35,17,listFUTItem has-auction-data,79,Ochoa,1500,1450,2000,1380,140233
+03/03/2021,13:03:35,18,listFUTItem has-auction-data,79,Ochoa,900,850,950,1380,140233
+03/03/2021,13:03:35,19,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,1380,140233
+03/03/2021,13:03:35,20,listFUTItem has-auction-data,79,Ochoa,850,800,900,1380,140233
+03/03/2021,13:03:43,1,listFUTItem has-auction-data selected,79,Ochoa,1300,1250,2200,1020,140233
+03/03/2021,13:03:43,2,listFUTItem has-auction-data,79,Ochoa,850,800,900,1020,140233
+03/03/2021,13:03:43,3,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,1020,140233
+03/03/2021,13:03:43,4,listFUTItem has-auction-data,79,Ochoa,1000,950,10000,1020,140233
+03/03/2021,13:03:43,5,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:43,6,listFUTItem has-auction-data,79,Ochoa,900,850,950,1080,140233
+03/03/2021,13:03:43,7,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1080,140233
+03/03/2021,13:03:43,8,listFUTItem has-auction-data,79,Ochoa,900,850,950,1140,140233
+03/03/2021,13:03:45,1,listFUTItem has-auction-data selected,79,Ochoa,950,900,1000,1440,140233
+03/03/2021,13:03:45,2,listFUTItem has-auction-data,79,Ochoa,850,800,900,1440,140233
+03/03/2021,13:03:45,3,listFUTItem has-auction-data,79,Ochoa,1700,1650,1800,1500,140233
+03/03/2021,13:03:45,4,listFUTItem has-auction-data,79,Ochoa,1700,1650,1800,1500,140233
+03/03/2021,13:03:45,5,listFUTItem has-auction-data,79,Ochoa,350,300,1300,1500,140233
+03/03/2021,13:03:45,6,listFUTItem has-auction-data,79,Ochoa,800,750,950,1560,140233
+03/03/2021,13:03:45,7,listFUTItem has-auction-data,79,Ochoa,1700,1650,1800,1560,140233
+03/03/2021,13:03:45,8,listFUTItem has-auction-data,79,Ochoa,950,900,1000,1560,140233
+03/03/2021,13:03:45,9,listFUTItem has-auction-data,79,Ochoa,800,750,1000,1620,140233
+03/03/2021,13:03:45,10,listFUTItem has-auction-data,79,Ochoa,850,800,900,1680,140233
+03/03/2021,13:03:45,11,listFUTItem has-auction-data,79,Ochoa,1700,1650,2000,1680,140233
+03/03/2021,13:03:45,12,listFUTItem has-auction-data,79,Ochoa,1500,1450,2500,1680,140233
+03/03/2021,13:03:45,13,listFUTItem has-auction-data,79,Ochoa,900,850,950,1680,140233
+03/03/2021,13:03:45,14,listFUTItem has-auction-data,79,Ochoa,900,850,950,1740,140233
+03/03/2021,13:03:45,15,listFUTItem has-auction-data,79,Ochoa,900,850,950,1740,140233
+03/03/2021,13:03:45,16,listFUTItem has-auction-data,79,Ochoa,850,800,900,1740,140233
+03/03/2021,13:03:45,17,listFUTItem has-auction-data,79,Ochoa,900,850,950,1740,140233
+03/03/2021,13:03:46,18,listFUTItem has-auction-data,79,Ochoa,350,300,10000,1800,140233
+03/03/2021,13:03:46,19,listFUTItem has-auction-data,79,Ochoa,1000,950,1300,60,140233
+03/03/2021,13:03:46,20,listFUTItem has-auction-data,79,Ochoa,850,800,900,60,140233
