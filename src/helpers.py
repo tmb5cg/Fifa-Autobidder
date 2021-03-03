@@ -341,6 +341,7 @@ class Helper:
 
         num_coins = int(num_coins)
         self.user_num_coins = num_coins
+        self.update_autobidder_logs()
 
     # Action: Logs all data on current page of market, to be used later to find accurate buy now
     def getAllPlayerInfo(self):
@@ -478,8 +479,12 @@ class Helper:
             diff = p_overall - inputoverall
 
             pid = int(player[7])
+            # print(str(p_overall) + " " + str(p_cardname) + " " + str(pid))
+
             if (diff == 0):
                 if (p_cardname == inputcardname):
+                    # print("ID FOUND line 486" + str(p_overall) + " " + str(p_cardname) + " " + str(pid))
+
                     return pid
 
         # If not found in small player list, check master list (takes longer)
@@ -663,19 +668,21 @@ class Helper:
     # Returns price to sell player at
     def getPlayerSellPrice(self, playerid):
         # Get target players IDs
-        for player in self.getPlayerListFromGUI():
-            pid = int(player[7])
-            diff = pid - int(playerid)
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            line_id = int(values2[7])
+            inputid = int(playerid)
+            diff = line_id - inputid
+
+            futbinprice = int(values2[9])
+            marketprice = int(values2[11])
             if (diff == 0):
-                futbinprice = int(player[9])
-                marketprice = int(player[11])
-                if (diff == 0):
-                    if (marketprice == 0):
-                        return (futbinprice * self.sellceiling)
-                    else:
-                        return (marketprice * self.sellceiling)
-            else:
-                lastupdated, futbinprice = self.get_futbin_price_lastupdated(playerID)
+                if (marketprice == 0):
+                    return (futbinprice * .95)
+                else:
+                    return (marketprice * .95)
+        txt.close()
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
@@ -1006,12 +1013,12 @@ class Helper:
             bidStatus = player.get_attribute("class")
             bidStatus = str(bidStatus)
 
-            if "won" in bidStatus:
+            if "expired" in bidStatus:
                 num_players_expired += 1
 
         log_event("Num players expired: " + str(num_players_expired))
 
-        if num_players_expired > 3:
+        if num_players_expired > 0:
             try:
                 sleep(1)
                 self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div/section[4]/header/button').click()

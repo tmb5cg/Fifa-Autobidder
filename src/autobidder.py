@@ -107,7 +107,13 @@ class Autobidder:
                     active_bids = self.helper.getAllPlayerInfoWatchlist()
                     if (active_bids != "processing"):
                         firstplayer = active_bids[0]
+                        # firstplayer = active_bids[1]
+                        # firstplayer = active_bids[2]
+
                         firstplayer_timeremaining = firstplayer[7]
+                        # secondplayer_timeremaining = firstplayer[7]
+                        # thirdplayer_timeremaining = firstplayer[7]
+                        # fourthplayer_timeremaining = firstplayer[7]
                         # Triple check that first player is not Processing (else will throw exception, redundant but necessary)
                         if (0 < firstplayer_timeremaining):
                             # If method reaches here, everything should be good to go...
