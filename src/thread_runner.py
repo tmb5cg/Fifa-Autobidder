@@ -36,7 +36,7 @@ class RunThread(threading.Thread):
 
             # testhelper.start()
             autobidder = Autobidder(self.driver, self.queue)
-            autobidder.manageWatchlist()
+            autobidder.start()
 
         if self.action == "autobuyer":
             self.queue.put("Starting autobuyer")

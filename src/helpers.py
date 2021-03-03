@@ -214,7 +214,13 @@ class Helper:
         maxbidprice = round(futbinprice * .85)
 
         sleep(2)
-        players_on_page = self.getAllPlayerInfo()
+        try:
+            players_on_page = self.getAllPlayerInfo()
+        except:
+            log_event("Get all player info issue")
+            wait_for_shield_invisibility(self.driver)
+            players_on_page = self.getAllPlayerInfo()
+
         for card in players_on_page:
             # Testing if logger works
             # self.update_autobidder_logs()
@@ -253,7 +259,7 @@ class Helper:
                             if (delta > 250) and (delta < 700) and (delta2 > 800):
                                 log_event("Player " + str(card[3]) + " || " + str(card[2]) + " || Current bid: " + str(curbid) + " || Futbin Price: " + str(futbinprice) + " (Updated: idk mins ago) || DELTA: " + str(delta))
                                 log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
-                                makebid_individualplayer(playernumber, curbid)
+                                self.makebid_individualplayer(playernumber, curbid)
                                 bids_made += 1
             else:
                 if bids_made < bids_allowed+1:
@@ -267,10 +273,10 @@ class Helper:
                                     log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
 
                         else:
-                            log_event("Time remaining of players on page exceeded 50 minutes, RETURN")
+                            log_event("Time remaining of players on page exceeded 30 minutes, RETURN")
                             return "Finished"
                 else:
-                    log_event("Final Number of bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                    log_event("Total bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
                     return "Finished"
 
         sleeptime = random.randint(3000, 5000)

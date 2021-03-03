@@ -39,7 +39,17 @@ class Autobidder:
         self.queue.put("Updating queue from inside autobidder...")
         log_event("Autobidder started")
 
-        num_players_to_bid_on = len(self.playerlist)
+        src = "./data/player_list.txt"
+        txt = open(src, "r", encoding="utf8")
+
+
+        self.playerlist2 = []
+        for aline in txt:
+            values = aline.strip("\n").split(",")
+            self.playerlist2.append(values)
+        txt.close()
+
+        num_players_to_bid_on = len(self.playerlist2)
 
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
         # bidsallowed = 10
@@ -49,7 +59,7 @@ class Autobidder:
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
         self.helper.update_autobidder_logs()
         
-        for player in self.playerlist:
+        for player in self.playerlist2:
             # "Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy Percent"
             fullname = player[0]
             cardname = player[1]
