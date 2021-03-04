@@ -13,6 +13,7 @@ from time import sleep
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.common.exceptions import NoSuchElementException        
 from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -190,96 +191,101 @@ class Helper:
             self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[2]/ul/button[" + str(result_to_click) + "]").click()
         except:
             log_event("Exception go_to_transfer_market_and_input_parameters")
+            log_event("Restart the bot!")
             # self.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
 
     # Action: Evaluates current market page, calls makebid_individualplayer to make bids
     # TODO: Make this nonrecursive and any other methods
     def bid_on_current_page(self, name, futbinprice, bids_allowed, bids_made, futbindata):
-        status = self.checkState("transfermarket")
-        if status:
-            keepgoing = True
-            while keepgoing:
-                futbinprice = int(futbinprice)
-                maxbidprice = round(futbinprice * .85)
-
-                sleep(2)
-                players_on_page = self.getAllPlayerInfo()
-                for card in players_on_page:
-                    # Testing if logger works
-                    # self.update_autobidder_logs()
-                    # [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
-                    playernumber = card[0]
-                    bidStatus = card[1]
-                    curbid = card[5]
-                    timeremainingseconds = card[7]
-                    timeremainingmins = timeremainingseconds/60
-                    playerid = card[8]
-                    buynow = card[6]
-
-                    if (name == "AnyPlayer"):
-                        ignore = "This feature was in an old version, keeping it here bc might use later"
-                        # if bids_made < bids_allowed+1:
-                        #     for p in futbindata:
-                        #         id = p[0]
-                        #         id = int(id)
-                        #         playerid = int(playerid)
-                        #         diff = id - playerid
-
-                        #         if (diff == 0):
-                        #             price = p[3]
-                        #             price = int(price)
-                        #             # Bid on player if price is 300 less than futbin price
-                        #             maxbidprice = price
-
-                        #     if curbid < 1300:
-                        #         futbinprice = maxbidprice
-                        #         # Make sure futbin price is at least 700 coins
-                        #         if 700 < futbinprice:
-                        #             # Check to see if we can make 300 or more coins
-                        #             delta = futbinprice - curbid
-                        #             buynow = int(buynow)
-                        #             delta2 = buynow - curbid
-                        #             # Check function isGoodSBCFodder ie bundes german etc
-                        #             if (delta > 250) and (delta < 700) and (delta2 > 800):
-                        #                 log_event("Player " + str(card[3]) + " || " + str(card[2]) + " || Current bid: " + str(curbid) + " || Futbin Price: " + str(futbinprice) + " (Updated: idk mins ago) || DELTA: " + str(delta))
-                        #                 log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
-                        #                 makebid_individualplayer(playernumber, curbid)
-                        #                 bids_made += 1
-                    else:
-                        if bids_made < bids_allowed+1:
-                            if "highest-bid" not in bidStatus:
-                                #TODO make this config variable
-                                if timeremainingmins < 30:
-                                    if timeremainingmins > 2:
-                                        if curbid <= maxbidprice:
-                                            self.makebid_individualplayer(playernumber, curbid)
-                                            bids_made += 1
-                                            self.user_bids_made += 1
-
-                                            log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
-
-                                else:
-                                    log_event("Time remaining of players on page exceeded 30 minutes, RETURN")
-                                    keepgoing = False
-                                    # return "Finished"
-                        else:
-                            log_event("Final Number of bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
-                            keepgoing = False
-                            # return "Finished"
-
-                sleeptime = random.randint(3000, 5000)
-                sleep(sleeptime/1000)
-                log_event("Going to next page")
+        keepgoing = True
+        while keepgoing:
+            status = self.checkState("transfermarket")
+            if status:
                 try:
-                    self.driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]')
-                    self.driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]').click()
-                    self.user_requests_made += 1
+                    futbinprice = int(futbinprice)
+                    maxbidprice = round(futbinprice * .85)
+
+                    sleep(2)
+                    players_on_page = self.getAllPlayerInfo()
+                    for card in players_on_page:
+                        # Testing if logger works
+                        # self.update_autobidder_logs()
+                        # [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
+                        playernumber = card[0]
+                        bidStatus = card[1]
+                        curbid = card[5]
+                        timeremainingseconds = card[7]
+                        timeremainingmins = timeremainingseconds/60
+                        playerid = card[8]
+                        buynow = card[6]
+
+                        if (name == "AnyPlayer"):
+                            ignore = "This feature was in an old version, keeping it here bc might use later"
+                            # if bids_made < bids_allowed+1:
+                            #     for p in futbindata:
+                            #         id = p[0]
+                            #         id = int(id)
+                            #         playerid = int(playerid)
+                            #         diff = id - playerid
+
+                            #         if (diff == 0):
+                            #             price = p[3]
+                            #             price = int(price)
+                            #             # Bid on player if price is 300 less than futbin price
+                            #             maxbidprice = price
+
+                            #     if curbid < 1300:
+                            #         futbinprice = maxbidprice
+                            #         # Make sure futbin price is at least 700 coins
+                            #         if 700 < futbinprice:
+                            #             # Check to see if we can make 300 or more coins
+                            #             delta = futbinprice - curbid
+                            #             buynow = int(buynow)
+                            #             delta2 = buynow - curbid
+                            #             # Check function isGoodSBCFodder ie bundes german etc
+                            #             if (delta > 250) and (delta < 700) and (delta2 > 800):
+                            #                 log_event("Player " + str(card[3]) + " || " + str(card[2]) + " || Current bid: " + str(curbid) + " || Futbin Price: " + str(futbinprice) + " (Updated: idk mins ago) || DELTA: " + str(delta))
+                            #                 log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                            #                 makebid_individualplayer(playernumber, curbid)
+                            #                 bids_made += 1
+                        else:
+                            if bids_made < bids_allowed+1:
+                                if "highest-bid" not in bidStatus:
+                                    #TODO make this config variable
+                                    if timeremainingmins < 30:
+                                        if timeremainingmins > 2:
+                                            if curbid <= maxbidprice:
+                                                self.makebid_individualplayer(playernumber, curbid)
+                                                bids_made += 1
+                                                self.user_bids_made += 1
+
+                                                log_event("Bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+
+                                    else:
+                                        # log_event("Time remaining of players on page exceeded 30 minutes, RETURN")
+                                        keepgoing = False
+                                        # return "Finished"
+                            else:
+                                # log_event("Final Number of bids made on " + str(name) + ": " + str(bids_made) + "/" + str(bids_allowed))
+                                keepgoing = False
+                                # return "Finished"
+
+                    sleeptime = random.randint(3000, 5000)
+                    sleep(sleeptime/1000)
+                    log_event("Going to next page")
+                    try:
+                        self.driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]')
+                        self.driver.find_element_by_xpath('/html/body/main/section/section/div[2]/div/div/section[1]/div/div/button[2]').click()
+                        self.user_requests_made += 1
+                    except:
+                        log_event("No next page found, returning")
+                        keepgoing = False
+                    self.update_autobidder_logs()
                 except:
-                    log_event("No next page found, returning")
-                    keepgoing = False
-                self.update_autobidder_logs()
-                # self.user_requests_made += 1
-                # self.bid_on_current_page(name, futbinprice, bids_allowed, bids_made, futbindata)
+                    log_event("Unexpected state change, restart bot")
+                    return
+
+        log_event("Finished bidding round for " + str(name))
 
     # Action: Bids on player during initial market search
     def makebid_individualplayer(self, playernumber, bidprice):
@@ -940,6 +946,14 @@ class Helper:
                     if page == "TRANSFER TARGETS":
                         self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/button[1]").click()
                         self.user_bids_made += 1
+
+                        sleep(1)
+                        # Check if "highest bidder" glitch occurred
+                        overbid_glitch = self.check_exists_by_xpath("/html/body/div[4]/section/div/div/button[1]")
+                        if overbid_glitch:
+                            cancel_btn = self.driver.find_element_by_xpath("/html/body/div[4]/section/div/div/button[1]")
+                            cancel_btn.click()
+                            sleep(1)
                     else:
                         self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section[2]/div/div/div[2]/div[2]/button[1]").click()
 
@@ -986,11 +1000,10 @@ class Helper:
             wait_for_shield_invisibility(self.driver)
 
 
-            sleep(0.5)
+            sleep(3)
 
             log_event("Going back to watchlist")
             self.go_to_watchlist()
-            sleep(0.5)
         except:
             log_event("Exception retrying refreshPageGoToWatchlist")
             self.refreshPageAndGoToWatchlist()
@@ -1083,7 +1096,7 @@ class Helper:
             self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
             sleep(0.5)
             self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]').click()
-            sleep(2)
+            sleep(0.5)
         except:
             log_event("Exception retrying go_to_watchlist")
             self.go_to_watchlist()
@@ -1141,7 +1154,12 @@ class Helper:
             log_event("Error checking state")
         
         
-
+    def check_exists_by_xpath(self, xpath):
+        try:
+            self.driver.find_element_by_xpath(xpath)
+        except NoSuchElementException:
+            return False
+        return True
 
     def get_futbin_price_lastupdated(self, ID):
         r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(ID))
@@ -1478,7 +1496,6 @@ def login(driver, user, email_credentials):
         EC.visibility_of_element_located((By.CLASS_NAME, 'icon-transfer'))
     )
     sleep(2)
-
 
 def get_access_code(email_credentials):
     EA_EMAIL = "EA@e.ea.com"
