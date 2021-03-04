@@ -1,5 +1,2 @@
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,950,15,950,0.85
-Guillermo Ochoa,OCHOA,79,América,Mexico,Non-Rare,GK,140233,928,900,24,900,0.85
-Adnan Januzaj,JANUZAJ,80,Real Sociedad,Belgium,Non-Rare,RW,208330,1236,1200,43,0,0.85
-Álvaro Odriozola Arzalluz,ODRIOZOLA,79,Real Madrid,Spain,Non-Rare,RB,234035,1386,1100,29,0,0.85
-Óscar Melendo Jiménez,MELENDO,78,RCD Espanyol,Spain,Non-Rare,RM,236679,1555,900,34,0,0.85
+Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,950,15,1800,0.85
+Guillermo Ochoa,OCHOA,79,América,Mexico,Non-Rare,GK,140233,928,900,24,1200,0.85

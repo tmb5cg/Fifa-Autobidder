@@ -60,7 +60,12 @@ class Autobidder:
             sleep(2)
             # Clear max bin
             input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
-            input.click()
+
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", input)
+            WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input"))).click()
+            # input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
+            # sleep(1)
+            # input.click()
             sleep(0.3)
             input.send_keys(0)
             sleep(1)
@@ -79,6 +84,7 @@ class Autobidder:
 
             # Bid on players on current page -- 6 seconds spent in search tab
             self.helper.clickSearch()
+            sleep(2)
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
 
             log_event("Finished bidding on:" + str(cardname))
@@ -133,7 +139,7 @@ class Autobidder:
                                                 log_event("Error outbidding " + str(playername) + ". Refreshing page")
                                                 self.helper.refreshPageAndGoToWatchlist()
                                             if result == "Success":
-                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " || Est. Profit: " + str(sellprice - curbid))
+                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " \n || Est. Profit: " + str(sellprice - curbid))
                                     else:
                                         # User doesn't have enough coins
                                         log_event("You don't have enough coins to continue bidding")

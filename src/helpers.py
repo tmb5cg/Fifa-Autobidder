@@ -189,13 +189,13 @@ class Helper:
             sleep(1)
             self.driver.find_element_by_xpath("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[2]/ul/button[" + str(result_to_click) + "]").click()
         except:
-            log_event("Exception retrying go_to_transfer_market_and_input_parameters")
-            self.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
+            log_event("Exception go_to_transfer_market_and_input_parameters")
+            # self.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
 
     # Action: Evaluates current market page, calls makebid_individualplayer to make bids
     # TODO: Make this nonrecursive and any other methods
     def bid_on_current_page(self, name, futbinprice, bids_allowed, bids_made, futbindata):
-        status = checkState("transfermarket")
+        status = self.checkState("transfermarket")
         if status:
             keepgoing = True
             while keepgoing:
@@ -283,7 +283,7 @@ class Helper:
 
     # Action: Bids on player during initial market search
     def makebid_individualplayer(self, playernumber, bidprice):
-        status = checkState("transfermarket")
+        status = self.checkState("transfermarket")
         if status:
             try:
                 originalbid = bidprice
@@ -350,7 +350,7 @@ class Helper:
 
     # Action: Logs all data on current page of market, to be used later to find accurate buy now
     def getAllPlayerInfo(self):
-        status = checkState("transfermarket")
+        status = self.checkState("transfermarket")
         if status:
             try:
                 self.getNumCoins_and_update_uservar()
@@ -676,19 +676,21 @@ class Helper:
     # Returns price to sell player at
     def getPlayerSellPrice(self, playerid):
         # Get target players IDs
-        for player in self.getPlayerListFromGUI():
-            pid = int(player[7])
-            diff = pid - int(playerid)
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            line_id = int(values2[7])
+            inputid = int(playerid)
+            diff = line_id - inputid
+
+            futbinprice = int(values2[9])
+            marketprice = int(values2[11])
             if (diff == 0):
-                futbinprice = int(player[9])
-                marketprice = int(player[11])
-                if (diff == 0):
-                    if (marketprice == 0):
-                        return (futbinprice * self.sellceiling)
-                    else:
-                        return (marketprice * self.sellceiling)
-            else:
-                lastupdated, futbinprice = self.get_futbin_price_lastupdated(playerID)
+                if (marketprice == 0):
+                    return (futbinprice * .95)
+                else:
+                    return (marketprice * .95)
+        txt.close()
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
@@ -804,7 +806,7 @@ class Helper:
     # Evaluates and detects outbid players on watchlist
     # Returns: ?
     def getAllPlayerInfoWatchlist(self):
-        status = checkState("watchlist")
+        status = self.checkState("watchlist")
         if status:
             try:
                 self.getNumCoins_and_update_uservar()
@@ -904,7 +906,9 @@ class Helper:
 
     # Outbids people on watchlist
     def makebid_individualplayerWatchlist(self, playernumber, bidprice):
-        status = checkState("watchlist")
+        # /html/body/div[4]/section/div/div/button[1]
+        # https://i.gyazo.com/317c7fa554d3ab5e8fd6d48dd6337b41.png
+        status = self.checkState("watchlist")
         if status:
             try:
                 page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
@@ -1112,7 +1116,7 @@ class Helper:
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ General
 
     # Ensures user is on correct page to avoid infinite loops in try / except
-    def checkState(desiredPage):
+    def checkState(self, desiredPage):
         try:
             page = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[1]/h1").text #page = self.driver.find_elements_by_tag_name("h1.title")
             page = str(page)
@@ -1126,7 +1130,7 @@ class Helper:
                     return False
 
             elif (desiredPage == "transfermarket"):
-                if (page == "transfer market"):
+                if (page == "search results"):
                     return True
                 else:
                     log_event("Unexpectedly not on Transfer Market, stopping")
