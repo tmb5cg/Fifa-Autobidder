@@ -95,6 +95,7 @@ class Autobidder:
 
 
     def manageWatchlist(self):
+        continue_running = True
         status = 1
         while (status == 1):
             # Make sure we are on watchlist, else break (for debugging)
@@ -130,7 +131,6 @@ class Autobidder:
                                             result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                             if result == "Failure":
                                                 log_event("Error outbidding " + str(playername) + ". Refreshing page")
-                                                sleep(1)
                                                 self.helper.refreshPageAndGoToWatchlist()
                                             if result == "Success":
                                                 log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " || Est. Profit: " + str(sellprice - curbid))
@@ -142,9 +142,16 @@ class Autobidder:
                     status = 0
                     # self.manageTransferlist()
             else: 
+                log_event("Unexpected page, stopping bot")
+                continue_running = False
                 status = 0
-        log_event("No active bids, or not on watch list")
-        self.manageTransferlist()
+
+        if continue_running:
+            log_event("No more active bids")
+            log_event("Proceeding to list won players")
+            self.manageTransferlist()
+        else:
+            log_event("Restart bot to continue!")
 
     def manageTransferlist(self):
         log_event("Bidding round finished, will now send players to transfer list and list them!")
