@@ -382,7 +382,7 @@ class Helper:
                         buynow = cardinfo[20]
                         time = cardinfo[22]
 
-                        # clean rating
+                        # clean ratings
                         rating = int(rating)
 
                         # clean timeremaining
