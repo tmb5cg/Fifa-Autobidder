@@ -6,3 +6,6 @@ deprecated/
 logins.txt
 .DS_Store
 data/logins.txt
+*.txt
+*.json
+

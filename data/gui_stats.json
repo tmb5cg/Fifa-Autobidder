@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"# of Targets": 2, "# of Bids to make on each": 10, "Requests made": 10, "Bids made": 24, "Transfer list size": 0, "Active bids": 17, "Current coins": 882564, "Players won": 6, "Projected Profit": 0, "Actual profit": "--", "watchlist_winning": 10, "watchlist_outbid": 5, "watchlist_totalsize": 17, "transferlist_selling": 18, "transferlist_sold": 5, "transferlist_totalsize": 34, "num_coins": 882564}]
+=======
+[{"# of Targets": 2, "# of Bids to make on each": 10, "Requests made": 6, "Bids made": 28, "Transfer list size": 0, "Active bids": 9, "Current coins": 774822, "Players won": 19, "Projected Profit": 0, "Actual profit": "--", "watchlist_winning": 0, "watchlist_outbid": 0, "watchlist_totalsize": 18, "transferlist_selling": 46, "transferlist_sold": 0, "transferlist_totalsize": 46, "num_coins": 774822}]
+>>>>>>> beta-tests

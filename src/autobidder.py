@@ -70,7 +70,12 @@ class Autobidder:
             sleep(2)
             # Clear max bin
             input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
-            input.click()
+
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", input)
+            WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input"))).click()
+            # input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
+            # sleep(1)
+            # input.click()
             sleep(0.3)
             input.send_keys(0)
             sleep(1)
@@ -89,6 +94,7 @@ class Autobidder:
 
             # Bid on players on current page -- 6 seconds spent in search tab
             self.helper.clickSearch()
+            sleep(2)
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
 
             log_event("Finished bidding on:" + str(cardname))
@@ -105,6 +111,7 @@ class Autobidder:
 
 
     def manageWatchlist(self):
+        continue_running = True
         status = 1
         while (status == 1):
             # Make sure we are on watchlist, else break (for debugging)
@@ -146,10 +153,9 @@ class Autobidder:
                                             result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                             if result == "Failure":
                                                 log_event("Error outbidding " + str(playername) + ". Refreshing page")
-                                                sleep(1)
                                                 self.helper.refreshPageAndGoToWatchlist()
                                             if result == "Success":
-                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " || Est. Profit: " + str(sellprice - curbid))
+                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " \n || Est. Profit: " + str(sellprice - curbid))
                                     else:
                                         # User doesn't have enough coins
                                         log_event("You don't have enough coins to continue bidding")
@@ -158,11 +164,19 @@ class Autobidder:
                     status = 0
                     # self.manageTransferlist()
             else: 
+                log_event("Unexpected page, stopping bot")
+                continue_running = False
                 status = 0
-        log_event("No active bids, or not on watch list")
-        self.manageTransferlist()
+
+        if continue_running:
+            log_event("No more active bids")
+            log_event("Proceeding to list won players")
+            self.manageTransferlist()
+        else:
+            log_event("Restart bot to continue!")
 
     def manageTransferlist(self):
+<<<<<<< HEAD
         page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
         if (page.lower() == "transfer targets"):
             log_event("Bidding round finished, will now send players to transfer list and list them!")
@@ -182,6 +196,23 @@ class Autobidder:
             self.start()
         else:
             log_event("Weird error, click start Autobidder again")
+=======
+        log_event("Bidding round finished, will now send players to transfer list and list them!")
+        # send won to transfer list
+        sleep(3)
+        
+        try:  
+            # # Send won to Transfer list
+            self.helper.send_won_players_to_transferlist()
+            sleep(2)
+            self.helper.clearExpired()
+        except:
+            log_event("error here line 160 autobidder.py")
+
+        log_event("Sleeping for 2 minutes and heading back to war")
+        sleep(60*2)
+        self.start()
+>>>>>>> beta-tests
 
         # log_event("Sent won players to transfer list!")
 
