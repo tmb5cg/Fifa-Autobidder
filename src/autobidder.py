@@ -163,8 +163,8 @@ class Autobidder:
         log_event("Bidding round finished, will now send players to transfer list and list them!")
         # send won to transfer list
         sleep(3)
-
-        try:
+        
+        try:  
             # # Send won to Transfer list
             self.helper.send_won_players_to_transferlist()
             sleep(2)

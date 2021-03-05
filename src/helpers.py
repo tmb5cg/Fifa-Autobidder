@@ -550,12 +550,14 @@ class Helper:
                 playerid = int(playerid)
                 buynowprices = []
 
+                futbin_price = 0
                 txt = open("./data/market_logs.txt", "r", encoding="utf8")
                 for aline in txt:
                     player = aline.strip("\n").split(",")
                     playername = player[5]
                     marketid = int(player[10])
                     overall = player[4]
+
                     timeremainingSeconds = player[9]
                     timeremainingSeconds = int(timeremainingSeconds)
                     timeremainingMinutes = int(timeremainingSeconds/60)
@@ -575,6 +577,48 @@ class Helper:
                 playername = self.getPlayerCardName(playerid)
 
                 log_event(str(playername) + " min buy now from market data: " + str(minimumbin))
+
+                r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(playerid))
+
+                data = r.json()
+                price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
+                lastupdated = data[str(internal_id)]["prices"]["xbox"]["updated"]
+
+                # 18 mins ago
+                # 48 mins ago
+                # 1 hour ago
+                # 2 hours ago
+                if (lastupdated == "Never"):
+                    return 0, 100
+                elif ("mins ago" in lastupdated):
+                    lastupdated = lastupdated[:-9]
+                    lastupdated = int(lastupdated)
+                elif("hour ago" in lastupdated):
+                    lastupdated = lastupdated[:-9]
+                    lastupdated = int(lastupdated) * 60
+                elif("hours ago" in lastupdated):
+                    lastupdated = lastupdated[:-10]
+                    lastupdated = int(lastupdated) * 60
+                elif("seconds" in lastupdated):
+                    lastupdated = 1
+                elif("second" in lastupdated):
+                    lastupdated = 1
+                else:
+                    return 0, 100
+
+                price = price.replace(",", "")
+                futbinprice2 = int(price)
+
+                # MINUTES
+                lastupdated = int(lastupdated)
+
+                ratio = futbinprice2/minimumbin
+                if (ratio < 0.5):
+                    log_event("Market price is more than double FUTBIN price \n Seems sketchy, will use futbin price")
+                    log_event(str(playername) + " min buy now overwritten with: " + str(price))
+                    minimumbin = futbinprice2
+                # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
+                futbin_id = int(futbin_id)
                 # Now we have player ID, and their lowest bin -- update it on GUI
                 data = [playerid, minimumbin]
                 id_and_lowest_bin.append(data)
@@ -706,108 +750,119 @@ class Helper:
     def send_won_players_to_transferlist(self):
         # Get num players to send
         sleep(3)
-        playersOnPage = self.driver.find_elements_by_tag_name("li.listFUTItem")
-        
-        num_players_won = 0
-        for player in playersOnPage:
-            bidStatus = player.get_attribute("class")
-            bidStatus = str(bidStatus)
 
-            if "won" in bidStatus:
-                num_players_won += 1
-                self.user_players_won += 1
-      
-        log_event("Num players won: " + str(num_players_won))
+        players_to_be_listed = True 
 
-        total_spent = 0
-        total_projected_sellprice = 0
-        total_projected_profit = 0
-        count = 1
-        for x in range(num_players_won):
-            # log_event("X: " + str(x) + "Count: " + str(count) + " NumPWon - Count: " + str(num_players_won - count) + " NumPWon - X: " + str(num_players_won - x))
-            boughtprice_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[2]/div[2]/span[2]"
-            boughtprice = self.driver.find_element_by_xpath(boughtprice_location).text
-            boughtprice = str(boughtprice)
+        while players_to_be_listed: 
+            try:
+                playersOnPage = self.driver.find_elements_by_tag_name("li.listFUTItem")
+                
+                num_players_won = 0
+                for player in playersOnPage:
+                    bidStatus = player.get_attribute("class")
+                    bidStatus = str(bidStatus)
 
-            if "," in boughtprice:
-                boughtprice = boughtprice.replace(",", "")
+                    if "won" in bidStatus:
+                        num_players_won += 1
+                        self.user_players_won += 1
             
-            bought_price_int = int(boughtprice)
-            total_spent += bought_price_int
+                log_event("Num players won: " + str(num_players_won))
 
-            playerrating_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
-            playername_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[2]"
+                if (num_players_won == 0):
+                    players_to_be_listed = False
+                    return
 
-            playerrating = str(self.driver.find_element_by_xpath(playerrating_location).text)
-            playername = str(self.driver.find_element_by_xpath(playername_location).text)
+                total_spent = 0
+                total_projected_sellprice = 0
+                total_projected_profit = 0
+                count = 1
+                for x in range(num_players_won):
+                    # log_event("X: " + str(x) + "Count: " + str(count) + " NumPWon - Count: " + str(num_players_won - count) + " NumPWon - X: " + str(num_players_won - x))
+                    boughtprice_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[2]/div[2]/span[2]"
+                    boughtprice = self.driver.find_element_by_xpath(boughtprice_location).text
+                    boughtprice = str(boughtprice)
 
-            # Get ID and sell price from above data
-            playerid = self.getPlayerID(playername, playerrating)
-            playersellprice = self.getPlayerSellPrice(playerid)
+                    if "," in boughtprice:
+                        boughtprice = boughtprice.replace(",", "")
+                    
+                    bought_price_int = int(boughtprice)
+                    total_spent += bought_price_int
 
-            # log_event("Player " + str(playername) + " " + str(playerid) + " bought for " + str(bought_price_int) + " sell price " + str(playersellprice))
+                    playerrating_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
+                    playername_location = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[" + str(num_players_won - x) + "]/div/div[1]/div[2]"
 
-            player_profit = int(playersellprice) - bought_price_int
-            # log_event("Player profit : " + str(player_profit))
+                    playerrating = str(self.driver.find_element_by_xpath(playerrating_location).text)
+                    playername = str(self.driver.find_element_by_xpath(playername_location).text)
 
-            total_projected_sellprice += int(playersellprice)
-            total_projected_profit += player_profit
-            self.user_projected_profit += player_profit
+                    # Get ID and sell price from above data
+                    playerid = self.getPlayerID(playername, playerrating)
+                    playersellprice = self.getPlayerSellPrice(playerid)
 
-            sleep_approx(1.5)
+                    # log_event("Player " + str(playername) + " " + str(playerid) + " bought for " + str(bought_price_int) + " sell price " + str(playersellprice))
 
-            # LIST FOR TRANSFER:
+                    player_profit = int(playersellprice) - bought_price_int
+                    # log_event("Player profit : " + str(player_profit))
 
-            # Click bottom most player
-            playersOnPage[num_players_won - count].click()
-            sleep_approx(1.5)
+                    total_projected_sellprice += int(playersellprice)
+                    total_projected_profit += player_profit
+                    self.user_projected_profit += player_profit
 
-            list_on_transfermarket_button_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
-            self.driver.find_element_by_xpath(list_on_transfermarket_button_location).click()
-            sleep_approx(1.5)
-            
-            startprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-            buynowprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-            listplayer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+                    sleep_approx(1.5)
 
-            # START PRICE
-            startpricebox = self.driver.find_element_by_xpath(startprice_location)
-            startpricebox.click()
-            startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-            startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    # LIST FOR TRANSFER:
 
-            listprice = int(round(playersellprice, -2))
+                    # Click bottom most player
+                    playersOnPage[num_players_won - count].click()
+                    sleep_approx(1.5)
 
-            startpricebox.send_keys(listprice)
+                    list_on_transfermarket_button_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
+                    self.driver.find_element_by_xpath(list_on_transfermarket_button_location).click()
+                    sleep_approx(1.5)
+                    
+                    startprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+                    buynowprice_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+                    listplayer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
 
-            sleep_approx(1.5)
+                    # START PRICE
+                    startpricebox = self.driver.find_element_by_xpath(startprice_location)
+                    startpricebox.click()
+                    startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    startpricebox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
 
-            # BUY NOW
-            buynowbox = self.driver.find_element_by_xpath(buynowprice_location)
-            buynowbox.click()
-            buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-            buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    listprice = int(round(playersellprice, -2))
 
-            buynowprice = listprice - 100
+                    startpricebox.send_keys(listprice)
 
-            buynowbox.send_keys(listprice)
+                    sleep_approx(1.5)
 
-            sleep_approx(1.5)
+                    # BUY NOW
+                    buynowbox = self.driver.find_element_by_xpath(buynowprice_location)
+                    buynowbox.click()
+                    buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                    buynowbox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
 
-            listplayerbutton = self.driver.find_element_by_xpath(listplayer_location).click()
-            sleep_approx(1.5)
-         
-            count += 1
+                    buynowprice = listprice - 100
 
-        self.user_projected_profit += total_projected_profit
-        
-        self.user_num_counts = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/div[1]/div[1]").text
-        time_spent = "29.7 Minutes"
-        log_event(" - - - All players listed for transfer - - - ")
-        log_event("Total investment: " + str(total_spent))
-        log_event("Market sell prices gives sellback of " + str(total_projected_sellprice))
-        log_event("Guaranteed Profit: " + str(total_projected_profit))
-        log_event("Time spent: " + time_spent)
+                    buynowbox.send_keys(listprice)
+
+                    sleep_approx(1.5)
+
+                    listplayerbutton = self.driver.find_element_by_xpath(listplayer_location).click()
+                    sleep_approx(1.5)
+                
+                    count += 1
+
+                self.user_projected_profit += total_projected_profit
+                
+                self.user_num_counts = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/div[1]/div[1]").text
+                time_spent = "29.7 Minutes"
+                log_event(" - - - All players listed for transfer - - - ")
+                log_event("Total investment: " + str(total_spent))
+                log_event("Market sell prices gives sellback of " + str(total_projected_sellprice))
+                log_event("Guaranteed Profit: " + str(total_projected_profit))
+                log_event("Time spent: " + time_spent)
+            except:
+                log_event("Listing players error, should retry tho")
 
     # Evaluates and detects outbid players on watchlist
     # Returns: ?
@@ -1034,7 +1089,7 @@ class Helper:
             self.user_players_won = won_counter
             return activebids_counter
         except:
-            log_event("Exception get_num_active_bids returning 1")
+            # log_event("Exception get_num_active_bids returning 1")
             return 1
 
 
@@ -1152,8 +1207,7 @@ class Helper:
                 log_event("checkState was passed invalid location")
         except:
             log_event("Error checking state")
-        
-        
+               
     def check_exists_by_xpath(self, xpath):
         try:
             self.driver.find_element_by_xpath(xpath)

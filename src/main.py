@@ -149,9 +149,11 @@ class PlayerFilters(tk.Frame):
 
         self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=9, column=0, columnspan = 2, pady=25)
         self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=10, column=0, columnspan=2)
+        self.update_list()
 
     def chooseLoginType(self):
         choice = str(self.autologin_choice.get())
+        
 
         if (choice == "1"):
             login_exists = path.exists("./data/logins.txt")
@@ -190,7 +192,7 @@ class PlayerFilters(tk.Frame):
         if (choice == "1"):
             self.controller.mainbuttons.autobidder.grid_remove()
             self.controller.mainbuttons.autobuyer.grid()
-            msg = "Not yet implemented"
+            msg = "Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need"
             self.popupmsg(msg)
         if (choice == "0"):
             self.controller.mainbuttons.autobuyer.grid_remove()
