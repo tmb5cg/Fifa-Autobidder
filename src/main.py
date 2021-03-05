@@ -149,11 +149,10 @@ class PlayerFilters(tk.Frame):
 
         self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=9, column=0, columnspan = 2, pady=25)
         self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=10, column=0, columnspan=2)
-        self.update_list()
 
     def chooseLoginType(self):
         choice = str(self.autologin_choice.get())
-        
+        self.update_list()
 
         if (choice == "1"):
             login_exists = path.exists("./data/logins.txt")
