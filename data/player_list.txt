@@ -1,2 +1,0 @@
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,950,15,1800,0.85
-Guillermo Ochoa,OCHOA,79,América,Mexico,Non-Rare,GK,140233,928,900,24,1200,0.85
