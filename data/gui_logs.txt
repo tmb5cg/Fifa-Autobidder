@@ -1,1 +1,12 @@
 [19:14:07]  - - - - Bot started - - - - 
+[19:15:15] Fetching player info...
+[19:15:15] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[19:15:32] Added player RODRÍGUEZ
+[19:18:48] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[19:18:49] Fetching player info...
+[19:18:53] Added player OCHOA
+[19:20:00]  - - - - Bot started - - - - 
