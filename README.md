@@ -71,12 +71,12 @@ Navigate to the project's root directory via Terminal or Command Prompt, in this
 Terminal:
 
 ```
-cd ~/Desktop/FIFA21UTBOTv2
+cd ~/Desktop/Fifa21-Autobidder
 ```
 
 Command Prompt:
 ```
-cd Desktop\FIFA21UTBOTv2
+cd Desktop\Fifa21-Autobidder
 ```
 
 Then run the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
