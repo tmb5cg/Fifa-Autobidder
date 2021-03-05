@@ -539,26 +539,28 @@ class Helper:
 
     # Action: Parses market logs from searches to find accurate sell price, and updates player_list.txt - terribly inefficient but it works for now
     def get_lowestbin_from_searchdata(self):
-        try:
-            # Get target players IDs
-            playerids = []
-            txt = open("./data/player_list.txt", "r", encoding="utf8")
-            for aline in txt:
-                values2 = aline.strip("\n").split(",")
+        # Get target players IDs
+        playerids = []
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            # make sure it doesn't read in the blank line at end of file 
+            if (len(values2) > 5):
                 id = values2[7]
                 playerids.append(id)
-            txt.close()
+        txt.close()
 
-            # Find cheapest listing from market data
-            id_and_lowest_bin = [] # this will hold (id, lowest bin)
-            for playerid in playerids:
-                playerid = int(playerid)
-                buynowprices = []
+        # Find cheapest listing from market data
+        id_and_lowest_bin = [] # this will hold (id, lowest bin)
+        for playerid in playerids:
+            playerid = int(playerid)
+            buynowprices = []
 
-                futbin_price = 0
-                txt = open("./data/market_logs.txt", "r", encoding="utf8")
-                for aline in txt:
-                    player = aline.strip("\n").split(",")
+            futbin_price = 0
+            txt = open("./data/market_logs.txt", "r", encoding="utf8")
+            for aline in txt:
+                player = aline.strip("\n").split(",")
+                if (len(player) > 3):
                     playername = player[5]
                     marketid = int(player[10])
                     overall = player[4]
@@ -574,78 +576,82 @@ class Helper:
                         buynowprice = int(buynowprice)
                         buynowprices.append(buynowprice)
 
-                try:
-                    minimumbin = min(buynowprices)
-                except:
-                    # log_event("ID mismatch -- minimum bin price array was empty")
-                    minimumbin = 0
-                playername = self.getPlayerCardName(playerid)
+            try:
+                minimumbin = min(buynowprices)
+            except:
+                log_event("ID mismatch -- minimum bin price array was empty")
+                log_event("Minimum bin set to 0")
+                minimumbin = 0
+            playername = self.getPlayerCardName(playerid)
 
-                log_event(str(playername) + " min buy now from market data: " + str(minimumbin))
+            log_event(str(playername) + " min buy now from market data: " + str(minimumbin))
 
-                r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(playerid))
+            # r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(playerid))
 
-                data = r.json()
-                price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
-                lastupdated = data[str(internal_id)]["prices"]["xbox"]["updated"]
+            # data = r.json()
+            # price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
+            # lastupdated = data[str(internal_id)]["prices"]["xbox"]["updated"]
 
-                # 18 mins ago
-                # 48 mins ago
-                # 1 hour ago
-                # 2 hours ago
-                if (lastupdated == "Never"):
-                    return 0, 100
-                elif ("mins ago" in lastupdated):
-                    lastupdated = lastupdated[:-9]
-                    lastupdated = int(lastupdated)
-                elif("hour ago" in lastupdated):
-                    lastupdated = lastupdated[:-9]
-                    lastupdated = int(lastupdated) * 60
-                elif("hours ago" in lastupdated):
-                    lastupdated = lastupdated[:-10]
-                    lastupdated = int(lastupdated) * 60
-                elif("seconds" in lastupdated):
-                    lastupdated = 1
-                elif("second" in lastupdated):
-                    lastupdated = 1
-                else:
-                    return 0, 100
+            # # 18 mins ago
+            # # 48 mins ago
+            # # 1 hour ago
+            # # 2 hours ago
+            # if (lastupdated == "Never"):
+            #     return 0, 100
+            # elif ("mins ago" in lastupdated):
+            #     lastupdated = lastupdated[:-9]
+            #     lastupdated = int(lastupdated)
+            # elif("hour ago" in lastupdated):
+            #     lastupdated = lastupdated[:-9]
+            #     lastupdated = int(lastupdated) * 60
+            # elif("hours ago" in lastupdated):
+            #     lastupdated = lastupdated[:-10]
+            #     lastupdated = int(lastupdated) * 60
+            # elif("seconds" in lastupdated):
+            #     lastupdated = 1
+            # elif("second" in lastupdated):
+            #     lastupdated = 1
+            # else:
+            #     return 0, 100
 
-                price = price.replace(",", "")
-                futbinprice2 = int(price)
+            # price = price.replace(",", "")
+            # futbinprice2 = int(price)
 
-                # MINUTES
-                lastupdated = int(lastupdated)
+            # # MINUTES
+            # lastupdated = int(lastupdated)
 
-                ratio = futbinprice2/minimumbin
-                if (ratio < 0.5):
-                    log_event("Market price is more than double FUTBIN price \n Seems sketchy, will use futbin price")
-                    log_event(str(playername) + " min buy now overwritten with: " + str(price))
-                    minimumbin = futbinprice2
-                # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
-                futbin_id = int(futbin_id)
-                # Now we have player ID, and their lowest bin -- update it on GUI
-                data = [playerid, minimumbin]
-                id_and_lowest_bin.append(data)
+            # ratio = futbinprice2/minimumbin
+            # if (ratio < 0.5):
+            #     log_event("Market price is more than double FUTBIN price \n Seems sketchy, will use futbin price")
+            #     log_event(str(playername) + " min buy now overwritten with: " + str(price))
+            #     minimumbin = futbinprice2
+            # # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
+            # futbin_id = int(futbin_id)
+            # Now we have player ID, and their lowest bin -- update it on GUI
+            data = [playerid, minimumbin]
+            id_and_lowest_bin.append(data)
 
-            # agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated]
-            # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
+        # agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated]
+        # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
 
-            txt = open("./data/player_list.txt", "r", encoding="utf8")
+        txt = open("./data/player_list.txt", "r", encoding="utf8")
 
-            playerlist = []
-            for aline in txt:
-                values2 = aline.strip("\n").split(",")
-                playerlist.append(values2)
+        playerlist = []
+        for aline in txt:
+            values2 = aline.strip("\n").split(",")
+            playerlist.append(values2)
 
-            # Now that playerlist is saved in temp memory, clear the old user input list
-            hs = open("./data/player_list.txt", "r+", encoding="utf8")
-            hs.truncate(0)
-            hs.close()
+        # Now that playerlist is saved in temp memory, clear the old user input list
+        hs = open("./data/player_list.txt", "r+", encoding="utf8")
+        hs.truncate(0)
+        hs.close()
 
-            # This is a terribly inefficient way of updating the GUI's playerlist with the market price. Its a first draft 
-            for entry in playerlist:
+        # This is a terribly inefficient way of updating the GUI's playerlist with the market price. Its a first draft 
+        for entry in playerlist:
+            # ignore blank line
+            if (len(entry) > 3):
                 entryid = int(entry[7])
+                entry_futbinprice = int(entry[9])
                 new_updated_actual_price = 0
                 for x in id_and_lowest_bin:
                     id = int(x[0])
@@ -653,7 +659,15 @@ class Helper:
                     diff = entryid - id
                     if (diff == 0):
                         # print("got here")
-                        new_updated_actual_price = price
+                        mktprice = int(price)
+                        fbinprice = int(entry_futbinprice)
+                        diff = mktprice - fbinprice
+                        if (diff > 1000):
+                            new_updated_actual_price = fbinprice
+                            log_event("Market price was weird, using futbin price as truth")
+                        else:
+                            log_event("Confirmed mkt price seems accurate")
+                            new_updated_actual_price = price
 
                 # print(new_updated_actual_price)
                 full_entry = ""
@@ -673,8 +687,6 @@ class Helper:
                 hs = open("./data/player_list.txt", "a", encoding="utf8")
                 hs.write(full_entry + "\n")
                 hs.close()
-        except:
-            log_event("Error parsing market data")
 
     # Returns: player card name based on ID
     def getPlayerCardName(self, playerid):

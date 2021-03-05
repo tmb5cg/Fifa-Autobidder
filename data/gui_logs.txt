@@ -1,0 +1,312 @@
+[09:06:41]  - - - - Bot started - - - - 
+[09:10:43]  - - - - Bot started - - - - 
+[09:11:16] Fetching player info...
+[09:11:16] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[09:11:39] Added player RODRÍGUEZ
+[09:12:06] Fetching player info...
+[09:12:07] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[09:12:20] Added player OCHOA
+[09:12:36] Autologin not enabled, must login manually
+[09:12:39] Autologin enabled
+[09:12:40] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[09:12:43] Auto logging in...
+[09:13:07] Your EA Security Code is: 107242
+[09:13:11] Logged in successfully!
+[09:13:32] Test function
+[09:13:33] Autobidder started
+[09:13:35] Bid to make on each player: 9
+[09:13:47] Bidding on RODRÍGUEZ up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[09:14:02] Bids made on RODRÍGUEZ: 1/10
+[09:14:10] Bids made on RODRÍGUEZ: 2/10
+[09:14:17] Bids made on RODRÍGUEZ: 3/10
+[09:14:25] Bids made on RODRÍGUEZ: 4/10
+[09:14:30] Going to next page
+[09:14:41] Bids made on RODRÍGUEZ: 5/10
+[09:14:50] Bids made on RODRÍGUEZ: 6/10
+[09:14:54] Going to next page
+[09:15:06] Bids made on RODRÍGUEZ: 7/10
+[09:15:10] Going to next page
+[09:15:10] Finished bidding round for RODRÍGUEZ
+[09:15:10] Finished bidding on:RODRÍGUEZ
+[09:15:23] Bidding on OCHOA up to FUTBIN price: 950. Will determine actual market price while searching. Purchase ceiling: 807.5
+[09:15:38] Bids made on OCHOA: 1/10
+[09:15:43] Going to next page
+[09:15:56] Bids made on OCHOA: 2/10
+[09:16:03] Bids made on OCHOA: 3/10
+[09:16:12] Bids made on OCHOA: 4/10
+[09:16:20] Bids made on OCHOA: 5/10
+[09:16:28] Bids made on OCHOA: 6/10
+[09:16:35] Bids made on OCHOA: 7/10
+[09:16:40] Going to next page
+[09:16:52] Bids made on OCHOA: 8/10
+[09:16:57] Going to next page
+[09:16:58] Finished bidding round for OCHOA
+[09:16:58] Finished bidding on:OCHOA
+[09:16:59] Parsing market data to find most accurate sell prices...
+[09:17:00] Rodríguez min buy now from market data: 1000
+[09:17:01] Error parsing market data
+[09:17:02] Going to watchlist. Time for war
+[09:17:13] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:800Current bid after bidding: 800
+[09:17:14] Error outbidding Rodríguez. Refreshing page
+[09:17:32] Going back to watchlist
+[09:17:43] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[09:18:22] Outbid Rodríguez | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[09:19:16] Outbid Rodríguez | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[09:20:41] Outbid Rodríguez | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[09:23:43] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[09:25:18] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[09:25:26] Outbid Ochoa | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[09:25:42] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[09:25:49] Outbid Ochoa | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[09:25:58] Outbid Ochoa | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[09:26:05] Error in updating GUI labels
+[09:26:57] Outbid Ochoa | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[09:28:40] Outbid Ochoa | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[09:29:02] Outbid Ochoa | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[09:30:07] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:500Current bid after bidding: 500
+[09:30:07] Error outbidding Ochoa. Refreshing page
+[09:30:26] Going back to watchlist
+[09:30:35] Outbid Ochoa | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[09:30:42] Outbid Ochoa | CurBid: 650 | Stop: 807.5 
+ || Est. Profit: 252.5
+[09:30:52] Outbid Ochoa | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[09:34:37] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[09:35:38] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[09:42:20] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[09:42:26] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[09:43:02] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[09:43:20] Outbid Ochoa | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[09:44:28] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[09:45:11] Outbid Ochoa | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[09:45:58] Outbid Ochoa | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[09:46:24] Outbid Ochoa | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[09:47:04] No more active bids
+[09:47:04] Proceeding to list won players
+[09:47:05] Bidding round finished, will now send players to transfer list and list them!
+[09:47:11] Num players won: 26
+[09:47:44] Listing players error, should retry tho
+[09:47:45] Num players won: 23
+[09:48:09] Listing players error, should retry tho
+[09:48:10] Num players won: 21
+[09:48:29] Listing players error, should retry tho
+[09:48:30] Num players won: 19
+[09:48:41] Listing players error, should retry tho
+[09:48:42] Num players won: 18
+[09:48:53] Listing players error, should retry tho
+[09:48:54] Num players won: 17
+[09:49:03] Listing players error, should retry tho
+[09:49:04] Num players won: 16
+[09:49:16] Listing players error, should retry tho
+[09:49:16] Num players won: 15
+[09:49:59] Listing players error, should retry tho
+[09:50:00] Num players won: 11
+[09:50:29] Listing players error, should retry tho
+[09:50:29] Num players won: 8
+[09:50:40] Listing players error, should retry tho
+[09:50:41] Num players won: 7
+[09:50:52] Listing players error, should retry tho
+[09:50:52] Num players won: 6
+[09:51:03] Listing players error, should retry tho
+[09:51:04] Num players won: 5
+[09:51:23] Listing players error, should retry tho
+[09:51:24] Num players won: 3
+[09:51:34] Listing players error, should retry tho
+[09:51:34] Num players won: 2
+[09:51:55]  - - - All players listed for transfer - - - 
+[09:51:55] Total investment: 19800
+[09:51:55] Market sell prices gives sellback of 1804
+[09:51:56] Guaranteed Profit: -17996
+[09:51:57] Time spent: 29.7 Minutes
+[09:51:57] Num players won: 0
+[09:52:01] Num players expired: 17
+[09:52:04] Sleeping for 2 minutes and heading back to war
+[09:54:04] Autobidder started
+[09:54:06] Bid to make on each player: 24
+[09:54:16] Bidding on RODRÍGUEZ up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[09:54:31] Bids made on RODRÍGUEZ: 1/10
+[09:54:39] Bids made on RODRÍGUEZ: 2/10
+[09:54:47] Bids made on RODRÍGUEZ: 3/10
+[09:54:56] Bids made on RODRÍGUEZ: 4/10
+[09:55:04] Bids made on RODRÍGUEZ: 5/10
+[09:55:11] Bids made on RODRÍGUEZ: 6/10
+[09:55:19] Bids made on RODRÍGUEZ: 7/10
+[09:55:24] Going to next page
+[09:55:24] Finished bidding round for RODRÍGUEZ
+[09:55:25] Finished bidding on:RODRÍGUEZ
+[09:55:37] Bidding on OCHOA up to FUTBIN price: 950. Will determine actual market price while searching. Purchase ceiling: 807.5
+[09:55:53] Bids made on OCHOA: 1/10
+[09:56:01] Bids made on OCHOA: 2/10
+[09:56:06] Going to next page
+[09:56:18] Bids made on OCHOA: 3/10
+[09:56:27] Bids made on OCHOA: 4/10
+[09:56:35] Bids made on OCHOA: 5/10
+[09:56:42] Bids made on OCHOA: 6/10
+[09:56:49] Bids made on OCHOA: 7/10
+[09:56:57] Bids made on OCHOA: 8/10
+[09:57:01] Going to next page
+[09:57:13] Bids made on OCHOA: 9/10
+[09:57:18] Going to next page
+[09:57:19] Finished bidding round for OCHOA
+[09:57:19] Finished bidding on:OCHOA
+[09:57:20] Parsing market data to find most accurate sell prices...
+[09:57:21] Rodríguez min buy now from market data: 950
+[09:57:22] Error parsing market data
+[09:57:23] Going to watchlist. Time for war
+[10:01:35] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[10:05:30] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[10:05:38] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[10:06:18] Outbid Rodríguez | CurBid: 600 | Stop: 850.0 
+ || Est. Profit: 350.0
+[10:06:28] Outbid Rodríguez | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[10:09:06] Outbid Rodríguez | CurBid: 650 | Stop: 850.0 
+ || Est. Profit: 300.0
+[10:09:11] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[10:09:45] Outbid Rodríguez | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[10:09:54] Outbid Rodríguez | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[10:10:43] Outbid Ochoa | CurBid: 650 | Stop: 807.5 
+ || Est. Profit: 252.5
+[10:10:52] Outbid Ochoa | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[10:11:12] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:400Current bid after bidding: 400
+[10:11:13] Error outbidding Ochoa. Refreshing page
+[10:11:30] Going back to watchlist
+[10:11:38] Outbid Ochoa | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[10:11:44] Outbid Rodríguez | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[10:11:50] Outbid Rodríguez | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[10:12:20] Outbid Ochoa | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[10:12:46] Outbid Ochoa | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[10:12:54] Outbid Ochoa | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[10:13:23] Outbid Ochoa | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[10:15:37] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:400Current bid after bidding: 400
+[10:15:37] Error outbidding Ochoa. Refreshing page
+[10:15:54] Going back to watchlist
+[10:16:02] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[10:17:23] Outbid Ochoa | CurBid: 550 | Stop: 807.5 
+ || Est. Profit: 352.5
+[10:17:59] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[10:18:04] Outbid Ochoa | CurBid: 650 | Stop: 807.5 
+ || Est. Profit: 252.5
+[10:18:09] Outbid Ochoa | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[10:18:19] Outbid Ochoa | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[10:19:19] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[10:21:31] Outbid Ochoa | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[10:21:38] Outbid Ochoa | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[10:22:02] Outbid Rodríguez | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[10:24:32] No more active bids
+[10:24:32] Proceeding to list won players
+[10:24:33] Bidding round finished, will now send players to transfer list and list them!
+[10:24:39] Num players won: 8
+[10:25:00] Listing players error, should retry tho
+[10:25:01] Num players won: 6
+[10:26:01]  - - - All players listed for transfer - - - 
+[10:26:02] Total investment: 4000
+[10:26:02] Market sell prices gives sellback of 5460
+[10:26:02] Guaranteed Profit: 1460
+[10:26:03] Time spent: 29.7 Minutes
+[10:26:03] Num players won: 0
+[10:26:07] Num players expired: 8
+[10:26:09] Sleeping for 2 minutes and heading back to war
+[10:28:10] Autobidder started
+[10:28:12] Bid to make on each player: 24
+[10:28:22] Bidding on RODRÍGUEZ up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[10:28:36] Bids made on RODRÍGUEZ: 1/10
+[10:28:43] Bids made on RODRÍGUEZ: 2/10
+[10:28:43] Unexpectedly not on Transfer Market, stopping
+[10:28:44] Bids made on RODRÍGUEZ: 3/10
+[10:28:49] Going to next page
+[10:28:49] No next page found, returning
+[10:28:49] Finished bidding round for RODRÍGUEZ
+[10:28:49] Finished bidding on:RODRÍGUEZ
+[10:28:53] Exception go_to_transfer_market_and_input_parameters
+[10:28:54] Restart the bot!
+[10:38:16] Test function
+[10:38:16] Autobidder started
+[10:38:18] Bid to make on each player: 23
+[10:38:30] Bidding on RODRÍGUEZ up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[10:38:45] Bids made on RODRÍGUEZ: 1/10
+[10:38:53] Bids made on RODRÍGUEZ: 2/10
+[10:38:57] Going to next page
+[10:39:08] Bids made on RODRÍGUEZ: 3/10
+[10:39:17] Bids made on RODRÍGUEZ: 4/10
+[10:39:25] Bids made on RODRÍGUEZ: 5/10
+[10:39:32] Bids made on RODRÍGUEZ: 6/10
+[10:39:37] Going to next page
+[10:39:45] Going to next page
+[10:39:46] Finished bidding round for RODRÍGUEZ
+[10:39:47] Finished bidding on:RODRÍGUEZ
+[10:40:00] Bidding on OCHOA up to FUTBIN price: 950. Will determine actual market price while searching. Purchase ceiling: 807.5
+[10:40:15] Bids made on OCHOA: 1/10
+[10:40:23] Bids made on OCHOA: 2/10
+[10:40:30] Bids made on OCHOA: 3/10
+[10:40:37] Bids made on OCHOA: 4/10
+[10:40:44] Bids made on OCHOA: 5/10
+[10:40:53] Bids made on OCHOA: 6/10
+[10:40:57] Going to next page
+[10:41:08] Bids made on OCHOA: 7/10
+[10:41:13] Going to next page
+[10:41:13] Finished bidding round for OCHOA
+[10:41:14] Finished bidding on:OCHOA
+[10:41:15] Parsing market data to find most accurate sell prices...
+[10:41:16] Rodríguez min buy now from market data: 1000
+[10:41:16] Ochoa min buy now from market data: 1200
+[10:41:16] Confirmed mkt price seems accurate
+[10:41:17] Confirmed mkt price seems accurate
+[10:41:17] Going to watchlist. Time for war
+[10:41:25] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:350Current bid after bidding: 350
+[10:41:26] Error outbidding Rodríguez. Refreshing page
+[10:41:43] Going back to watchlist
