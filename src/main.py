@@ -309,6 +309,7 @@ class PlayerFilters(tk.Frame):
             self.popupmsg(msg)
 
     def popupmsg(self, msg):
+        self.update_list()
         popup = tk.Tk()
         popup.wm_title("Note")
         label = ttk.Label(popup, text=msg, font=NORM_FONT)
