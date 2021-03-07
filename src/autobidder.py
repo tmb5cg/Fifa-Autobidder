@@ -23,49 +23,57 @@ class Autobidder:
         self.playerlist = []
         self.helper = Helper(self.driver)
 
-        # Get input list of target players
-        src = "./data/player_list.txt"
-        txt = open(src, "r", encoding="utf8")
+        # # Get input list of target players
+        # src = "./data/player_list.txt"
+        # txt = open(src, "r", encoding="utf8")
 
-        for aline in txt:
-            values = aline.strip("\n").split(",")
-            self.playerlist.append(values)
-        txt.close()
+        # for aline in txt:
+        #     values = aline.strip("\n").split(",")
+        #     self.playerlist.append(values)
+        # txt.close()
 
         # Clear out old market data
+        # self.helper.clearOldUserData()
+        # self.helper.setStartingCoins()
+
+        # while loop on init that updates autobidder logs?
+
+    def initializeBot(self):
+        # On initializatin of bot object, clear old variables etc
+        print("testttttt")
         self.helper.clearOldUserData()
+        self.helper.setStartingCoins()
+        self.start()
 
     def start(self):
         self.queue.put("Updating queue from inside autobidder...")
         log_event("Autobidder started")
 
-        src = "./data/player_list.txt"
-        txt = open(src, "r", encoding="utf8")
+        # Clear market logs from previous run
+        self.helper.clearOldMarketLogs()
 
-
-        self.playerlist2 = []
-        for aline in txt:
-            values = aline.strip("\n").split(",")
-            self.playerlist2.append(values)
-        txt.close()
-
-        num_players_to_bid_on = len(self.playerlist2)
+        # Get player list
+        self.playerlist2 = self.helper.getPlayerListFromGUI()
 
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
-        # bidsallowed = 10
-        bidstomake_eachplayer = 10
+        # bidstomake_eachplayer = 10
+        log_event("Bids to make on each player hard set to 10")
 
-        self.helper.user_num_target_players = num_players_to_bid_on
+        self.helper.user_num_target_players = len(self.playerlist2)
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
         self.helper.update_autobidder_logs()
-        
+
+        continue_running = True
         for player in self.playerlist2:
             # "Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy Percent"
             fullname = player[0]
             cardname = player[1]
             cardoverall = player[2]
 
-            self.helper.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall) 
+            status = self.helper.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
+            if (status == "error"):
+                continue_running = False
+                break
 
             sleep(2)
             # Clear max bin
@@ -73,9 +81,6 @@ class Autobidder:
 
             self.driver.execute_script("arguments[0].scrollIntoView(true);", input)
             WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input"))).click()
-            # input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
-            # sleep(1)
-            # input.click()
             sleep(0.3)
             input.send_keys(0)
             sleep(1)
@@ -97,40 +102,38 @@ class Autobidder:
             sleep(2)
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
 
-            log_event("Finished bidding on:" + str(cardname))
+            # log_event("Finished bidding on: " + str(cardname))
             sleep(1)
 
-
-        # Parse market data to find actual sell price 
-        log_event("Parsing market data to find most accurate sell prices...")
-        self.helper.get_lowestbin_from_searchdata()
- 
-        log_event("Going to watchlist. Time for war")
-        self.helper.go_to_watchlist()
-        self.manageWatchlist()
+        if (continue_running):
+            # Parse market data to find actual sell price 
+            log_event("Parsing market data to find most accurate sell prices...")
+            self.helper.get_lowestbin_from_searchdata()
+    
+            log_event("Going to watchlist. Time for war")
+            self.helper.go_to_watchlist()
+            self.manageWatchlist()
+        else:
+            log_event("Error, bot stopped!")
 
 
     def manageWatchlist(self):
         continue_running = True
         status = 1
         while (status == 1):
-            # Make sure we are on watchlist, else break (for debugging)
+            # 1. Make sure we are on watchlist, else break (for debugging)
             page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
             if (page.lower() == "transfer targets"):
+                # 2. Update GUI labels + ensure active bids exist
                 self.helper.update_autobidder_logs()
                 num_activebids = self.helper.get_num_activebids()
                 if (num_activebids != 0):
                     # Evaluate 5 cards closest to expiration, returns "processing" if exception
                     active_bids = self.helper.getAllPlayerInfoWatchlist()
+                    # If any players are processing, bot will not bid
                     if (active_bids != "processing"):
                         firstplayer = active_bids[0]
-                        # firstplayer = active_bids[1]
-                        # firstplayer = active_bids[2]
-
                         firstplayer_timeremaining = firstplayer[7]
-                        # secondplayer_timeremaining = firstplayer[7]
-                        # thirdplayer_timeremaining = firstplayer[7]
-                        # fourthplayer_timeremaining = firstplayer[7]
                         # Triple check that first player is not Processing (else will throw exception, redundant but necessary)
                         if (0 < firstplayer_timeremaining):
                             # If method reaches here, everything should be good to go...
@@ -173,7 +176,7 @@ class Autobidder:
             log_event("Proceeding to list won players")
             self.manageTransferlist()
         else:
-            log_event("Restart bot to continue!")
+            log_event("Error, bot stopped!")
 
     def manageTransferlist(self):
         page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text

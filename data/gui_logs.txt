@@ -310,3 +310,1541 @@
 [10:41:25] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:350Current bid after bidding: 350
 [10:41:26] Error outbidding RodrÃ­guez. Refreshing page
 [10:41:43] Going back to watchlist
+[17:12:09]  - - - - Bot started - - - - 
+[17:17:10] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[17:17:10] Fetching player info...
+[17:17:18] Added player RODRÍGUEZ
+[17:17:27] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[17:17:27] Fetching player info...
+[17:17:31] Added player OCHOA
+[17:17:56] Autologin enabled
+[17:17:56] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:17:58] Auto logging in...
+[17:20:46] Auto logging in...
+[17:21:03] Your EA Security Code is: 958788
+[17:21:06] Logged in successfully!
+[17:21:34] Test function
+[17:21:34] Autobidder started
+[17:21:34] Exception retrying getWatchlistTransferlistSize
+[17:21:35] Exception retrying getWatchlistTransferlistSize
+[17:21:36] Exception retrying getWatchlistTransferlistSize
+[17:21:36] Exception retrying getWatchlistTransferlistSize
+[17:21:36] Exception retrying getWatchlistTransferlistSize
+[17:21:36] Exception retrying getWatchlistTransferlistSize
+[17:21:37] Exception retrying getWatchlistTransferlistSize
+[17:21:37] Exception retrying getWatchlistTransferlistSize
+[17:21:38] Exception retrying getWatchlistTransferlistSize
+[17:21:39] Exception retrying getWatchlistTransferlistSize
+[17:21:39] Exception retrying getWatchlistTransferlistSize
+[17:21:40] Exception retrying getWatchlistTransferlistSize
+[17:21:40] Exception retrying getWatchlistTransferlistSize
+[17:21:40] Exception retrying getWatchlistTransferlistSize
+[17:21:41] Exception retrying getWatchlistTransferlistSize
+[17:21:41] Exception retrying getWatchlistTransferlistSize
+[17:21:42] Exception retrying getWatchlistTransferlistSize
+[17:21:42] Exception retrying getWatchlistTransferlistSize
+[17:21:43] Exception retrying getWatchlistTransferlistSize
+[17:21:43] Exception retrying getWatchlistTransferlistSize
+[17:21:44] Exception retrying getWatchlistTransferlistSize
+[17:21:44] Exception retrying getWatchlistTransferlistSize
+[17:21:45] Exception retrying getWatchlistTransferlistSize
+[17:21:45] Exception retrying getWatchlistTransferlistSize
+[17:21:46] Exception retrying getWatchlistTransferlistSize
+[17:21:47] Exception retrying getWatchlistTransferlistSize
+[17:21:47] Exception retrying getWatchlistTransferlistSize
+[17:21:47] Exception retrying getWatchlistTransferlistSize
+[17:21:47] Exception retrying getWatchlistTransferlistSize
+[17:21:48] Exception retrying getWatchlistTransferlistSize
+[17:21:48] Exception retrying getWatchlistTransferlistSize
+[17:21:49] Exception retrying getWatchlistTransferlistSize
+[17:21:49] Exception retrying getWatchlistTransferlistSize
+[17:21:50] Exception retrying getWatchlistTransferlistSize
+[17:21:51] Exception retrying getWatchlistTransferlistSize
+[17:22:03] Exception retrying getWatchlistTransferlistSize
+[17:32:01]  - - - - Bot started - - - - 
+[17:32:25] Autologin enabled
+[17:32:25] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:32:31] Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need
+[17:32:43] Auto logging in...
+[17:33:04] Your EA Security Code is: 832256
+[17:33:06] Logged in successfully!
+[17:37:07] Test function
+[17:37:08] Autobidder started
+[17:37:09] Bid to make on each player: 24
+[17:37:16] Bidding on RODRÍGUEZ up to FUTBIN price: 1200. Will determine actual market price while searching. Purchase ceiling: 1020.0
+[17:37:21] Bids made on RODRÍGUEZ: 1/10
+[17:37:23] Bids made on RODRÍGUEZ: 2/10
+[17:37:25] Exception makebid_individualplayer
+[17:37:25] Not going to retry, to avoid infinite loop
+[17:37:26] Bids made on RODRÍGUEZ: 3/10
+[17:37:27] Bids made on RODRÍGUEZ: 4/10
+[17:37:28] Going to next page
+[17:37:29] Exception retrying getAllPlayerInfo
+[17:37:31] Unexpected state change, restart bot
+[17:37:31] Finished bidding on:RODRÍGUEZ
+[17:37:38] Bidding on OCHOA up to FUTBIN price: 700. Will determine actual market price while searching. Purchase ceiling: 595.0
+[17:37:43] Bids made on OCHOA: 1/10
+[17:37:45] Exception makebid_individualplayer
+[17:37:46] Not going to retry, to avoid infinite loop
+[17:37:46] Bids made on OCHOA: 2/10
+[17:37:48] Exception makebid_individualplayer
+[17:37:48] Not going to retry, to avoid infinite loop
+[17:37:49] Bids made on OCHOA: 3/10
+[17:37:50] Bids made on OCHOA: 4/10
+[17:37:50] Unexpected state change, restart bot
+[17:37:51] Finished bidding on:OCHOA
+[17:37:53] Parsing market data to find most accurate sell prices...
+[17:37:53] Rodríguez min buy now from market data: 1200
+[17:37:54] Ochoa min buy now from market data: 900
+[17:37:55] Confirmed mkt price seems accurate
+[17:37:56] Confirmed mkt price seems accurate
+[17:37:56] Going to watchlist. Time for war
+[17:37:58] Unexpected page, stopping bot
+[17:37:59] Restart bot to continue!
+[17:46:13] Test function
+[17:46:13] Autobidder started
+[17:46:13] Exception retrying getWatchlistTransferlistSize
+[17:46:14] Exception retrying getWatchlistTransferlistSize
+[17:46:14] Exception retrying getWatchlistTransferlistSize
+[17:46:15] Exception retrying getWatchlistTransferlistSize
+[17:46:15] Exception retrying getWatchlistTransferlistSize
+[17:46:15] Exception retrying getWatchlistTransferlistSize
+[17:46:16] Exception retrying getWatchlistTransferlistSize
+[17:46:16] Exception retrying getWatchlistTransferlistSize
+[17:46:16] Exception retrying getWatchlistTransferlistSize
+[17:46:17] Exception retrying getWatchlistTransferlistSize
+[17:46:17] Exception retrying getWatchlistTransferlistSize
+[17:46:17] Exception retrying getWatchlistTransferlistSize
+[17:46:17] Exception retrying getWatchlistTransferlistSize
+[17:46:18] Exception retrying getWatchlistTransferlistSize
+[17:46:18] Exception retrying getWatchlistTransferlistSize
+[17:46:19] Exception retrying getWatchlistTransferlistSize
+[17:46:20] Exception retrying getWatchlistTransferlistSize
+[17:46:20] Exception retrying getWatchlistTransferlistSize
+[17:46:21] Exception retrying getWatchlistTransferlistSize
+[17:46:21] Exception retrying getWatchlistTransferlistSize
+[17:46:22] Exception retrying getWatchlistTransferlistSize
+[17:46:23] Exception retrying getWatchlistTransferlistSize
+[17:46:23] Exception retrying getWatchlistTransferlistSize
+[17:46:24] Exception retrying getWatchlistTransferlistSize
+[17:46:24] Exception retrying getWatchlistTransferlistSize
+[17:46:24] Exception retrying getWatchlistTransferlistSize
+[17:46:25] Exception retrying getWatchlistTransferlistSize
+[17:46:25] Exception retrying getWatchlistTransferlistSize
+[17:46:26] Exception retrying getWatchlistTransferlistSize
+[17:46:26] Exception retrying getWatchlistTransferlistSize
+[17:46:27] Exception retrying getWatchlistTransferlistSize
+[17:46:28] Exception retrying getWatchlistTransferlistSize
+[17:46:29] Exception retrying getWatchlistTransferlistSize
+[17:46:29] Exception retrying getWatchlistTransferlistSize
+[17:46:30] Exception retrying getWatchlistTransferlistSize
+[17:46:30] Exception retrying getWatchlistTransferlistSize
+[17:46:31] Exception retrying getWatchlistTransferlistSize
+[17:46:31] Exception retrying getWatchlistTransferlistSize
+[17:46:32] Exception retrying getWatchlistTransferlistSize
+[17:46:32] Exception retrying getWatchlistTransferlistSize
+[17:46:32] Exception retrying getWatchlistTransferlistSize
+[17:46:33] Exception retrying getWatchlistTransferlistSize
+[17:46:34] Exception retrying getWatchlistTransferlistSize
+[17:46:34] Exception retrying getWatchlistTransferlistSize
+[17:46:35] Exception retrying getWatchlistTransferlistSize
+[17:46:35] Exception retrying getWatchlistTransferlistSize
+[17:46:35] Exception retrying getWatchlistTransferlistSize
+[17:46:36] Exception retrying getWatchlistTransferlistSize
+[17:46:36] Exception retrying getWatchlistTransferlistSize
+[17:46:37] Exception retrying getWatchlistTransferlistSize
+[17:46:37] Exception retrying getWatchlistTransferlistSize
+[17:46:37] Exception retrying getWatchlistTransferlistSize
+[17:46:37] Exception retrying getWatchlistTransferlistSize
+[17:46:37] Exception retrying getWatchlistTransferlistSize
+[17:46:38] Exception retrying getWatchlistTransferlistSize
+[17:46:39] Exception retrying getWatchlistTransferlistSize
+[17:46:40] Exception retrying getWatchlistTransferlistSize
+[17:46:40] Exception retrying getWatchlistTransferlistSize
+[17:46:41] Exception retrying getWatchlistTransferlistSize
+[17:46:42] Exception retrying getWatchlistTransferlistSize
+[17:46:42] Exception retrying getWatchlistTransferlistSize
+[17:46:42] Exception retrying getWatchlistTransferlistSize
+[17:46:42] Exception retrying getWatchlistTransferlistSize
+[17:46:42] Exception retrying getWatchlistTransferlistSize
+[17:46:43] Exception retrying getWatchlistTransferlistSize
+[17:46:43] Exception retrying getWatchlistTransferlistSize
+[17:46:43] Exception retrying getWatchlistTransferlistSize
+[17:46:43] Exception retrying getWatchlistTransferlistSize
+[17:46:44] Exception retrying getWatchlistTransferlistSize
+[17:46:44] Exception retrying getWatchlistTransferlistSize
+[17:46:44] Exception retrying getWatchlistTransferlistSize
+[17:46:44] Exception retrying getWatchlistTransferlistSize
+[18:46:05]  - - - - Bot started - - - - 
+[18:46:33] Autologin enabled
+[18:46:33] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[18:46:36] Auto logging in...
+[18:46:52] Your EA Security Code is: 369230
+[18:46:55] Logged in successfully!
+[18:47:57] Test function
+[18:47:58] Autobidder started
+[18:47:59] Exception retrying getWatchlistTransferlistSize
+[18:47:59] Exception retrying getWatchlistTransferlistSize
+[18:48:00] Exception retrying getWatchlistTransferlistSize
+[18:48:01] Exception retrying getWatchlistTransferlistSize
+[18:48:01] Exception retrying getWatchlistTransferlistSize
+[18:48:02] Exception retrying getWatchlistTransferlistSize
+[18:48:03] Exception retrying getWatchlistTransferlistSize
+[18:48:03] Exception retrying getWatchlistTransferlistSize
+[18:48:04] Exception retrying getWatchlistTransferlistSize
+[18:48:04] Exception retrying getWatchlistTransferlistSize
+[18:48:05] Exception retrying getWatchlistTransferlistSize
+[18:48:05] Exception retrying getWatchlistTransferlistSize
+[18:48:06] Exception retrying getWatchlistTransferlistSize
+[18:48:07] Exception retrying getWatchlistTransferlistSize
+[18:48:07] Exception retrying getWatchlistTransferlistSize
+[18:48:08] Exception retrying getWatchlistTransferlistSize
+[18:48:08] Exception retrying getWatchlistTransferlistSize
+[18:48:08] Exception retrying getWatchlistTransferlistSize
+[18:48:08] Exception retrying getWatchlistTransferlistSize
+[18:48:09] Exception retrying getWatchlistTransferlistSize
+[18:48:10] Exception retrying getWatchlistTransferlistSize
+[18:48:11] Exception retrying getWatchlistTransferlistSize
+[18:48:11] Exception retrying getWatchlistTransferlistSize
+[18:48:11] Exception retrying getWatchlistTransferlistSize
+[18:48:12] Exception retrying getWatchlistTransferlistSize
+[18:48:13] Exception retrying getWatchlistTransferlistSize
+[18:48:13] Exception retrying getWatchlistTransferlistSize
+[18:48:14] Exception retrying getWatchlistTransferlistSize
+[18:48:14] Exception retrying getWatchlistTransferlistSize
+[18:48:15] Exception retrying getWatchlistTransferlistSize
+[18:48:16] Exception retrying getWatchlistTransferlistSize
+[18:48:17] Exception retrying getWatchlistTransferlistSize
+[18:48:17] Exception retrying getWatchlistTransferlistSize
+[18:48:18] Exception retrying getWatchlistTransferlistSize
+[18:48:18] Exception retrying getWatchlistTransferlistSize
+[18:48:19] Exception retrying getWatchlistTransferlistSize
+[18:48:19] Exception retrying getWatchlistTransferlistSize
+[18:48:19] Exception retrying getWatchlistTransferlistSize
+[18:48:20] Exception retrying getWatchlistTransferlistSize
+[18:48:21] Exception retrying getWatchlistTransferlistSize
+[18:48:21] Exception retrying getWatchlistTransferlistSize
+[18:48:22] Exception retrying getWatchlistTransferlistSize
+[18:48:22] Exception retrying getWatchlistTransferlistSize
+[18:48:23] Exception retrying getWatchlistTransferlistSize
+[18:48:23] Exception retrying getWatchlistTransferlistSize
+[18:48:23] Exception retrying getWatchlistTransferlistSize
+[18:48:23] Exception retrying getWatchlistTransferlistSize
+[18:48:24] Exception retrying getWatchlistTransferlistSize
+[18:48:24] Exception retrying getWatchlistTransferlistSize
+[18:48:24] Exception retrying getWatchlistTransferlistSize
+[18:48:25] Exception retrying getWatchlistTransferlistSize
+[18:48:25] Exception retrying getWatchlistTransferlistSize
+[18:48:25] Exception retrying getWatchlistTransferlistSize
+[18:48:27] Exception retrying getWatchlistTransferlistSize
+[18:48:27] Exception retrying getWatchlistTransferlistSize
+[18:48:27] Exception retrying getWatchlistTransferlistSize
+[18:48:28] Exception retrying getWatchlistTransferlistSize
+[18:48:28] Exception retrying getWatchlistTransferlistSize
+[18:48:29] Exception retrying getWatchlistTransferlistSize
+[18:48:29] Exception retrying getWatchlistTransferlistSize
+[18:48:30] Exception retrying getWatchlistTransferlistSize
+[18:48:31] Exception retrying getWatchlistTransferlistSize
+[18:48:31] Exception retrying getWatchlistTransferlistSize
+[18:48:31] Exception retrying getWatchlistTransferlistSize
+[18:48:32] Exception retrying getWatchlistTransferlistSize
+[18:48:32] Exception retrying getWatchlistTransferlistSize
+[18:48:33] Exception retrying getWatchlistTransferlistSize
+[18:48:33] Exception retrying getWatchlistTransferlistSize
+[18:48:34] Exception retrying getWatchlistTransferlistSize
+[18:48:34] Exception retrying getWatchlistTransferlistSize
+[18:48:34] Exception retrying getWatchlistTransferlistSize
+[18:48:35] Exception retrying getWatchlistTransferlistSize
+[18:48:36] Exception retrying getWatchlistTransferlistSize
+[18:48:37] Exception retrying getWatchlistTransferlistSize
+[18:48:37] Exception retrying getWatchlistTransferlistSize
+[18:48:38] Exception retrying getWatchlistTransferlistSize
+[18:48:39] Exception retrying getWatchlistTransferlistSize
+[18:48:40] Exception retrying getWatchlistTransferlistSize
+[18:48:40] Exception retrying getWatchlistTransferlistSize
+[18:48:41] Exception retrying getWatchlistTransferlistSize
+[18:48:42] Exception retrying getWatchlistTransferlistSize
+[18:48:42] Exception retrying getWatchlistTransferlistSize
+[18:48:42] Exception retrying getWatchlistTransferlistSize
+[18:48:43] Exception retrying getWatchlistTransferlistSize
+[18:48:44] Exception retrying getWatchlistTransferlistSize
+[18:48:44] Exception retrying getWatchlistTransferlistSize
+[18:48:45] Exception retrying getWatchlistTransferlistSize
+[18:48:45] Exception retrying getWatchlistTransferlistSize
+[18:48:45] Exception retrying getWatchlistTransferlistSize
+[18:48:46] Exception retrying getWatchlistTransferlistSize
+[18:48:46] Exception retrying getWatchlistTransferlistSize
+[18:48:47] Exception retrying getWatchlistTransferlistSize
+[18:48:47] Exception retrying getWatchlistTransferlistSize
+[18:48:48] Exception retrying getWatchlistTransferlistSize
+[18:48:48] Exception retrying getWatchlistTransferlistSize
+[18:48:49] Exception retrying getWatchlistTransferlistSize
+[18:48:49] Exception retrying getWatchlistTransferlistSize
+[18:48:50] Exception retrying getWatchlistTransferlistSize
+[18:48:50] Exception retrying getWatchlistTransferlistSize
+[18:48:51] Exception retrying getWatchlistTransferlistSize
+[18:48:51] Exception retrying getWatchlistTransferlistSize
+[18:48:52] Exception retrying getWatchlistTransferlistSize
+[18:48:53] Exception retrying getWatchlistTransferlistSize
+[18:48:54] Exception retrying getWatchlistTransferlistSize
+[10:55:02]  - - - - Bot started - - - - 
+[10:56:09]  - - - - Bot started - - - - 
+[10:56:19] Autologin enabled
+[10:56:20] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[10:56:50] Auto logging in...
+[10:57:08] Your EA Security Code is: 523838
+[10:57:10] Logged in successfully!
+[10:57:36] Test function
+[10:57:37] Autobidder started
+[10:57:39] Bid to make on each player: 48
+[10:57:49] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[10:58:03] Bids made on RODRÍGUEZ: 1/10
+[10:58:11] Bids made on RODRÍGUEZ: 2/10
+[10:58:19] Bids made on RODRÍGUEZ: 3/10
+[10:58:19] Unexpectedly not on Transfer Market, stopping
+[10:58:19] Bids made on RODRÍGUEZ: 4/10
+[10:58:20] Unexpectedly not on Transfer Market, stopping
+[10:58:21] Bids made on RODRÍGUEZ: 5/10
+[10:58:21] Unexpectedly not on Transfer Market, stopping
+[10:58:22] Bids made on RODRÍGUEZ: 6/10
+[10:58:23] Unexpectedly not on Transfer Market, stopping
+[10:58:24] Bids made on RODRÍGUEZ: 7/10
+[10:58:28] Going to next page
+[10:58:29] No next page found, returning
+[10:58:29] Finished bidding round for RODRÍGUEZ
+[10:58:29] Finished bidding on:RODRÍGUEZ
+[10:58:31] Parsing market data to find most accurate sell prices...
+[10:58:31] Rodríguez min buy now from market data: 1100
+[10:58:32] Confirmed mkt price seems accurate
+[10:58:33] Going to watchlist. Time for war
+[10:58:36] Unexpected page, stopping bot
+[10:58:37] Restart bot to continue!
+[10:59:17] Test function
+[10:59:17] Autobidder started
+[10:59:20] Bid to make on each player: 45
+[10:59:29] Bidding on RODRÍGUEZ up to MARKET price: 1100. Purchase ceiling: 935.0
+[10:59:38] Going to next page
+[10:59:44] Exception makebid_individualplayer
+[10:59:44] Not going to retry, to avoid infinite loop
+[10:59:44] Bids made on RODRÍGUEZ: 1/10
+[10:59:45] Exception makebid_individualplayer
+[10:59:45] Not going to retry, to avoid infinite loop
+[10:59:46] Bids made on RODRÍGUEZ: 2/10
+[10:59:46] Unexpectedly not on Transfer Market, stopping
+[10:59:47] Bids made on RODRÍGUEZ: 3/10
+[10:59:47] Unexpectedly not on Transfer Market, stopping
+[10:59:47] Bids made on RODRÍGUEZ: 4/10
+[10:59:50] Going to next page
+[10:59:50] No next page found, returning
+[10:59:51] Finished bidding round for RODRÍGUEZ
+[10:59:52] Finished bidding on:RODRÍGUEZ
+[10:59:53] Parsing market data to find most accurate sell prices...
+[10:59:54] Rodríguez min buy now from market data: 1100
+[10:59:55] Confirmed mkt price seems accurate
+[10:59:55] Going to watchlist. Time for war
+[10:59:57] Exception retrying go_to_watchlist
+[11:00:00] Unexpected page, stopping bot
+[11:00:00] Restart bot to continue!
+[11:01:05] Test function
+[11:01:05] Autobidder started
+[11:01:08] Bid to make on each player: 44
+[11:01:15] Bidding on RODRÍGUEZ up to MARKET price: 1100. Purchase ceiling: 935.0
+[11:01:24] Going to next page
+[11:01:33] Bids made on RODRÍGUEZ: 1/10
+[11:01:38] Bids made on RODRÍGUEZ: 2/10
+[11:01:44] Bids made on RODRÍGUEZ: 3/10
+[11:01:49] Going to next page
+[11:01:49] No next page found, returning
+[11:01:50] Finished bidding round for RODRÍGUEZ
+[11:01:51] Finished bidding on:RODRÍGUEZ
+[11:01:53] Parsing market data to find most accurate sell prices...
+[11:01:54] Rodríguez min buy now from market data: 1100
+[11:01:54] Confirmed mkt price seems accurate
+[11:01:54] Going to watchlist. Time for war
+[11:01:55] Exception retrying go_to_watchlist
+[11:01:57] Exception retrying go_to_watchlist
+[11:01:59] Error checking state
+[11:06:53] Test function
+[11:06:53] Autobidder started
+[11:06:55] Bid to make on each player: 41
+[11:07:04] Bidding on RODRÍGUEZ up to MARKET price: 1100. Purchase ceiling: 935.0
+[11:07:15] Bids made on RODRÍGUEZ: 1/10
+[11:07:22] Bids made on RODRÍGUEZ: 2/10
+[11:07:23] Unexpected state change, bot stopped
+[11:07:24] Parsing market data to find most accurate sell prices...
+[11:07:24] Rodríguez min buy now from market data: 1100
+[11:07:24] Confirmed mkt price seems accurate
+[11:07:25] Going to watchlist. Time for war
+[11:09:14] Error in updating GUI labels
+[11:13:17] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[11:14:13] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[11:14:18] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[11:14:23] Outbid Rodríguez | CurBid: 800 | Stop: 935.0 
+ || Est. Profit: 245.0
+[11:14:28] Outbid Rodríguez | CurBid: 900 | Stop: 935.0 
+ || Est. Profit: 145.0
+[11:17:05] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[11:19:05] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[11:20:57] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[11:21:02] Outbid Rodríguez | CurBid: 450 | Stop: 935.0 
+ || Est. Profit: 595.0
+[11:21:07] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[11:21:10] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[11:21:15] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[11:21:35] Outbid Rodríguez | CurBid: 550 | Stop: 935.0 
+ || Est. Profit: 495.0
+[11:21:39] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[11:21:43] Outbid Rodríguez | CurBid: 650 | Stop: 935.0 
+ || Est. Profit: 395.0
+[11:21:47] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[11:21:51] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[11:21:55] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[11:22:00] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:800Current bid after bidding: 800
+[11:22:00] Error outbidding Rodríguez. Refreshing page
+[11:22:15] Going back to watchlist
+[11:22:19] Bid method failed
+[11:22:20] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[11:22:22] Bid method failed
+[13:43:32]  - - - - Bot started - - - - 
+[14:04:47]  - - - - Bot started - - - - 
+[14:31:11]  - - - - Bot started - - - - 
+[14:31:18] Autologin enabled
+[14:31:19] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[14:31:21] Auto logging in...
+[14:31:38] Your EA Security Code is: 409557
+[14:31:41] Logged in successfully!
+[14:32:06] Autobidder started
+[14:32:08] Bid to make on each player: 46
+[14:32:09] Bids to make on each player hard set to 10
+[14:32:17] Bidding on RODRÍGUEZ up to MARKET price: 1100. Purchase ceiling: 935.0
+[14:32:28] Bids made on RODRÍGUEZ: 1/10
+[14:32:35] Bids made on RODRÍGUEZ: 2/10
+[14:32:41] Bids made on RODRÍGUEZ: 3/10
+[14:32:41] Unexpected state change, bot stopped
+[14:32:42] Parsing market data to find most accurate sell prices...
+[14:32:43] Rodríguez min buy now from market data: 1200
+[14:32:44] Confirmed mkt price seems accurate
+[14:32:45] Going to watchlist. Time for war
+[14:33:52] Unexpected page, stopping bot
+[14:33:52] Error, bot stopped!
+[14:34:02] Autobidder started
+[14:34:04] Bid to make on each player: 43
+[14:34:04] Bids to make on each player hard set to 10
+[14:34:09] Exception go_to_transfer_market_and_input_parameters
+[14:34:10] Error, bot stopped!
+[14:35:13] Autobidder started
+[14:35:15] Bid to make on each player: 43
+[14:35:15] Bids to make on each player hard set to 10
+[14:35:24] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[14:35:36] Bids made on RODRÍGUEZ: 1/10
+[14:35:40] Going to next page
+[14:35:46] Exception makebid_individualplayer
+[14:35:46] Not going to retry, to avoid infinite loop
+[14:35:47] Bids made on RODRÍGUEZ: 2/10
+[14:35:53] Bids made on RODRÍGUEZ: 3/10
+[14:35:56] Exception makebid_individualplayer
+[14:35:56] Not going to retry, to avoid infinite loop
+[14:35:56] Bids made on RODRÍGUEZ: 4/10
+[14:35:59] Exception makebid_individualplayer
+[14:36:00] Not going to retry, to avoid infinite loop
+[14:36:00] Bids made on RODRÍGUEZ: 5/10
+[14:36:03] Going to next page
+[14:36:13] Bids made on RODRÍGUEZ: 6/10
+[14:36:19] Bids made on RODRÍGUEZ: 7/10
+[14:40:41] Autobidder started
+[14:40:44] Bid to make on each player: 38
+[14:40:44] Bids to make on each player hard set to 10
+[14:40:53] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[14:41:01] Going to next page
+[14:41:06] Going to next page
+[14:41:14] Bids made on RODRÍGUEZ: 1/10
+[14:41:17] Going to next page
+[14:41:17] Finished bidding on: RODRÍGUEZ
+[14:41:19] Parsing market data to find most accurate sell prices...
+[14:41:19] Rodríguez min buy now from market data: 1200
+[14:41:20] Confirmed mkt price seems accurate
+[14:41:21] Going to watchlist. Time for war
+[14:41:31] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[14:42:01] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[14:42:06] Outbid Rodríguez | CurBid: 600 | Stop: 1020.0 
+ || Est. Profit: 540.0
+[14:42:10] Outbid Rodríguez | CurBid: 700 | Stop: 1020.0 
+ || Est. Profit: 440.0
+[14:42:15] Outbid Rodríguez | CurBid: 800 | Stop: 1020.0 
+ || Est. Profit: 340.0
+[14:42:20] Outbid Rodríguez | CurBid: 900 | Stop: 1020.0 
+ || Est. Profit: 240.0
+[14:42:24] Outbid Rodríguez | CurBid: 1000 | Stop: 1020.0 
+ || Est. Profit: 140.0
+[14:43:11] Unexpected page, stopping bot
+[14:43:11] Error, bot stopped!
+[14:55:32]  - - - - Bot started - - - - 
+[14:55:48]  - - - - Bot started - - - - 
+[14:56:39]  - - - - Bot started - - - - 
+[14:56:50]  - - - - Bot started - - - - 
+[14:58:52]  - - - - Bot started - - - - 
+[15:00:01]  - - - - Bot started - - - - 
+[15:00:10] Autologin enabled
+[15:00:11] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[15:00:14] Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need
+[15:00:19] Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need
+[15:00:32] Auto logging in...
+[15:00:46] Your EA Security Code is: 154843
+[15:00:48] Logged in successfully!
+[15:03:19] Autobidder started
+[15:03:21] Bid to make on each player: 42
+[15:03:22] Bids to make on each player hard set to 10
+[15:03:31] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[15:03:42] Bids made on RODRÍGUEZ: 1/10
+[15:03:45] Going to next page
+[15:03:52] Bids made on RODRÍGUEZ: 2/10
+[15:03:57] Bids made on RODRÍGUEZ: 3/10
+[15:04:01] Going to next page
+[15:04:08] Bids made on RODRÍGUEZ: 4/10
+[15:04:11] Going to next page
+[15:04:19] Bids made on RODRÍGUEZ: 5/10
+[15:04:21] Going to next page
+[15:04:29] Bids made on RODRÍGUEZ: 6/10
+[15:04:32] Going to next page
+[15:04:36] Going to next page
+[15:04:37] Finished bidding on: RODRÍGUEZ
+[15:04:38] Parsing market data to find most accurate sell prices...
+[15:04:39] Rodríguez min buy now from market data: 1200
+[15:04:39] Confirmed mkt price seems accurate
+[15:04:40] Going to watchlist. Time for war
+[15:05:58] Unexpected page, stopping bot
+[15:05:58] Error, bot stopped!
+[15:06:12] Autobidder started
+[15:06:15] Bid to make on each player: 37
+[15:06:16] Bids to make on each player hard set to 10
+[15:06:25] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[15:06:33] Going to next page
+[15:06:41] Bids made on RODRÍGUEZ: 1/10
+[15:06:47] Bids made on RODRÍGUEZ: 2/10
+[15:06:49] Going to next page
+[15:06:57] Bids made on RODRÍGUEZ: 3/10
+[15:07:00] Going to next page
+[15:07:07] Bids made on RODRÍGUEZ: 4/10
+[15:07:10] Going to next page
+[15:07:13] Unexpectedly not on Transfer Market, stopping
+[15:07:19] Autobidder started
+[15:07:21] Bid to make on each player: 37
+[15:07:21] Bids to make on each player hard set to 10
+[15:07:35] Exception go_to_transfer_market_and_input_parameters
+[15:07:35] Error, bot stopped!
+[15:48:19]  - - - - Bot started - - - - 
+[15:48:25] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:49:10]  - - - - Bot started - - - - 
+[15:49:19] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:49:26] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:50:35]  - - - - Bot started - - - - 
+[15:50:48] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:50:52] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:51:15]  - - - - Bot started - - - - 
+[15:51:21] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:52:05]  - - - - Bot started - - - - 
+[15:52:11] Dev mode makes new autobidder object on each Start Autobidder click, allows for real time editing using the Reload Functions button. 
+ Doesn't change bot's functionality, but GUI stats will be reset each start() call when enabled
+[15:54:57]  - - - - Bot started - - - - 
+[16:08:09]  - - - - Bot started - - - - 
+[16:08:22] Autologin enabled
+[16:08:23] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[16:08:30] Auto logging in...
+[16:08:44] Your EA Security Code is: 554670
+[16:08:47] Logged in successfully!
+[16:10:01] Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need
+[16:10:39] Starting coins: 812005
+[16:11:08] Starting coins: 812005
+[16:11:14] Starting coins: 812005
+[16:11:26] Starting coins: 812005
+[16:11:27] Autobidder started
+[16:11:30] Bid to make on each player: 37
+[16:11:30] Bids to make on each player hard set to 10
+[16:11:40] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[16:11:50] Bids made on RODRÍGUEZ: 1/10
+[16:11:56] Bids made on RODRÍGUEZ: 2/10
+[16:12:01] Bids made on RODRÍGUEZ: 3/10
+[16:12:06] Bids made on RODRÍGUEZ: 4/10
+[16:12:12] Bids made on RODRÍGUEZ: 5/10
+[16:12:17] Bids made on RODRÍGUEZ: 6/10
+[16:12:20] Going to next page
+[16:12:21] Finished bidding on: RODRÍGUEZ
+[16:12:23] Parsing market data to find most accurate sell prices...
+[16:12:23] Rodríguez min buy now from market data: 950
+[16:12:24] Confirmed mkt price seems accurate
+[16:12:24] Going to watchlist. Time for war
+[16:14:12] Unexpected page, stopping bot
+[16:14:13] Error, bot stopped!
+[16:18:33] Unexpected page, stopping bot
+[16:18:34] Error, bot stopped!
+[16:18:44] Starting coins: 809755
+[16:18:45] Autobidder started
+[16:18:47] Bid to make on each player: 31
+[16:18:48] Bids to make on each player hard set to 10
+[16:18:57] Bidding on RODRÍGUEZ up to MARKET price: 950. Purchase ceiling: 807.5
+[16:19:05] Going to next page
+[16:19:10] Going to next page
+[16:19:16] Going to next page
+[16:19:21] Going to next page
+[16:19:26] Going to next page
+[16:19:34] Bids made on RODRÍGUEZ: 1/10
+[16:19:39] Bids made on RODRÍGUEZ: 2/10
+[16:19:42] Going to next page
+[16:19:47] Going to next page
+[16:19:47] Finished bidding on: RODRÍGUEZ
+[16:19:49] Parsing market data to find most accurate sell prices...
+[16:19:50] Rodríguez min buy now from market data: 1100
+[16:19:50] Confirmed mkt price seems accurate
+[16:19:50] Going to watchlist. Time for war
+[16:21:33] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[16:21:51] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[16:21:56] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[16:22:00] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[16:26:54] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[16:27:25] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[16:27:30] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[16:27:35] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[16:31:48] Outbid Rodríguez | CurBid: 400 | Stop: 935.0 
+ || Est. Profit: 645.0
+[16:31:58] Outbid Rodríguez | CurBid: 500 | Stop: 935.0 
+ || Est. Profit: 545.0
+[16:32:03] Outbid Rodríguez | CurBid: 600 | Stop: 935.0 
+ || Est. Profit: 445.0
+[16:32:07] Outbid Rodríguez | CurBid: 700 | Stop: 935.0 
+ || Est. Profit: 345.0
+[16:37:06] Unexpectedly not on Watchlist, stopping
+[16:37:33] Fetching player info...
+[16:37:34] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[16:41:41] Fetching player info...
+[16:41:41] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[16:42:53] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[16:42:54] Fetching player info...
+[16:42:58] Added player CAHILL
+[16:43:08] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[16:43:08] Fetching player info...
+[16:43:17] Added player SCHÄR
+[16:43:36] Starting coins: 808205
+[16:43:36] Autobidder started
+[16:43:38] Bid to make on each player: 15
+[16:43:39] Bids to make on each player hard set to 10
+[16:43:48] Bidding on RODRÍGUEZ up to MARKET price: 1100. Purchase ceiling: 935.0
+[16:43:56] Going to next page
+[16:44:04] Bids made on RODRÍGUEZ: 1/10
+[16:44:07] Going to next page
+[16:44:14] Bids made on RODRÍGUEZ: 2/10
+[16:44:19] Bids made on RODRÍGUEZ: 3/10
+[16:44:22] Going to next page
+[16:44:27] Going to next page
+[16:44:28] Finished bidding on: RODRÍGUEZ
+[16:44:38] Bidding on CAHILL up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[16:44:49] Bids made on CAHILL: 1/10
+[16:44:54] Bids made on CAHILL: 2/10
+[16:44:59] Bids made on CAHILL: 3/10
+[16:45:02] Going to next page
+[16:45:10] Bids made on CAHILL: 4/10
+[16:45:15] Bids made on CAHILL: 5/10
+[16:45:21] Bids made on CAHILL: 6/10
+[16:45:26] Bids made on CAHILL: 7/10
+[16:45:31] Bids made on CAHILL: 8/10
+[16:45:34] Going to next page
+[16:45:42] Bids made on CAHILL: 9/10
+[16:45:45] Going to next page
+[16:45:45] Finished bidding on: CAHILL
+[16:45:54] Bidding on SCHÄR up to FUTBIN price: 1000. Will determine actual market price while searching. Purchase ceiling: 850.0
+[16:46:04] Bids made on SCHÄR: 1/10
+[16:46:07] Going to next page
+[16:46:15] Bids made on SCHÄR: 2/10
+[16:46:20] Bids made on SCHÄR: 3/10
+[16:46:25] Bids made on SCHÄR: 4/10
+[16:46:31] Bids made on SCHÄR: 5/10
+[16:46:36] Bids made on SCHÄR: 6/10
+[16:46:38] Going to next page
+[16:46:43] Going to next page
+[16:46:44] Finished bidding on: SCHÄR
+[16:46:45] Parsing market data to find most accurate sell prices...
+[16:46:46] Rodríguez min buy now from market data: 1000
+[16:46:46] Cahill min buy now from market data: 1000
+[16:46:47] Schär min buy now from market data: 1000
+[16:46:47] Confirmed mkt price seems accurate
+[16:46:47] Confirmed mkt price seems accurate
+[16:46:48] Confirmed mkt price seems accurate
+[16:46:48] Going to watchlist. Time for war
+[16:46:53] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:750Current bid after bidding: 750
+[16:46:54] Error outbidding Cahill. Refreshing page
+[16:47:08] Going back to watchlist
+[16:47:13] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[16:49:13] Outbid Cahill | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[16:51:09] Outbid Cahill | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[16:51:14] Outbid Cahill | CurBid: 600 | Stop: 850.0 
+ || Est. Profit: 350.0
+[16:51:19] Outbid Cahill | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[16:51:24] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[16:53:14] Outbid Schär | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[16:53:17] Outbid Schär | CurBid: 450 | Stop: 850.0 
+ || Est. Profit: 500.0
+[16:53:48] Outbid Schär | CurBid: 550 | Stop: 850.0 
+ || Est. Profit: 400.0
+[16:53:53] Outbid Schär | CurBid: 650 | Stop: 850.0 
+ || Est. Profit: 300.0
+[16:53:56] Outbid Schär | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[16:54:38] Outbid Schär | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[16:55:19] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[16:55:43] Outbid Rodríguez | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[16:55:55] Outbid Rodríguez | CurBid: 600 | Stop: 850.0 
+ || Est. Profit: 350.0
+[16:55:59] Outbid Rodríguez | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[16:56:37] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[16:57:12] Outbid Rodríguez | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[16:57:22] Outbid Rodríguez | CurBid: 600 | Stop: 850.0 
+ || Est. Profit: 350.0
+[16:57:26] Outbid Rodríguez | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[16:58:02] Outbid Rodríguez | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[16:58:38] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[16:58:39] Error outbidding Cahill. Refreshing page
+[16:58:53] Going back to watchlist
+[16:58:58] Outbid Cahill | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[16:59:01] Outbid Rodríguez | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[16:59:23] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[16:59:42] Outbid Rodríguez | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[16:59:48] Outbid Rodríguez | CurBid: 600 | Stop: 850.0 
+ || Est. Profit: 350.0
+[17:00:00] Outbid Rodríguez | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[17:01:27] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:450Current bid after bidding: 450
+[17:01:28] Error outbidding Cahill. Refreshing page
+[17:01:41] Going back to watchlist
+[17:01:46] Outbid Cahill | CurBid: 650 | Stop: 850.0 
+ || Est. Profit: 300.0
+[17:01:49] Outbid Cahill | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[17:01:52] Outbid Cahill | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[17:02:33] Outbid Cahill | CurBid: 450 | Stop: 850.0 
+ || Est. Profit: 500.0
+[17:02:47] Outbid Cahill | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[17:03:15] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[17:03:46] Outbid Schär | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[17:03:49] Outbid Schär | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[17:03:52] Outbid Cahill | CurBid: 550 | Stop: 850.0 
+ || Est. Profit: 400.0
+[17:04:27] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:750Current bid after bidding: 750
+[17:04:28] Error outbidding Cahill. Refreshing page
+[17:04:41] Going back to watchlist
+[17:04:46] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[17:04:48] Outbid Schär | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[17:04:51] Outbid Schär | CurBid: 550 | Stop: 850.0 
+ || Est. Profit: 400.0
+[17:05:04] Outbid Schär | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[17:05:24] Outbid Schär | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[17:06:08] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:800Current bid after bidding: 800
+[17:06:09] Error outbidding Cahill. Refreshing page
+[17:06:22] Going back to watchlist
+[17:06:27] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[17:06:29] Outbid Schär | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[17:08:09] Outbid Schär | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[17:11:58] Outbid Cahill | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[17:12:31] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[17:14:38] Outbid Cahill | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[17:15:10] Outbid Cahill | CurBid: 700 | Stop: 850.0 
+ || Est. Profit: 250.0
+[17:15:13] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[17:15:47] No more active bids
+[17:15:47] Proceeding to list won players
+[17:15:47] Bidding round finished, will now send players to transfer list and list them!
+[17:15:53] Num players won: 12
+[17:17:22]  - - - All players listed for transfer - - - 
+[17:17:23] Total investment: 9800
+[17:17:23] Market sell prices gives sellback of 11400
+[17:17:23] Guaranteed Profit: 1600
+[17:17:23] Time spent: [not yet implemented]
+[17:17:24] Num players won: 0
+[17:17:28] Num players expired: 8
+[17:17:29] Sleeping for 2 minutes and heading back to war
+[17:19:30] Autobidder started
+[17:19:32] Bid to make on each player: 16
+[17:19:33] Bids to make on each player hard set to 10
+[17:19:37] Exception go_to_transfer_market_and_input_parameters
+[17:19:38] Error, bot stopped!
+[17:20:12]  - - - - Bot started - - - - 
+[17:22:07]  - - - - Bot started - - - - 
+[17:23:32] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[17:23:32] Fetching player info...
+[17:23:40] Added player COLEMAN
+[17:23:57] Fetching player info...
+[17:23:57] Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. 
+ Players like Giroud for example, are not good because there are 4 different Giroud cards. 
+ I recommend random non-rare golds selling for just under or just above 1,000 coins. 
+[17:24:05] Added player MATHEUS
+[17:24:22] Autologin enabled
+[17:24:22] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[17:24:35] Auto logging in...
+[17:24:54] Your EA Security Code is: 571549
+[17:24:56] Logged in successfully!
+[17:25:23] Starting coins: 799105
+[17:25:24] Autobidder started
+[17:25:26] Bid to make on each player: 9
+[17:25:27] Bids to make on each player hard set to 10
+[17:25:36] Bidding on RODRÍGUEZ up to MARKET price: 1000. Purchase ceiling: 850.0
+[17:25:44] Going to next page
+[17:25:51] Bids made on RODRÍGUEZ: 1/9
+[17:25:57] Bids made on RODRÍGUEZ: 2/9
+[17:26:03] Bids made on RODRÍGUEZ: 3/9
+[17:26:05] Going to next page
+[17:26:14] Bids made on RODRÍGUEZ: 4/9
+[17:26:16] Going to next page
+[17:26:22] Going to next page
+[17:26:28] Going to next page
+[17:26:36] Bids made on RODRÍGUEZ: 5/9
+[17:26:41] Bids made on RODRÍGUEZ: 6/9
+[17:26:46] Bids made on RODRÍGUEZ: 7/9
+[17:26:49] Going to next page
+[17:26:53] Going to next page
+[17:26:54] Finished bidding on: RODRÍGUEZ
+[17:27:04] Bidding on CAHILL up to MARKET price: 1000. Purchase ceiling: 850.0
+[17:27:14] Bids made on CAHILL: 1/9
+[17:27:20] Bids made on CAHILL: 2/9
+[17:27:25] Bids made on CAHILL: 3/9
+[17:27:28] Going to next page
+[17:27:37] Bids made on CAHILL: 4/9
+[17:27:42] Bids made on CAHILL: 5/9
+[17:27:47] Bids made on CAHILL: 6/9
+[17:27:53] Bids made on CAHILL: 7/9
+[17:27:56] Going to next page
+[17:28:03] Bids made on CAHILL: 8/9
+[17:28:09] Bids made on CAHILL: 9/9
+[17:28:11] Going to next page
+[17:28:12] No next page found, returning
+[17:28:12] Finished bidding on: CAHILL
+[17:28:21] Bidding on SCHÄR up to MARKET price: 1000. Purchase ceiling: 850.0
+[17:28:33] Bids made on SCHÄR: 1/9
+[17:28:37] Bids made on SCHÄR: 2/9
+[17:28:42] Bids made on SCHÄR: 3/9
+[17:28:47] Bids made on SCHÄR: 4/9
+[17:28:52] Bids made on SCHÄR: 5/9
+[17:28:55] Going to next page
+[17:29:01] Going to next page
+[17:29:01] Finished bidding on: SCHÄR
+[17:29:11] Bidding on COLEMAN up to FUTBIN price: 1300. Will determine actual market price while searching. Purchase ceiling: 1105.0
+[17:29:22] Bids made on COLEMAN: 1/9
+[17:29:24] Going to next page
+[17:29:30] Going to next page
+[17:29:31] Finished bidding on: COLEMAN
+[17:29:41] Bidding on MATHEUS up to FUTBIN price: 1200. Will determine actual market price while searching. Purchase ceiling: 1020.0
+[17:29:52] Bids made on MATHEUS: 1/9
+[17:29:57] Bids made on MATHEUS: 2/9
+[17:30:00] Going to next page
+[17:30:08] Bids made on MATHEUS: 3/9
+[17:30:11] Going to next page
+[17:30:19] Bids made on MATHEUS: 4/9
+[17:30:24] Bids made on MATHEUS: 5/9
+[17:30:27] Going to next page
+[17:30:32] Going to next page
+[17:30:37] Going to next page
+[17:30:45] Bids made on MATHEUS: 6/9
+[17:30:47] Going to next page
+[17:30:53] Going to next page
+[17:30:54] Finished bidding on: MATHEUS
+[17:30:55] Parsing market data to find most accurate sell prices...
+[17:30:55] Rodríguez min buy now from market data: 950
+[17:30:56] Cahill min buy now from market data: 950
+[17:30:56] Schär min buy now from market data: 950
+[17:30:57] Coleman min buy now from market data: 1300
+[17:30:57] Matheus min buy now from market data: 1200
+[17:30:58] Confirmed mkt price seems accurate
+[17:30:58] Confirmed mkt price seems accurate
+[17:30:59] Confirmed mkt price seems accurate
+[17:30:59] Confirmed mkt price seems accurate
+[17:31:00] Confirmed mkt price seems accurate
+[17:31:00] Going to watchlist. Time for war
+[17:31:05] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[17:32:10] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[17:32:31] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:33:05] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[17:33:07] Outbid Cahill | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:33:46] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:850Current bid after bidding: 850
+[17:33:46] Error outbidding Matheus. Refreshing page
+[17:34:00] Going back to watchlist
+[17:34:05] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[17:34:08] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:34:10] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[17:34:13] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[17:34:36] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:35:29] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[17:35:50] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[17:36:55] Outbid Rodríguez | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:37:11] Outbid Cahill | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:37:17] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:38:04] Outbid Schär | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:41:05] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:41:50] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:41:54] Outbid Coleman | CurBid: 600 | Stop: 1105.0 
+ || Est. Profit: 635.0
+[17:41:56] Outbid Rodríguez | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:42:01] Outbid Rodríguez | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[17:42:04] Outbid Rodríguez | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:42:19] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:400Current bid after bidding: 400
+[17:42:20] Error outbidding Schär. Refreshing page
+[17:42:34] Going back to watchlist
+[17:42:44] Outbid Schär | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[17:42:48] Outbid Cahill | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:42:53] Outbid Schär | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[17:42:57] Outbid Schär | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:43:00] Outbid Cahill | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[17:43:07] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:43:14] Outbid Schär | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:44:06] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:450Current bid after bidding: 450
+[17:44:06] Error outbidding Cahill. Refreshing page
+[17:44:19] Going back to watchlist
+[17:44:24] Outbid Coleman | CurBid: 700 | Stop: 1105.0 
+ || Est. Profit: 535.0
+[17:44:27] Outbid Cahill | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:44:30] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[17:44:32] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[17:44:35] Outbid Cahill | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[17:44:44] Outbid Cahill | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:44:48] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:45:09] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[17:45:12] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:45:18] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[17:45:36] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:950Current bid after bidding: 950
+[17:45:36] Error outbidding Matheus. Refreshing page
+[17:45:50] Going back to watchlist
+[17:45:55] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[17:45:57] Outbid Cahill | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:46:00] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:47:54] Outbid Schär | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:49:54] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:49:57] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:50:13] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:50:17] Outbid Rodríguez | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:50:21] Outbid Rodríguez | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[17:50:26] Outbid Rodríguez | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:52:11] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:52:19] Outbid Rodríguez | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[17:52:32] Outbid Rodríguez | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:52:35] Outbid Rodríguez | CurBid: 550 | Stop: 807.5 
+ || Est. Profit: 352.5
+[17:52:37] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:600Current bid after bidding: 600
+[17:52:38] Error outbidding Rodríguez. Refreshing page
+[17:52:55] Going back to watchlist
+[17:53:00] Outbid Rodríguez | CurBid: 650 | Stop: 807.5 
+ || Est. Profit: 252.5
+[17:53:03] Outbid Rodríguez | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[17:53:06] Outbid Rodríguez | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:53:21] Outbid Schär | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:55:01] Outbid Cahill | CurBid: 550 | Stop: 807.5 
+ || Est. Profit: 352.5
+[17:55:14] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:55:22] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[17:55:26] Outbid Schär | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[17:55:54] Outbid Cahill | CurBid: 500 | Stop: 807.5 
+ || Est. Profit: 402.5
+[17:55:59] Outbid Cahill | CurBid: 600 | Stop: 807.5 
+ || Est. Profit: 302.5
+[17:56:02] Outbid Cahill | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[17:57:00] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[17:58:51] No more active bids
+[17:58:51] Proceeding to list won players
+[17:58:52] Bidding round finished, will now send players to transfer list and list them!
+[17:58:58] Num players won: 24
+[18:01:55]  - - - All players listed for transfer - - - 
+[18:01:55] Total investment: 19950
+[18:01:56] Market sell prices gives sellback of 23171
+[18:01:57] Guaranteed Profit: 3221
+[18:01:57] Time spent: [not yet implemented]
+[18:01:58] Num players won: 0
+[18:02:01] Num players expired: 4
+[18:02:03] Sleeping for 2 minutes and heading back to war
+[18:04:04] Autobidder started
+[18:04:06] Bid to make on each player: 9
+[18:04:06] Bids to make on each player hard set to 10
+[18:04:16] Bidding on RODRÍGUEZ up to MARKET price: 950. Purchase ceiling: 807.5
+[18:04:27] Bids made on RODRÍGUEZ: 1/9
+[18:04:32] Bids made on RODRÍGUEZ: 2/9
+[18:04:38] Bids made on RODRÍGUEZ: 3/9
+[18:04:43] Bids made on RODRÍGUEZ: 4/9
+[18:04:48] Bids made on RODRÍGUEZ: 5/9
+[18:04:54] Bids made on RODRÍGUEZ: 6/9
+[18:04:59] Bids made on RODRÍGUEZ: 7/9
+[18:05:04] Bids made on RODRÍGUEZ: 8/9
+[18:05:07] Going to next page
+[18:05:07] Finished bidding on: RODRÍGUEZ
+[18:05:18] Bidding on CAHILL up to MARKET price: 950. Purchase ceiling: 807.5
+[18:05:28] Bids made on CAHILL: 1/9
+[18:05:34] Bids made on CAHILL: 2/9
+[18:05:39] Bids made on CAHILL: 3/9
+[18:05:45] Bids made on CAHILL: 4/9
+[18:05:50] Bids made on CAHILL: 5/9
+[18:05:56] Bids made on CAHILL: 6/9
+[18:06:01] Bids made on CAHILL: 7/9
+[18:06:07] Bids made on CAHILL: 8/9
+[18:06:10] Going to next page
+[18:06:10] Finished bidding on: CAHILL
+[18:06:20] Bidding on SCHÄR up to MARKET price: 950. Purchase ceiling: 807.5
+[18:06:31] Bids made on SCHÄR: 1/9
+[18:06:36] Bids made on SCHÄR: 2/9
+[18:06:39] Going to next page
+[18:06:40] Finished bidding on: SCHÄR
+[18:06:50] Bidding on COLEMAN up to MARKET price: 1300. Purchase ceiling: 1105.0
+[18:07:01] Bids made on COLEMAN: 1/9
+[18:07:07] Bids made on COLEMAN: 2/9
+[18:07:12] Bids made on COLEMAN: 3/9
+[18:07:18] Bids made on COLEMAN: 4/9
+[18:07:23] Bids made on COLEMAN: 5/9
+[18:07:26] Going to next page
+[18:07:27] Finished bidding on: COLEMAN
+[18:07:38] Bidding on MATHEUS up to MARKET price: 1200. Purchase ceiling: 1020.0
+[18:07:47] Going to next page
+[18:07:53] Going to next page
+[18:08:01] Bids made on MATHEUS: 1/9
+[18:08:06] Bids made on MATHEUS: 2/9
+[18:08:12] Bids made on MATHEUS: 3/9
+[18:08:15] Going to next page
+[18:08:23] Bids made on MATHEUS: 4/9
+[18:08:28] Bids made on MATHEUS: 5/9
+[18:08:30] Going to next page
+[18:08:39] Bids made on MATHEUS: 6/9
+[18:08:44] Bids made on MATHEUS: 7/9
+[18:08:49] Bids made on MATHEUS: 8/9
+[18:08:52] Going to next page
+[18:08:57] Going to next page
+[18:08:58] Finished bidding on: MATHEUS
+[18:08:59] Parsing market data to find most accurate sell prices...
+[18:09:00] Rodríguez min buy now from market data: 1200
+[18:09:01] Cahill min buy now from market data: 1000
+[18:09:02] Schär min buy now from market data: 1000
+[18:09:02] Coleman min buy now from market data: 1500
+[18:09:03] Matheus min buy now from market data: 1200
+[18:09:03] Confirmed mkt price seems accurate
+[18:09:04] Confirmed mkt price seems accurate
+[18:09:05] Confirmed mkt price seems accurate
+[18:09:06] Confirmed mkt price seems accurate
+[18:09:06] Confirmed mkt price seems accurate
+[18:09:07] Going to watchlist. Time for war
+[18:09:13] Outbid Schär | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[18:09:25] Outbid Rodríguez | CurBid: 450 | Stop: 1020.0 
+ || Est. Profit: 690.0
+[18:09:30] Outbid Rodríguez | CurBid: 550 | Stop: 1020.0 
+ || Est. Profit: 590.0
+[18:09:34] Outbid Coleman | CurBid: 1000 | Stop: 1275.0 
+ || Est. Profit: 425.0
+[18:09:38] Outbid Rodríguez | CurBid: 650 | Stop: 1020.0 
+ || Est. Profit: 490.0
+[18:09:42] Outbid Rodríguez | CurBid: 750 | Stop: 1020.0 
+ || Est. Profit: 390.0
+[18:09:49] Outbid Schär | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[18:10:25] Outbid Schär | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[18:11:32] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:450Current bid after bidding: 450
+[18:11:32] Error outbidding Coleman. Refreshing page
+[18:11:47] Going back to watchlist
+[18:11:52] Outbid Coleman | CurBid: 450 | Stop: 1275.0 
+ || Est. Profit: 975.0
+[18:13:46] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:13:49] Outbid Coleman | CurBid: 600 | Stop: 1275.0 
+ || Est. Profit: 825.0
+[18:13:53] Outbid Rodríguez | CurBid: 600 | Stop: 1020.0 
+ || Est. Profit: 540.0
+[18:14:01] Outbid Rodríguez | CurBid: 700 | Stop: 1020.0 
+ || Est. Profit: 440.0
+[18:14:17] Outbid Coleman | CurBid: 700 | Stop: 1275.0 
+ || Est. Profit: 725.0
+[18:14:23] Outbid Coleman | CurBid: 800 | Stop: 1275.0 
+ || Est. Profit: 625.0
+[18:14:27] Outbid Coleman | CurBid: 900 | Stop: 1275.0 
+ || Est. Profit: 525.0
+[18:14:43] Outbid Coleman | CurBid: 1000 | Stop: 1275.0 
+ || Est. Profit: 425.0
+[18:14:59] Outbid Coleman | CurBid: 1200 | Stop: 1275.0 
+ || Est. Profit: 225.0
+[18:15:50] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:400Current bid after bidding: 400
+[18:15:51] Error outbidding Matheus. Refreshing page
+[18:16:04] Going back to watchlist
+[18:16:10] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:16:13] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:17:40] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:17:49] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:18:55] Outbid Cahill | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[18:19:24] Outbid Cahill | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[18:19:54] Outbid Cahill | CurBid: 500 | Stop: 850.0 
+ || Est. Profit: 450.0
+[18:19:57] Outbid Cahill | CurBid: 550 | Stop: 850.0 
+ || Est. Profit: 400.0
+[18:20:01] Outbid Cahill | CurBid: 800 | Stop: 850.0 
+ || Est. Profit: 150.0
+[18:20:09] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:20:42] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:20:49] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:20:57] Outbid Cahill | CurBid: 400 | Stop: 850.0 
+ || Est. Profit: 550.0
+[18:21:16] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[18:21:21] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:21:26] Outbid Rodríguez | CurBid: 600 | Stop: 1020.0 
+ || Est. Profit: 540.0
+[18:21:31] Outbid Rodríguez | CurBid: 700 | Stop: 1020.0 
+ || Est. Profit: 440.0
+[18:21:35] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[18:21:55] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:22:14] Outbid Coleman | CurBid: 1000 | Stop: 1275.0 
+ || Est. Profit: 425.0
+[18:22:17] Outbid Coleman | CurBid: 1000 | Stop: 1275.0 
+ || Est. Profit: 425.0
+[18:23:54] Outbid Matheus | CurBid: 750 | Stop: 1020.0 
+ || Est. Profit: 390.0
+[18:23:57] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:24:41] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:24:45] Outbid Rodríguez | CurBid: 650 | Stop: 1020.0 
+ || Est. Profit: 490.0
+[18:24:49] Outbid Rodríguez | CurBid: 750 | Stop: 1020.0 
+ || Est. Profit: 390.0
+[18:24:59] Outbid Rodríguez | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:25:14] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:950Current bid after bidding: 950
+[18:25:14] Error outbidding Rodríguez. Refreshing page
+[18:25:29] Going back to watchlist
+[18:25:35] Outbid Rodríguez | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:26:42] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:850Current bid after bidding: 850
+[18:26:43] Error outbidding Matheus. Refreshing page
+[18:26:57] Going back to watchlist
+[18:27:02] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:27:06] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[18:27:10] Outbid Rodríguez | CurBid: 450 | Stop: 1020.0 
+ || Est. Profit: 690.0
+[18:27:18] Outbid Rodríguez | CurBid: 550 | Stop: 1020.0 
+ || Est. Profit: 590.0
+[18:27:23] Outbid Rodríguez | CurBid: 650 | Stop: 1020.0 
+ || Est. Profit: 490.0
+[18:27:29] Outbid Rodríguez | CurBid: 750 | Stop: 1020.0 
+ || Est. Profit: 390.0
+[18:27:39] Outbid Cahill | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[18:29:02] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:29:05] Outbid Matheus | CurBid: 650 | Stop: 1020.0 
+ || Est. Profit: 490.0
+[18:29:09] Outbid Schär | CurBid: 750 | Stop: 850.0 
+ || Est. Profit: 200.0
+[18:30:20] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:30:31] Outbid Coleman | CurBid: 750 | Stop: 1275.0 
+ || Est. Profit: 675.0
+[18:31:04] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:32:33] Outbid Coleman | CurBid: 1100 | Stop: 1275.0 
+ || Est. Profit: 325.0
+[18:32:36] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:32:41] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:33:02] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:33:12] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:33:17] Outbid Rodríguez | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:33:20] Outbid Rodríguez | CurBid: 600 | Stop: 1020.0 
+ || Est. Profit: 540.0
+[18:33:24] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:33:30] Outbid Rodríguez | CurBid: 600 | Stop: 1020.0 
+ || Est. Profit: 540.0
+[18:33:34] Outbid Rodríguez | CurBid: 700 | Stop: 1020.0 
+ || Est. Profit: 440.0
+[18:33:38] Outbid Rodríguez | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[18:33:45] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:700Current bid after bidding: 700
+[18:33:46] Error outbidding Rodríguez. Refreshing page
+[18:34:00] Going back to watchlist
+[18:34:24] No more active bids
+[18:34:24] Proceeding to list won players
+[18:34:24] Bidding round finished, will now send players to transfer list and list them!
+[18:34:30] Num players won: 24
+[18:37:29]  - - - All players listed for transfer - - - 
+[18:37:30] Total investment: 21400
+[18:37:31] Market sell prices gives sellback of 27645
+[18:37:31] Guaranteed Profit: 6245
+[18:37:31] Time spent: [not yet implemented]
+[18:37:32] Num players won: 0
+[18:37:36] Num players expired: 7
+[18:37:37] Sleeping for 2 minutes and heading back to war
+[18:39:38] Autobidder started
+[18:39:40] Bid to make on each player: 9
+[18:39:41] Bids to make on each player hard set to 10
+[18:39:50] Bidding on RODRÍGUEZ up to MARKET price: 1200. Purchase ceiling: 1020.0
+[18:39:59] Going to next page
+[18:40:07] Bids made on RODRÍGUEZ: 1/9
+[18:40:11] Bids made on RODRÍGUEZ: 2/9
+[18:40:17] Bids made on RODRÍGUEZ: 3/9
+[18:40:20] Going to next page
+[18:40:29] Bids made on RODRÍGUEZ: 4/9
+[18:40:34] Bids made on RODRÍGUEZ: 5/9
+[18:40:37] Going to next page
+[18:40:45] Bids made on RODRÍGUEZ: 6/9
+[18:40:50] Bids made on RODRÍGUEZ: 7/9
+[18:40:53] Going to next page
+[18:41:02] Bids made on RODRÍGUEZ: 8/9
+[18:41:05] Going to next page
+[18:41:14] Bids made on RODRÍGUEZ: 9/9
+[18:41:19] Bids made on RODRÍGUEZ: 10/9
+[18:41:22] Going to next page
+[18:41:22] Finished bidding on: RODRÍGUEZ
+[18:41:33] Bidding on CAHILL up to MARKET price: 1000. Purchase ceiling: 850.0
+[18:41:44] Bids made on CAHILL: 1/9
+[18:41:49] Bids made on CAHILL: 2/9
+[18:41:55] Bids made on CAHILL: 3/9
+[18:42:00] Bids made on CAHILL: 4/9
+[18:42:06] Bids made on CAHILL: 5/9
+[18:42:11] Bids made on CAHILL: 6/9
+[18:42:17] Bids made on CAHILL: 7/9
+[18:42:22] Bids made on CAHILL: 8/9
+[18:42:27] Bids made on CAHILL: 9/9
+[18:42:31] Going to next page
+[18:42:31] Finished bidding on: CAHILL
+[18:42:42] Bidding on SCHÄR up to MARKET price: 1000. Purchase ceiling: 850.0
+[18:42:52] Bids made on SCHÄR: 1/9
+[18:42:55] Going to next page
+[18:42:56] Finished bidding on: SCHÄR
+[18:43:07] Bidding on COLEMAN up to MARKET price: 1500. Purchase ceiling: 1275.0
+[18:43:18] Bids made on COLEMAN: 1/9
+[18:43:23] Bids made on COLEMAN: 2/9
+[18:43:29] Bids made on COLEMAN: 3/9
+[18:43:34] Bids made on COLEMAN: 4/9
+[18:43:37] Going to next page
+[18:43:37] Finished bidding on: COLEMAN
+[18:43:48] Bidding on MATHEUS up to MARKET price: 1200. Purchase ceiling: 1020.0
+[18:43:59] Bids made on MATHEUS: 1/9
+[18:44:03] Bids made on MATHEUS: 2/9
+[18:44:07] Going to next page
+[18:44:12] Going to next page
+[18:44:20] Bids made on MATHEUS: 3/9
+[18:44:23] Going to next page
+[18:44:29] Going to next page
+[18:44:37] Bids made on MATHEUS: 4/9
+[18:44:43] Bids made on MATHEUS: 5/9
+[18:44:48] Bids made on MATHEUS: 6/9
+[18:44:51] Going to next page
+[18:44:57] Going to next page
+[18:45:06] Bids made on MATHEUS: 7/9
+[18:45:12] Bids made on MATHEUS: 8/9
+[18:45:14] Going to next page
+[18:45:21] Going to next page
+[18:45:21] Finished bidding on: MATHEUS
+[18:45:22] Parsing market data to find most accurate sell prices...
+[18:45:23] Rodríguez min buy now from market data: 950
+[18:45:23] Cahill min buy now from market data: 950
+[18:45:24] Schär min buy now from market data: 950
+[18:45:25] Coleman min buy now from market data: 1400
+[18:45:26] Matheus min buy now from market data: 1200
+[18:45:26] Confirmed mkt price seems accurate
+[18:45:27] Confirmed mkt price seems accurate
+[18:45:27] Confirmed mkt price seems accurate
+[18:45:28] Confirmed mkt price seems accurate
+[18:45:29] Confirmed mkt price seems accurate
+[18:45:29] Going to watchlist. Time for war
+[18:45:57] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:450Current bid after bidding: 450
+[18:45:58] Error outbidding Matheus. Refreshing page
+[18:46:13] Going back to watchlist
+[18:46:18] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:46:22] Outbid Rodríguez | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[18:46:25] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[18:46:30] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:46:38] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[18:46:55] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[18:47:08] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:49:52] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:750Current bid after bidding: 750
+[18:49:53] Error outbidding Rodríguez. Refreshing page
+[18:50:07] Going back to watchlist
+[18:50:13] Outbid Rodríguez | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[18:50:16] Outbid Rodríguez | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[18:51:03] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[18:51:30] Outbid Cahill | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[18:52:12] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[18:53:20] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[18:53:23] Outbid Cahill | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[18:53:37] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[18:54:11] Outbid Schär | CurBid: 700 | Stop: 807.5 
+ || Est. Profit: 202.5
+[18:55:42] Outbid Coleman | CurBid: 1100 | Stop: 1190.0 
+ || Est. Profit: 230.0
+[18:57:06] Outbid Schär | CurBid: 800 | Stop: 807.5 
+ || Est. Profit: 102.5
+[18:57:22] Outbid Rodríguez | CurBid: 450 | Stop: 807.5 
+ || Est. Profit: 452.5
+[18:58:08] Outbid Rodríguez | CurBid: 550 | Stop: 807.5 
+ || Est. Profit: 352.5
+[18:59:42] Outbid Coleman | CurBid: 1100 | Stop: 1190.0 
+ || Est. Profit: 230.0
+[19:00:28] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[19:00:36] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[19:01:34] Outbid Cahill | CurBid: 650 | Stop: 807.5 
+ || Est. Profit: 252.5
+[19:01:37] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[19:02:10] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[19:02:47] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[19:03:02] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[19:03:28] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[19:03:32] Outbid Cahill | CurBid: 400 | Stop: 807.5 
+ || Est. Profit: 502.5
+[19:03:39] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[19:03:42] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[19:03:45] Bid did not go through! Will now return 0 and hopefully refresh. Original bid:850Current bid after bidding: 850
+[19:03:46] Error outbidding Matheus. Refreshing page
+[19:04:01] Going back to watchlist
+[19:04:07] Outbid Cahill | CurBid: 750 | Stop: 807.5 
+ || Est. Profit: 152.5
+[19:04:10] Outbid Matheus | CurBid: 900 | Stop: 1020.0 
+ || Est. Profit: 240.0
+[19:04:13] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[19:04:23] Outbid Matheus | CurBid: 1000 | Stop: 1020.0 
+ || Est. Profit: 140.0
+[19:04:27] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[19:04:31] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[19:06:05] Outbid Coleman | CurBid: 1100 | Stop: 1190.0 
+ || Est. Profit: 230.0
+[19:06:08] Outbid Coleman | CurBid: 1100 | Stop: 1190.0 
+ || Est. Profit: 230.0
+[19:08:05] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[19:08:08] Outbid Matheus | CurBid: 400 | Stop: 1020.0 
+ || Est. Profit: 740.0
+[19:09:14] Outbid Matheus | CurBid: 500 | Stop: 1020.0 
+ || Est. Profit: 640.0
+[19:09:39] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[19:09:42] Outbid Matheus | CurBid: 850 | Stop: 1020.0 
+ || Est. Profit: 290.0
+[19:09:50] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[19:10:18] Outbid Matheus | CurBid: 950 | Stop: 1020.0 
+ || Est. Profit: 190.0
+[19:10:57] No more active bids
+[19:10:58] Proceeding to list won players
+[19:10:58] Bidding round finished, will now send players to transfer list and list them!
+[19:11:04] Num players won: 27
+[19:14:24]  - - - All players listed for transfer - - - 
+[19:14:25] Total investment: 24650
+[19:14:25] Market sell prices gives sellback of 27970
+[19:14:26] Guaranteed Profit: 3320
+[19:14:26] Time spent: [not yet implemented]
+[19:14:27] Num players won: 0
+[19:14:30] Num players expired: 5
+[19:14:32] Sleeping for 2 minutes and heading back to war
+[19:16:32] Autobidder started
+[19:16:45] Exception getWatchlistTransferlistSize
+[19:16:46] Restart bot

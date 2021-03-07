@@ -1,2 +1,5 @@
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,1000,49,1000,0.85
-Guillermo Ochoa,OCHOA,79,América,Mexico,Non-Rare,GK,140233,928,950,22,1200,0.85
+Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,1200,9,950,0.85
+Gary Cahill,CAHILL,77,Crystal Palace,England,Non-Rare,CB,164468,1579,1000,60,950,0.85
+Fabian Schär,SCHÄR,78,Newcastle Utd,Switzerland,Non-Rare,CB,210047,1495,1000,53,950,0.85
+Séamus Coleman,COLEMAN,79,Everton,Republic of Ireland,Non-Rare,RB,180216,1285,1300,16,1400,0.85
+Matheus Lima Magalhães,MATHEUS,79,SC Braga,Brazil,Non-Rare,GK,208104,1333,1200,19,1200,0.85

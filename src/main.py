@@ -25,6 +25,8 @@ import autobidder
 import autobuyer
 import helpers
 import thread_runner
+from autobidder import Autobidder
+from autobuyer import Autobuyer
 from helpers import *
 from thread_runner import RunThread
 
@@ -142,13 +144,26 @@ class PlayerFilters(tk.Frame):
         self.autologin_choice.set(0) 
         self.bot_choice.set(0)
 
+        self.dev_choice = tk.IntVar()
+
         self.autologinFalse = tk.Radiobutton(self, text="Disabled", padx = 20,  variable=self.autologin_choice,  command=self.chooseLoginType, value=0).grid(row=5, column = 1)
         self.autologinTrue = tk.Radiobutton(self, text="Enabled", padx = 20,  variable=self.autologin_choice,  command=self.chooseLoginType, value=1).grid(row=6, column = 1)
         self.botchoiceAutobidder = tk.Radiobutton(self, text="AutoBidder", padx = 20,  variable=self.bot_choice,  command=self.chooseBotType, value=0).grid(row=7, column = 1)
         self.botchoiceAutobuyer = tk.Radiobutton(self, text="AutoBuyer", padx = 20,  variable=self.bot_choice,  command=self.chooseBotType, value=1).grid(row=8, column = 1)
+        self.devModeCheckbox = tk.Checkbutton(self, text='Developer mode',variable=self.dev_choice, onvalue=1, offvalue=0, command=self.chooseDevMode).grid(row = 9, column = 0)
 
-        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=9, column=0, columnspan = 2, pady=25)
-        self.reloadFunctions = tk.Button(self, text='Developer - reload functions', width=30, command=self.reloadfunctions).grid(row=10, column=0, columnspan=2)
+        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=10, column=0, columnspan = 2, pady=25)
+        self.reloadFunctions = tk.Button(self, text='Reload', command=self.reloadfunctions)
+        self.reloadFunctions.grid(row=9, column=1)
+        self.reloadFunctions.grid_remove()
+
+    def chooseDevMode(self):
+        choice = self.dev_choice.get()
+        # self.controller.playerfilters.dev_choice.get()
+        if (choice == 1):
+            self.reloadFunctions.grid()
+        if (choice == 0):
+            self.reloadFunctions.grid_remove()
 
     def chooseLoginType(self):
         choice = str(self.autologin_choice.get())
@@ -201,7 +216,7 @@ class PlayerFilters(tk.Frame):
         futbin_url = self.futbinlink_text.get()
 
         self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", futbin_url).start()
+        thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", "", futbin_url).start()
         # log_event("Added player to player list")
         msg = "Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. \n Players like Giroud for example, are not good because there are 4 different Giroud cards. \n I recommend random non-rare golds selling for just under or just above 1,000 coins. "
         self.popupmsg(msg)
@@ -294,7 +309,7 @@ class PlayerFilters(tk.Frame):
 
                 # Double check logins.txt has 4 lines before attempting sign in to avoid error
                 if (counter == 4):
-                    thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "login", self.controller.playerfilters.playerlist).start()
+                    thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "login", self.controller.playerfilters.playerlist, "").start()
 
                 else:
                     self.popupmsg("Logins.txt formatted wrong, login manually")
@@ -398,6 +413,12 @@ class MainButtons(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.playerlist = self.controller.playerfilters.playerlist
 
+        # Initialize thread object here - parent autobidder so user vars are not lost on failure
+        self.queue = queue.Queue()
+        self.parentAutobidder = Autobidder(self.driver, self.queue)
+
+        # autobidderThread = thread_runner.RunThread(self.queue, self.driver, "autobidder", self.parentHelper, "")
+
         # Create frame for autobidder and autobuyer within mainbots frame
         self.autobidder = tk.LabelFrame(self, text="Autobidder")
         self.autobuyer = tk.LabelFrame(self, text="Autobuyer")
@@ -443,6 +464,8 @@ class MainButtons(tk.Frame):
         num_autobuyer_labels = len(autobuyer_data)
 
         self.test2 = tk.Button(self.autobidder, text='Start Autobidder', width=15, command=self.startAutobidder).grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
+        self.test4 = tk.Button(self.autobidder, text='Manage Watchlist', width=15, command=self.startWatchlistManager).grid(row=num_autobidder_labels+2, column=0, columnspan = 2)
+
         self.test3 = tk.Button(self.autobuyer, text='Start Autobuyer', width=15, command=self.startAutobuyer).grid(row=num_autobuyer_labels+1, column=0, columnspan = 2)
 
         self.autobuyer.grid_remove()
@@ -510,23 +533,35 @@ class MainButtons(tk.Frame):
 
             self.after(100, self.update_stat_labels)
         except:
-            log_event("Error in updating GUI labels")
+            print("Error in updating GUI labels")
 
     # These functions are called on button press
     def testfunc(self):
         self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist).start()
+        thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist, "").start()
         self.after(100, self.process_queue)
 
     def startAutobidder(self):
+        # If dev mode is enabled, thread runner will not use parentAutobidder - it will make a new (which can be updated using reload functions button)
+        devModeState = self.controller.playerfilters.dev_choice.get()
+        if (devModeState == 1):
             self.queue = queue.Queue()
-            thread_runner.RunThread(self.queue, self.driver, "autobidder", self.controller.playerfilters.playerlist).start()
+            thread_runner.RunThread(self.queue, self.driver, "autobidder_devmode", self.parentAutobidder, "").start()
+            self.after(100, self.process_queue)
+        else:
+            self.queue = queue.Queue()
+            thread_runner.RunThread(self.queue, self.driver, "autobidder", self.parentAutobidder, "").start()
             self.after(100, self.process_queue)
 
+    def startWatchlistManager(self):
+        self.queue = queue.Queue()
+        thread_runner.RunThread(self.queue, self.driver, "watchlist", self.parentAutobidder, "").start()
+        self.after(100, self.process_queue)
+
     def startAutobuyer(self):
-            self.queue = queue.Queue()
-            thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist).start()
-            self.after(100, self.process_queue)
+        self.queue = queue.Queue()
+        thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist, "").start()
+        self.after(100, self.process_queue)
 
     def reloadfunctions(self):
         self.queue = queue.Queue()
@@ -593,6 +628,7 @@ class DisplayLogs(tk.Frame):
         self.after(100, self.update_logs)
 
 # TODO insert create logins.txt method here, that makes first line say not entered - update msgbox method
+clearOldUserData_nonclass()
 app = GUI()
 app.title("TMB's FIFA 21 Autobidder")
 app.mainloop()

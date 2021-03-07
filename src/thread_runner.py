@@ -12,38 +12,54 @@ from helpers import *
 
 # Each button starts a new thread
 class RunThread(threading.Thread):
-    def __init__(self, queue, driver, action, searchdata):
+    def __init__(self, queue, driver, action, auxiliary, futbinurl):
         threading.Thread.__init__(self)
         self.action = action
         self.queue = queue
-        self.searchdata = searchdata
+
+        # auxiliary = parent autobidder object
+        self.auxiliary = auxiliary
         self.driver = driver
-        # self.runner = RunFunction(self.driver, self.searchdata)
+        self.futbinurl = futbinurl
+
+        # maybe create Helper object in GUI class 
+        # if object throws exception does it lose its class variables?
+        # if not, helper obj created on init 
+
 
     def run(self):
         if self.action == "test":
             self.queue.put("Running test function")
-            # log_event("Test function")
 
-            autobidder = Autobidder(self.driver, self.queue)
             autobidder.manageWatchlist()
 
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
-            log_event("Test function")
-            
+            # log_event("Test function")
             # testhelper = Helper(self.driver)
+            # testhelper.start()
+            # autobidder = Autobidder(self.driver, self.queue)
+            self.auxiliary.initializeBot()
 
+        if self.action == "autobidder_devmode":
+            self.queue.put("Starting autobidder - dev mode")
+            # log_event("Test function")
+            # testhelper = Helper(self.driver)
             # testhelper.start()
             autobidder = Autobidder(self.driver, self.queue)
-            autobidder.start()
+            autobidder.initializeBot()
+
+        if self.action == "watchlist":
+            self.queue.put("Managing watchlist")
+            # log_event("Test function")
+            # testhelper = Helper(self.driver)
+            # testhelper.start()
+            self.auxiliary.manageWatchlist()
 
         if self.action == "autobuyer":
             self.queue.put("Starting autobuyer")
-            # log_event("Test function")
-
-            autobuyer = Autobuyer(self.driver, self.queue)
-            autobuyer.start()
+            # autobuyer = Autobuyer(self.driver, self.queue)
+            # autobuyer.start()
 
         if self.action == "login":
             self.queue.put("Logging in")
@@ -69,40 +85,12 @@ class RunThread(threading.Thread):
             }
 
             login(self.driver, USER, EMAIL_CREDENTIALS)
-
+            # Set user's starting coins
+            self.auxiliary.helper.setStartingCoins()
 
         if self.action == "getFutbinDataFromURL":
             self.queue.put("Fetching player info")
             log_event("Fetching player info...")
 
-            futbin_url = self.searchdata
-            self.helper = Helper(self.driver)
-            self.helper.getFutbinDataAndPopulateTable(futbin_url)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if self.action == "bidusinglist":
-            self.queue.put("Bidding using player list")
-            # log_event("Starting autobidder")
-
-            # autobidder = AutobidderAny(self.driver, self.searchdata)
-            # autobidder.run("playerlist")
-
-        if self.action == "bidanyone":
-            self.queue.put("Bidding on Common Golds")
-            # autobidder = AutobidderAny(self.driver, self.searchdata)
-            # autobidder.run("playerlist")
+            helper = Helper(self.driver)
+            helper.getFutbinDataAndPopulateTable(self.futbinurl)
