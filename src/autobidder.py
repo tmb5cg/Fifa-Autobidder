@@ -23,30 +23,13 @@ class Autobidder:
         self.playerlist = []
         self.helper = Helper(self.driver)
 
-        # # Get input list of target players
-        # src = "./data/player_list.txt"
-        # txt = open(src, "r", encoding="utf8")
-
-        # for aline in txt:
-        #     values = aline.strip("\n").split(",")
-        #     self.playerlist.append(values)
-        # txt.close()
-
-        # Clear out old market data
-        # self.helper.clearOldUserData()
-        # self.helper.setStartingCoins()
-
-        # while loop on init that updates autobidder logs?
-
     def initializeBot(self):
         # On initializatin of bot object, clear old variables etc
-        print("testttttt")
         self.helper.clearOldUserData()
         self.helper.setStartingCoins()
         self.start()
 
     def start(self):
-        self.queue.put("Updating queue from inside autobidder...")
         log_event("Autobidder started")
 
         # Clear market logs from previous run
@@ -57,7 +40,7 @@ class Autobidder:
 
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
         # bidstomake_eachplayer = 10
-        log_event("Bids to make on each player hard set to 10")
+        # log_event("Bids to make on each player hard set to 10")
 
         self.helper.user_num_target_players = len(self.playerlist2)
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
@@ -101,8 +84,6 @@ class Autobidder:
             self.helper.clickSearch()
             sleep(2)
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
-
-            # log_event("Finished bidding on: " + str(cardname))
             sleep(1)
 
         if (continue_running):
@@ -124,8 +105,8 @@ class Autobidder:
             # 1. Make sure we are on watchlist, else break (for debugging)
             page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
             if (page.lower() == "transfer targets"):
-                # 2. Update GUI labels + ensure active bids exist
-                self.helper.update_autobidder_logs()
+                # 2. Ensure active bids exist
+                # self.helper.update_autobidder_logs()
                 num_activebids = self.helper.get_num_activebids()
                 if (num_activebids != 0):
                     # Evaluate 5 cards closest to expiration, returns "processing" if exception
@@ -158,7 +139,11 @@ class Autobidder:
                                                 log_event("Error outbidding " + str(playername) + ". Refreshing page")
                                                 self.helper.refreshPageAndGoToWatchlist()
                                             if result == "Success":
-                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(curbid) + " | Stop: " + str(stopPrice) + " \n || Est. Profit: " + str(sellprice - curbid))
+                                                if (curbid <= 950):
+                                                    bidlog = curbid + 50
+                                                else:
+                                                    bidlog  = curbid + 100
+                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(bidlog) + " | Stop: " + str(stopPrice) + " | Est. Prof: " + str(sellprice - curbid))
                                     else:
                                         # User doesn't have enough coins
                                         log_event("You don't have enough coins to continue bidding")
@@ -174,37 +159,49 @@ class Autobidder:
         if continue_running:
             log_event("No more active bids")
             log_event("Proceeding to list won players")
-            self.manageTransferlist()
+            self.finishWatchlist()
         else:
             log_event("Error, bot stopped!")
 
-    def manageTransferlist(self):
+    # Lists won players for transfer, from watchlist
+    def finishWatchlist(self):
         page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
         if (page.lower() == "transfer targets"):
-            log_event("Bidding round finished, will now send players to transfer list and list them!")
             # send won to transfer list
             sleep(3)
 
             try:
                 # # Send won to Transfer list
-                self.helper.send_won_players_to_transferlist()
+                self.helper.list_players_for_transfer()
                 sleep(2)
                 self.helper.clearExpired()
             except:
                 log_event("error here line 160 autobidder.py")
 
-            log_event("Sleeping for 2 minutes and heading back to war")
-            sleep(60*2)
-            self.start()
+            conserve_bids, sleep_time, botspeed = self.helper.getUserConfig()
+            sleepmins = int(sleep_time)/60
+            sleep_time = int(sleep_time)
+            log_event("Sleeping for " + str(sleepmins) + " minutes and heading back to war")
+            if (sleep_time < 180):
+                log_event("Sleep is less than 180 seconds, not recommended")
+                log_event("Forcing 180 sec sleep")
+                sleep(180)
+            else:
+                sleep(sleep_time)
+            self.checkTransferlist()
         else:
             log_event("Weird error, click start Autobidder again")
 
-        # log_event("Sent won players to transfer list!")
+    def checkTransferlist(self):
+        log_event("Finished sleeping")
+        log_event("Checking Transfer List")
 
-        # Make sure we are still on watchlist
-        # page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
-        # if (page.lower() == "transfer targets"):
-        #     self.helper.send_won_players_to_transferlist()
-        #     log_event("Sent won players to TL")
-        #     self.helper.clearExpired()
-        #     log_event("Cleared expired")
+        self.helper.go_to_transferlist()
+
+        
+        self.helper.manageTransferlist()
+
+        log_event("Proceeding to restart")
+        self.start()
+
+

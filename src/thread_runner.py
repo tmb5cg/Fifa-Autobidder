@@ -28,42 +28,25 @@ class RunThread(threading.Thread):
 
 
     def run(self):
-        if self.action == "test":
-            self.queue.put("Running test function")
-
-            autobidder.manageWatchlist()
-
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
-            # log_event("Test function")
-            # testhelper = Helper(self.driver)
-            # testhelper.start()
-            # autobidder = Autobidder(self.driver, self.queue)
-            self.auxiliary.initializeBot()
-
-        if self.action == "autobidder_devmode":
-            self.queue.put("Starting autobidder - dev mode")
-            # log_event("Test function")
-            # testhelper = Helper(self.driver)
-            # testhelper.start()
             autobidder = Autobidder(self.driver, self.queue)
             autobidder.initializeBot()
 
+        if self.action == "autobidder_devmode":
+            self.queue.put("Starting autobidder - dev mode")
+            autobidder = Autobidder(self.driver, self.queue)
+            autobidder.checkTransferlist()
+
         if self.action == "watchlist":
             self.queue.put("Managing watchlist")
-            # log_event("Test function")
-            # testhelper = Helper(self.driver)
-            # testhelper.start()
             self.auxiliary.manageWatchlist()
 
         if self.action == "autobuyer":
             self.queue.put("Starting autobuyer")
-            # autobuyer = Autobuyer(self.driver, self.queue)
-            # autobuyer.start()
 
         if self.action == "login":
             self.queue.put("Logging in")
-            # log_event("AutoLogin...")
             
             txt = open("./data/logins.txt", "r")
             counter = 0
@@ -86,7 +69,7 @@ class RunThread(threading.Thread):
 
             login(self.driver, USER, EMAIL_CREDENTIALS)
             # Set user's starting coins
-            self.auxiliary.helper.setStartingCoins()
+            # self.auxiliary.helper.setStartingCoins()
 
         if self.action == "getFutbinDataFromURL":
             self.queue.put("Fetching player info")
@@ -94,3 +77,8 @@ class RunThread(threading.Thread):
 
             helper = Helper(self.driver)
             helper.getFutbinDataAndPopulateTable(self.futbinurl)
+
+        if self.action == "test":
+            self.queue.put("Running test function")
+
+            autobidder.manageWatchlist()

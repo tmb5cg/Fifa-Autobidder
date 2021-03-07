@@ -74,32 +74,6 @@ class GUI(tk.Tk):
         self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")
         # self.disclaimers.grid(row=1, column=1, sticky="se", padx="5", pady="5")
 
-        # msg = "Welcome. Here are some recommendations: \n 1. Use players with only 1 card version, such as non rare golds, ideally from the top 10 nations since they are desirable for SBC fodder. \n 2. Your goal is to fight off whoever is trying to manually control the player's bids. Stick to max 3 target players. Probably best to start with only one. \n 3. If using at off-time, you might find bids with 5-10 minute gaps in expiration time. You want to find players with lots of cards expiring quickly so you can intimidate whoever is controlling the player at the time. \n 4. Be aware other people have autobidders. If you find every bid is going up to the price ceiling, maybe try another player. \n 5. This bot is unfinished and therefore NOT perfect (it will enventually be perfect. I promise) so please DO NOT turn it on and not monitor it, my friend reported some bids going at max bid. If this occurrs, please reach out to me! \n 5. Manual intervention while its running will cause issues. If you want it to STOP, manually go to a different tab in the webapp and it will throw and error (watch your terminal). This is normal. If you don't see a scary Selenium error, try again - your goal is to break the bot's thread so it can be restarted. Then you can click Start Autobidder again (you don't need to relogin).  \n 6. Make sure to redownload the bot and replace the SRC folder (this is the only code that would need updating) daily, I am adding lots of bug fixes and such every day! "
-        # popup = tk.Tk()
-        # popup.wm_title("Note")
-        # label = ttk.Label(popup, text=msg, font=NORM_FONT)
-        # label.pack(side="top", fill="x", pady=10)
-        # B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
-        # B1.pack()
-
-        
-# class Disclaimers(tk.Frame):
-
-#     def __init__(self, parent, controller):
-#         tk.Frame.__init__(self, parent)
-
-#         self.parent = parent
-#         self.controller = controller
-#         self.playerlist = []
-
-
-
-#         msg = "Welcome. Here are some recommendations: \n 1. Use players with only 1 card version, such as non rare golds, ideally from the top 10 nations since they are desirable for SBC fodder. \n 2. Your goal is to fight off whoever is trying to manually control the player's bids. Stick to max 3 target players. Probably best to start with only one. \n 3. If using at off-time, you might find bids with 5-10 minute gaps in expiration time. You want to find players with lots of cards expiring quickly so you can intimidate whoever is controlling the player at the time. \n 4. Be aware other people have autobidders. If you find every bid is going up to the price ceiling, maybe try another player. \n 5. This bot is unfinished and therefore NOT perfect (it will enventually be perfect. I promise) so please DO NOT turn it on and not monitor it, my friend reported some bids going at max bid. If this occurrs, please reach out to me! \n 5. Manual intervention while its running will cause issues. If you want it to STOP, manually go to a different tab in the webapp and it will throw and error (watch your terminal). This is normal. If you don't see a scary Selenium error, try again - your goal is to break the bot's thread so it can be restarted. Then you can click Start Autobidder again (you don't need to relogin).  \n 6. Make sure to redownload the bot and replace the SRC folder (this is the only code that would need updating) daily, I am adding lots of bug fixes and such every day! "
-        
-#         disclaimer3 = tk.StringVar()
-#         disclaimer_text3 = tk.Label(self, text=msg, font=SMALL_FONT, wraplength=100)
-#         disclaimer_text3.grid(row=0, column=0, columnspan=2)
-
 # Top right 
 class PlayerFilters(tk.Frame):
 
@@ -437,7 +411,7 @@ class MainButtons(tk.Frame):
             key = str(key) + ":"
             value = str(value)
             valuevar = tk.StringVar()
-            valuevar.set('first')
+            valuevar.set('')
             tk.Label(self.autobidder, text=key).grid(row=count, column=0, sticky = W)
             tk.Label(self.autobidder, textvariable=valuevar).grid(row=count, column=1)
             self.autobidder_labels.append(valuevar)
@@ -464,13 +438,108 @@ class MainButtons(tk.Frame):
         num_autobuyer_labels = len(autobuyer_data)
 
         self.test2 = tk.Button(self.autobidder, text='Start Autobidder', width=15, command=self.startAutobidder).grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
-        self.test4 = tk.Button(self.autobidder, text='Manage Watchlist', width=15, command=self.startWatchlistManager).grid(row=num_autobidder_labels+2, column=0, columnspan = 2)
-
         self.test3 = tk.Button(self.autobuyer, text='Start Autobuyer', width=15, command=self.startAutobuyer).grid(row=num_autobuyer_labels+1, column=0, columnspan = 2)
 
+        # Bid conservation mode
+        self.autobidder_safe_label = tk.Label(self.autobidder, text='Minimize wasted bids: ', font=SMALL_FONT)
+        self.autobidder_safe_label.grid(row=num_autobidder_labels+2, column=0)
+        self.autobidder_safe_option = tk.IntVar()
+        self.autobidder_safe_checkbox = tk.Checkbutton(self.autobidder, text='',variable=self.autobidder_safe_option, onvalue=1, offvalue=0, command=self.chooseSafeMode).grid(row = num_autobidder_labels+2, column = 1)
+
+        # Sleep time between rounds
+        self.sleeptime_label = tk.Label(self.autobidder, text='Sleep between rounds (mins): ', font=SMALL_FONT)
+        self.sleeptime_text = tk.IntVar(value = 3)
+        self.sleeptime_entry = tk.Entry(self.autobidder, textvariable=self.sleeptime_text, width=3)
+        self.sleeptime_label.grid(row=num_autobidder_labels+3, column=0)
+        self.sleeptime_entry.grid(row=num_autobidder_labels+3, column=1)
+
+        # Bot speed
+        self.autobidder_speed_label = tk.Label(self.autobidder, text='Bot Speed: ', font=SMALL_FONT)
+        self.autobidder_speed_label.grid(row=num_autobidder_labels+4, column=0, rowspan=3)
+        self.autobidder_speed_option = tk.IntVar()
+        self.autobidder_speed_entry1 = tk.Radiobutton(self.autobidder, text='1x',variable=self.autobidder_speed_option, value=1, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+4, column = 1)
+        self.autobidder_speed_entry2 = tk.Radiobutton(self.autobidder, text='1.25x',variable=self.autobidder_speed_option, value=2, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+5, column = 1)
+        self.autobidder_speed_entry3 = tk.Radiobutton(self.autobidder, text='1.5x',variable=self.autobidder_speed_option, value=3, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+6, column = 1)
+
+        self.autobidder_speed_option.set(1)
+        self.autobidder_safe_option.set(0)
+    
+        # Save options
+        self.saveoptions = tk.Button(self.autobidder, text='Save Configuration', width=15, command=self.saveConfig).grid(row=num_autobidder_labels+7, column=0, columnspan = 2)
         self.autobuyer.grid_remove()
+
         self.update_stat_labels()
 
+    def saveConfig(self):
+        print("Config - - -")
+        botspeed = self.autobidder_speed_option.get()
+
+        if (botspeed == 1):
+            botspeed = 1
+        if (botspeed == 2):
+            botspeed = 1.25
+        if (botspeed == 3):
+            botspeed = 1.5
+
+        sleeptime = int(self.sleeptime_entry.get())
+
+        sleeptime_seconds = sleeptime*60
+        safemode = int(self.autobidder_safe_option.get())
+
+        log_event("Bot Speed set: " + str(botspeed))
+        log_event("Sleep time set: " + str(sleeptime))
+        log_event("Safe mode set: " + str(safemode))
+
+        with open('./data/config.json', 'r') as f:
+            json_data = json.load(f)
+            # json_data2 = json_data[0] 
+            json_data[0]["conserve_bids"] = safemode
+            json_data[0]["sleep_time"] = sleeptime_seconds
+            json_data[0]["speed"] = botspeed
+
+        with open('./data/config.json', 'w') as f:
+            f.write(json.dumps(json_data))
+        
+
+
+    def chooseBotSpeed(self):
+        botspeed = self.autobidder_speed_option.get()
+        if (botspeed == 1):
+            botspeed = 1
+        if (botspeed == 2):
+            botspeed = 1.25
+        if (botspeed == 3):
+            botspeed = 1.5
+
+        with open('./data/config.json', 'r') as f:
+            json_data = json.load(f)
+            json_data[0]["speed"] = botspeed
+
+        with open('./data/config.json', 'w') as f:
+            f.write(json.dumps(json_data))
+
+    def chooseSafeMode(self):
+        choice = self.autobidder_safe_option.get()
+
+        msg = "Use this to avoid needless bid wars. \n If bid wars are consistently ending near your price ceiling, definitely enable this \n (you're probably fighting another autobidder and should choose a new player) \n This also avoids a soft ban, if you make over a certain number of bids in a day"
+        # self.controller.playerfilters.dev_choice.get()
+        if (choice == 1):
+            self.controller.playerfilters.popupmsg(msg)
+        if (choice == 0):
+            print("yeaeo")
+
+        with open('./data/config.json', 'r') as f:
+            json_data = json.load(f)
+            # json_data2 = json_data[0] 
+            json_data[0]["conserve_bids"] = choice
+
+        with open('./data/config.json', 'w') as f:
+            f.write(json.dumps(json_data))
+
+    def chooseSleepTime(self):
+        choice = self.sleeptime_text.get()
+        # print("Sleep time choice: " + str(choice))
+        
     # Creates webdriver instance to be passed to all methods
     def create_driver(self):
         system = platform.system()
@@ -531,7 +600,7 @@ class MainButtons(tk.Frame):
                 label.set(autobuyervals[count])
                 count+=1
 
-            self.after(100, self.update_stat_labels)
+            self.after(300, self.update_stat_labels)
         except:
             print("Error in updating GUI labels")
 
@@ -547,35 +616,65 @@ class MainButtons(tk.Frame):
         if (devModeState == 1):
             self.queue = queue.Queue()
             thread_runner.RunThread(self.queue, self.driver, "autobidder_devmode", self.parentAutobidder, "").start()
-            self.after(100, self.process_queue)
+            self.after(1000, self.process_queue)
         else:
             self.queue = queue.Queue()
             thread_runner.RunThread(self.queue, self.driver, "autobidder", self.parentAutobidder, "").start()
-            self.after(100, self.process_queue)
+            self.after(1000, self.process_queue)
 
     def startWatchlistManager(self):
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.driver, "watchlist", self.parentAutobidder, "").start()
-        self.after(100, self.process_queue)
+        # self.after(100, self.process_queue)
 
     def startAutobuyer(self):
         self.queue = queue.Queue()
         thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist, "").start()
-        self.after(100, self.process_queue)
+        self.after(1000, self.process_queue)
 
     def reloadfunctions(self):
         self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
         importlib.reload(helpers)
-        self.after(100, self.process_queue)
+        # self.after(100, self.process_queue)
 
     def process_queue(self):
         try:
+            #  # Load Autobidder stats
+            # autobidderstats_json = open('./data/gui_stats.json')
+            # json1_str = autobidderstats_json.read()
+            # autobidder_data = json.loads(json1_str)[0]
+            
+            # autobiddervals = []
+            # for key, value in autobidder_data.items():
+            #     autobiddervals.append(value)
+
+            # # Load Autobuyer stats
+            # autobuyerstats_json = open('./data/autobuyer_stats.json')
+            # json2_str = autobuyerstats_json.read()
+            # autobuyer_data = json.loads(json2_str)[0]
+            
+            # autobuyervals = []
+            # for key, value in autobuyer_data.items():
+            #     autobuyervals.append(value)
+
+            # count = 0
+            # for label in self.autobidder_labels:
+            #     val = label.get()
+            #     label.set(autobiddervals[count])
+            #     count+=1
+            
+            # count = 0
+            # for label in self.autobuyer_labels:
+            #     val = label.get()
+            #     label.set(autobuyervals[count])
+            #     count+=1
+
             msg = self.queue.get(0)
             self.controller.table.status["text"] = str(msg)
         except queue.Empty:
-            self.after(100, self.process_queue)
+            self.after(1000, self.process_queue)
 
 # Bottom right
 class DisplayLogs(tk.Frame):
