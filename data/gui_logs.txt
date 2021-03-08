@@ -425,3 +425,176 @@
 [18:54:55] Checking Transfer List
 [18:55:09] Clicked clear expired
 [18:55:37] Wtf
+[19:08:56] Finished sleeping
+[19:08:57] Checking Transfer List
+[19:09:06] Clicked clear expired
+[19:09:42] Wtf
+[19:09:43] annoying issue with transfer list method
+[19:09:43] Clicked clear expired
+[19:09:43] 
+[19:10:20] Wtf
+[19:10:21] annoying issue with transfer list method
+[19:10:21] Clicked clear expired
+[19:10:22] 
+[19:10:57] Wtf
+[19:10:58] annoying issue with transfer list method
+[19:10:59] Clicked clear expired
+[19:10:59] 
+[19:40:01]  - - - - Bot started - - - - 
+[19:40:08] Use this to avoid needless bid wars. 
+ If bid wars are consistently ending near your price ceiling, definitely enable this 
+ (you're probably fighting another autobidder and should choose a new player) 
+ This also avoids a soft ban, if you make over a certain number of bids in a day
+[19:40:10] Autologin enabled
+[19:40:11] AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: 
+ Line 1: EA login 
+ Line 2: EA password 
+ Line 3: Email login (optional - used for auto fetching code, see readme) 
+ Line 4: Email password (optional - see above) 
+[19:40:14] Auto logging in...
+[19:40:30] Your EA Security Code is: 437948
+[19:40:33] Logged in successfully!
+[19:41:04] Starting coins: 802510
+[19:41:04] Autobidder started
+[19:41:07] Bid to make on each player: 7
+[19:41:16] Bidding on RODRÍGUEZ up to MARKET price: 850. Purchase ceiling: 722.5
+[19:41:28] Bids made on RODRÍGUEZ: 1/7
+[19:41:31] Going to next page
+[19:41:40] Bids made on RODRÍGUEZ: 2/7
+[19:41:43] Going to next page
+[19:41:51] Bids made on RODRÍGUEZ: 3/7
+[19:41:54] Going to next page
+[19:42:03] Bids made on RODRÍGUEZ: 4/7
+[19:42:05] Going to next page
+[19:42:15] Bids made on RODRÍGUEZ: 5/7
+[19:42:20] Bids made on RODRÍGUEZ: 6/7
+[19:42:27] Bids made on RODRÍGUEZ: 7/7
+[19:42:33] Bids made on RODRÍGUEZ: 8/7
+[19:42:35] Going to next page
+[19:42:36] Finished bidding on: RODRÍGUEZ
+[19:42:46] Bidding on PALLOIS up to MARKET price: 950. Purchase ceiling: 807.5
+[19:42:58] Bids made on PALLOIS: 1/7
+[19:43:03] Bids made on PALLOIS: 2/7
+[19:43:06] Going to next page
+[19:43:14] Bids made on PALLOIS: 3/7
+[19:43:20] Bids made on PALLOIS: 4/7
+[19:43:25] Bids made on PALLOIS: 5/7
+[19:43:31] Bids made on PALLOIS: 6/7
+[19:43:37] Bids made on PALLOIS: 7/7
+[19:43:42] Bids made on PALLOIS: 8/7
+[19:43:45] Going to next page
+[19:43:46] Finished bidding on: PALLOIS
+[19:43:57] Bidding on ARAMBARRI up to MARKET price: 950. Purchase ceiling: 807.5
+[19:44:08] Bids made on ARAMBARRI: 1/7
+[19:44:14] Bids made on ARAMBARRI: 2/7
+[19:44:17] Going to next page
+[19:44:26] Bids made on ARAMBARRI: 3/7
+[19:44:31] Bids made on ARAMBARRI: 4/7
+[19:44:37] Bids made on ARAMBARRI: 5/7
+[19:44:42] Bids made on ARAMBARRI: 6/7
+[19:44:46] Going to next page
+[19:44:55] Bids made on ARAMBARRI: 7/7
+[19:45:01] Bids made on ARAMBARRI: 8/7
+[19:45:04] Going to next page
+[19:45:04] Finished bidding on: ARAMBARRI
+[19:45:15] Bidding on WINKS up to MARKET price: 1000. Purchase ceiling: 850.0
+[19:45:27] Bids made on WINKS: 1/7
+[19:45:33] Bids made on WINKS: 2/7
+[19:45:38] Bids made on WINKS: 3/7
+[19:45:44] Bids made on WINKS: 4/7
+[19:45:50] Bids made on WINKS: 5/7
+[19:45:55] Bids made on WINKS: 6/7
+[19:46:01] Bids made on WINKS: 7/7
+[19:46:06] Bids made on WINKS: 8/7
+[19:46:09] Going to next page
+[19:46:10] Finished bidding on: WINKS
+[19:46:21] Bidding on ROSE up to MARKET price: 900. Purchase ceiling: 765.0
+[19:46:32] Bids made on ROSE: 1/7
+[19:46:39] Bids made on ROSE: 2/7
+[19:46:44] Bids made on ROSE: 3/7
+[19:46:47] Going to next page
+[19:46:56] Bids made on ROSE: 4/7
+[19:47:02] Bids made on ROSE: 5/7
+[19:47:08] Bids made on ROSE: 6/7
+[19:47:13] Bids made on ROSE: 7/7
+[19:47:19] Bids made on ROSE: 8/7
+[19:47:22] Going to next page
+[19:47:23] Finished bidding on: ROSE
+[19:47:33] Bidding on ANDRÉ GOMES up to MARKET price: 1100. Purchase ceiling: 935.0
+[19:47:41] Going to next page
+[19:47:50] Bids made on ANDRÉ GOMES: 1/7
+[19:47:54] Going to next page
+[19:48:02] Bids made on ANDRÉ GOMES: 2/7
+[19:48:05] Going to next page
+[19:48:15] Bids made on ANDRÉ GOMES: 3/7
+[19:48:21] Bids made on ANDRÉ GOMES: 4/7
+[19:48:27] Bids made on ANDRÉ GOMES: 5/7
+[19:48:32] Bids made on ANDRÉ GOMES: 6/7
+[19:48:35] Going to next page
+[19:48:44] Bids made on ANDRÉ GOMES: 7/7
+[19:48:49] Bids made on ANDRÉ GOMES: 8/7
+[19:48:52] Going to next page
+[19:48:52] Finished bidding on: ANDRÉ GOMES
+[19:48:53] Parsing market data to find most accurate sell prices...
+[19:48:54] Rodríguez min buy now from market data: 700
+[19:48:55] Pallois min buy now from market data: 850
+[19:48:56] Arambarri min buy now from market data: 900
+[19:48:56] Winks min buy now from market data: 1000
+[19:48:57] Rose min buy now from market data: 900
+[19:48:57] André Gomes min buy now from market data: 1000
+[19:48:57] Confirmed mkt price seems accurate
+[19:48:58] Confirmed mkt price seems accurate
+[19:48:58] Confirmed mkt price seems accurate
+[19:48:59] Confirmed mkt price seems accurate
+[19:49:00] Confirmed mkt price seems accurate
+[19:49:00] Confirmed mkt price seems accurate
+[19:49:01] Going to watchlist. Time for war
+[19:49:09] Outbid Arambarri | CurBid: 800 | Stop: 765.0 | Est. Prof: 105.0
+[19:54:50] Outbid Winks | CurBid: 800 | Stop: 850.0 | Est. Prof: 200.0
+[19:55:08] Outbid Arambarri | CurBid: 750 | Stop: 765.0 | Est. Prof: 155.0
+[19:56:10] Outbid André Gomes | CurBid: 850 | Stop: 850.0 | Est. Prof: 150.0
+[19:57:56] Outbid Arambarri | CurBid: 750 | Stop: 765.0 | Est. Prof: 155.0
+[19:58:00] Outbid Pallois | CurBid: 750 | Stop: 722.5 | Est. Prof: 107.5
+[19:58:59] Outbid Rose | CurBid: 750 | Stop: 765.0 | Est. Prof: 155.0
+[19:59:03] Outbid Arambarri | CurBid: 750 | Stop: 765.0 | Est. Prof: 155.0
+[19:59:48] Outbid Winks | CurBid: 800 | Stop: 850.0 | Est. Prof: 200.0
+[20:06:03] Outbid André Gomes | CurBid: 850 | Stop: 850.0 | Est. Prof: 150.0
+[20:06:06] Outbid Rose | CurBid: 750 | Stop: 765.0 | Est. Prof: 155.0
+[20:06:46] Outbid Pallois | CurBid: 750 | Stop: 722.5 | Est. Prof: 107.5
+[20:07:12] Error outbidding André Gomes. Refreshing page
+[20:07:28] Going back to watchlist
+[20:07:51] Outbid Winks | CurBid: 800 | Stop: 850.0 | Est. Prof: 200.0
+[20:07:54] Outbid Pallois | CurBid: 750 | Stop: 722.5 | Est. Prof: 107.5
+[20:07:58] Outbid André Gomes | CurBid: 850 | Stop: 850.0 | Est. Prof: 150.0
+[20:11:48] No more active bids
+[20:11:49] Proceeding to list won players
+[20:11:59] Num players won this round: 37
+[20:12:00] Total investment: 26250
+[20:12:00] Total worth:      31443
+[20:12:00] Projected profit:  5193
+[20:12:01] Listing them for transfer... 
+[20:17:03] Num players expired: 7
+[20:17:05] Sleeping for 3.0 minutes and heading back to war
+[20:20:05] Finished sleeping
+[20:20:05] Checking Transfer List
+[20:20:17] Clicked clear expired
+[20:21:06] Listed player 232665 for BIN: 855
+[20:21:16] Listed player 232665 for BIN: 855
+[20:21:25] Listed player 232665 for BIN: 855
+[20:21:35] Listed player 232665 for BIN: 855
+[20:21:46] Listed player 232665 for BIN: 855
+[20:21:55] Listed player 232665 for BIN: 855
+[20:22:06] Listed player 232665 for BIN: 855
+[20:22:16] Listed player 232665 for BIN: 855
+[20:22:25] Listed player 169595 for BIN: 855
+[20:22:34] Listed player 169595 for BIN: 855
+[20:22:44] Listed player 208104 for BIN: 900
+[20:22:55] Listed player 208104 for BIN: 900
+[20:23:05] Listed player 222400 for BIN: 950
+[20:23:15] Listed player 192045 for BIN: 665
+[20:23:24] Listed player 192045 for BIN: 665
+[20:23:34] Listed player 192045 for BIN: 665
+[20:23:46] Listed player 192045 for BIN: 665
+[20:23:54] Listed player 192045 for BIN: 665
+[20:24:04] Listed player 192045 for BIN: 665
+[20:24:14] Listed player 192045 for BIN: 665

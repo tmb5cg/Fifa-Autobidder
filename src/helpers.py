@@ -1303,6 +1303,8 @@ class Helper:
     # Lists all players on transfer list using futbin prices
     def manageTransferlist(self):
 
+        sleep(3)
+
         try:
             log_event("Clicked clear expired")
             self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button").click()
@@ -1334,19 +1336,19 @@ class Helper:
 
             if bidstatus == "listFUTItem":
                 unlistedplayerscount += 1
+            if playerid not in gui_ids:
+                gui_ids.append(playerid)
 
             if "expired" in bidstatus:
                 didnotsellcount += 1
                 clickRelistAll = True
-                if playerid not in gui_ids:
-                    gui_ids.append(playerid)
+                
             if "won" in bidstatus:
                 soldcount += 1
                 clickClearExpired = True
             if (bidstatus == "listFUTItem has-auction-data"):
                 currentlylistedcount += 1
 
-        print(str(gui_ids))
         print("Num players sold: " + str(soldcount))
         print("Num players didn't sell: " + str(didnotsellcount))
         print("Num players unlisted: " + str(unlistedplayerscount))
@@ -1409,7 +1411,7 @@ class Helper:
                                     buynowprice = futbinprice
                                     startprice = buynowprice-100
                                 else:
-                                    log_event("Wtf")
+                                    log_event("price of player unable to be fetched line 1414 in helpers")
 
                                 # Add sell price to sum
                                 total_sell_prices += buynowprice
@@ -1445,7 +1447,6 @@ class Helper:
                                 self.sleep_approx(3)
                 except:
                     log_event("annoying issue with transfer list method")
-                    self.manageTransferlist()
         log_event("Players relisted! Projected worth: " + str(total_sell_prices))
 
 
