@@ -403,3 +403,25 @@
 [18:35:49] Outbid Pallois | CurBid: 750 | Stop: 807.5 | Est. Prof: 202.5
 [18:35:52] Outbid Pallois | CurBid: 750 | Stop: 807.5 | Est. Prof: 202.5
 [18:36:06] Outbid Rodríguez | CurBid: 650 | Stop: 722.5 | Est. Prof: 207.5
+[18:37:55] Error outbidding Pallois. Refreshing page
+[18:38:10] Going back to watchlist
+[18:38:15] Outbid Pallois | CurBid: 850 | Stop: 807.5 | Est. Prof: 102.5
+[18:38:54] Outbid André Gomes | CurBid: 950 | Stop: 935.0 | Est. Prof: 145.0
+[18:39:43] Outbid Pallois | CurBid: 850 | Stop: 807.5 | Est. Prof: 102.5
+[18:42:15] Outbid Arambarri | CurBid: 800 | Stop: 807.5 | Est. Prof: 152.5
+[18:42:18] Outbid Arambarri | CurBid: 800 | Stop: 807.5 | Est. Prof: 152.5
+[18:43:25] Outbid Pallois | CurBid: 800 | Stop: 807.5 | Est. Prof: 152.5
+[18:47:30] Outbid Winks | CurBid: 800 | Stop: 850.0 | Est. Prof: 200.0
+[18:48:48] No more active bids
+[18:48:49] Proceeding to list won players
+[18:48:56] Num players won this round: 22
+[18:48:57] Total investment: 17650
+[18:48:57] Total worth:      20182
+[18:48:57] Projected profit:  2532
+[18:48:58] Listing them for transfer... 
+[18:51:52] Num players expired: 2
+[18:51:54] Sleeping for 3.0 minutes and heading back to war
+[18:54:55] Finished sleeping
+[18:54:55] Checking Transfer List
+[18:55:09] Clicked clear expired
+[18:55:37] Wtf

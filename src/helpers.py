@@ -1378,70 +1378,74 @@ class Helper:
                 # print("didnot sell count: " + str(didnotsellcount))
                 players_to_relist = False
             else:
-                for x in range(didnotsellcount-1):
-                    # x += 1
-                    # will always click play number 1
-                    playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
-                    startpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-                    buynowpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-                    listfortransfer = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
-                    
-                    playernamelocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]"
-                    playerratinglocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
+                try:
+                    for x in range(didnotsellcount-1):
+                        # x += 1
+                        # will always click play number 1
+                        playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
+                        startpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+                        buynowpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+                        listfortransfer = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+                        
+                        playernamelocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]"
+                        playerratinglocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
 
-                    playername = self.driver.find_element(By.XPATH, playernamelocation).text
-                    playerrating = self.driver.find_element(By.XPATH, playerratinglocation).text
-                    currentplayerid = self.getPlayerID(playername, playerrating)
+                        playername = self.driver.find_element(By.XPATH, playernamelocation).text
+                        playerrating = self.driver.find_element(By.XPATH, playerratinglocation).text
+                        currentplayerid = self.getPlayerID(playername, playerrating)
 
-                    # Get sell price
-                    for data in priceData:
-                        id = data[0]
-                        futbinprice = int(data[1])
-                        currentplayerid = int(currentplayerid)
-                        id = int(id)
-                        if currentplayerid == id:
-                            # print("Price ID match found, will now list player for " + str(futbinprice))
-                            if futbinprice > 1000:
-                                buynowprice = futbinprice
-                                startprice = buynowprice-50
-                            elif futbinprice < 1000:
-                                buynowprice = futbinprice
-                                startprice = buynowprice-100
-                            else:
-                                log_event("Wtf")
+                        # Get sell price
+                        for data in priceData:
+                            id = data[0]
+                            futbinprice = int(data[1])
+                            currentplayerid = int(currentplayerid)
+                            id = int(id)
+                            if currentplayerid == id:
+                                # print("Price ID match found, will now list player for " + str(futbinprice))
+                                if futbinprice > 1000:
+                                    buynowprice = futbinprice
+                                    startprice = buynowprice-50
+                                elif futbinprice < 1000:
+                                    buynowprice = futbinprice
+                                    startprice = buynowprice-100
+                                else:
+                                    log_event("Wtf")
 
-                            # Add sell price to sum
-                            total_sell_prices += buynowprice
-                            self.user_projected_profit += buynowprice
+                                # Add sell price to sum
+                                total_sell_prices += buynowprice
+                                self.user_projected_profit += buynowprice
 
-                            # Click player
-                            self.driver.find_element(By.XPATH, playerbutton).click()
-                            self.sleep_approx(1)
-                            # Click list for transfer
-                            self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
-                            self.sleep_approx(1)
+                                # Click player
+                                self.driver.find_element(By.XPATH, playerbutton).click()
+                                self.sleep_approx(1)
+                                # Click list for transfer
+                                self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
+                                self.sleep_approx(1)
 
-                            buynowBox = self.driver.find_element(By.XPATH, buynowpriceinput)
-                            buynowBox.click()
-                            self.sleep_approx(1)
-                            buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                            buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                            buynowBox.send_keys(buynowprice)
+                                buynowBox = self.driver.find_element(By.XPATH, buynowpriceinput)
+                                buynowBox.click()
+                                self.sleep_approx(1)
+                                buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                                buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                                buynowBox.send_keys(buynowprice)
 
-                            self.sleep_approx(1)
-                            startpriceBox = self.driver.find_element(By.XPATH, startpriceinput)
-                            startpriceBox.click()
-                            self.sleep_approx(1)
-                            startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                            startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                            startpriceBox.send_keys(startprice)
-                            self.sleep_approx(1)
+                                self.sleep_approx(1)
+                                startpriceBox = self.driver.find_element(By.XPATH, startpriceinput)
+                                startpriceBox.click()
+                                self.sleep_approx(1)
+                                startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                                startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+                                startpriceBox.send_keys(startprice)
+                                self.sleep_approx(1)
 
-                            # List for transfer!
-                            self.driver.find_element(By.XPATH, listfortransfer).click()
-                            log_event("Listed player " + str(id) + " for BIN: " + str(buynowprice))
-                            self.update_autobidder_logs()
-                            self.sleep_approx(3)
+                                # List for transfer!
+                                self.driver.find_element(By.XPATH, listfortransfer).click()
+                                log_event("Listed player " + str(id) + " for BIN: " + str(buynowprice))
+                                self.update_autobidder_logs()
+                                self.sleep_approx(3)
+                except:
+                    log_event("annoying issue with transfer list method")
+                    self.manageTransferlist()
         log_event("Players relisted! Projected worth: " + str(total_sell_prices))
 
 
