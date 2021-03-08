@@ -198,7 +198,12 @@ class Autobidder:
 
         self.helper.go_to_transferlist()
 
-        
+        # /html/body/div[4]/section/header/h1
+        # that is header of msg ^^
+
+
+        # OK bnutton: /html/body/div[4]/section/div/div/button
+        sleep(2)
         self.helper.manageTransferlist()
 
         log_event("Proceeding to restart")

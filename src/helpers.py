@@ -1447,6 +1447,7 @@ class Helper:
                                 self.sleep_approx(3)
                 except:
                     log_event("annoying issue with transfer list method")
+                    players_to_relist = False
         log_event("Players relisted! Projected worth: " + str(total_sell_prices))
 
 

@@ -1,6 +1,6 @@
-Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,800,57,700,0.85
-Nicolas Pallois,PALLOIS,78,FC Nantes,France,Non-Rare,CB,199393,1454,950,32,850,0.85
-Mauro Arambarri,ARAMBARRI,80,Getafe CF,Uruguay,Non-Rare,CDM,232665,1264,900,25,900,0.85
-Harry Winks,WINKS,79,Spurs,England,Non-Rare,CDM,222400,721,1000,21,1000,0.85
-Danny Rose,ROSE,79,Spurs,England,Non-Rare,LB,169595,718,900,12,900,0.85
-André Filipe Tavares Gomes,ANDRÉ GOMES,79,Everton,Portugal,Non-Rare,CM,211575,1346,950,50,1000,0.85
+Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,800,57,600,0.85
+Nicolas Pallois,PALLOIS,78,FC Nantes,France,Non-Rare,CB,199393,1454,950,32,700,0.85
+Mauro Arambarri,ARAMBARRI,80,Getafe CF,Uruguay,Non-Rare,CDM,232665,1264,900,25,700,0.85
+Harry Winks,WINKS,79,Spurs,England,Non-Rare,CDM,222400,721,1000,21,900,0.85
+Danny Rose,ROSE,79,Spurs,England,Non-Rare,LB,169595,718,900,12,700,0.85
+André Filipe Tavares Gomes,ANDRÉ GOMES,79,Everton,Portugal,Non-Rare,CM,211575,1346,950,50,800,0.85

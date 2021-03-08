@@ -469,6 +469,7 @@ class MainButtons(tk.Frame):
         self.autobuyer.grid_remove()
 
         self.update_stat_labels()
+        self.saveConfig()
 
     def saveConfig(self):
         print("Config - - -")
@@ -642,34 +643,6 @@ class MainButtons(tk.Frame):
     def process_queue(self):
         try:
             #  # Load Autobidder stats
-            # autobidderstats_json = open('./data/gui_stats.json')
-            # json1_str = autobidderstats_json.read()
-            # autobidder_data = json.loads(json1_str)[0]
-            
-            # autobiddervals = []
-            # for key, value in autobidder_data.items():
-            #     autobiddervals.append(value)
-
-            # # Load Autobuyer stats
-            # autobuyerstats_json = open('./data/autobuyer_stats.json')
-            # json2_str = autobuyerstats_json.read()
-            # autobuyer_data = json.loads(json2_str)[0]
-            
-            # autobuyervals = []
-            # for key, value in autobuyer_data.items():
-            #     autobuyervals.append(value)
-
-            # count = 0
-            # for label in self.autobidder_labels:
-            #     val = label.get()
-            #     label.set(autobiddervals[count])
-            #     count+=1
-            
-            # count = 0
-            # for label in self.autobuyer_labels:
-            #     val = label.get()
-            #     label.set(autobuyervals[count])
-            #     count+=1
 
             msg = self.queue.get(0)
             self.controller.table.status["text"] = str(msg)
