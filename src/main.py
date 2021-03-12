@@ -29,6 +29,8 @@ from autobidder import Autobidder
 from autobuyer import Autobuyer
 from helpers import *
 from thread_runner import RunThread
+import threading
+import time
 
 LARGE_FONT= ("Verdana", 12)
 SMALL_FONT = ("Verdana", 8)
@@ -47,6 +49,8 @@ class GUI(tk.Tk):
 
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
+
+        self.parentQueue = queue.Queue()
 
         # self.logins = Logins(self.container, self)
         self.playerfilters = PlayerFilters(self.container, self)
@@ -73,6 +77,10 @@ class GUI(tk.Tk):
         # self.displaylogs.pack(side=LEFT, anchor=SW) #grid(row=1, column=2, sticky="nsew", padx="10", pady="10")
         self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")
         # self.disclaimers.grid(row=1, column=1, sticky="se", padx="5", pady="5")
+
+        # Main queue and Autobidder
+        
+
 
 # Top right 
 class PlayerFilters(tk.Frame):
@@ -126,7 +134,10 @@ class PlayerFilters(tk.Frame):
         self.botchoiceAutobuyer = tk.Radiobutton(self, text="AutoBuyer", padx = 20,  variable=self.bot_choice,  command=self.chooseBotType, value=1).grid(row=8, column = 1)
         self.devModeCheckbox = tk.Checkbutton(self, text='Developer mode',variable=self.dev_choice, onvalue=1, offvalue=0, command=self.chooseDevMode).grid(row = 9, column = 0)
 
-        self.login = tk.Button(self, text='Auto Login', width=30, command=self.login).grid(row=10, column=0, columnspan = 2, pady=25)
+        self.login_btn_text = tk.StringVar()
+        self.login_btn_text.set("Auto Login")
+        self.login = tk.Button(self, textvariable=self.login_btn_text, width=30, command=self.login)
+        self.login.grid(row=10, column=0, columnspan = 2, pady=25)
         self.reloadFunctions = tk.Button(self, text='Reload', command=self.reloadfunctions)
         self.reloadFunctions.grid(row=9, column=1)
         self.reloadFunctions.grid_remove()
@@ -146,7 +157,7 @@ class PlayerFilters(tk.Frame):
         if (choice == "1"):
             login_exists = path.exists("./data/logins.txt")
             if (login_exists):
-                log_event("Autologin enabled")
+                log_event(self.controller.parentQueue, "Autologin enabled")
                 msg = "AutoLogin enabled - Logins.txt file (in the Data folder) must be structured like this: \n Line 1: EA login \n Line 2: EA password \n Line 3: Email login (optional - used for auto fetching code, see readme) \n Line 4: Email password (optional - see above) "
                 self.popupmsg(msg)
             else:
@@ -158,8 +169,8 @@ class PlayerFilters(tk.Frame):
                 pathstr_new = pathstr_new + "data"
 
 
-                log_event(pathstr)
-                log_event(pathstr_new)
+                log_event(self.controller.parentQueue, pathstr)
+                log_event(self.controller.parentQueue, pathstr_new)
 
                 save_path = pathstr_new
                 file_name = "logins.txt"
@@ -189,12 +200,18 @@ class PlayerFilters(tk.Frame):
     def add_player_futbin(self):
         futbin_url = self.futbinlink_text.get()
 
-        self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", "", futbin_url).start()
-        # log_event("Added player to player list")
-        msg = "Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. \n Players like Giroud for example, are not good because there are 4 different Giroud cards. \n I recommend random non-rare golds selling for just under or just above 1,000 coins. "
-        self.popupmsg(msg)
-        self.update_list()
+        self.add_btn_futbin.config(state="disabled")
+        self.remove_btn.config(state="disabled")
+        self.controller.mainbuttons.test2.config(state="disabled")
+        self.thread = ThreadedClient(self.controller.parentQueue, futbin_url, "add player", self.controller.mainbuttons.driver)
+        self.thread.start()
+        self.periodiccall()
+        # thread_runner.RunThread(self.controller.parentQueue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", "", futbin_url).start()
+        # # log_event(self.controller.parentQueue, "Added player to player list")
+        # msg = "Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. \n Players like Giroud for example, are not good because there are 4 different Giroud cards. \n I recommend random non-rare golds selling for just under or just above 1,000 coins. "
+        # self.popupmsg(msg)
+        # self.update_list()
+
 
     def update_list(self):
         for i in self.controller.table.router_tree_view.get_children():
@@ -265,16 +282,23 @@ class PlayerFilters(tk.Frame):
 
         self.update_list()
 
+    # def login(self):
+    #     # Disable the start button
+    #     self.test2.config(state="disabled")
+    #     self.thread = ThreadedClient(self.controller.parentQueue, 0, "login")
+    #     self.thread.start()
+    #     self.periodiccall()
+    #     # self.isFirstStart = False
+
     def login(self):
         choice = str(self.autologin_choice.get())
 
 
         if (choice == "1"):
-            self.queue = queue.Queue()
-
             login_exists = path.exists("./data/logins.txt")
+            
             if login_exists:
-                log_event("Auto logging in...")
+                log_event(self.controller.parentQueue, "Auto logging in...")
                 txt = open("./data/logins.txt", "r")
                 counter = 0
                 for aline in txt:
@@ -283,10 +307,18 @@ class PlayerFilters(tk.Frame):
 
                 # Double check logins.txt has 4 lines before attempting sign in to avoid error
                 if (counter == 4):
-                    thread_runner.RunThread(self.queue, self.controller.mainbuttons.driver, "login", self.controller.playerfilters.playerlist, "").start()
+                    self.login.config(state="disabled")
+                    self.login_btn_text.set("Logging/logged in")
+
+                    self.thread = ThreadedClient(self.controller.parentQueue, 0, "login", self.controller.mainbuttons.driver)
+                    
+                    self.thread.start()
+                    self.periodiccall()
 
                 else:
                     self.popupmsg("Logins.txt formatted wrong, login manually")
+
+                
 
                 # self.after(100, self.process_queue)
 
@@ -296,6 +328,38 @@ class PlayerFilters(tk.Frame):
             msg = "Autologin not enabled, must login manually"
             self.popupmsg(msg)
 
+    def periodiccall(self):
+        self.checkqueue()
+        if self.thread.is_alive():
+            self.after(100, self.periodiccall)
+        else:
+            # self.login.config(state="active")
+            self.login_btn_text.set("Auto login")
+            self.controller.playerfilters.add_btn_futbin.config(state="active")
+            self.controller.playerfilters.remove_btn.config(state="active")
+            self.controller.mainbuttons.test2.config(state="active")
+
+
+    def checkqueue(self):
+        while self.controller.parentQueue.qsize():
+            try:
+                msg = self.controller.parentQueue.get(0)
+                self.controller.mainbuttons.listbox.insert('end', msg)
+                self.write_logs_tofile(msg)
+                self.controller.mainbuttons.progressbar.step(1)
+            except Queue.Empty:
+                pass
+
+    def write_logs_tofile(self, event):
+        file_object = open('./data/gui_logs.txt', 'a')
+        now = datetime.now()
+        dt_string = now.strftime("[%H:%M:%S] ")
+
+        full_log = dt_string + event + "\n"
+        print(full_log)
+        file_object.write(full_log)
+        file_object.close()
+
     def popupmsg(self, msg):
         self.update_list()
         popup = tk.Tk()
@@ -304,11 +368,10 @@ class PlayerFilters(tk.Frame):
         label.pack(side="top", fill="x", pady=10)
         B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
         B1.pack()
-        log_event(str(msg))
+        log_event(self.controller.parentQueue, str(msg))
         popup.mainloop()
 
     def reloadfunctions(self):
-        self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
         importlib.reload(helpers)
@@ -378,20 +441,16 @@ class MainButtons(tk.Frame):
         self.parent = parent
         self.controller = controller
 
+        # self.queue
+
         # ~ ~ ~ ~ INITIATE BOT ~ ~ ~ ~ ~
-        log_event(" - - - - Bot started - - - - ")
+        log_event(self.controller.parentQueue, " - - - - Bot started - - - - ")
         self.driver = self.create_driver()
         self.action = ActionChains(self.driver)
         self.driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
 
         tk.Frame.__init__(self, parent)
         self.playerlist = self.controller.playerfilters.playerlist
-
-        # Initialize thread object here - parent autobidder so user vars are not lost on failure
-        self.queue = queue.Queue()
-        self.parentAutobidder = Autobidder(self.driver, self.queue)
-
-        # autobidderThread = thread_runner.RunThread(self.queue, self.driver, "autobidder", self.parentHelper, "")
 
         # Create frame for autobidder and autobuyer within mainbots frame
         self.autobidder = tk.LabelFrame(self, text="Autobidder")
@@ -437,7 +496,10 @@ class MainButtons(tk.Frame):
         num_autobidder_labels = len(autobidder_data)
         num_autobuyer_labels = len(autobuyer_data)
 
-        self.test2 = tk.Button(self.autobidder, text='Start Autobidder', width=15, command=self.startAutobidder).grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
+        self.startautobidder_label = tk.StringVar()
+        self.startautobidder_label.set("Start Autobidder")
+        self.test2 = tk.Button(self.autobidder, textvariable=self.startautobidder_label, width=15, command=self.startAutobidder)
+        self.test2.grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
         self.test3 = tk.Button(self.autobuyer, text='Start Autobuyer', width=15, command=self.startAutobuyer).grid(row=num_autobuyer_labels+1, column=0, columnspan = 2)
 
         # Bid conservation mode
@@ -471,6 +533,69 @@ class MainButtons(tk.Frame):
         self.update_stat_labels()
         self.saveConfig()
 
+        self.listbox = tk.Listbox(self.autobidder, width=20, height=5)
+        self.listbox.grid(row=num_autobidder_labels+8, column=0, columnspan = 7)
+        self.progressbar = ttk.Progressbar(self.autobidder, orient='horizontal',
+                                           length=300, mode='determinate')
+        self.progressbar.grid(row=num_autobidder_labels+9, column=0, columnspan = 7)
+        self.isFirstStart = True
+        
+        # Initialize bot object + globala queue here - parent autobidder so user vars are not lost on failure
+        # self.parentAutobidder = Autobidder(self.driver, self.controller.parentQueue)
+
+    def startAutobidder(self):
+        # Disable the start button
+        self.test2.config(state="disabled")
+        self.startautobidder_label.set("Autobidder Running")
+        self.controller.playerfilters.add_btn_futbin.config(state="disabled")
+        self.controller.playerfilters.remove_btn.config(state="disabled")
+        self.thread = ThreadedClient(self.controller.parentQueue, self.isFirstStart, "autobidder", self.driver)
+        self.thread.start()
+        self.periodiccall()
+        self.isFirstStart = False
+        # self.parentAutobidder = Autobidder(self.driver, self.controller.parentQueue)
+        # thread_runner.RunThread(self.controller.parentQueue, self.driver, "autobidder", self.parentAutobidder, self.isFirstStart).start()
+
+        # self.isFirstStart = False
+
+        # self.after(100, self.process_queue)        
+        # If dev mode is enabled, thread runner will not use parentAutobidder - it will make a new (which can be updated using reload functions button)
+        # devModeState = self.controller.playerfilters.dev_choice.get()
+        # if (devModeState == 1):
+        #     thread_runner.RunThread(self.controller.parentQueue, self.driver, "autobidder_devmode", self.parentAutobidder, "").start()
+        #     self.after(1000, self.process_queue)
+        # else:
+    
+    def periodiccall(self):
+        self.checkqueue()
+        if self.thread.is_alive():
+            self.after(100, self.periodiccall)
+        else:
+            self.startautobidder_label.set("Start Autobidder")
+            self.test2.config(state="active")
+            self.controller.playerfilters.add_btn_futbin.config(state="active")
+            self.controller.playerfilters.remove_btn.config(state="active")
+
+    def checkqueue(self):
+        while self.controller.parentQueue.qsize():
+            try:
+                msg = self.controller.parentQueue.get(0)
+                self.listbox.insert('end', msg)
+                self.write_logs_tofile(msg)
+                self.progressbar.step(1)
+            except Queue.Empty:
+                pass
+
+    def write_logs_tofile(self, event):
+        file_object = open('./data/gui_logs.txt', 'a')
+        now = datetime.now()
+        dt_string = now.strftime("[%H:%M:%S] ")
+
+        full_log = dt_string + event + "\n"
+        print(full_log)
+        file_object.write(full_log)
+        file_object.close()
+
     def saveConfig(self):
         print("Config - - -")
         botspeed = self.autobidder_speed_option.get()
@@ -487,9 +612,9 @@ class MainButtons(tk.Frame):
         sleeptime_seconds = sleeptime*60
         safemode = int(self.autobidder_safe_option.get())
 
-        log_event("Bot Speed set: " + str(botspeed))
-        log_event("Sleep time set: " + str(sleeptime))
-        log_event("Safe mode set: " + str(safemode))
+        log_event(self.controller.parentQueue, "Bot Speed set: " + str(botspeed))
+        log_event(self.controller.parentQueue, "Sleep time set: " + str(sleeptime))
+        log_event(self.controller.parentQueue, "Safe mode set: " + str(safemode))
 
         with open('./data/config.json', 'r') as f:
             json_data = json.load(f)
@@ -501,8 +626,6 @@ class MainButtons(tk.Frame):
         with open('./data/config.json', 'w') as f:
             f.write(json.dumps(json_data))
         
-
-
     def chooseBotSpeed(self):
         botspeed = self.autobidder_speed_option.get()
         if (botspeed == 1):
@@ -607,34 +730,19 @@ class MainButtons(tk.Frame):
 
     # These functions are called on button press
     def testfunc(self):
-        self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.driver, "test", self.controller.playerfilters.playerlist, "").start()
+        thread_runner.RunThread(self.controller.parentQueue, self.driver, "test", self.controller.playerfilters.playerlist, "").start()
         self.after(100, self.process_queue)
-
-    def startAutobidder(self):
-        # If dev mode is enabled, thread runner will not use parentAutobidder - it will make a new (which can be updated using reload functions button)
-        devModeState = self.controller.playerfilters.dev_choice.get()
-        if (devModeState == 1):
-            self.queue = queue.Queue()
-            thread_runner.RunThread(self.queue, self.driver, "autobidder_devmode", self.parentAutobidder, "").start()
-            self.after(1000, self.process_queue)
-        else:
-            self.queue = queue.Queue()
-            thread_runner.RunThread(self.queue, self.driver, "autobidder", self.parentAutobidder, "").start()
-            self.after(1000, self.process_queue)
 
     def startWatchlistManager(self):
         self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.driver, "watchlist", self.parentAutobidder, "").start()
+        # thread_runner.RunThread(self.queue, self.driver, "watchlist", self.parentAutobidder, "").start()
         # self.after(100, self.process_queue)
 
     def startAutobuyer(self):
-        self.queue = queue.Queue()
-        thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist, "").start()
+        # thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist, "").start()
         self.after(1000, self.process_queue)
 
     def reloadfunctions(self):
-        self.queue = queue.Queue()
         importlib.reload(thread_runner)
         importlib.reload(autobidder)
         importlib.reload(helpers)
@@ -644,10 +752,11 @@ class MainButtons(tk.Frame):
         try:
             #  # Load Autobidder stats
 
-            msg = self.queue.get(0)
+            msg = self.controller.parentQueue.get(0)
             self.controller.table.status["text"] = str(msg)
+            log_event(self.controller.parentQueue, msg)
         except queue.Empty:
-            self.after(1000, self.process_queue)
+            self.after(100, self.process_queue)
 
 # Bottom right
 class DisplayLogs(tk.Frame):
@@ -698,6 +807,57 @@ class DisplayLogs(tk.Frame):
         txt.close()
         self.loggings.yview_moveto(1)
         self.after(100, self.update_logs)
+
+
+class ThreadedClient(threading.Thread):
+
+    def __init__(self, queue, firstStart, action, driver):
+        threading.Thread.__init__(self)
+        self.queue = queue
+        self.firstStart = firstStart
+        self.action = action
+        self.driver = driver
+
+        self.futbinurl = firstStart
+
+    def run(self):
+        if (self.action == "autobidder"):
+            autobidderObject = Autobidder(self.driver, self.queue)
+            if (self.firstStart):
+                autobidderObject.initializeBot()
+            else:
+                autobidderObject.start()
+            # for x in range(1, 5):
+            #     time.sleep(2)
+            #     msg = "Function %s finished..." % x
+            #     self.queue.put(msg)
+        if (self.action == "login"):
+            self.queue.put("Logging in")
+            time.sleep(5)
+            
+            txt = open("./data/logins.txt", "r")
+            counter = 0
+            credentials = []
+            for aline in txt:
+                counter += 1
+                line = aline.strip("\n")
+                credentials.append(str(line))
+            txt.close()
+
+            USER = {
+                "email": credentials[0],
+                "password": credentials[1],
+            }
+
+            EMAIL_CREDENTIALS = {
+                "email": credentials[2],
+                "password": credentials[3],
+            }
+
+            login(self.queue, self.driver, USER, EMAIL_CREDENTIALS)
+        if (self.action == "add player"):
+            getFutbinDataAndPopulateTable(self.driver, self.queue, self.futbinurl)
+
 
 # TODO insert create logins.txt method here, that makes first line say not entered - update msgbox method
 clearOldUserData_nonclass()

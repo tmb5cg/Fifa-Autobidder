@@ -21,16 +21,18 @@ class Autobidder:
         self.driver = driver
         self.queue = queue
         self.playerlist = []
-        self.helper = Helper(self.driver)
+        self.helper = Helper(self.driver, self.queue)
 
     def initializeBot(self):
         # On initializatin of bot object, clear old variables etc
+        log_event(self.queue, "first time starting")
         self.helper.clearOldUserData()
         self.helper.setStartingCoins()
+        sleep(3)
         self.start()
 
     def start(self):
-        log_event("Autobidder started")
+        log_event(self.queue, "Autobidder started")
 
         # Clear market logs from previous run
         self.helper.clearOldMarketLogs()
@@ -40,7 +42,7 @@ class Autobidder:
 
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
         # bidstomake_eachplayer = 10
-        # log_event("Bids to make on each player hard set to 10")
+        # log_event(self.queue, "Bids to make on each player hard set to 10")
 
         self.helper.user_num_target_players = len(self.playerlist2)
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
@@ -75,10 +77,10 @@ class Autobidder:
             price_to_use = 0
             if (marketprice == 0):
                 price_to_use = buy_percent * futbinprice
-                log_event("Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(price_to_use))
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(price_to_use))
             else:
                 price_to_use = buy_percent * marketprice
-                log_event("Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
 
             # Bid on players on current page -- 6 seconds spent in search tab
             self.helper.clickSearch()
@@ -88,14 +90,14 @@ class Autobidder:
 
         if (continue_running):
             # Parse market data to find actual sell price 
-            log_event("Parsing market data to find most accurate sell prices...")
+            log_event(self.queue, "Parsing market data to find most accurate sell prices...")
             self.helper.get_lowestbin_from_searchdata()
     
-            log_event("Going to watchlist. Time for war")
+            log_event(self.queue, "Going to watchlist. Time for war")
             self.helper.go_to_watchlist()
             self.manageWatchlist()
         else:
-            log_event("Error, bot stopped!")
+            log_event(self.queue, "Error, bot stopped!")
 
 
     def manageWatchlist(self):
@@ -130,38 +132,38 @@ class Autobidder:
                                     id = card[8]
                                     sellprice = self.helper.getPlayerSellPrice(id)
                                     stopPrice = self.helper.getPlayerPriceCeiling(id)
-                                    # log_event("Player outbid --> " + str(playername))
+                                    # log_event(self.queue, "Player outbid --> " + str(playername))
                                     if (self.helper.user_num_coins >= curbid+100):
                                         if (curbid < stopPrice):
-                                            # log_event("Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
+                                            # log_event(self.queue, "Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
                                             result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                             if result == "Failure":
-                                                log_event("Error outbidding " + str(playername) + ". Refreshing page")
+                                                log_event(self.queue, "Error outbidding " + str(playername) + ". Refreshing page")
                                                 self.helper.refreshPageAndGoToWatchlist()
                                             if result == "Success":
                                                 if (curbid <= 950):
                                                     bidlog = curbid + 50
                                                 else:
                                                     bidlog  = curbid + 100
-                                                log_event("Outbid " + str(playername) + " | CurBid: " + str(bidlog) + " | Stop: " + str(stopPrice) + " | Est. Prof: " + str(sellprice - curbid))
+                                                log_event(self.queue, "Outbid " + str(playername) + " | CurBid: " + str(bidlog) + " | Stop: " + str(stopPrice) + " | Est. Prof: " + str(sellprice - curbid))
                                     else:
                                         # User doesn't have enough coins
-                                        log_event("You don't have enough coins to continue bidding")
+                                        log_event(self.queue, "You don't have enough coins to continue bidding")
                                         status = 0
                 else:
                     status = 0
                     # self.manageTransferlist()
             else: 
-                log_event("Unexpected page, stopping bot")
+                log_event(self.queue, "Unexpected page, stopping bot")
                 continue_running = False
                 status = 0
 
         if continue_running:
-            log_event("No more active bids")
-            log_event("Proceeding to list won players")
+            log_event(self.queue, "No more active bids")
+            log_event(self.queue, "Proceeding to list won players")
             self.finishWatchlist()
         else:
-            log_event("Error, bot stopped!")
+            log_event(self.queue, "Error, bot stopped!")
 
     # Lists won players for transfer, from watchlist
     def finishWatchlist(self):
@@ -176,37 +178,39 @@ class Autobidder:
                 sleep(2)
                 self.helper.clearExpired()
             except:
-                log_event("error here line 160 autobidder.py")
+                log_event(self.queue, "error here line 160 autobidder.py")
 
             conserve_bids, sleep_time, botspeed = self.helper.getUserConfig()
             sleepmins = int(sleep_time)/60
             sleep_time = int(sleep_time)
-            log_event("Sleeping for " + str(sleepmins) + " minutes and heading back to war")
+            log_event(self.queue, "Sleeping for " + str(sleepmins) + " minutes and heading back to war")
             if (sleep_time < 180):
-                log_event("Sleep is less than 180 seconds, not recommended")
-                log_event("Forcing 180 sec sleep")
+                log_event(self.queue, "Sleep is less than 180 seconds, not recommended")
+                log_event(self.queue, "Forcing 180 sec sleep")
                 sleep(180)
             else:
                 sleep(sleep_time)
             self.checkTransferlist()
         else:
-            log_event("Weird error, click start Autobidder again")
+            log_event(self.queue, "Weird error, click start Autobidder again")
 
     def checkTransferlist(self):
-        log_event("Finished sleeping")
-        log_event("Checking Transfer List")
-
+        log_event(self.queue, "Finished sleeping")
+        
         self.helper.go_to_transferlist()
 
+        log_event(self.queue, "went to transfer list")
+        sleep(5)
+
+        # CAPTCHA:
         # /html/body/div[4]/section/header/h1
         # that is header of msg ^^
-
-
         # OK bnutton: /html/body/div[4]/section/div/div/button
-        sleep(2)
+
         self.helper.manageTransferlist()
 
-        log_event("Proceeding to restart")
+        log_event(self.queue, "Proceeding to restart")
+        sleep(3)
         self.start()
 
 

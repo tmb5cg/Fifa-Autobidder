@@ -37,7 +37,7 @@ class Autobuyer:
 
     def start(self):
         self.queue.put("Updating queue from inside autobidder...")
-        log_event("Autobidder started")
+        log_event(self.queue, "Autobidder started")
 
         num_players_to_bid_on = len(self.playerlist)
 
@@ -68,24 +68,24 @@ class Autobuyer:
             price_to_use = 0
             if (marketprice == 0):
                 price_to_use = buy_percent * futbinprice
-                log_event("Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(price_to_use))
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(price_to_use))
             else:
                 price_to_use = buy_percent * marketprice
-                log_event("Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
 
             # Bid on players on current page -- 6 seconds spent in search tab
             clickSearch(self.driver)
             self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
 
-            log_event("Finished bidding on:" + str(cardname))
+            log_event(self.queue, "Finished bidding on:" + str(cardname))
             sleep(1)
 
 
         # Parse market data to find actual sell price 
-        log_event("Parsing market data to find most accurate sell prices...")
+        log_event(self.queue, "Parsing market data to find most accurate sell prices...")
         self.helper.get_lowestbin_from_searchdata()
  
-        log_event("Going to watchlist. Time for war")
+        log_event(self.queue, "Going to watchlist. Time for war")
         self.helper.go_to_watchlist()
         self.manageWatchlist()
 
@@ -94,13 +94,13 @@ class Autobuyer:
          
         page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
         if (page.lower() == "transfer targets"):
-            # log_event("User not on transfer targets page, breaking here -- double check this is correct header")
+            # log_event(self.queue, "User not on transfer targets page, breaking here -- double check this is correct header")
 
             try:
                 num_activebids = self.helper.get_num_activebids()
-                log_event("Num active bids: " + str(num_activebids))
+                log_event(self.queue, "Num active bids: " + str(num_activebids))
             except:
-                log_event("Num_active bids method at beginning of watchlist manager didn't work, recalling method")
+                log_event(self.queue, "Num_active bids method at beginning of watchlist manager didn't work, recalling method")
                 self.helper.manageWatchlist()
 
             if (num_activebids != 0):
@@ -129,32 +129,32 @@ class Autobuyer:
                                 sellprice = self.helper.getPlayerSellPrice(id)
                                 stopPrice = self.helper.getPlayerPriceCeiling(id)
 
-                                log_event("Checking if we should outbid " + str(playername) + " || Stop bidding at: " + str(stopPrice) + " || CurBid: " + str(curbid))
+                                log_event(self.queue, "Checking if we should outbid " + str(playername) + " || Stop bidding at: " + str(stopPrice) + " || CurBid: " + str(curbid))
                                 if (curbid < stopPrice):
                                     result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                     if result == "Failure":
-                                        log_event("Error making bid on " + str(playername) + ". Refreshing page!")
+                                        log_event(self.queue, "Error making bid on " + str(playername) + ". Refreshing page!")
                                         self.helper.refreshPageAndGoToWatchlist()
                                         sleep(4)
                                         # self.manageWatchlist()
                                     if result == "Success":
-                                        log_event("Successfully outbid " + str(playername) + " || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
+                                        log_event(self.queue, "Successfully outbid " + str(playername) + " || Stop price: " + str(stopPrice) + " || CurBid: " + str(curbid))
                                         # self.manageWatchlist()  
-                            # log_event("Sleeping for 5 seconds and checking bids again")       
+                            # log_event(self.queue, "Sleeping for 5 seconds and checking bids again")       
                             sleep(3)   
                         self.manageWatchlist()
                 except:
                     self.manageWatchlist()
             else:
                 # No active bids, time to clear expired and send everything to TL
-                log_event("FINISHED BIDDING WARS... now need to expired and send to TL")
+                log_event(self.queue, "FINISHED BIDDING WARS... now need to expired and send to TL")
                 sleep(10)
                 self.helper.clearExpired()
-                log_event("Cleared expired players")
+                log_event(self.queue, "Cleared expired players")
                 self.manageTransferlist()
         else:
-            log_event("User is not on Watchlist, breaking method here")
+            log_event(self.queue, "User is not on Watchlist, breaking method here")
             self.manageTransferlist()
 
     def manageTransferlist(self):
-        log_event("inside transferlist method now")
+        log_event(self.queue, "inside transferlist method now")

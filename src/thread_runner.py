@@ -22,6 +22,13 @@ class RunThread(threading.Thread):
         self.driver = driver
         self.futbinurl = futbinurl
 
+        self.parentAutobidder = auxiliary
+
+        self.firstStart = futbinurl
+        # put all threads in try except and on exception, have it remember the gui logs..
+        # simply add a variable to autobidder True or False whether it is the bots first start
+        # on start of GUI, make the variable True. once Start autobidder is clicked, it is False 
+
         # maybe create Helper object in GUI class 
         # if object throws exception does it lose its class variables?
         # if not, helper obj created on init 
@@ -30,8 +37,20 @@ class RunThread(threading.Thread):
     def run(self):
         if self.action == "autobidder":
             self.queue.put("Starting autobidder")
-            autobidder = Autobidder(self.driver, self.queue)
-            autobidder.initializeBot()
+
+            if self.firstStart:
+                self.parentAutobidder.initializeBot()
+
+            else:
+                self.parentAutobidder.start()
+            # try:
+            #     self.parentAutobidder.start()
+            # except:
+            #     log_event(self.queue, "THREAD KILLED!")
+            #     # If user intereferes etc., kill thread
+            #     self.prog_bar.stop()
+            # # autobidder = Autobidder(self.driver, self.queue)
+            # autobidder.initializeBot()
 
         if self.action == "autobidder_devmode":
             self.queue.put("Starting autobidder - dev mode")
@@ -73,9 +92,9 @@ class RunThread(threading.Thread):
 
         if self.action == "getFutbinDataFromURL":
             self.queue.put("Fetching player info")
-            log_event("Fetching player info...")
+            log_event(self.queue, "Fetching player info...")
 
-            helper = Helper(self.driver)
+            # helper = Helper(self.driver)
             helper.getFutbinDataAndPopulateTable(self.futbinurl)
 
         if self.action == "test":
