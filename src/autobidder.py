@@ -132,22 +132,23 @@ class Autobidder:
                                     id = card[8]
                                     sellprice = self.helper.getPlayerSellPrice(id)
                                     stopPrice = self.helper.getPlayerPriceCeiling(id)
-                                    # log_event(self.queue, "Player outbid --> " + str(playername))
+                                    # Ensure user has enough coins to bid
                                     if (self.helper.user_num_coins >= curbid+100):
-                                        if (curbid < stopPrice):
-                                            # log_event(self.queue, "Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
-                                            result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
-                                            if result == "Failure":
-                                                log_event(self.queue, "Error outbidding " + str(playername) + ". Refreshing page")
-                                                self.helper.refreshPageAndGoToWatchlist()
-                                            if result == "Success":
-                                                if (curbid <= 950):
-                                                    bidlog = curbid + 50
-                                                else:
-                                                    bidlog  = curbid + 100
-                                                log_event(self.queue, "Outbid " + str(playername) + " | CurBid: " + str(bidlog) + " | Stop: " + str(stopPrice) + " | Est. Prof: " + str(sellprice - curbid))
+                                        # Stop price is 0 if player isn't on playerlist
+                                        if (stopPrice != 0):
+                                            if (curbid < stopPrice):
+                                                # log_event(self.queue, "Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
+                                                result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
+                                                if result == "Failure":
+                                                    log_event(self.queue, "Error outbidding " + str(playername) + ". Refreshing page")
+                                                    self.helper.refreshPageAndGoToWatchlist()
+                                                if result == "Success":
+                                                    if (curbid <= 950):
+                                                        bidlog = curbid + 50
+                                                    else:
+                                                        bidlog  = curbid + 100
+                                                    log_event(self.queue, "Outbid " + str(playername) + " | CurBid: " + str(bidlog) + " | Stop: " + str(stopPrice) + " | Est. Prof: " + str(sellprice - curbid))
                                     else:
-                                        # User doesn't have enough coins
                                         log_event(self.queue, "You don't have enough coins to continue bidding")
                                         status = 0
                 else:

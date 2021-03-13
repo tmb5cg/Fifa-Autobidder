@@ -649,6 +649,9 @@ class Helper:
                     return (marketprice * .85)
         txt.close()
 
+        # If player isn't found, return 0
+        return 0
+
     # Returns price to sell player at
     def getPlayerSellPrice(self, playerid):
         # Get target players IDs
@@ -668,6 +671,7 @@ class Helper:
                     return (marketprice * .95)
         txt.close()
 
+        # If not found, return 0
         return 0
 
 
