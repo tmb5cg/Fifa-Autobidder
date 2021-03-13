@@ -394,8 +394,6 @@ class Table(tk.Frame):
         self.router_tree_view = Treeview(self, columns=columns, show="headings", height=5)
         # self.router_tree_view.column("id", width=30)
 
-        # Luis Rodríguez,RODRÍGUEZ,78,Tigres,Mexico,Non-Rare,RB,192045,938,700,21,0,0.85
-
         for col in columns:
             colwidth = 70
             if col == "Card name":
