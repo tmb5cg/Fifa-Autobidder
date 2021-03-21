@@ -31,6 +31,44 @@ class Autobidder:
         sleep(3)
         self.start()
 
+    def test(self):
+        self.initializeBot()
+        # self.helper.go_to_transferlist()
+        # sleep(5)
+        # log_event(self.queue, "Went to transfer list")
+
+        # # Lock player prices into global dict, also store it locally here as p_ids_and_prices
+        # transferlist_summary = self.helper.getTransferListSummary()
+        # p_ids_and_prices = transferlist_summary[0]
+
+        # # Proceed to ensure transferlist is fully handled in While loop
+        # status = True
+        # while status:
+        #     num_p_sold, num_p_expired, num_p_unlisted, num_p_listed = self.helper.getTransferListSummaryWithoutPrices()
+
+        #     # Check if job is done, else get to work relisting / listing
+        #     if ((num_p_sold == 0) and (num_p_expired == 0) and (num_p_unlisted == 0)):
+        #         status = False
+        #     else:
+        #         log_event(self.queue, "Status is not false")
+        #         if (num_p_sold > 0):
+        #             log_event(self.queue, "cleared sold ")
+        #             self.helper.clearSold()
+
+        #         self.helper.sleep_approx(3)
+
+        #         if (num_p_expired > 0):
+        #             log_event(self.queue, "listing expired players..")
+        #             self.helper.relist_expired_players(p_ids_and_prices)
+                
+        #         self.helper.sleep_approx(3)
+            
+        #         if (num_p_unlisted > 0):
+        #             log_event(self.queue, "listing unlisted players .. ")
+        #             self.helper.list_unlisted_players(p_ids_and_prices)
+        # log_event(self.queue, "FINISHED!!!")
+                    
+
     def start(self):
         log_event(self.queue, "Autobidder started")
 
@@ -38,55 +76,56 @@ class Autobidder:
         self.helper.clearOldMarketLogs()
 
         # Get player list
-        self.playerlist2 = self.helper.getPlayerListFromGUI()
-
+        self.playerlist = self.helper.getPlayerListFromGUI()
         bidsallowed, bidstomake_eachplayer = self.helper.getWatchlistTransferlistSize()
-        # bidstomake_eachplayer = 10
-        # log_event(self.queue, "Bids to make on each player hard set to 10")
 
-        self.helper.user_num_target_players = len(self.playerlist2)
+        self.helper.user_num_target_players = len(self.playerlist)
         self.helper.user_num_bids_each_target = bidstomake_eachplayer
         self.helper.update_autobidder_logs()
 
         continue_running = True
-        for player in self.playerlist2:
-            # "Name", "Name on Card", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price", "Buy Percent"
+        total_bids_made = 0
+        for player in self.playerlist:
             fullname = player[0]
             cardname = player[1]
             cardoverall = player[2]
+            futbinprice = int(player[9])
+            marketprice = int(player[11])
+            buy_percent = float(player[12])
 
+            # Insert player into search box
             status = self.helper.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
             if (status == "error"):
                 continue_running = False
                 break
 
-            sleep(2)
-            # Clear max bin
-            input = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input")
-
-            self.driver.execute_script("arguments[0].scrollIntoView(true);", input)
-            WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input"))).click()
-            sleep(0.3)
-            input.send_keys(0)
-            sleep(1)
-
-            # Check if we have updated actual price in CSV
-            futbinprice = int(player[9])
-            marketprice = int(player[11])
-            buy_percent = float(player[12])
-            price_to_use = 0
+            # Get player's price - either from FUTBIN, or via market logs
+            max_price_to_pay = 0
             if (marketprice == 0):
-                price_to_use = buy_percent * futbinprice
-                log_event(self.queue, "Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(price_to_use))
+                max_price_to_pay = round(buy_percent * futbinprice, -2)
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(max_price_to_pay))
             else:
-                price_to_use = buy_percent * marketprice
-                log_event(self.queue, "Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(price_to_use))
+                max_price_to_pay = round(buy_percent * marketprice, -2)
+                log_event(self.queue, "Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(max_price_to_pay))
 
-            # Bid on players on current page -- 6 seconds spent in search tab
-            self.helper.clickSearch()
+            # Modulate bid params to capture all players on market
+            min_bid = 0
+            max_bid = int(max_price_to_pay) # market price * .85
+            log_event(self.queue, "Initiate search on " + str(player))
+            log_event(self.queue, str(player) + " Max price to pay: " + str(max_price_to_pay))
+
+            for x in range(4):
+                min_bid = int(round((max_bid * .8), -2))
+                if (x == 3):
+                    log_event(self.queue, "BidRound FINAL | MIN: " + str(min_bid) + " MAX: " + str(max_bid))
+                    min_bid = 0
+                    total_bids_made = self.helper.search_market_gather_players(cardname, max_price_to_pay, bidstomake_eachplayer, total_bids_made, "None", min_bid, max_bid)
+                else:
+                    log_event(self.queue, "BidRound " + str(x) + " | MIN: " + str(min_bid) + " MAX: " + str(max_bid))
+                    total_bids_made = self.helper.search_market_gather_players(cardname, max_price_to_pay, bidstomake_eachplayer, total_bids_made, "None", min_bid, max_bid)
+                    self.helper.sleep_approx(1)
+                    max_bid = min_bid
             sleep(2)
-            self.helper.bid_on_current_page(cardname, price_to_use, bidstomake_eachplayer, 0, "None")
-            sleep(1)
 
         if (continue_running):
             # Parse market data to find actual sell price 
@@ -94,13 +133,14 @@ class Autobidder:
             self.helper.get_lowestbin_from_searchdata()
     
             log_event(self.queue, "Going to watchlist. Time for war")
-            self.helper.go_to_watchlist()
+            # self.helper.go_to_watchlist()
             self.manageWatchlist()
         else:
             log_event(self.queue, "Error, bot stopped!")
 
 
     def manageWatchlist(self):
+        self.helper.go_to_watchlist()
         continue_running = True
         status = 1
         while (status == 1):
@@ -161,57 +201,119 @@ class Autobidder:
 
         if continue_running:
             log_event(self.queue, "No more active bids")
-            log_event(self.queue, "Proceeding to list won players")
+            log_event(self.queue, "Sending them to TL")
             self.finishWatchlist()
         else:
             log_event(self.queue, "Error, bot stopped!")
 
-    # Lists won players for transfer, from watchlist
+    # Send won players to transfer list
     def finishWatchlist(self):
-        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
-        if (page.lower() == "transfer targets"):
-            # send won to transfer list
-            sleep(3)
+        self.helper.go_to_watchlist()
+        sleep(2)
+        self.helper.send_won_players_to_transferlist()
+        log_event(self.queue, "Now listing players")
+        self.checkTransferlist()
 
-            try:
-                # # Send won to Transfer list
-                self.helper.list_players_for_transfer()
-                sleep(2)
-                self.helper.clearExpired()
-            except:
-                log_event(self.queue, "error here line 160 autobidder.py")
-
-            conserve_bids, sleep_time, botspeed = self.helper.getUserConfig()
-            sleepmins = int(sleep_time)/60
-            sleep_time = int(sleep_time)
-            log_event(self.queue, "Sleeping for " + str(sleepmins) + " minutes and heading back to war")
-            if (sleep_time < 180):
-                log_event(self.queue, "Sleep is less than 180 seconds, not recommended")
-                log_event(self.queue, "Forcing 180 sec sleep")
-                sleep(180)
-            else:
-                sleep(sleep_time)
-            self.checkTransferlist()
-        else:
-            log_event(self.queue, "Weird error, click start Autobidder again")
-
-    def checkTransferlist(self):
-        log_event(self.queue, "Finished sleeping")
-        
+    def checkTransferlist(self):    
         self.helper.go_to_transferlist()
-
-        log_event(self.queue, "went to transfer list")
         sleep(5)
+        log_event(self.queue, "Went to transfer list")
+
+        # Lock player prices into global dict, also store it locally here as p_ids_and_prices
+        transferlist_summary = self.helper.getTransferListSummary()
+        p_ids_and_prices = transferlist_summary[0]
+
+        # Proceed to ensure transferlist is fully handled in While loop
+        status = True
+        while status:
+            num_p_sold, num_p_expired, num_p_unlisted, num_p_listed = self.helper.getTransferListSummaryWithoutPrices()
+
+            # Check if job is done, else get to work relisting / listing
+            if ((num_p_sold == 0) and (num_p_expired == 0) and (num_p_unlisted == 0)):
+                status = False
+            else:
+                log_event(self.queue, "Status is not false")
+                if (num_p_sold > 0):
+                    log_event(self.queue, "cleared sold ")
+                    self.helper.clearSold()
+
+                self.helper.sleep_approx(3)
+
+                if (num_p_expired > 0):
+                    log_event(self.queue, "listing expired players..")
+                    self.helper.relist_expired_players(p_ids_and_prices)
+                
+                self.helper.sleep_approx(3)
+            
+                if (num_p_unlisted > 0):
+                    log_event(self.queue, "listing unlisted players .. ")
+                    self.helper.list_unlisted_players(p_ids_and_prices)
+        log_event(self.queue, "Finished checking TL!!!")
+
+        # Sleepy time
+        conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = self.helper.getUserConfig()
+        sleepmins = int(sleep_time)/60
+        sleep_time = int(sleep_time)
+        log_event(self.queue, "Sleepy time! for " + str(sleepmins) + " mins and heading back to war")
+        sleep(sleep_time)
+
+        
+        log_event(self.queue, "Proceeding to restart")
+        sleep(3)
+        self.start()
+
+        # self.helper.go_to_transferlist()
+        # sleep(5)
+
+        # log_event(self.queue, "Went to transfer list")
+        # transferlist_summary = self.helper.getTransferListSummary()
+
+        # p_ids_and_prices = transferlist_summary[0]
+        # num_p_sold = transferlist_summary[1]
+        # num_p_expired = transferlist_summary[2]
+        # num_p_unlisted = transferlist_summary[3]
+        # num_p_listed = transferlist_summary[4]
+
+        # sold_p_value = transferlist_summary[5]
+        # expired_p_value = transferlist_summary[6]
+        # unlisted_p_value = transferlist_summary[7]
+        # listed_p_value = transferlist_summary[8]
+
+        # # Clear sold players (if applicable)
+        # if (num_p_sold > 0):
+        #     self.helper.clearSold()
+
+        # # List newly won players (if applicable)
+        # # TODO this could be dangerous if player is holding rare player on TList, like I did with Ronaldo
+        # # Make it so it skips player if player is not on their playerlist - user config
+        # if (num_p_unlisted > 0):
+        #     self.helper.list_unlisted_players(p_ids_and_prices)
+
+        # self.helper.sleep_approx(3)
+
+        # # Relist expired players 
+        # if (num_p_expired > 0):
+        #     self.helper.relist_expired_players(p_ids_and_prices)
+
+        # # Sleepy time
+        # conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = self.helper.getUserConfig()
+        # sleepmins = int(sleep_time)/60
+        # sleep_time = int(sleep_time)
+        # log_event(self.queue, "Sleepy time! for " + str(sleepmins) + " mins and heading back to war")
+        # if (sleep_time < 180):
+        #     log_event(self.queue, "Sleep is less than 180 seconds, not recommended")
+        #     log_event(self.queue, "Forcing 180 sec sleep")
+        #     sleep(180)
+        # else:
+        #     sleep(sleep_time)
+
+        
+        # log_event(self.queue, "Proceeding to restart")
+        # sleep(3)
+        # self.start()
+
 
         # CAPTCHA:
         # /html/body/div[4]/section/header/h1
         # that is header of msg ^^
         # OK bnutton: /html/body/div[4]/section/div/div/button
-
-        self.helper.manageTransferlist()
-
-        log_event(self.queue, "Proceeding to restart")
-        sleep(3)
-        self.start()
-
-

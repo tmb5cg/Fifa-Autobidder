@@ -6,10 +6,13 @@ import platform
 import queue
 import tkinter as tk
 from importlib import reload
+from importlib import import_module
+
 from os import path
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import Treeview
+import sys
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
@@ -189,13 +192,13 @@ class PlayerFilters(tk.Frame):
 
         # Show and hide autobidder / autobuyer stats based on user input
         if (choice == "1"):
-            self.controller.mainbuttons.autobidder.grid_remove()
+            self.controller.mainbuttons.autobidderFrame.grid_remove()
             self.controller.mainbuttons.autobuyer.grid()
             msg = "Not yet implemented - if you want this let me know on GitHub, already built and easy to add in. Just personally don't use so haven't felt the need"
             self.popupmsg(msg)
         if (choice == "0"):
             self.controller.mainbuttons.autobuyer.grid_remove()
-            self.controller.mainbuttons.autobidder.grid()
+            self.controller.mainbuttons.autobidderFrame.grid()
 
     def add_player_futbin(self):
         futbin_url = self.futbinlink_text.get()
@@ -282,13 +285,6 @@ class PlayerFilters(tk.Frame):
 
         self.update_list()
 
-    # def login(self):
-    #     # Disable the start button
-    #     self.test2.config(state="disabled")
-    #     self.thread = ThreadedClient(self.controller.parentQueue, 0, "login")
-    #     self.thread.start()
-    #     self.periodiccall()
-    #     # self.isFirstStart = False
 
     def login(self):
         choice = str(self.autologin_choice.get())
@@ -451,10 +447,10 @@ class MainButtons(tk.Frame):
         self.playerlist = self.controller.playerfilters.playerlist
 
         # Create frame for autobidder and autobuyer within mainbots frame
-        self.autobidder = tk.LabelFrame(self, text="Autobidder")
+        self.autobidderFrame = tk.LabelFrame(self, text="Autobidder")
         self.autobuyer = tk.LabelFrame(self, text="Autobuyer")
 
-        self.autobidder.grid(row=0, column=0)
+        self.autobidderFrame.grid(row=0, column=0)
         self.autobuyer.grid(row=0, column=1)
 
         # Load Autobidder stats
@@ -469,8 +465,8 @@ class MainButtons(tk.Frame):
             value = str(value)
             valuevar = tk.StringVar()
             valuevar.set('')
-            tk.Label(self.autobidder, text=key).grid(row=count, column=0, sticky = W)
-            tk.Label(self.autobidder, textvariable=valuevar).grid(row=count, column=1)
+            tk.Label(self.autobidderFrame, text=key).grid(row=count, column=0, sticky = W)
+            tk.Label(self.autobidderFrame, textvariable=valuevar).grid(row=count, column=1)
             self.autobidder_labels.append(valuevar)
             count+=1
 
@@ -494,76 +490,122 @@ class MainButtons(tk.Frame):
         num_autobidder_labels = len(autobidder_data)
         num_autobuyer_labels = len(autobuyer_data)
 
+        # Start autobidder button
         self.startautobidder_label = tk.StringVar()
         self.startautobidder_label.set("Start Autobidder")
-        self.test2 = tk.Button(self.autobidder, textvariable=self.startautobidder_label, width=15, command=self.startAutobidder)
-        self.test2.grid(row=num_autobidder_labels+1, column=0, columnspan = 2)
+        self.test2 = tk.Button(self.autobidderFrame, textvariable=self.startautobidder_label, width=15, command=self.startAutobidder)
+        self.test2.grid(row=num_autobidder_labels+1, column=0)
         self.test3 = tk.Button(self.autobuyer, text='Start Autobuyer', width=15, command=self.startAutobuyer).grid(row=num_autobuyer_labels+1, column=0, columnspan = 2)
 
+        # Manage watchlist button - only pops up when autobidder not running
+        self.managewatchlist_label = tk.StringVar()
+        self.managewatchlist_label.set("Manage Watchlist")
+        self.manageWatchlistButton = tk.Button(self.autobidderFrame, textvariable=self.managewatchlist_label, width=15, command=self.startWatchlist)
+        self.manageWatchlistButton.grid(row=num_autobidder_labels+1, column=1)
+
         # Bid conservation mode
-        self.autobidder_safe_label = tk.Label(self.autobidder, text='Minimize wasted bids: ', font=SMALL_FONT)
+        self.autobidder_safe_label = tk.Label(self.autobidderFrame, text='Minimize wasted bids (start bid at 65 pct val): ', font=SMALL_FONT)
         self.autobidder_safe_label.grid(row=num_autobidder_labels+2, column=0)
         self.autobidder_safe_option = tk.IntVar()
-        self.autobidder_safe_checkbox = tk.Checkbutton(self.autobidder, text='',variable=self.autobidder_safe_option, onvalue=1, offvalue=0, command=self.chooseSafeMode).grid(row = num_autobidder_labels+2, column = 1)
+        self.autobidder_safe_checkbox = tk.Checkbutton(self.autobidderFrame, text='',variable=self.autobidder_safe_option, onvalue=1, offvalue=0, command=self.chooseSafeMode).grid(row = num_autobidder_labels+2, column = 1)
 
         # Sleep time between rounds
-        self.sleeptime_label = tk.Label(self.autobidder, text='Sleep between rounds (mins): ', font=SMALL_FONT)
+        self.sleeptime_label = tk.Label(self.autobidderFrame, text='Sleep between rounds (mins): ', font=SMALL_FONT)
         self.sleeptime_text = tk.IntVar(value = 3)
-        self.sleeptime_entry = tk.Entry(self.autobidder, textvariable=self.sleeptime_text, width=3)
+        self.sleeptime_entry = tk.Entry(self.autobidderFrame, textvariable=self.sleeptime_text, width=3)
         self.sleeptime_label.grid(row=num_autobidder_labels+3, column=0)
         self.sleeptime_entry.grid(row=num_autobidder_labels+3, column=1)
 
         # Bot speed
-        self.autobidder_speed_label = tk.Label(self.autobidder, text='Bot Speed: ', font=SMALL_FONT)
-        self.autobidder_speed_label.grid(row=num_autobidder_labels+4, column=0, rowspan=3)
+        self.autobidder_speed_label = tk.Label(self.autobidderFrame, text='Bot Speed: ', font=SMALL_FONT)
+        self.autobidder_speed_label.grid(row=num_autobidder_labels+4, column=0)
+        self.SPEEDCHOICE = [1, 2, 3]
         self.autobidder_speed_option = tk.IntVar()
-        self.autobidder_speed_entry1 = tk.Radiobutton(self.autobidder, text='1x',variable=self.autobidder_speed_option, value=1, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+4, column = 1)
-        self.autobidder_speed_entry2 = tk.Radiobutton(self.autobidder, text='1.25x',variable=self.autobidder_speed_option, value=2, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+5, column = 1)
-        self.autobidder_speed_entry3 = tk.Radiobutton(self.autobidder, text='1.5x',variable=self.autobidder_speed_option, value=3, command=self.chooseBotSpeed).grid(row = num_autobidder_labels+6, column = 1)
+        self.autobidder_speed_option.set(self.SPEEDCHOICE[0])
+        self.autobidder_speed_dropdown = OptionMenu(self.autobidderFrame, self.autobidder_speed_option, *self.SPEEDCHOICE)
+        self.autobidder_speed_dropdown.grid(row = num_autobidder_labels+4, column = 1)
 
-        self.autobidder_speed_option.set(1)
-        self.autobidder_safe_option.set(0)
+        # Bid up to X Minutes choice
+        self.expirationtime_label = tk.Label(self.autobidderFrame, text='Bid players up to (mins till expiry): ', font=SMALL_FONT)
+        self.expirationtime_label.grid(row=num_autobidder_labels+5, column=0)
+        self.EXPIRATIONCHOICE = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+        self.expirationtime_option = tk.IntVar()
+        self.expirationtime_option.set(self.EXPIRATIONCHOICE[5])
+        self.expirationtime_dropdown = OptionMenu(self.autobidderFrame, self.expirationtime_option, *self.EXPIRATIONCHOICE)
+        self.expirationtime_dropdown.grid(row = num_autobidder_labels+5, column = 1)
+
+        # BUY CEILING
+        self.buyceiling_label = tk.Label(self.autobidderFrame, text='Buy ceiling: ', font=SMALL_FONT)
+        self.buyceiling_label.grid(row=num_autobidder_labels+6, column=0)
+        self.BUYCHOICE = [85, 90, 95, 100]
+        self.buyceiling_option = tk.IntVar()
+        self.buyceiling_option.set(self.BUYCHOICE[0])
+        self.buyceiling_dropdown = OptionMenu(self.autobidderFrame, self.buyceiling_option, *self.BUYCHOICE)
+        self.buyceiling_dropdown.grid(row = num_autobidder_labels+6, column = 1)
+
+        # SELL CEILING
+        self.sellceiling_label = tk.Label(self.autobidderFrame, text='Sell ceiling: ', font=SMALL_FONT)
+        self.sellceiling_label.grid(row=num_autobidder_labels+7, column=0)
+        self.SELLCHOICE = [95, 100]
+        self.sellceiling_option = tk.IntVar()
+        self.sellceiling_option.set(self.SELLCHOICE[0])
+        self.sellceiling_dropdown = OptionMenu(self.autobidderFrame, self.sellceiling_option, *self.SELLCHOICE)
+        self.sellceiling_dropdown.grid(row = num_autobidder_labels+7, column = 1)
     
         # Save options
-        self.saveoptions = tk.Button(self.autobidder, text='Save Configuration', width=15, command=self.saveConfig).grid(row=num_autobidder_labels+7, column=0, columnspan = 2)
+        self.saveoptions = tk.Button(self.autobidderFrame, text='Save Configuration', width=15, command=self.saveConfig).grid(row=num_autobidder_labels+8, column=0, columnspan = 2)
         self.autobuyer.grid_remove()
 
+        # Update GUI labels + instantiate user config
         self.update_stat_labels()
         self.saveConfig()
 
-        self.listbox = tk.Listbox(self.autobidder, width=20, height=5)
-        self.listbox.grid(row=num_autobidder_labels+8, column=0, columnspan = 7)
-        self.progressbar = ttk.Progressbar(self.autobidder, orient='horizontal',
+        # Listbox
+        self.listbox = tk.Listbox(self.autobidderFrame, width=5, height=1)
+        self.listbox.grid(row=num_autobidder_labels+9, column=0, columnspan = 7)
+        self.progressbar = ttk.Progressbar(self.autobidderFrame, orient='horizontal',
                                            length=300, mode='determinate')
-        self.progressbar.grid(row=num_autobidder_labels+9, column=0, columnspan = 7)
+        self.progressbar.grid(row=num_autobidder_labels+10, column=0, columnspan = 7)
         self.isFirstStart = True
-        
-        # Initialize bot object + globala queue here - parent autobidder so user vars are not lost on failure
-        # self.parentAutobidder = Autobidder(self.driver, self.controller.parentQueue)
 
     def startAutobidder(self):
-        # Disable the start button
-        self.test2.config(state="disabled")
-        self.startautobidder_label.set("Autobidder Running")
-        self.controller.playerfilters.add_btn_futbin.config(state="disabled")
-        self.controller.playerfilters.remove_btn.config(state="disabled")
-        self.thread = ThreadedClient(self.controller.parentQueue, self.isFirstStart, "autobidder", self.driver)
-        self.thread.start()
-        self.periodiccall()
-        self.isFirstStart = False
-        # self.parentAutobidder = Autobidder(self.driver, self.controller.parentQueue)
-        # thread_runner.RunThread(self.controller.parentQueue, self.driver, "autobidder", self.parentAutobidder, self.isFirstStart).start()
+        devModeState = self.controller.playerfilters.dev_choice.get()
+        if (devModeState == 1):
+            print("devmode enabled on button click startAutobidder")
+            # Disable the start button
+            self.test2.config(state="disabled")
+            self.startautobidder_label.set("Autobidder devmode")
+            self.controller.playerfilters.add_btn_futbin.config(state="disabled")
+            self.controller.playerfilters.remove_btn.config(state="disabled")
+            autobidder_reloaded = Autobidder(self.driver, self.controller.parentQueue)
+            self.thread = ThreadedClient(self.controller.parentQueue, self.isFirstStart, "autobidder developer", self.driver, autobidder_reloaded)
+            self.thread.start()
+            self.periodiccall()
+            self.isFirstStart = False
+        else:
+            # Disable the start button
+            self.test2.config(state="disabled")
+            self.startautobidder_label.set("Autobidder Running")
+            self.controller.playerfilters.add_btn_futbin.config(state="disabled")
+            self.controller.playerfilters.remove_btn.config(state="disabled")
+            parent_autobidder = Autobidder(self.driver, self.controller.parentQueue)
+            self.thread = ThreadedClient(self.controller.parentQueue, self.isFirstStart, "autobidder", self.driver, parent_autobidder)
+            self.thread.start()
+            self.periodiccall()
+            self.isFirstStart = False
 
-        # self.isFirstStart = False
+    def startWatchlist(self):
+            self.test2.config(state="disabled")
+            self.manageWatchlistButton.config(state="disabled")
+            self.startautobidder_label.set("Autobidder Running")
+            self.controller.playerfilters.add_btn_futbin.config(state="disabled")
+            self.controller.playerfilters.remove_btn.config(state="disabled")
+            parent_autobidder = Autobidder(self.driver, self.controller.parentQueue)
+            self.thread = ThreadedClient(self.controller.parentQueue, self.isFirstStart, "watchlist", self.driver, parent_autobidder)
+            self.thread.start()
+            self.periodiccall()
+            self.isFirstStart = False
 
-        # self.after(100, self.process_queue)        
-        # If dev mode is enabled, thread runner will not use parentAutobidder - it will make a new (which can be updated using reload functions button)
-        # devModeState = self.controller.playerfilters.dev_choice.get()
-        # if (devModeState == 1):
-        #     thread_runner.RunThread(self.controller.parentQueue, self.driver, "autobidder_devmode", self.parentAutobidder, "").start()
-        #     self.after(1000, self.process_queue)
-        # else:
-    
     def periodiccall(self):
         self.checkqueue()
         if self.thread.is_alive():
@@ -571,6 +613,7 @@ class MainButtons(tk.Frame):
         else:
             self.startautobidder_label.set("Start Autobidder")
             self.test2.config(state="active")
+            self.manageWatchlistButton.config(state="active")
             self.controller.playerfilters.add_btn_futbin.config(state="active")
             self.controller.playerfilters.remove_btn.config(state="active")
 
@@ -595,8 +638,12 @@ class MainButtons(tk.Frame):
         file_object.close()
 
     def saveConfig(self):
-        print("Config - - -")
         botspeed = self.autobidder_speed_option.get()
+        sleeptime = int(self.sleeptime_entry.get())
+        safemode = int(self.autobidder_safe_option.get())
+        expirationtime = int(self.expirationtime_option.get())
+        buyceiling = int(self.buyceiling_option.get())
+        sellceiling = int(self.sellceiling_option.get())
 
         if (botspeed == 1):
             botspeed = 1
@@ -605,14 +652,15 @@ class MainButtons(tk.Frame):
         if (botspeed == 3):
             botspeed = 1.5
 
-        sleeptime = int(self.sleeptime_entry.get())
-
         sleeptime_seconds = sleeptime*60
-        safemode = int(self.autobidder_safe_option.get())
+        log_event(self.controller.parentQueue, "Configuration saved")
 
-        log_event(self.controller.parentQueue, "Bot Speed set: " + str(botspeed))
-        log_event(self.controller.parentQueue, "Sleep time set: " + str(sleeptime))
-        log_event(self.controller.parentQueue, "Safe mode set: " + str(safemode))
+        # log_event(self.controller.parentQueue, "Bot speed: " + str(botspeed))
+        # log_event(self.controller.parentQueue, "Sleep time: " + str(sleeptime))
+        # log_event(self.controller.parentQueue, "Safe mode: " + str(safemode))
+        # log_event(self.controller.parentQueue, "Bid time expiration ceiling: " + str(expirationtime))
+        # log_event(self.controller.parentQueue, "Buy ceiling: " + str(buyceiling/100))
+        # log_event(self.controller.parentQueue, "Sell ceiling: " + str(sellceiling/100))
 
         with open('./data/config.json', 'r') as f:
             json_data = json.load(f)
@@ -620,10 +668,13 @@ class MainButtons(tk.Frame):
             json_data[0]["conserve_bids"] = safemode
             json_data[0]["sleep_time"] = sleeptime_seconds
             json_data[0]["speed"] = botspeed
+            json_data[0]["expiration_ceiling"] = expirationtime
+            json_data[0]["buyceiling"] = buyceiling
+            json_data[0]["sellceiling"] = sellceiling
 
         with open('./data/config.json', 'w') as f:
             f.write(json.dumps(json_data))
-        
+
     def chooseBotSpeed(self):
         botspeed = self.autobidder_speed_option.get()
         if (botspeed == 1):
@@ -661,7 +712,7 @@ class MainButtons(tk.Frame):
     def chooseSleepTime(self):
         choice = self.sleeptime_text.get()
         # print("Sleep time choice: " + str(choice))
-        
+
     # Creates webdriver instance to be passed to all methods
     def create_driver(self):
         system = platform.system()
@@ -726,7 +777,6 @@ class MainButtons(tk.Frame):
         except:
             print("Error in updating GUI labels")
 
-    # These functions are called on button press
     def testfunc(self):
         thread_runner.RunThread(self.controller.parentQueue, self.driver, "test", self.controller.playerfilters.playerlist, "").start()
         self.after(100, self.process_queue)
@@ -809,7 +859,7 @@ class DisplayLogs(tk.Frame):
 
 class ThreadedClient(threading.Thread):
 
-    def __init__(self, queue, firstStart, action, driver):
+    def __init__(self, queue, firstStart, action, driver, autobidder_reloaded=0):
         threading.Thread.__init__(self)
         self.queue = queue
         self.firstStart = firstStart
@@ -817,18 +867,29 @@ class ThreadedClient(threading.Thread):
         self.driver = driver
 
         self.futbinurl = firstStart
+        self.autobidder_reloaded = autobidder_reloaded
 
     def run(self):
+        if (self.action == "watchlist"):
+            self.autobidder_reloaded.manageWatchlist()
+
+        if (self.action == "autobidder developer"):
+            importlib.reload(thread_runner)
+            importlib.reload(autobidder)
+            importlib.reload(helpers)
+
+            from autobidder import Autobidder
+            from helpers import Helper
+
+            ab_test = Autobidder(self.driver, self.queue)
+            ab_test.test()
+      
         if (self.action == "autobidder"):
-            autobidderObject = Autobidder(self.driver, self.queue)
             if (self.firstStart):
-                autobidderObject.initializeBot()
+                self.autobidder_reloaded.initializeBot()
             else:
-                autobidderObject.start()
-            # for x in range(1, 5):
-            #     time.sleep(2)
-            #     msg = "Function %s finished..." % x
-            #     self.queue.put(msg)
+                self.autobidder_reloaded.start()
+
         if (self.action == "login"):
             self.queue.put("Logging in")
             time.sleep(5)
