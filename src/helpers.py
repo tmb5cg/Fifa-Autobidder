@@ -67,61 +67,61 @@ class Helper:
     # Action: evaluates transfer list, watchlist size etc
     # Returns: number of cards able to bid on, depending on input list size
     def getWatchlistTransferlistSize(self):
-        try:
-            # Click Transfer Market tab
-            self.sleep_approx(1)
-            self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
-            self.sleep_approx(1)
+        # try:
+        # Click Transfer Market tab
+        self.sleep_approx(1)
+        self.driver.find_element(By.XPATH, '/html/body/main/section/nav/button[3]').click()
+        self.sleep_approx(1)
 
-            transferlist_selling = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[2]/span[2]').text
-            transferlist_sold = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[3]/span[2]').text
-            transferlist_totalsize = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[1]/span[1]').text
+        transferlist_selling = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[2]/span[2]').text
+        transferlist_sold = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[3]/span[2]').text
+        transferlist_totalsize = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[3]/div[2]/div/div[1]/span[1]').text
 
-            watchlist_winning = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[2]/span[2]').text
-            watchlist_outbid = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[3]/span[2]').text
-            watchlist_totalsize = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[1]/span[1]').text
+        watchlist_winning = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[2]/span[2]').text
+        watchlist_outbid = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[3]/span[2]').text
+        watchlist_totalsize = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[2]/div/div/div[4]/div[2]/div/div[1]/span[1]').text
 
-            num_coins = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/div[1]/div[1]').text
+        num_coins = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/div[1]/div[1]').text
 
-            self.user_transferlist_selling = int(transferlist_selling)
-            self.user_transferlist_sold = int(transferlist_sold)
-            self.user_transferlist_totalsize = int(transferlist_totalsize)
+        self.user_transferlist_selling = int(transferlist_selling)
+        self.user_transferlist_sold = int(transferlist_sold)
+        self.user_transferlist_totalsize = int(transferlist_totalsize)
 
-            self.user_watchlist_winning = int(watchlist_winning)
-            self.user_watchlist_outbid = int(watchlist_outbid)
-            self.user_watchlist_totalsize = int(watchlist_totalsize)
+        self.user_watchlist_winning = int(watchlist_winning)
+        self.user_watchlist_outbid = int(watchlist_outbid)
+        self.user_watchlist_totalsize = int(watchlist_totalsize)
 
-            self.user_num_coins = str(num_coins)
+        self.user_num_coins = str(num_coins)
 
-            data = [self.user_watchlist_winning, self.user_watchlist_outbid, self.user_watchlist_totalsize, self.user_transferlist_selling, self.user_transferlist_sold, self.user_transferlist_totalsize, num_coins]
+        data = [self.user_watchlist_winning, self.user_watchlist_outbid, self.user_watchlist_totalsize, self.user_transferlist_selling, self.user_transferlist_sold, self.user_transferlist_totalsize, num_coins]
 
-            playerlist = self.getPlayerListFromGUI()
-            num_players_to_bid_on = len(playerlist)
-            self.user_num_target_players = num_players_to_bid_on
+        playerlist = self.getPlayerListFromGUI()
+        num_players_to_bid_on = len(playerlist)
+        self.user_num_target_players = num_players_to_bid_on
 
-            if (num_players_to_bid_on != 1):
-                bidsallowed = 50 - int(data[2])
-                bidstomake_eachplayer = round(bidsallowed/num_players_to_bid_on) - 1
+        if (num_players_to_bid_on != 1):
+            bidsallowed = 50 - int(data[2])
+            bidstomake_eachplayer = round(bidsallowed/num_players_to_bid_on) - 1
 
-                self.user_num_bids_each_target = bidstomake_eachplayer
-            elif (num_players_to_bid_on == 1):
-                bidsallowed = 50 - int(data[2])
-                bidstomake_eachplayer = bidsallowed
+            self.user_num_bids_each_target = bidstomake_eachplayer
+        elif (num_players_to_bid_on == 1):
+            bidsallowed = 50 - int(data[2])
+            bidstomake_eachplayer = bidsallowed
 
-                self.user_num_bids_each_target = bidstomake_eachplayer
-            else:
-                bidsallowed = 0
-                bidstomake_eachplayer = 0
-                log_event(self.queue, "Error fetching watchlist / TList size")
+            self.user_num_bids_each_target = bidstomake_eachplayer
+        else:
+            bidsallowed = 0
+            bidstomake_eachplayer = 0
+            log_event(self.queue, "Error fetching watchlist / TList size")
 
-            
+        
 
-            log_event(self.queue, "Bid to make on each player: " + str(bidstomake_eachplayer))
-            return bidsallowed, bidstomake_eachplayer
-        except:
-            log_event(self.queue, "Exception getWatchlistTransferlistSize")
-            log_event(self.queue, "Restart bot")
-            # self.getWatchlistTransferlistSize()
+        log_event(self.queue, "Bid to make on each player: " + str(bidstomake_eachplayer))
+        return bidsallowed, bidstomake_eachplayer
+        # except:
+        #     log_event(self.queue, "Exception getWatchlistTransferlistSize")
+        #     log_event(self.queue, "Restart bot")
+        #     # self.getWatchlistTransferlistSize()
 
     # Action: clicks player to search market from dropdwon by evaluating results ie there are many "Rodriguez" cards
     def go_to_tranfer_market_and_input_parameters(self, cardname, fullname, cardoverall):
@@ -421,9 +421,6 @@ class Helper:
                         buynow = int(buynow)
 
                     id = self.getPlayerID(name, rating)
-                    # if (id == 0):
-                    #     id = getPlayerID(name, rating)
-                    #     print("ID not found in Targets, general id search found " + str(id))
 
                     info = [playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
                     playerdata.append(info)
@@ -442,35 +439,25 @@ class Helper:
                         word_comma = word + ","
                         full_entry += word_comma
 
-                    # Remove last comma
                     full_entry = full_entry[:-1]
-                    # print(full_entry)
 
                     # Add new line to end
                     hs = open("./data/market_logs.txt", "a", encoding="utf8")
                     hs.write(full_entry + "\n")
                     hs.close()
 
-                    # with open(r'./marketsearchdata.csv', 'a', encoding="utf8") as f:
-                    #     info = [date, currenttime, playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id]
-
-                    #     writer = csv.writer(f)
-                    #     writer.writerow(info)
-                    #     # row[6] = buynow
-                    #     # row[7] = time
-                    #     # row[8] = id
 
                     playernumber += 1
 
                 return playerdata
             except:
                 log_event(self.queue, "Exception getAllPlayerInfo")
-                # self.getAllPlayerInfo()
 
     # Action: Retrieves player internal ID from name and rating
     def getPlayerID(self, cardname, rating):
         inputoverall = int(rating)
         inputcardname = cardname.lower()
+
         # First attempts to find ID in user input list
         for player in self.getPlayerListFromGUI():
             p_overall = int(player[2])
@@ -480,12 +467,9 @@ class Helper:
             diff = p_overall - inputoverall
 
             pid = int(player[7])
-            # print(str(p_overall) + " " + str(p_cardname) + " " + str(pid))
 
             if (diff == 0):
                 if (p_cardname == inputcardname):
-                    # print("ID FOUND line 486" + str(p_overall) + " " + str(p_cardname) + " " + str(pid))
-
                     return pid
 
         # If not found in small player list, check master list (takes longer)
@@ -505,10 +489,8 @@ class Helper:
                 id = int(id)
                 if (diff == 0):
                     if (cardname == card):
-                        # print("Found " + str(id))
                         return id
                     if ((cardname == firstname) or (cardname == lastname)):
-                        # print("Found " + str(id))
                         return id
                     if (fullname == cardname):
                         return id
@@ -559,16 +541,6 @@ class Helper:
                             buynowprices.append(buynowprice)
 
             try:
-                # data = pd.read_csv('file.txt', sep=',')
-                # dfObj = pd.DataFrame(buynowprices) 
-                # dfObj.nsmallest(3, 0)
-                # df2 = dfObj.sort_values(by=[0])
-                # print(df2)
-                # arr = numpy.array(buynowprices)
-
-                # # Get lowest 4 on market, take average
-                # average = numpy.average(arr.argsort()[:4])
-
                 minimumbin = min(buynowprices)
             except:
                 log_event(self.queue, "ID mismatch -- minimum bin price array was empty")
@@ -581,9 +553,6 @@ class Helper:
             # Now we have player ID, and their lowest bin -- update it on GUI
             data = [playerid, minimumbin]
             id_and_lowest_bin.append(data)
-
-        # agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated]
-        # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
 
         txt = open("./data/player_list.txt", "r", encoding="utf8")
 
@@ -662,18 +631,6 @@ class Helper:
 
     # Returns price ceiling to stop bidding at during bidwars
     def getPlayerPriceCeiling(self, playerid):
-        # for player in self.playerlist:
-        #     pid = int(player[7])
-        #     diff = pid - int(playerid)
-        #     if (diff == 0):
-        #         futbinprice = int(player[9])
-        #         marketprice = int(player[11])
-        #         if (diff == 0):
-        #             if (marketprice == 0):
-        #                 return (futbinprice * self.priceceiling)
-        #             else:
-        #                 return (marketprice * self.priceceiling)
-            
         # Get target players IDs
         txt = open("./data/player_list.txt", "r", encoding="utf8")
         for aline in txt:
@@ -718,228 +675,11 @@ class Helper:
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Watchlist methods
-
-    # topmost expired player xpath while unlsited p exist
-    # /html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div
-    # /html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div
-    # Relists expired players with accurate prices
-    def relist_expired_players(self, p_ids_and_prices):
-        # TODO make this user configurable, like when I had Ronaldo on my transfer list
-        players_to_list = True
-        try:
-            while players_to_list:
-                # Check if topmost player exists that should be listed
-                topmost_player_location_unlisted = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
-                p_exists = self.check_exists_by_xpath(topmost_player_location_unlisted)
-                if (p_exists == False):
-                    players_to_list = False
-                else:
-                    # Click topmost player
-                    self.sleep_approx(2)
-                    self.clickButton(topmost_player_location_unlisted)
-                    self.sleep_approx(1)
-        
-                    # Click list for transfer
-                    listfortransfer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
-                    self.clickButton(listfortransfer_location)
-                    self.sleep_approx(1)
-
-                    # Get player sell price
-                    playerrating = int(self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
-                    playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]")
-                    playerid = self.getPlayerID(playercardname, playerrating)
-                    sellprice = p_ids_and_prices[playerid]
-
-                    startprice_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-                    buynow_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-                    listplayer_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
-
-                    # Make sure text boxes are visible
-                    self.scrollIntoView(listplayer_loc)
-                    self.send_keys_and_sleep(buynow_loc, sellprice)
-                    self.send_keys_and_sleep(startprice_loc, sellprice-100)
-
-                    # Final step - list player on market
-                    self.clickButton(listplayer_loc)
-        except:
-            log_event(self.queue, " error 204, should be ok tho")
-
-    # Lists unlisted players just sent to TList
-    def list_unlisted_players(self, p_ids_and_prices):
-        players_to_list = True
-        try:
-            while players_to_list:            
-                # Check if topmost player exists that should be listed
-                topmost_player_location_unlisted = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div"
-                p_exists = self.check_exists_by_xpath(topmost_player_location_unlisted)
-                if (p_exists == False):
-                    players_to_list = False
-                    # log_event(self.queue, "All unlisted players listed")
-                else:
-                    # Click topmost player
-                    self.sleep_approx(2)
-                    self.clickButton(topmost_player_location_unlisted)
-                    self.sleep_approx(1)
-
-                    # Get bought price - returns false if player was packed (no bought price would be listed)
-                    bought_player = self.check_exists_by_xpath("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[1]/div[2]/div/span[2]")
-                    bought_price = 0
-                    if bought_player:
-                        playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]")
-
-                        bought_price = self.getText("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[1]/div[2]/div/span[2]")
-
-                        if (len(str(bought_price)) != 0):
-                            # log_event(self.queue, "player " + str(bought_player) + " was bought for " + str(bought_price))
-                            if "," in bought_price:
-                                bought_price = int(bought_price.replace(",", ""))
-                        else:
-                            # log_event(self.queue, "Player was packed")
-                            bought_price = 0
-                        
-                    # Click list for transfer
-                    listfortransfer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
-                    self.clickButton(listfortransfer_location)
-                    self.sleep_approx(1)
-
-                    # Get player sell price
-                    playerrating = int(self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
-                    playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]")
-                    playerid = self.getPlayerID(playercardname, playerrating)
-                    sellprice = int(p_ids_and_prices[playerid])
-
-                    # Log profit (only if player wasn't packed)
-                    bought_price = int(bought_price)
-                    if (bought_price != 0):
-                        potential_profit = sellprice - bought_price
-                        self.user_projected_profit += potential_profit
-                        self.update_autobidder_logs()
-
-                    startprice_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-                    buynow_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-                    listplayer_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
-
-                    # Make sure text boxes are visible
-                    self.scrollIntoView(listplayer_loc)
-                    self.send_keys_and_sleep(buynow_loc, sellprice)
-                    self.send_keys_and_sleep(startprice_loc, sellprice-100)
-
-                    # Final step - list player on market
-                    self.clickButton(listplayer_loc)
-        except:
-            log_event(self.queue, " err 203, should be ok tho ")
-        
-    # NEW METHOD - transfer list
-    # Analyzes all relevant info on TL - value of players, num players etc.
-    # Returns dict of all their prices + all relevant info
-    def getTransferListSummary(self):
-        players = self.getAllPlayerInfoTransferlist()
-
-        # Get IDs of all players 
-        log_event(self.queue, "Gathering player prices... ")
-        for p in players:
-            p_bidstatus = p[1]
-            p_id = p[8]
-            # removed Filter for unlisted / expired players
-            if p_id not in self.p_ids_and_prices:
-                p_sellprice = self.getPlayerSellPrice(p_id)
-                # If sell price returns 0, need to fetch from Futbin
-                if p_sellprice == 0:
-                    p_sellprice = self.getFutbinPrice_opentab(p_id)
-                    self.sleep_approx(5) # Delay iteration to not anger futbin
-                # Add player ID and price to dict
-                self.p_ids_and_prices[p_id] = p_sellprice
-
-        for p_id in self.p_ids_and_prices:
-            p_price = self.p_ids_and_prices[p_id]
-            p_name = self.getPlayerCardName(p_id)
-            print(str(p_name) + " - #" + str(p_id) + " Price " + str(p_price))
-
-        # [ playernumber, bidstatus, rating, name, startprice, curbid_or_finalsoldprice, buynow, time, id ]
-        num_p_sold = 0
-        num_p_expired = 0
-        num_p_unlisted = 0
-        num_p_listed = 0
-
-        sold_p_value = 0
-        expired_p_value = 0
-        unlisted_p_value = 0
-        listed_p_value = 0
-
-        for p in players:
-            p_bidstatus = p[1]
-            p_id = p[8]
-            p_soldprice = p[5] # is 0 if unlisted
-            p_sellprice = int(self.p_ids_and_prices[p_id])
-
-            if "won" in p_bidstatus:
-                num_p_sold += 1
-                sold_p_value += p_soldprice
-            if "expired" in p_bidstatus:
-                num_p_expired += 1
-                expired_p_value += p_sellprice
-            if (p_bidstatus == "listFUTItem"):
-                num_p_unlisted += 1
-                unlisted_p_value += p_sellprice
-            if (p_bidstatus == "listFUTItem has-auction-data"):
-                num_p_listed += 1
-                listed_p_value += p_sellprice
-
-        log_event(self.queue, "Players sold:     " + str(num_p_sold))
-        log_event(self.queue, "Players expired:  " + str(num_p_expired))
-        log_event(self.queue, "Players listed: " + str(num_p_listed))
-        log_event(self.queue, "Players unlisted: " + str(num_p_unlisted))
-        log_event(self.queue, " - - - ")
-        log_event(self.queue, "Sold players value:     " + str(sold_p_value))
-        log_event(self.queue, "Expired players value:  " + str(expired_p_value))
-        log_event(self.queue, "Unlisted players value: " + str(unlisted_p_value))
-        log_event(self.queue, "Listed players value:   " + str(listed_p_value))
-
-        # TODO subtract bought price
-        self.user_players_won += int(num_p_unlisted)
-        intel = [self.p_ids_and_prices, num_p_sold, num_p_expired, num_p_unlisted, num_p_listed, sold_p_value, expired_p_value, unlisted_p_value, listed_p_value]
-        return intel
-
-    def getTransferListSummaryWithoutPrices(self):
-        players = self.getAllPlayerInfoTransferlist()
-
-        num_p_sold = 0
-        num_p_expired = 0
-        num_p_unlisted = 0
-        num_p_listed = 0
-        sold_p_value = 0
-
-        for p in players:
-            p_bidstatus = p[1]
-            p_id = p[8]
-            p_soldprice = p[5] # is 0 if unlisted
-
-            if "won" in p_bidstatus:
-                num_p_sold += 1
-                sold_p_value += p_soldprice
-            if "expired" in p_bidstatus:
-                num_p_expired += 1
-            if (p_bidstatus == "listFUTItem"):
-                num_p_unlisted += 1
-            if (p_bidstatus == "listFUTItem has-auction-data"):
-                num_p_listed += 1
-
-        # TODO subtract bought price
-        return num_p_sold, num_p_expired, num_p_unlisted, num_p_listed
-    
-    # NEW METHOD - WATCHLIST - sends won players to TL 
+  
+    # Sends won players to TL 
     def send_won_players_to_transferlist(self):
-        # call method that returns [numplayerswon, playerswon_value, playerswon_investment, playersexpired]
         sleep(5)
-
-        # first player at top:
-        # /html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div
         playerswon = self.getWatchlistSummary()
-
-        # playersonpage = self.getAllPlayerInfoWatchlistFull()
-        # for p in playersonpage:
-        #     print(p)
-
         self.clearExpired()
 
         try:
@@ -961,7 +701,7 @@ class Helper:
         except:
             log_event(self.queue, "Error sending won p to TL")
    
-    # NEW METHOD - WATCHLIST - Analyzes all relevant info on watchlist - num players won etc
+    # Analyzes all relevant info on watchlist - num players won etc
     def getWatchlistSummary(self):
         players = self.getAllPlayerInfoWatchlistFull()
 
@@ -998,7 +738,7 @@ class Helper:
         return num_players_won
 
     # Evaluates and detects outbid players on watchlist - used during bidwars
-    # Returns: ?
+    # Returns: array with all info
     def getAllPlayerInfoWatchlist(self):
         status = self.checkState("watchlist")
         if status:
@@ -1224,13 +964,6 @@ class Helper:
                 self.sleep_approx(0.5)
 
                 try:
-                    # bid_price_box = self.driver.find_element_by_css_selector('input.numericInput.filled')
-                    # bid_price_box.click()
-                    # bid_price_box.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                    # bid_price_box.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                    # bid_price_box.send_keys(bidprice)
-                    # self.sleep_approx(0.5)
-
                     # Click make bid method
                     if page == "TRANSFER TARGETS":
                         # Click make bid
@@ -1316,19 +1049,217 @@ class Helper:
                     expired_counter+=1
                 elif "won" in bidStatus:
                     won_counter+=1
-
         
-            # self.user_watchlist_expired = expired_counter
             self.user_activebids = activebids_counter
-            # self.user_players_won = won_counter
             return activebids_counter
         except:
-            # log_event(self.queue, "Exception get_num_active_bids returning 1")
             return 1
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Transferlist methods
+    # Relists expired players with accurate prices
+    def relist_expired_players(self, p_ids_and_prices):
+        # TODO make this user configurable, like when I had Ronaldo on my transfer list
+        players_to_list = True
+        try:
+            while players_to_list:
+                # Check if topmost player exists that should be listed
+                topmost_player_location_unlisted = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
+                p_exists = self.check_exists_by_xpath(topmost_player_location_unlisted)
+                if (p_exists == False):
+                    players_to_list = False
+                else:
+                    # Click topmost player
+                    self.sleep_approx(2)
+                    self.clickButton(topmost_player_location_unlisted)
+                    self.sleep_approx(1)
+        
+                    # Click list for transfer
+                    listfortransfer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
+                    self.clickButton(listfortransfer_location)
+                    self.sleep_approx(1)
 
+                    # Get player sell price
+                    playerrating = int(self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
+                    playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]")
+                    playerid = self.getPlayerID(playercardname, playerrating)
+                    sellprice = p_ids_and_prices[playerid]
+
+                    startprice_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+                    buynow_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+                    listplayer_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+
+                    # Make sure text boxes are visible
+                    self.scrollIntoView(listplayer_loc)
+                    self.send_keys_and_sleep(buynow_loc, sellprice)
+                    self.send_keys_and_sleep(startprice_loc, sellprice-100)
+
+                    # Final step - list player on market
+                    self.clickButton(listplayer_loc)
+        except:
+            log_event(self.queue, " error 204, should be ok tho")
+
+    # Lists unlisted players just sent to TList
+    def list_unlisted_players(self, p_ids_and_prices):
+        players_to_list = True
+        try:
+            while players_to_list:            
+                # Check if topmost player exists that should be listed
+                topmost_player_location_unlisted = "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div"
+                p_exists = self.check_exists_by_xpath(topmost_player_location_unlisted)
+                if (p_exists == False):
+                    players_to_list = False
+                else:
+                    # Click topmost player
+                    self.sleep_approx(2)
+                    self.clickButton(topmost_player_location_unlisted)
+                    self.sleep_approx(1)
+
+                    # Get bought price (to log profit)
+                    bought_player = self.check_exists_by_xpath("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[1]/div[2]/div/span[2]")
+                    bought_price = 0
+                    if bought_player:
+                        playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]")
+
+                        bought_price = self.getText("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[1]/div[2]/div/span[2]")
+
+                        # Detect if player was packed
+                        if (len(str(bought_price)) != 0):
+                            if "," in bought_price:
+                                bought_price = int(bought_price.replace(",", ""))
+                        else:
+                            bought_price = 0
+                        
+                    # Click list for transfer
+                    listfortransfer_location = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button"
+                    self.clickButton(listfortransfer_location)
+                    self.sleep_approx(1)
+
+                    # Get player sell price
+                    playerrating = int(self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
+                    playercardname = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]")
+                    playerid = self.getPlayerID(playercardname, playerrating)
+                    sellprice = int(p_ids_and_prices[playerid])
+
+                    # Log profit (only if player wasn't packed)
+                    bought_price = int(bought_price)
+                    if (bought_price != 0):
+                        potential_profit = sellprice - bought_price
+                        self.user_projected_profit += potential_profit
+                        self.update_autobidder_logs()
+
+                    startprice_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
+                    buynow_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
+                    listplayer_loc = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
+
+                    # Make sure text boxes are visible
+                    self.scrollIntoView(listplayer_loc)
+                    self.send_keys_and_sleep(buynow_loc, sellprice)
+                    self.send_keys_and_sleep(startprice_loc, sellprice-100)
+
+                    # Final step - list player on market
+                    self.clickButton(listplayer_loc)
+        except:
+            log_event(self.queue, " err 203, should be ok tho ")
+        
+    # Analyzes all relevant info on TL - value of players, num players etc.
+    # Returns dict of all their prices + all relevant info
+    # TODO switch back to json call so no interrupt while running in background
+    def getTransferListSummary(self):
+        players = self.getAllPlayerInfoTransferlist()
+
+        # Get IDs of all players 
+        log_event(self.queue, "Gathering player prices... ")
+        for p in players:
+            p_bidstatus = p[1]
+            p_id = p[8]
+            # removed Filter for unlisted / expired players
+            if p_id not in self.p_ids_and_prices:
+                p_sellprice = self.getPlayerSellPrice(p_id)
+                # If sell price returns 0, need to fetch from Futbin
+                if p_sellprice == 0:
+                    p_sellprice = self.getFutbinPrice_opentab(p_id)
+                    self.sleep_approx(5) # Delay iteration to not anger futbin
+                # Add player ID and price to dict
+                self.p_ids_and_prices[p_id] = p_sellprice
+
+        for p_id in self.p_ids_and_prices:
+            p_price = self.p_ids_and_prices[p_id]
+            p_name = self.getPlayerCardName(p_id)
+            print(str(p_name) + " - #" + str(p_id) + " Price " + str(p_price))
+
+        num_p_sold = 0
+        num_p_expired = 0
+        num_p_unlisted = 0
+        num_p_listed = 0
+
+        sold_p_value = 0
+        expired_p_value = 0
+        unlisted_p_value = 0
+        listed_p_value = 0
+
+        for p in players:
+            p_bidstatus = p[1]
+            p_id = p[8]
+            p_soldprice = p[5] # is 0 if unlisted
+            p_sellprice = int(self.p_ids_and_prices[p_id])
+
+            if "won" in p_bidstatus:
+                num_p_sold += 1
+                sold_p_value += p_soldprice
+            if "expired" in p_bidstatus:
+                num_p_expired += 1
+                expired_p_value += p_sellprice
+            if (p_bidstatus == "listFUTItem"):
+                num_p_unlisted += 1
+                unlisted_p_value += p_sellprice
+            if (p_bidstatus == "listFUTItem has-auction-data"):
+                num_p_listed += 1
+                listed_p_value += p_sellprice
+
+        log_event(self.queue, "Players sold:     " + str(num_p_sold))
+        log_event(self.queue, "Players expired:  " + str(num_p_expired))
+        log_event(self.queue, "Players listed: " + str(num_p_listed))
+        log_event(self.queue, "Players unlisted: " + str(num_p_unlisted))
+        log_event(self.queue, " - - - ")
+        log_event(self.queue, "Sold players value:     " + str(sold_p_value))
+        log_event(self.queue, "Expired players value:  " + str(expired_p_value))
+        log_event(self.queue, "Unlisted players value: " + str(unlisted_p_value))
+        log_event(self.queue, "Listed players value:   " + str(listed_p_value))
+
+        # TODO subtract bought price
+        self.user_players_won += int(num_p_unlisted)
+        intel = [self.p_ids_and_prices, num_p_sold, num_p_expired, num_p_unlisted, num_p_listed, sold_p_value, expired_p_value, unlisted_p_value, listed_p_value]
+        return intel
+
+    # Same as getTransferlistSummary but doesn't fetch prices
+    def getTransferListSummaryWithoutPrices(self):
+        players = self.getAllPlayerInfoTransferlist()
+
+        num_p_sold = 0
+        num_p_expired = 0
+        num_p_unlisted = 0
+        num_p_listed = 0
+        sold_p_value = 0
+
+        for p in players:
+            p_bidstatus = p[1]
+            p_id = p[8]
+            p_soldprice = p[5] # is 0 if unlisted
+
+            if "won" in p_bidstatus:
+                num_p_sold += 1
+                sold_p_value += p_soldprice
+            if "expired" in p_bidstatus:
+                num_p_expired += 1
+            if (p_bidstatus == "listFUTItem"):
+                num_p_unlisted += 1
+            if (p_bidstatus == "listFUTItem has-auction-data"):
+                num_p_listed += 1
+
+        # TODO subtract bought price
+        return num_p_sold, num_p_expired, num_p_unlisted, num_p_listed
+  
     # Action: Logs all data on current page of market, to be used later to find accurate buy now
     def getAllPlayerInfoTransferlist(self):
         status = True
@@ -1352,7 +1283,6 @@ class Helper:
                         time = 0
 
                         rating = int(rating)
-                        # print("Location: TRANSFERLIST || Player Unlisted")
                     else:
                         rating = cardinfo[0]
                         name = cardinfo[2]
@@ -1562,6 +1492,7 @@ class Helper:
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ General
+
     # Returns + updates config options from GUI
     def getUserConfig(self):
         # Load Autobidder stats
@@ -1572,7 +1503,6 @@ class Helper:
         config_choices = []
         for key, value in configops.items():
             config_choices.append(value)
-            # log_event(self.queue, "getUserConfig " + str(key) + ": " + str(value))
         
         conserve_bids = config_choices[0]
         sleep_time = config_choices[1]
@@ -1639,7 +1569,8 @@ class Helper:
                 log_event(self.queue, "checkState was passed invalid location")
         except:
             log_event(self.queue, "Error checking state")
-               
+
+    # Checks if element exists - returns true/false           
     def check_exists_by_xpath(self, xpath):
         try:
             self.driver.find_element_by_xpath(xpath)
@@ -1647,6 +1578,7 @@ class Helper:
             return False
         return True
 
+    # Fetches futbin price and last updated via endpoint 
     def get_futbin_price_lastupdated(self, ID):
         r = requests.get('https://www.futbin.com/21/playerPrices?player={0}'.format(ID))
         # r = requests.get('https://www.futbin.com/20/playerGraph?type=daily_graph&year=20&player={0}'.format(ID))
@@ -1655,10 +1587,6 @@ class Helper:
         price = data[str(ID)]["prices"]["xbox"]["LCPrice"]
         lastupdated = data[str(ID)]["prices"]["xbox"]["updated"]
 
-        # 18 mins ago
-        # 48 mins ago
-        # 1 hour ago
-        # 2 hours ago
         if (lastupdated == "Never"):
             return 0, 100
         elif ("mins ago" in lastupdated):
@@ -1682,269 +1610,7 @@ class Helper:
 
         # MINUTES
         lastupdated = int(lastupdated)
-        #print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
         return price, lastupdated
-
-    # Lists all players on transfer list using futbin prices -- OLD
-    def manageTransferlist(self):
-        # Clear expired if possible
-        try:
-            self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button").click()
-            log_event(self.queue, "Succesfully clear expired")
-        except:
-            log_event(self.queue, "click expired messed up")
-        # Wait for expired players to process clearing
-        wait_for_shield_invisibility(self.driver)
-
-        # Just to be safe, sleep, since some peoples computers are slow af
-        sleep(5)
-
-        # Get player list IDs
-        all_ids_on_transferlist = []
-        user_playerlist = self.getPlayerListFromGUI()
-        for player in user_playerlist:
-            pid = int(player[7])
-            all_ids_on_transferlist.append(pid)
-
-        players = self.getAllPlayerInfoTransferlist()
-
-        # Get ID's on transfer list otherwise not in GUI list (used in future update)
-        for player in players:
-            playerid = int(player[8])
-            bidstatus = player[1]
-            name = player[3]
-            if playerid not in all_ids_on_transferlist:
-                all_ids_on_transferlist.append(playerid)
-
-            # if bidstatus == "listFUTItem":
-            #     unlistedplayerscount += 1
-            # if "expired" in bidstatus:
-            #     didnotsellcount += 1
-            #     clickRelistAll = True
-                
-            # if "won" in bidstatus:
-            #     soldcount += 1
-            #     clickClearExpired = True
-            # if (bidstatus == "listFUTItem has-auction-data"):
-            #     currentlylistedcount += 1
-
-        # Make array with everyone's ID and price from market (if in GUI)
-        # Otherwise get their price from futbin
-        # array format of [id, sellprice]
-
-        priceData = []
-        for id in all_ids_on_transferlist: 
-            price = self.getPlayerSellPrice(id)
-
-            # Price returned is 0 if not found in GUI
-            if (price == 0):
-                # Find futbin price
-                price, lastupdated = self.get_futbin_price_lastupdated(id)
-
-            pid_price = [id, price]
-            priceData.append(pid_price)
-
-            # Sleep in between futbin calls to not make them mad lol
-            sleep(3)
-
-        # NOW we have all prices of players on page. who cares. just click each player
-        # for num players expired, click em, click enter price, hit minus bottom
-
-        log_event(self.queue, "We have all IDs and prices of ppl on transfer list (or so we think)")
-
-        for item in priceData:
-            log_event(self.queue, item)
-
-
-        log_event(self.queue, "Finna list them lol")
-
-        players = self.getAllPlayerInfoTransferlist()
-        unlistedplayerscount = 0
-        didnotsellcount = 0
-        soldcount = 0
-        currentlylistedcount = 0
-        for player in players:
-            # log_event(self.queue, player)
-            playerid = int(player[8])
-            bidstatus = player[1]
-            name = player[3]
-
-            if bidstatus == "listFUTItem":
-                unlistedplayerscount += 1
-            if "expired" in bidstatus:
-                didnotsellcount += 1
-                # log_event(self.queue, "EXPIRED: " + str(player))
-            if (bidstatus == "listFUTItem has-auction-data"):
-                currentlylistedcount += 1
-
-        print("Num players didn't sell: " + str(didnotsellcount))
-        print("Num players unlisted: " + str(unlistedplayerscount))
-        print("Num players listed currently: " + str(currentlylistedcount))
-        print("Not going to touch unlisted players")
-
-        sleep(5)
-        log_event(self.queue, "Boutta list these fools")
-        for x in range(didnotsellcount):
-            # Always click the topmost player and let accordion crumble 
-            playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
-            startpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-            buynowpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-            listfortransfer = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
-            
-            playernamelocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]"
-            playerratinglocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
-
-            playername = self.driver.find_element(By.XPATH, playernamelocation).text
-            playerrating = self.driver.find_element(By.XPATH, playerratinglocation).text
-            currentplayerid = self.getPlayerID(playername, playerrating)
-            currentplayerid = int(currentplayerid)
-
-            # Initialize values as 0 so we can check if we didn't get their price
-            startprice = 0
-            buynowprice = 0
-
-            # Get this fools sell price lol
-            for data in priceData:
-                id = data[0]
-                futbinprice = int(data[1])
-                id = int(id)
-
-    
-                if currentplayerid == id:
-                    if futbinprice > 1000:
-                        buynowprice = futbinprice
-                        startprice = buynowprice-50
-                    elif futbinprice < 1000:
-                        buynowprice = futbinprice
-                        startprice = buynowprice-100
-                    else:
-                        log_event(self.queue, "couldnt get cur players id makes no sense")
-
-            # Now make sure we got something from above otherwise no idea what happened
-            if ((startprice != 0) and (buynowprice != 0)):
-                # Add sell price to sum
-                # total_sell_prices += buynowprice
-                # self.user_projected_profit += buynowprice
-
-                # Click player
-                self.driver.find_element(By.XPATH, playerbutton).click()
-                self.sleep_approx(1)
-                # Click list for transfer
-                self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
-                self.sleep_approx(1)
-
-                buynowBox = self.driver.find_element(By.XPATH, buynowpriceinput)
-                buynowBox.click()
-                self.sleep_approx(1)
-                buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                buynowBox.send_keys(buynowprice)
-
-                self.sleep_approx(1)
-                startpriceBox = self.driver.find_element(By.XPATH, startpriceinput)
-                startpriceBox.click()
-                self.sleep_approx(1)
-                startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-                startpriceBox.send_keys(startprice)
-                self.sleep_approx(1)
-
-                # List for transfer!
-                self.driver.find_element(By.XPATH, listfortransfer).click()
-                log_event(self.queue, "Listed player " + str(id) + " for BIN: " + str(buynowprice))
-                self.update_autobidder_logs()
-                self.sleep_approx(5)
-            else:
-                log_event(self.queue, "this bitch is crazy we couldnt get any price data... should make bot just click and hit the minus button")
-
-        log_event(self.queue, "listed everyone damn")
-
-
-
-
-
-        # print("Proceeding to relist with accurate prices...")
-        # if clickClearExpired:
-        #     log_event(self.queue, "Clicked clear expired")
-        #     self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button").click()
-        
-        # players_to_relist = True
-        # total_sell_prices = 0
-        # while players_to_relist:
-        #     players = self.getAllPlayerInfoTransferlist()
-        #     if (didnotsellcount == 0):
-        #         # print("didnot sell count: " + str(didnotsellcount))
-        #         players_to_relist = False
-        #     else:
-        #         try:
-        #             for x in range(didnotsellcount-1):
-        #                 # x += 1
-        #                 # will always click play number 1
-        #                 playerbutton = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div"
-        #                 startpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input"
-        #                 buynowpriceinput = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/input"
-        #                 listfortransfer = "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/button"
-                        
-        #                 playernamelocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]"
-        #                 playerratinglocation = "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"
-
-        #                 playername = self.driver.find_element(By.XPATH, playernamelocation).text
-        #                 playerrating = self.driver.find_element(By.XPATH, playerratinglocation).text
-        #                 currentplayerid = self.getPlayerID(playername, playerrating)
-
-        #                 # Get sell price
-        #                 for data in priceData:
-        #                     id = data[0]
-        #                     futbinprice = int(data[1])
-        #                     currentplayerid = int(currentplayerid)
-        #                     id = int(id)
-        #                     if currentplayerid == id:
-        #                         # print("Price ID match found, will now list player for " + str(futbinprice))
-        #                         if futbinprice > 1000:
-        #                             buynowprice = futbinprice
-        #                             startprice = buynowprice-50
-        #                         elif futbinprice < 1000:
-        #                             buynowprice = futbinprice
-        #                             startprice = buynowprice-100
-        #                         else:
-        #                             log_event(self.queue, "price of player unable to be fetched line 1414 in helpers")
-
-        #                         # Add sell price to sum
-        #                         total_sell_prices += buynowprice
-        #                         self.user_projected_profit += buynowprice
-
-        #                         # Click player
-        #                         self.driver.find_element(By.XPATH, playerbutton).click()
-        #                         self.sleep_approx(1)
-        #                         # Click list for transfer
-        #                         self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button").click()
-        #                         self.sleep_approx(1)
-
-        #                         buynowBox = self.driver.find_element(By.XPATH, buynowpriceinput)
-        #                         buynowBox.click()
-        #                         self.sleep_approx(1)
-        #                         buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-        #                         buynowBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-        #                         buynowBox.send_keys(buynowprice)
-
-        #                         self.sleep_approx(1)
-        #                         startpriceBox = self.driver.find_element(By.XPATH, startpriceinput)
-        #                         startpriceBox.click()
-        #                         self.sleep_approx(1)
-        #                         startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-        #                         startpriceBox.send_keys(Keys.CONTROL, "a", Keys.DELETE)
-        #                         startpriceBox.send_keys(startprice)
-        #                         self.sleep_approx(1)
-
-        #                         # List for transfer!
-        #                         self.driver.find_element(By.XPATH, listfortransfer).click()
-        #                         log_event(self.queue, "Listed player " + str(id) + " for BIN: " + str(buynowprice))
-        #                         self.update_autobidder_logs()
-        #                         self.sleep_approx(3)
-        #         except:
-        #             log_event(self.queue, "annoying issue with transfer list method")
-        #             players_to_relist = False
-        # log_event(self.queue, "Players relisted! Projected worth: " + str(total_sell_prices))
 
     # Action: updates GUI with current state variables
     def update_autobidder_logs(self):
@@ -2030,6 +1696,7 @@ class Helper:
         except:
             print("Err update_autobidder_logs")
 
+    # Action: opens futbin tab and adds player to player list
     def getFutbinDataAndPopulateTable(self, futbin_url):
         browser = self.driver
         driver = self.driver
@@ -2087,13 +1754,10 @@ class Helper:
 
         # MINUTES
         lastupdated = int(lastupdated)
-        # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
         futbin_id = int(futbin_id)
         market_price = 0
         buy_pct = .85
         agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated, market_price, buy_pct]
-                # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
-
 
         full_entry = ""
         for word in agg:
@@ -2112,8 +1776,6 @@ class Helper:
 
         log_event(self.queue, "Added player " + str(cardname))
 
-        # "/html/body/div[8]/div[5]/div" <-- this div has an attribute "data-baseid" which is what we want, also "data-player-resource" which is the same, and finally "data-id" gives internal futbin ID
-
         # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
         browser.close()
 
@@ -2128,8 +1790,6 @@ class Helper:
             lowerbound = (seconds-0.2)*10000
         else:
             lowerbound = seconds*10000
-
-        # wait_for_shield_invisibility(self.driver, sleeptime)
 
         sleeptime = random.randint(lowerbound,upperbound)
         sleeptime = sleeptime/10000
@@ -2282,18 +1942,9 @@ def log_event(queue, event):
     queue.put(event)
 
 def clearOldUserData_nonclass():
-
-    # file = open("./data/gui_logs.txt", "r+")
-    # file.truncate(0)
-    # file.close()
-
     file = open("./data/market_logs.txt", "r+")
     file.truncate(0)
     file.close()
-    # file = open("./data/player_list.txt", "r+")
-    # file.truncate(0)
-    # file.close()
-
     # Clear GUI logs
     try:
         with open('./data/gui_stats.json', 'r') as f:
@@ -2382,13 +2033,10 @@ def getFutbinDataAndPopulateTable(driver, queue, futbin_url):
 
     # MINUTES
     lastupdated = int(lastupdated)
-    # print("Futbin Price: " + str(price) + " || Last Updated: " + str(lastupdated))
     futbin_id = int(futbin_id)
     market_price = 0
     buy_pct = .85
     agg = [name, cardname, rating, team, nation, cardtype, position, internal_id, futbin_id, price, lastupdated, market_price, buy_pct]
-            # columns = ["Name", "Card name", "Rating", "Team", "Nation", "Type", "Position", "Internal ID", "Futbin ID", "Futbin Price", "Futbin LastUpdated", "Actual Market Price"]
-
 
     full_entry = ""
     for word in agg:
@@ -2406,8 +2054,6 @@ def getFutbinDataAndPopulateTable(driver, queue, futbin_url):
     hs.close()
 
     log_event(queue, "Added player " + str(cardname))
-
-    # "/html/body/div[8]/div[5]/div" <-- this div has an attribute "data-baseid" which is what we want, also "data-player-resource" which is the same, and finally "data-id" gives internal futbin ID
 
     # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
     browser.close()

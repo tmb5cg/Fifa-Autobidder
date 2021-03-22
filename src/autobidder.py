@@ -24,51 +24,16 @@ class Autobidder:
         self.helper = Helper(self.driver, self.queue)
 
     def initializeBot(self):
-        # On initializatin of bot object, clear old variables etc
-        log_event(self.queue, "first time starting")
+        # Only on first initializatin of bot object, clear old variables etc
         self.helper.clearOldUserData()
         self.helper.setStartingCoins()
         sleep(3)
         self.start()
 
+    # Test function called when dev mode enabled
     def test(self):
         self.initializeBot()
-        # self.helper.go_to_transferlist()
-        # sleep(5)
-        # log_event(self.queue, "Went to transfer list")
-
-        # # Lock player prices into global dict, also store it locally here as p_ids_and_prices
-        # transferlist_summary = self.helper.getTransferListSummary()
-        # p_ids_and_prices = transferlist_summary[0]
-
-        # # Proceed to ensure transferlist is fully handled in While loop
-        # status = True
-        # while status:
-        #     num_p_sold, num_p_expired, num_p_unlisted, num_p_listed = self.helper.getTransferListSummaryWithoutPrices()
-
-        #     # Check if job is done, else get to work relisting / listing
-        #     if ((num_p_sold == 0) and (num_p_expired == 0) and (num_p_unlisted == 0)):
-        #         status = False
-        #     else:
-        #         log_event(self.queue, "Status is not false")
-        #         if (num_p_sold > 0):
-        #             log_event(self.queue, "cleared sold ")
-        #             self.helper.clearSold()
-
-        #         self.helper.sleep_approx(3)
-
-        #         if (num_p_expired > 0):
-        #             log_event(self.queue, "listing expired players..")
-        #             self.helper.relist_expired_players(p_ids_and_prices)
-                
-        #         self.helper.sleep_approx(3)
-            
-        #         if (num_p_unlisted > 0):
-        #             log_event(self.queue, "listing unlisted players .. ")
-        #             self.helper.list_unlisted_players(p_ids_and_prices)
-        # log_event(self.queue, "FINISHED!!!")
                     
-
     def start(self):
         log_event(self.queue, "Autobidder started")
 
@@ -193,7 +158,6 @@ class Autobidder:
                                         status = 0
                 else:
                     status = 0
-                    # self.manageTransferlist()
             else: 
                 log_event(self.queue, "Unexpected page, stopping bot")
                 continue_running = False
@@ -214,6 +178,7 @@ class Autobidder:
         log_event(self.queue, "Now listing players")
         self.checkTransferlist()
 
+    # List and relist won players
     def checkTransferlist(self):    
         self.helper.go_to_transferlist()
         sleep(5)
@@ -261,57 +226,6 @@ class Autobidder:
         log_event(self.queue, "Proceeding to restart")
         sleep(3)
         self.start()
-
-        # self.helper.go_to_transferlist()
-        # sleep(5)
-
-        # log_event(self.queue, "Went to transfer list")
-        # transferlist_summary = self.helper.getTransferListSummary()
-
-        # p_ids_and_prices = transferlist_summary[0]
-        # num_p_sold = transferlist_summary[1]
-        # num_p_expired = transferlist_summary[2]
-        # num_p_unlisted = transferlist_summary[3]
-        # num_p_listed = transferlist_summary[4]
-
-        # sold_p_value = transferlist_summary[5]
-        # expired_p_value = transferlist_summary[6]
-        # unlisted_p_value = transferlist_summary[7]
-        # listed_p_value = transferlist_summary[8]
-
-        # # Clear sold players (if applicable)
-        # if (num_p_sold > 0):
-        #     self.helper.clearSold()
-
-        # # List newly won players (if applicable)
-        # # TODO this could be dangerous if player is holding rare player on TList, like I did with Ronaldo
-        # # Make it so it skips player if player is not on their playerlist - user config
-        # if (num_p_unlisted > 0):
-        #     self.helper.list_unlisted_players(p_ids_and_prices)
-
-        # self.helper.sleep_approx(3)
-
-        # # Relist expired players 
-        # if (num_p_expired > 0):
-        #     self.helper.relist_expired_players(p_ids_and_prices)
-
-        # # Sleepy time
-        # conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = self.helper.getUserConfig()
-        # sleepmins = int(sleep_time)/60
-        # sleep_time = int(sleep_time)
-        # log_event(self.queue, "Sleepy time! for " + str(sleepmins) + " mins and heading back to war")
-        # if (sleep_time < 180):
-        #     log_event(self.queue, "Sleep is less than 180 seconds, not recommended")
-        #     log_event(self.queue, "Forcing 180 sec sleep")
-        #     sleep(180)
-        # else:
-        #     sleep(sleep_time)
-
-        
-        # log_event(self.queue, "Proceeding to restart")
-        # sleep(3)
-        # self.start()
-
 
         # CAPTCHA:
         # /html/body/div[4]/section/header/h1

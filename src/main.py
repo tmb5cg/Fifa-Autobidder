@@ -27,11 +27,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 import autobidder
 import autobuyer
 import helpers
-import thread_runner
 from autobidder import Autobidder
 from autobuyer import Autobuyer
 from helpers import *
-from thread_runner import RunThread
 import threading
 import time
 
@@ -55,34 +53,22 @@ class GUI(tk.Tk):
 
         self.parentQueue = queue.Queue()
 
-        # self.logins = Logins(self.container, self)
         self.playerfilters = PlayerFilters(self.container, self)
         self.table = Table(self.container, self)
         self.mainbuttons = MainButtons(self.container, self)
         self.displaylogs = DisplayLogs(self.container, self)
-        # self.disclaimers = Disclaimers(self.container, self)
-
-        # self.logins.grid(row=1, column=0, sticky="nsew", padx="10", pady="10")
 
         # TOP RIGHT Main UI
-        # self.playerfilters.pack(side=LEFT, anchor = NW) #grid(row=0, column=1, sticky="nsew", padx="10", pady="10")
         self.playerfilters.grid(row=0, column=0, sticky="nsew", padx="5", pady="5")
 
         # MIDDLE RIGHT Player Input List Table
-        # self.table.pack(side=LEFT, anchor = W) #grid(row=1, column=1, sticky="nsew", padx="10", pady="10")
         self.table.grid(row=1, column=0, sticky="nsew", padx="5", pady="5")
 
         # FULL RIGHT Autobidder / Buyer Stats
-        # self.mainbuttons.pack(side=RIGHT, anchor=NE) #grid(row=0, column=0, sticky="nsew", padx="10", pady="10")
         self.mainbuttons.grid(row=0, column=1, rowspan=3, sticky="nsew", padx="5", pady="5")
 
         # BOTTOM RIGHT Logs
-        # self.displaylogs.pack(side=LEFT, anchor=SW) #grid(row=1, column=2, sticky="nsew", padx="10", pady="10")
-        self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")
-        # self.disclaimers.grid(row=1, column=1, sticky="se", padx="5", pady="5")
-
-        # Main queue and Autobidder
-        
+        self.displaylogs.grid(row=2, column=0, sticky="nsew", padx="5", pady="5")        
 
 
 # Top right 
@@ -209,12 +195,6 @@ class PlayerFilters(tk.Frame):
         self.thread = ThreadedClient(self.controller.parentQueue, futbin_url, "add player", self.controller.mainbuttons.driver)
         self.thread.start()
         self.periodiccall()
-        # thread_runner.RunThread(self.controller.parentQueue, self.controller.mainbuttons.driver, "getFutbinDataFromURL", "", futbin_url).start()
-        # # log_event(self.controller.parentQueue, "Added player to player list")
-        # msg = "Note the autobidder is only tested on low value cards (such as non-rare golds) with **ONLY 1 version of their card**. \n Players like Giroud for example, are not good because there are 4 different Giroud cards. \n I recommend random non-rare golds selling for just under or just above 1,000 coins. "
-        # self.popupmsg(msg)
-        # self.update_list()
-
 
     def update_list(self):
         for i in self.controller.table.router_tree_view.get_children():
@@ -285,7 +265,6 @@ class PlayerFilters(tk.Frame):
 
         self.update_list()
 
-
     def login(self):
         choice = str(self.autologin_choice.get())
 
@@ -335,7 +314,6 @@ class PlayerFilters(tk.Frame):
             self.controller.playerfilters.remove_btn.config(state="active")
             self.controller.mainbuttons.test2.config(state="active")
 
-
     def checkqueue(self):
         while self.controller.parentQueue.qsize():
             try:
@@ -368,7 +346,6 @@ class PlayerFilters(tk.Frame):
         popup.mainloop()
 
     def reloadfunctions(self):
-        importlib.reload(thread_runner)
         importlib.reload(autobidder)
         importlib.reload(helpers)
 
@@ -434,8 +411,6 @@ class MainButtons(tk.Frame):
 
         self.parent = parent
         self.controller = controller
-
-        # self.queue
 
         # ~ ~ ~ ~ INITIATE BOT ~ ~ ~ ~ ~
         log_event(self.controller.parentQueue, " - - - - Bot started - - - - ")
@@ -675,22 +650,6 @@ class MainButtons(tk.Frame):
         with open('./data/config.json', 'w') as f:
             f.write(json.dumps(json_data))
 
-    def chooseBotSpeed(self):
-        botspeed = self.autobidder_speed_option.get()
-        if (botspeed == 1):
-            botspeed = 1
-        if (botspeed == 2):
-            botspeed = 1.25
-        if (botspeed == 3):
-            botspeed = 1.5
-
-        with open('./data/config.json', 'r') as f:
-            json_data = json.load(f)
-            json_data[0]["speed"] = botspeed
-
-        with open('./data/config.json', 'w') as f:
-            f.write(json.dumps(json_data))
-
     def chooseSafeMode(self):
         choice = self.autobidder_safe_option.get()
 
@@ -708,10 +667,6 @@ class MainButtons(tk.Frame):
 
         with open('./data/config.json', 'w') as f:
             f.write(json.dumps(json_data))
-
-    def chooseSleepTime(self):
-        choice = self.sleeptime_text.get()
-        # print("Sleep time choice: " + str(choice))
 
     # Creates webdriver instance to be passed to all methods
     def create_driver(self):
@@ -777,24 +732,12 @@ class MainButtons(tk.Frame):
         except:
             print("Error in updating GUI labels")
 
-    def testfunc(self):
-        thread_runner.RunThread(self.controller.parentQueue, self.driver, "test", self.controller.playerfilters.playerlist, "").start()
-        self.after(100, self.process_queue)
-
-    def startWatchlistManager(self):
-        self.queue = queue.Queue()
-        # thread_runner.RunThread(self.queue, self.driver, "watchlist", self.parentAutobidder, "").start()
-        # self.after(100, self.process_queue)
-
     def startAutobuyer(self):
-        # thread_runner.RunThread(self.queue, self.driver, "autobuyer", self.controller.playerfilters.playerlist, "").start()
         self.after(1000, self.process_queue)
 
     def reloadfunctions(self):
-        importlib.reload(thread_runner)
         importlib.reload(autobidder)
         importlib.reload(helpers)
-        # self.after(100, self.process_queue)
 
     def process_queue(self):
         try:
@@ -874,7 +817,6 @@ class ThreadedClient(threading.Thread):
             self.autobidder_reloaded.manageWatchlist()
 
         if (self.action == "autobidder developer"):
-            importlib.reload(thread_runner)
             importlib.reload(autobidder)
             importlib.reload(helpers)
 
