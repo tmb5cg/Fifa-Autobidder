@@ -203,6 +203,8 @@ class PlayerFilters(tk.Frame):
         txt = open("./data/player_list.txt", "r", encoding="utf8")
 
         self.playerlist = []
+        conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = getUserConfigNonClass()
+
         for aline in txt:
             values2 = aline.strip("\n").split(",")
             # print(values2)
@@ -217,7 +219,9 @@ class PlayerFilters(tk.Frame):
             values_small_view.append(rating)
             values_small_view.append(futbinprice)
             values_small_view.append(realprice)
-            values_small_view.append(buypct)
+
+            values_small_view.append(buyceiling)
+            values_small_view.append(sellceiling)
 
             self.controller.table.router_tree_view.insert('', 'end', values=values_small_view)
         txt.close()
@@ -362,7 +366,7 @@ class Table(tk.Frame):
         self.status.grid(row = 0, column = 0)
 
         # Player list table
-        columns = ["Name", "Rating", "Futbin Price", "Real Price", "Buy %", "Max Bid"]
+        columns = ["Name", "Rating", "Futbin Price", "Real Price", "Buy %", "Sell %"]
 
         self.router_tree_view = Treeview(self, columns=columns, show="headings", height=5)
         # self.router_tree_view.column("id", width=30)
@@ -382,6 +386,7 @@ class Table(tk.Frame):
 
         self.playerlist = self.controller.playerfilters.playerlist
 
+        conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = getUserConfigNonClass()
         #self.playerlist = []
         for aline in txt:
             values2 = aline.strip("\n").split(",")
@@ -397,8 +402,10 @@ class Table(tk.Frame):
             values_small_view.append(cardname)
             values_small_view.append(rating)
             values_small_view.append(futbinprice)
+
             values_small_view.append(realprice)
-            values_small_view.append(buypct)
+            values_small_view.append(buyceiling)
+            values_small_view.append(sellceiling)
 
             # print(values_small_view)
             self.router_tree_view.insert('', 'end', values=values_small_view)
@@ -649,6 +656,8 @@ class MainButtons(tk.Frame):
 
         with open('./data/config.json', 'w') as f:
             f.write(json.dumps(json_data))
+
+        self.controller.playerfilters.update_list()
 
     def chooseSafeMode(self):
         choice = self.autobidder_safe_option.get()

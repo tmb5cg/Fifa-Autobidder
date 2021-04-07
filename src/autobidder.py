@@ -49,8 +49,8 @@ class Autobidder:
         self.helper.update_autobidder_logs()
 
         continue_running = True
-        total_bids_made = 0
         for player in self.playerlist:
+            total_bids_made = 0
             fullname = player[0]
             cardname = player[1]
             cardoverall = player[2]
@@ -58,26 +58,29 @@ class Autobidder:
             marketprice = int(player[11])
             buy_percent = float(player[12])
 
+            conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = self.helper.getUserConfig()
+
             # Insert player into search box
             status = self.helper.go_to_tranfer_market_and_input_parameters(cardname, fullname, cardoverall)
             if (status == "error"):
                 continue_running = False
                 break
 
-            # Get player's price - either from FUTBIN, or via market logs
-            max_price_to_pay = 0
+            # Get player's known value - either from FUTBIN, or via market logs
+            known_value = 0
             if (marketprice == 0):
-                max_price_to_pay = round(buy_percent * futbinprice, -2)
-                log_event(self.queue, "Bidding on " + str(player[1]) + " up to FUTBIN price: " + str(futbinprice) + ". Will determine actual market price while searching. Purchase ceiling: " + str(max_price_to_pay))
+                known_value = futbinprice
+                log_event(self.queue, str(player[1]) + " FUTBIN price: " + str(futbinprice) + " (will find actual price) ")
             else:
-                max_price_to_pay = round(buy_percent * marketprice, -2)
-                log_event(self.queue, "Bidding on " + str(player[1]) + " up to MARKET price: " + str(marketprice) + ". Purchase ceiling: " + str(max_price_to_pay))
+                known_value = marketprice
+                log_event(self.queue, str(player[1]) + " MARKET price: " + str(marketprice))
+
+            max_price_to_pay = int(round(buyceiling * known_value, -2))
+            log_event(self.queue, str(player[1]) + " stop price = buy ceiling (" + str(buyceiling) + ") * (" + str(known_value) + ") = " + str(max_price_to_pay))
 
             # Modulate bid params to capture all players on market
             min_bid = 0
-            max_bid = int(max_price_to_pay) # market price * .85
-            log_event(self.queue, "Initiate search on " + str(player))
-            log_event(self.queue, str(player) + " Max price to pay: " + str(max_price_to_pay))
+            max_bid = int(round(max_price_to_pay*.75, -2))
 
             for x in range(4):
                 min_bid = int(round((max_bid * .8), -2))
@@ -141,8 +144,12 @@ class Autobidder:
                                     if (self.helper.user_num_coins >= curbid+100):
                                         # Stop price is 0 if player isn't on playerlist
                                         if (stopPrice != 0):
-                                            if (curbid < stopPrice):
-                                                # log_event(self.queue, "Player outbid --> " + str(playername) + " --> proceed to outbid. Current bid of " + str(curbid) + " gives potential profit of " + str(sellprice - curbid) + " coins.")
+                                            if (curbid < 1000):
+                                                curbidprice_afterbidding = curbid+50
+                                            else:
+                                                curbidprice_afterbidding = curbid+100
+                                                
+                                            if (curbidprice_afterbidding < stopPrice):
                                                 result = self.helper.makebid_individualplayerWatchlist(playernumber, curbid)
                                                 if result == "Failure":
                                                     log_event(self.queue, "Error outbidding " + str(playername) + ". Refreshing page")
