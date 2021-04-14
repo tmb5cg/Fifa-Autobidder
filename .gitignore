@@ -13,3 +13,4 @@ data/gui_logs.txt
 data/gui_stats.json
 data/market_logs.txt
 data/player_list.txt
+chrome_windows/chromedriver.exe
