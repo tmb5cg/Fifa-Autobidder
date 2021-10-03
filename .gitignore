@@ -8,7 +8,6 @@ logins.txt
 data/logins.txt
 *.txt
 *.json
-
 data/gui_logs.txt
 data/gui_stats.json
 data/market_logs.txt

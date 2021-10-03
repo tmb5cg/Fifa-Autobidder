@@ -54,6 +54,8 @@ class Helper:
             self.user_start_coins = json_data[0]['Starting coins']
             self.user_watchlist_expired = 0
 
+            self.transferlistInfiniteLoopCounter = 0
+
         with open('./data/gui_stats.json', 'w') as f:
             f.write(json.dumps(json_data))
 
@@ -226,7 +228,7 @@ class Helper:
                     playerid = card[8]
                     buynow = card[6]
 
-                    if bids_made < bids_allowed+1:
+                    if bids_made < bids_allowed-1:
                         if "highest-bid" not in bidStatus:
                             stopbidTime = int(self.bidexpiration_ceiling)
                             if timeremainingmins < stopbidTime:
@@ -237,12 +239,15 @@ class Helper:
                                     else:
                                         curbidprice_afterbidding = curbid+100
                                     if curbidprice_afterbidding < max_price_to_pay:
-                                        self.makebid_individualplayer(
-                                            playernumber, max_price_to_pay)
-                                        self.sleep_approx(2)
-                                        bids_made += 1
-                                        log_event(self.queue, "Bids made on " + str(name) +
-                                                  ": " + str(bids_made) + "/" + str(bids_allowed))
+                                        if ((curbid*2)<self.user_num_coins):
+                                            self.makebid_individualplayer(
+                                                playernumber, max_price_to_pay)
+                                            self.sleep_approx(2)
+                                            bids_made += 1
+                                            log_event(self.queue, "Bids made on " + str(name) +
+                                                    ": " + str(bids_made) + "/" + str(bids_allowed))
+                                        else:
+                                            log_event(self.queue, "not enough coins")
                             else:
                                 keepgoing = False
                     else:
@@ -1539,9 +1544,9 @@ class Helper:
 
                     # Get player sell price
                     playerrating = int(self.getText(
-                        "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
+                        "/html/body/main/section/section/div[2]/div/div/section/div/div/div[1]/div/div[2]/div/div/div[1]/div/div[7]/div[2]/div[1]"))
                     playercardname = self.getText(
-                        "/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[2]")
+                        "/html/body/main/section/section/div[2]/div/div/section/div/div/div[1]/div/div[2]/div/div/div[1]/div/div[4]")
                     playerid = self.getPlayerID(playercardname, playerrating)
                     sellprice = p_ids_and_prices[playerid]
 
@@ -1610,9 +1615,10 @@ class Helper:
 
                     # Get player sell price
                     playerrating = int(self.getText(
-                        "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[1]/div[4]/div[2]/div[1]"))
+                        "/html/body/main/section/section/div[2]/div/div/section/div/div/div[1]/div/div[2]/div/div/div[1]/div/div[7]/div[2]/div[1]"))
+                        
                     playercardname = self.getText(
-                        "/html/body/main/section/section/div[2]/div/div/div/section[3]/ul/li[1]/div/div[1]/div[2]")
+                        "/html/body/main/section/section/div[2]/div/div/section/div/div/div[1]/div/div[2]/div/div/div[1]/div/div[4]")
                     playerid = self.getPlayerID(playercardname, playerrating)
                     sellprice = int(p_ids_and_prices[playerid])
                     log_event(self.queue, "Sell price to use for " +
@@ -1641,8 +1647,9 @@ class Helper:
 
                     # Final step - list player on market
                     self.clickButton(listplayer_loc)
-        except:
+        except Exception as e:
             log_event(self.queue, " err 203, should be ok tho ")
+            log_event(self.queue, e)
 
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Button clicks / getters
@@ -1856,17 +1863,25 @@ class Helper:
         Location:
             transfer market
         """
-        try:
-            self.sleep_approx(5)
-            self.driver.find_element(
-                By.XPATH, "/html/body/main/section/nav/button[3]").click()
-            self.sleep_approx(5)
-            self.driver.find_element(
-                By.XPATH, "/html/body/main/section/section/div[2]/div/div/div[3]").click()
-            self.sleep_approx(1)
-        except:
-            log_event(self.queue, "Exception retrying go_to_transferlist")
-            self.go_to_transferlist()
+        if self.transferlistInfiniteLoopCounter < 5:
+        
+        
+            try:
+                self.sleep_approx(2)
+                self.driver.find_element(
+                    By.XPATH, "/html/body/main/section/nav/button[3]").click()
+                self.sleep_approx(2)
+                print("click transfer list button")
+                self.driver.find_element(
+                    By.XPATH, "/html/body/main/section/section/div[2]/div/div/div[3]").click()
+                self.sleep_approx(1)
+            except:
+                self.transferlistInfiniteLoopCounter+=1
+                log_event(self.queue, "Exception retrying go_to_transferlist")
+                self.go_to_transferlist()
+        else:
+            log_event(self.queue, "infinite loop detected")
+
 
     def go_to_login_page(self):
         """

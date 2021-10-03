@@ -519,7 +519,7 @@ class MainButtons(tk.Frame):
         # BUY CEILING
         self.buyceiling_label = tk.Label(self.autobidderFrame, text='Buy ceiling: ', font=SMALL_FONT)
         self.buyceiling_label.grid(row=num_autobidder_labels+6, column=0)
-        self.BUYCHOICE = [85, 90, 95, 100]
+        self.BUYCHOICE = [75,80,85, 90, 95, 100]
         self.buyceiling_option = tk.IntVar()
         self.buyceiling_option.set(self.BUYCHOICE[0])
         self.buyceiling_dropdown = OptionMenu(self.autobidderFrame, self.buyceiling_option, *self.BUYCHOICE)
@@ -528,7 +528,7 @@ class MainButtons(tk.Frame):
         # SELL CEILING
         self.sellceiling_label = tk.Label(self.autobidderFrame, text='Sell ceiling: ', font=SMALL_FONT)
         self.sellceiling_label.grid(row=num_autobidder_labels+7, column=0)
-        self.SELLCHOICE = [95, 100]
+        self.SELLCHOICE = [80,85,90,95]
         self.sellceiling_option = tk.IntVar()
         self.sellceiling_option.set(self.SELLCHOICE[0])
         self.sellceiling_dropdown = OptionMenu(self.autobidderFrame, self.sellceiling_option, *self.SELLCHOICE)

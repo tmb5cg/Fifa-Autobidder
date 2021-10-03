@@ -32,7 +32,7 @@ class Autobidder:
 
     # Test function called when dev mode enabled
     def test(self):
-        self.initializeBot()
+        self.checkTransferlist()
                     
     def start(self):
         log_event(self.queue, "Autobidder started")
@@ -224,15 +224,20 @@ class Autobidder:
 
         # Sleepy time
         conserve_bids, sleep_time, botspeed, bidexpiration_ceiling, buyceiling, sellceiling = self.helper.getUserConfig()
-        sleepmins = int(sleep_time)/60
-        sleep_time = int(sleep_time)
-        log_event(self.queue, "Sleepy time! for " + str(sleepmins) + " mins and heading back to war")
-        sleep(sleep_time)
 
-        
-        log_event(self.queue, "Proceeding to restart")
-        sleep(3)
-        self.start()
+        page = self.driver.find_element_by_xpath("/html/body/main/section/section/div[1]/h1").text
+        if (page.lower() == "transfer list"):
+            sleepmins = int(sleep_time)/60
+            sleep_time = int(sleep_time)
+            log_event(self.queue, "Sleepy time! for " + str(sleepmins) + " mins and heading back to war")
+            sleep(sleep_time)
+
+            
+            log_event(self.queue, "Proceeding to restart")
+            sleep(3)
+            self.start()
+        else:
+            log_event(self.queue, "unexpected page, bot stopped")
 
         # CAPTCHA:
         # /html/body/div[4]/section/header/h1
