@@ -1,4 +1,4 @@
-# TMB's FIFA 21 Autobidder
+# TMB's FIFA 22 Autobidder
 
 Mac             |  Windows
 :-------------------------:|:-------------------------:
@@ -8,11 +8,11 @@ Mac             |  Windows
 
 _Note: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect (yet) and so use at your own risk. I will be making updates (hopefully) weekly. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/). Shoutout to the FUTAPI [Discord](https://discord.gg/gd9UqAtr)._
 
-This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 21 Ultimate Team) Transfer Market.
+This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market.
 
 Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on a combination of speed and luck (and riskily pushing the limits of EA's bot detection), Autobidding relies on lower margins at higher volumes - without any luck involved. This makes Autobidding not only more lucrative long term, but also more consistent, infinitely safer and more secure in comparison.
 
-In fact, autobidding is the preferred botting method used by coin farmers working on industrial scales (this is actually a thing). The main reason autobidding is lesser known by the FIFA 21 botting community is simply because of its complexity to implement, relative to autobuying.
+In fact, autobidding is the preferred botting method used by coin farmers working on industrial scales (this is actually a thing). The main reason autobidding is lesser known by the FIFA 22 botting community is simply because of its complexity to implement, relative to autobuying.
 
 For example, an Autobuyer can be built with a simple "for" loop that clicks search, checks for a result, and tries again. An Autobidder requires managing multiple bidding wars in real time, knowing when to push back, and when to leave the table.
 
