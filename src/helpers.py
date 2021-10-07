@@ -2045,7 +2045,7 @@ class Helper:
             lastupdated (str): Seconds since player price was last updated on Futbin.
         """
         r = requests.get(
-            'https://www.futbin.com/21/playerPrices?player={0}'.format(ID))
+            'https://www.futbin.com/22/playerPrices?player={0}'.format(ID))
         # r = requests.get('https://www.futbin.com/20/playerGraph?type=daily_graph&year=20&player={0}'.format(ID))
         data = r.json()
 
@@ -2217,7 +2217,7 @@ class Helper:
         # price, lastupdated = get_futbin_price_lastupdated(fifa_id)
 
         r = requests.get(
-            'https://www.futbin.com/21/playerPrices?player={0}'.format(internal_id))
+            'https://www.futbin.com/22/playerPrices?player={0}'.format(internal_id))
 
         data = r.json()
         price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
@@ -2410,7 +2410,7 @@ class Helper:
         driver = self.driver
 
         futbinid = self.getFutbinID(internalid)
-        futbin_url = "https://www.futbin.com/21/player/" + str(futbinid)
+        futbin_url = "https://www.futbin.com/22/player/" + str(futbinid)
 
         tab_url = futbin_url
 
@@ -2622,7 +2622,7 @@ def getFutbinDataAndPopulateTable(driver, queue, futbin_url):
     # price, lastupdated = get_futbin_price_lastupdated(fifa_id)
 
     r = requests.get(
-        'https://www.futbin.com/21/playerPrices?player={0}'.format(internal_id))
+        'https://www.futbin.com/22/playerPrices?player={0}'.format(internal_id))
 
     data = r.json()
     price = data[str(internal_id)]["prices"]["xbox"]["LCPrice"]
