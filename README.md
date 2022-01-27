@@ -4,7 +4,9 @@ Mac             |  Windows
 :-------------------------:|:-------------------------:
 ![](./demos/gui_mac_v23.PNG)  |  ![](./demos/gui_windows_v23.PNG)
 
+<a href="https://discord.gg/hwKYU734tY"><img src="https://img.shields.io/discord/733027681184251937.svg?style=flat&label=Join%20Community&color=7289DA" alt="Join Community Badge"/></a>
 
+cyber security for elders, and a tech support services for families...
 _Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
 
 _Note 2: This version is an entirely new version and methodology that works really well -- don't make more than 1000 bids in a day (or 2000 lol). I encourage everyone to tackle a project like this. Remember that in using this you are taking a risk and CAN get banned. I pushed the bot to the limits making 1200+ bids / 100k a day, plus using softban glitch, not playing a single game on my account and it took over a month and 2.5m coins later to get the hammer. I am confident if you play games on your account (this is most important) and remain humble, you shouldn't get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs!_
