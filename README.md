@@ -15,6 +15,15 @@ _Note 3: The below readme has been semi-updated for the new bot, but not entirel
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market.
 
+## Overview & Features
+
+Bidding war             |  Autolisting
+:-------------------------:|:-------------------------:
+![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/transferlisting1.gif)
+
+
+Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
+
 Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on speed and luck (and custom JS injection), Autobidding relies on lower margins at higher volumes (around 100 - 200 coins per card). This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
 
 Advantages:
@@ -25,16 +34,6 @@ Advantages:
   - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
 - Security / Detectability
   - Selenium's Javascript injection is the only indication of something 'off' - and Selenium in itself is harmless and no different than a typical browser extension's JS, like an Adblocker
-
-## Overview & Features
-
-Bidding war             |  Autolisting
-:-------------------------:|:-------------------------:
-![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/transferlisting1.gif)
-
-Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
-
-Unlike other bots, its operations can be monitored in real time, and appears identical to a human's actions. I would argue it is safer than other Javascript injection bots, since the only Javascript injected to my knowledge is Selenium. Chromedriver flags have also been obfuscated, although the scale of EA's bot detection seems tiny so this is done out of an abundance of caution.
 
 Instead of specific players, it takes in a generic filter for gold nonrares. I found CM's from top nations to be most effective. For example search all gold non rare RWs on Futbin, copy the link and update line 111 in autobidder.py (see the furthest right column in my [Google Sheets logs](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) to see what URL I was using at different times).
 
