@@ -7,7 +7,7 @@ Mac             |  Windows
 
 _Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
 
-_Note 2: This new bot actually works really well and I got banned (lol) -- don't make more than 1000 bids in a day (or 2000). It was for the best since in game currency is worthless, and I learned a lot. I encourage everyone to tackle a project like this. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs!_
+_Note 2: This new bot actually works really well -- don't make more than 1000 bids in a day (or 2000). I encourage everyone to tackle a project like this. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs!_
 
 _Note 3: The below readme has been semi-updated for the new bot, but not entirely. I created a Discord for troubleshooting since this is an entirely new release and I don't have time to update this readme: [Discord](https://discord.gg/hwKYU734tY). For example I don't have any GIFs at the moment, if anyone wants to create any and send them in the Discord please do!_
 
