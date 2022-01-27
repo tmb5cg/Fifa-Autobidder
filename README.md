@@ -4,7 +4,7 @@ Mac             |  Windows
 :-------------------------:|:-------------------------:
 ![](./demos/gui_mac_v23.PNG)  |  ![](./demos/gui_windows_v23.PNG)
 
-<a href="https://discord.gg/hwKYU734tY"><img src="https://img.shields.io/discord/935978457295372329/935978457295372332.svg?style=flat&label=Join%20Community&color=7289DA" alt="Join Community Badge"/></a>
+<a href="https://discord.gg/hwKYU734tY"><img src="https://img.shields.io/discord/935978457295372329/935978457295372329.svg?style=flat&label=Join%20Community&color=7289DA" alt="Join Community Badge"/></a>
 
 _Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
 
