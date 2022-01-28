@@ -6,11 +6,11 @@ Mac             |  Windows
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/hwKYU734tY)
 
-_Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
+_Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome, and paid bots are sus. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
 
-_Note 2: This version is an entirely new version and methodology that works really well -- don't make more than 1000 bids in a day (or 2000 lol). I encourage everyone to tackle a project like this. Remember that in using this you are taking a risk and CAN get banned. I pushed the bot to the limits making 1200+ bids / 100k a day, plus using softban glitch, not playing a single game on my account and it took over a month and 2.5m coins later to get the hammer. I am confident if you play games on your account (this is most important) and remain humble, you shouldn't get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs!_
+_Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
 
-_Note 3: The below readme has been semi-updated for the new bot, but not entirely. I created a [Discord](https://discord.gg/hwKYU734tY) for troubleshooting since this is an entirely new release and I don't have time to update this readme: [Discord](https://discord.gg/hwKYU734tY). For example I don't have any new GIFs at the moment, the ones below are from the old bot, if anyone wants to create any and send them in the Discord please do, I encourage you to join!_
+_Note 3: (1/27/22) The below readme has been semi-updated for the new bot, but not entirely. I created a [Discord](https://discord.gg/hwKYU734tY) for troubleshooting since this is an entirely new release and I don't have time to update this readme_
 
 ## Intro
 
