@@ -40,12 +40,7 @@ Instead of specific players, it takes in a generic filter for gold nonrares. I f
 
 Go to "Search the Transfer Market" page, enter gold non rare RWs on the webapp (you must manually enter the filters, this is a free bot so don't complain lol), 9900 min bin and 10k max bin, then click start bot. The bot will click the search button for you, and depending on how many cycles you select, will run on autopilot. A cycle is defined as 50 bids (when the watchlist is full). You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or abuot 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
 
-Some GUI buttons were never implemented, such as the position filter change which would've just edited a futbin url substring.
-
-Leave a comment if you get it working, unfortunately I can't heavily test it anymore and never really intended on releasing this one but have fun. I had it logging actions to Google sheets and just removed my keys, all the code is untouched so I imagine you'll have a couple simple errors to fix before getting it working. If you get it running, trust me this one works. Best margin is 100 to 200 depending on time of day, you'll slowly learn trends as you run it.
-
-The below is semi-outdated and from my FIFA 21 bot. This new release works entirely differently but the installation steps and troubleshooting are still relevant:
- 
+Some GUI buttons were never implemented, such as the position filter change which would've just edited a futbin url substring. 
 
 ## Installation
 
