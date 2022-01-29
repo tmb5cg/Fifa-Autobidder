@@ -14,7 +14,9 @@ _Note 3: (1/27/22) The below readme has been semi-updated for the new bot, but n
 
 ## Intro
 
-This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market.
+This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market. 
+
+For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
 
 ## Overview & Features
 
