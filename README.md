@@ -18,11 +18,6 @@ This project is an Autobidder trading bot that buys and sells players on the FUT
 
 ## Overview & Features
 
-Bidding war             |  Autolisting
-:-------------------------:|:-------------------------:
-![](./demos/bidwar1_lowframerate.gif)  |  ![](./demos/transferlisting1.gif)
-
-
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
 Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on speed and luck (and custom JS injection), Autobidding relies on lower margins at higher volumes (around 100 - 200 coins per card). This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
