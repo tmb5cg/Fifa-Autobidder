@@ -33,11 +33,13 @@ Advantages:
 - Security / Detectability
   - Selenium's Javascript injection is the only indication of something 'off' - and Selenium in itself is harmless and no different than a typical browser extension's JS, like an Adblocker
 
-Instead of specific players, it takes in a generic filter for gold nonrares. I found CM's from top nations to be most effective. For example search all gold non rare RWs on Futbin, copy the link and update line 111 in autobidder.py (see the furthest right column in my [Google Sheets logs](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) to see what URL I was using at different times).
+Instead of specific players, it takes in a generic Futbin URL. I found gold nonrare CM's to be most effective. To run the bot, the default URL in the bot (line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs. 
 
-Go to "Search the Transfer Market" page, enter gold, non rare, position CM, on the webapp (you must manually enter the filters, this is a free bot so don't complain lol), 9900 min bin and 10k max bin, then click start bot (do not click the search button). The bot will click the search button for you, and depending on how many cycles you select, will run on autopilot. A cycle is defined as 50 bids (when the watchlist is full). You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or abuot 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
+In the webapp, manually go to the Search the Transfer Market page. Apply the filters that match your URL on line 111: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000 (to ensure we are looking at packed players). Do NOT click the "search" button. The bot will do this for you.
 
-Some GUI buttons were never implemented, such as the position filter change which would've just edited a futbin url substring. 
+Without touching anything, click "RUN BOT". The bot should open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
+
+You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or abuot 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
 
 ## Installation
 
