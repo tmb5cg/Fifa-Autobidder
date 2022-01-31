@@ -92,7 +92,7 @@ The webapp should open, along with the GUI.
 
 Login to the webapp manually (do not click the login button unless you want auto login, which often causes issue)
 
-The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs. 
+The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs, using Xbox prices (see Configuration below for PC/playstation). 
 
 In the webapp, manually go to the Search the Transfer Market page. Apply the filters that match your URL on line 111: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000 (to ensure we are looking at packed players). Do NOT click the "search" button. The bot will do this for you. Double check the filters are accurate.
 
