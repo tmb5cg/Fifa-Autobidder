@@ -90,7 +90,7 @@ python src/main.py
 
 The webapp should open, along with the GUI.
 
-Login to the webapp manually (do not click the login button unless you want auto login, which often causes issue)
+Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
 
 The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs, using Xbox prices (see Configuration below for PC/playstation). 
 
