@@ -10,13 +10,13 @@ _Note 1: I built this for me and my friends as a fun side project. I'm making it
 
 _Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
 
-_Note 3: (1/27/22) The below readme has been semi-updated for the new bot, but not entirely. I created a [Discord](https://discord.gg/hwKYU734tY) for troubleshooting since this is an entirely new release and I will finish the Readme later, also I might make a Youtube video explaining it_
+_Note 3: (2/1/22) I might make a Youtube video explaining how to run it if there are issues_
 
 ## Intro
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market. 
 
-For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing), and for issues or support, join the Discord [here](https://discord.gg/hwKYU734tY).
+For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing). For issues or support, join our Discord community [here](https://discord.gg/hwKYU734tY).
 
 ## Overview & Features
 
@@ -27,23 +27,19 @@ Unlike the more common and widely known botting methods, such as [Autobuyers or 
 Advantages:
 
 - Consistent profits
-  - Does not rely on luck, more importantly not competing with other bots (think of how many bots just searched for Ronaldo as you read this)
+  - Does not rely on luck, more importantly not competing with other bots (imagine how many bots just searched for Ronaldo as you read this)
 - Efficiency
-  - Guaranteed profits since supply of undervalued auctions is infinitely greater than snipes
-- Security / Detectability
-  - Selenium's Javascript injection is the only indication of something 'off' - and Selenium in itself is harmless and no different than a typical browser extension's JS, like an Adblocker
+  - Supply of undervalued auctions is infinitely greater than snipes
+- Detectability
+  - Selenium's JS injection in itself is no different than a typical browser extension's injected JS, like an Adblocker
 
-Instead of specific players, it takes in a generic Futbin URL. I found gold nonrare CM's to be most effective. See "Running" section below.
+## Installation
 
-## Installing + Running
-
-### Installation
-
-1. Download or clone this repository to your machine, the unzipped folder shuold be named Fifa21-Autobidder-main. 
+1. Download or clone this repository to your machine, the unzipped folder should be named Fifa21-Autobidder-main. 
 
 2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
-3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download, depending on your machine.
+3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the [*chrome_windows*](https://github.com/tmb5cg/Fifa21-Autobidder/tree/main/chrome_windows) or [*chrome_mac*](https://github.com/tmb5cg/Fifa21-Autobidder/tree/main/chrome_mac) with your download, depending on your machine.
 
 4. Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
 
@@ -64,11 +60,11 @@ Instead of specific players, it takes in a generic Futbin URL. I found gold nonr
 pip install -r requirements.txt
 ```
 
-If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository.
+If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository or Discord.
 
-For any other errors, it is likely your system's Python interpreter which can be a huge headache. See *troubleshooting* below.
+For any other errors, it is likely your system's Python interpreter which can be a huge headache. See [*Troublehoosting*](#troubleshooting) below.
 
-### Running the bot
+## Running the bot
 
 Navigate to the project's root directory via command prompt / terminal described above and assuming the folder is on your Desktop:
 
@@ -86,13 +82,11 @@ Then:
 make run
 ```
 
-See [troubleshooting] for help.
+See [*Troublehoosting*](#troubleshooting) for help.
 
 #### Windows
 
-In Command prompt, run:
-
-Command Prompt (Windows):
+In Command Prompt (Windows), enter:
 ```
 cd Desktop/Fifa21-Autobidder-main
 ```
@@ -103,16 +97,14 @@ Then:
 python src/main.py
 ```
 
-The webapp should open, along with the GUI.
+See [*Troublehoosting*](#troubleshooting) for help.
 
-Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
-
-The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs, using Xbox prices (see [Configuration below](#configuration) to change price fetcher to PC/playstation). 
+The webapp should open in a new browser, along with the GUI.
 
 1. Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
 2. In the webapp, manually go to the Search the Transfer Market page. 
 3. Apply the filters that match your URL on line 111: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000. Do NOT click the "search" button. The bot will do this for you. Double check the filters are accurate.
-4. Click "RUN BOT" button on GUI. The bot should open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
+4. Click "RUN BOT" button on GUI. The bot should turn green (indicating it is running) and open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
 
 You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or abuot 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
 
