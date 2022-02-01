@@ -16,7 +16,7 @@ _Note 3: (1/27/22) The below readme has been semi-updated for the new bot, but n
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market. 
 
-For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
+For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing), and for issues or support, join the Discord [here](https://discord.gg/hwKYU734tY).
 
 ## Overview & Features
 
@@ -35,44 +35,52 @@ Advantages:
 
 Instead of specific players, it takes in a generic Futbin URL. I found gold nonrare CM's to be most effective. See "Running" section below.
 
-## Installation
+## Installing + Running
 
-First ensure Python 3.x is installed on your machine. See *Troublehoosting* below for help, but to be honest if you are entirely new to Python I don't think you should be running random Github projects on your machine just yet!
+### Installation
 
-Then download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download depending on your machine.
+1. Download or clone this repository to your machine, the unzipped folder shuold be named Fifa21-Autobidder-main. 
 
-Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
+2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
-Terminal (Mac):
+3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the *chrome_windows* or *chrome_mac* with your download, depending on your machine.
 
-```
-cd ~/Desktop/Fifa21-Autobidder-main
-```
+4. Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
 
-Command Prompt (Windows):
-```
-cd Desktop/Fifa21-Autobidder-main
-```
+  Terminal (Mac):
 
-Then run the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
+  ```
+  cd ~/Desktop/Fifa21-Autobidder-main
+  ```
+
+  Command Prompt (Windows):
+  ```
+  cd Desktop/Fifa21-Autobidder-main
+  ```
+
+5. Make sure pip is installed ([see here](https://pip.pypa.io/en/stable/installing/)) on your machine, and enter the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
 
 ```
 pip install -r requirements.txt
 ```
 
-Make sure pip is installed ([see here](https://pip.pypa.io/en/stable/installing/)). 
-
 If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository.
 
 For any other errors, it is likely your system's Python interpreter which can be a huge headache. See *troubleshooting* below.
 
-## Running
+### Running the bot
 
-Navigate to the project's directory via command prompt / terminal described above and:
+Navigate to the project's root directory via command prompt / terminal described above and assuming the folder is on your Desktop:
 
-**Linux/Mac systems**
+#### Linux/Mac
 
 In Terminal, run:
+
+```
+cd ~/Desktop/Fifa21-Autobidder-main
+```
+
+Then:
 
 ```
 make run
@@ -80,9 +88,16 @@ make run
 
 See [troubleshooting] for help.
 
-**Windows**
+#### Windows
 
-Run:
+In Command prompt, run:
+
+Command Prompt (Windows):
+```
+cd Desktop/Fifa21-Autobidder-main
+```
+
+Then:
 
 ```
 python src/main.py
@@ -92,25 +107,26 @@ The webapp should open, along with the GUI.
 
 Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
 
-The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs, using Xbox prices (see Configuration below for PC/playstation). 
+The default player list (fetched via URL line 111 on autobidder.py) is [this link](https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr) - gold, nonrare, CMs, using Xbox prices (see [Configuration below](#configuration) to change price fetcher to PC/playstation). 
 
-In the webapp, manually go to the Search the Transfer Market page. Apply the filters that match your URL on line 111: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000 (to ensure we are looking at packed players). Do NOT click the "search" button. The bot will do this for you. Double check the filters are accurate.
-
-Without touching anything, click "RUN BOT". The bot should open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
+1. Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
+2. In the webapp, manually go to the Search the Transfer Market page. 
+3. Apply the filters that match your URL on line 111: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000. Do NOT click the "search" button. The bot will do this for you. Double check the filters are accurate.
+4. Click "RUN BOT" button on GUI. The bot should open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
 
 You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or abuot 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
 
 ## Configuration
 
-Everything is configured via the user interface.
+Everything is configured via the user interface. [See here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing) for an explanation of the user interface settings.
 
-The bot uses Xbox prices, to switch the pricing fetcher see function enable_xbox_prices() in autobidder.py change "li[2]" on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/e43ccd3de0e7833304d7f396bfd8bd062c3b1c8d/src/autobidder.py#L851):
-  - li[1] is Playstation
+The bot uses Xbox prices, to switch the pricing fetcher see function [enable_xbox_prices()](https://github.com/tmb5cg/Fifa21-Autobidder/blob/39ac20b1866879f7fed962a15d0e4751310916b8/src/autobidder.py#L849) in autobidder.py, edit the final "li[2]" on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/e43ccd3de0e7833304d7f396bfd8bd062c3b1c8d/src/autobidder.py#L851):
+  - li[1] for Playstation
   - li[2] is Xbox
   - li[3] is PC
 
 
-Line 111 in autobidder.py is where the Futbin URL is updated. I intended to have config.ini control this, and push it to the UI, but config.ini is constantly refreshing and only will update on a new instance of the bot. Join the Discord if this is confusing. 
+Line 111 in autobidder.py is where the Futbin URL is updated. I intended to have config.ini control this, but it was not implemented. Join the Discord if this is confusing. 
 
 ### Automatic login
 
