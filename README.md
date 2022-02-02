@@ -4,7 +4,7 @@ Mac             |  Windows
 :-------------------------:|:-------------------------:
 ![](./demos/gui_mac_v23.PNG)  |  ![](./demos/gui_windows_v23.PNG)
 
-[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/hwKYU734tY)
+[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
 _Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome, and paid bots are sus. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
 
@@ -16,7 +16,7 @@ _Note 3: (2/1/22) I might make a Youtube video explaining how to run it if there
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market. 
 
-For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing). For issues or support, join our Discord community [here](https://discord.gg/hwKYU734tY).
+For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
 
 ## Overview & Features
 
