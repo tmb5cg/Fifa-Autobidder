@@ -34,32 +34,12 @@ class AutobidderTest:
         self.queue = queue
         self.GUI_OPTIONS = GUI_OPTIONS_MENU
 
-
         self.playerlist = []
         self.players = []
-
-        
-        # Google sheets stuff - establish connection on init 
-        # # define the scope
-        # self.scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-
-        # # add credentials to the account
-        # self.creds = ServiceAccountCredentials.from_json_keyfile_name('./data/fifa-autobidder-229964592212.json', self.scope)
-
-        # # authorize the clientsheet 
-        # self.client = gspread.authorize(self.creds)
-
-        # # get the instance of the Spreadsheet
-        # self.sheet = self.client.open('autobidder')
-
-        # # get the first sheet of the Spreadsheet
-        # self.sheet_instance = self.sheet.get_worksheet(0)
-
 
         # Get user config statistics, and GUI labels
         self.config = configparser.ConfigParser()
         self.config.read("./data/config.ini")
-        # sections = self.config.sections()
 
         # STATISTICS START
         self.user_players_won = int(self.config.get("Statistics", "players_won"))
@@ -101,13 +81,33 @@ class AutobidderTest:
         self.botRunning = True
         self.transferlistInfiniteLoopCounter = 0
 
-        # FUTURE GUI PARAMS
         # Ensure push_to_google is False otherwise will break
         self.PUSH_TO_GOOGLE = False
         self.USE_FUTBIN_API = False
-        # self.url = "https://www.futbin.com/22/players?page=1&league=31&xbox_price=0-950&version=gold_nr"
         
-        # I can't remember if the bot reads the URL from this line, or from config.ini
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        # I can't remember if the bot reads the URL from this line, or from config.ini - almost positive it is this line
         self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr"
 
         # other gloabl stuff to save
@@ -120,14 +120,12 @@ class AutobidderTest:
 
         combined = [event, msg_type]
         self.queue.put(combined)
-        # print(event)
 
     # This is the main function
     def test(self):
         devmode = False
 
         if devmode:
-            #self.fixSoftban()
             self.changeUserSettingFromAutobidder(350)
 
         else:
