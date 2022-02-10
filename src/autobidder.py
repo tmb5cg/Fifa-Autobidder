@@ -33,7 +33,6 @@ class AutobidderTest:
         self.driver = driver
         self.queue = queue
         self.GUI_OPTIONS = GUI_OPTIONS_MENU
-
         self.playerlist = []
         self.players = []
 
@@ -41,7 +40,7 @@ class AutobidderTest:
         self.config = configparser.ConfigParser()
         self.config.read("./data/config.ini")
 
-        # STATISTICS START
+        # Load in frontend statistics on bot init
         self.user_players_won = int(self.config.get("Statistics", "players_won"))
         self.user_watchlist_outbid = int(self.config.get("Statistics", "players_lost"))
         self.user_transferlist_sold  = int(self.config.get("Statistics", "players_sold"))
@@ -52,74 +51,44 @@ class AutobidderTest:
         self.user_requests_made = int(self.config.get("Statistics", "requests_made"))
         self.user_bids_made = int(self.config.get("Statistics", "bids_made"))
         self.user_transferlist_selling = int(self.config.get("Statistics", "current_selling"))
-        # STATISTICS END
 
+        # Assign frontend user config settings to memory on init
         self.undercut_market_on_list, self.sleep_time, self.num_cycles, self.expiration_cutoff_mins, self.margin, self.undercut_market_on_relist, self.futbin_max_price, self.futbin_position = self.getUserConfig()
 
-        # Bidround statistics
+        # Session variables assigned on init
         self.bids_made_this_round = 0
         self.requests_made_this_round = 0
         self.bidround_number = 0
-
-        # transferlist
         self.players_sold_this_round = 0
         self.players_expired_this_round = 0
-
-        # watchlist
         self.players_won_this_round = 0
         self.players_lost_this_round = 0
         self.projected_profit_this_round = 0
         self.profit_per_player_this_round = 0
-
         self.start_time = 0
         self.end_time = 0
-
         self.LAST_UPDATED_CUTOFF = 80
         self.user_blank_bids_softban_count = 0
         self.popup_text = ""
-
-        self.botRunning = True
         self.transferlistInfiniteLoopCounter = 0
+        self.botRunning = True
 
-        # Ensure push_to_google is False otherwise will break
+        # Ensure push_to_google is False otherwise will break, this is from my personal version with cloud logging
         self.PUSH_TO_GOOGLE = False
         self.USE_FUTBIN_API = False
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # I can't remember if the bot reads the URL from this line, or from config.ini - almost positive it is this line
-        self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr"
-
-        # other gloabl stuff to save
+        # Other global stuff to help user intervention
         self.original_window = self.driver.window_handles[0]
         self.current_tab_viewing = ""
         self.current_tab_num = 0
- 
-    def log_event2(self, event, msg_type = ''):
-        event = str(event)
-
-        combined = [event, msg_type]
-        self.queue.put(combined)
+        
+        
+        
+        # ENTER FUTBIN URL HERE - note that format must match identically
+        # Meaning that your URL must start with https://www.futbin.com/22/players?page=1 exactly 40 characters long
+        # everything after ?page=1, you can add whatever futbin filters you like
+        self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr"
+        
 
     # This is the main function
     def test(self):
@@ -387,9 +356,6 @@ class AutobidderTest:
                         self.sleep_approx(5)
                         self.clickSearch()
                         self.sleep_approx(5)
-
-                # ICON THAT IS when card is on watchlist 
-                # /html/body/main/section/section/div[2]/div/div/section[1]/div/ul/li[4]/div/div[1]/div[2]
 
             except Exception as e:
                 # print(e)
@@ -2098,7 +2064,12 @@ class AutobidderTest:
 
             return final
 
+    def log_event2(self, event, msg_type = ''):
+        event = str(event)
 
+        combined = [event, msg_type]
+        self.queue.put(combined)
+        
     def log_event(self, queue, event, eventData=""):
         """
         Special logging method for when writing to new file
