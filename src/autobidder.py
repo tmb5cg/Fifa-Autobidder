@@ -87,7 +87,7 @@ class AutobidderTest:
         # ENTER FUTBIN URL HERE - note that format must match identically
         # Meaning that your URL must start with https://www.futbin.com/22/players?page=1 exactly 40 characters long
         # everything after ?page=1, you can add whatever futbin filters you like
-        self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-750&version=gold_nr"
+        self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr"
         
 
     # This is the main function
