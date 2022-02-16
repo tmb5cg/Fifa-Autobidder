@@ -10,7 +10,7 @@ _Note 1: I built this for me and my friends as a fun side project. I'm making it
 
 _Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
 
-_Note 3: (2/1/22) I might make a Youtube video explaining how to run it if there are issues_
+_Note 3: (2/16/22) I might make a Youtube video explaining how to run it if there are issues. Join the Discord here: https://discord.gg/3ZuA9w6Szk_
 
 ## Intro
 
