@@ -35,23 +35,23 @@ Advantages:
 
 ## Installation
 
-1. Download or clone this repository to your machine, the unzipped folder should be named Fifa21-Autobidder-main. 
+1. Download or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
 
 2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
-3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the [*chrome_windows*](https://github.com/tmb5cg/Fifa21-Autobidder/tree/main/chrome_windows) or [*chrome_mac*](https://github.com/tmb5cg/Fifa21-Autobidder/tree/main/chrome_mac) with your download, depending on your machine.
+3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the [*chrome_windows*](https://github.com/tmb5cg/Fifa22-Autobidder/tree/main/chrome_windows) or [*chrome_mac*](https://github.com/tmb5cg/Fifa22-Autobidder/tree/main/chrome_mac) with your download, depending on your machine.
 
 4. Navigate to the project's root directory via Terminal or Command Prompt, in this example it is on my Desktop.
 
   Terminal (Mac):
 
   ```
-  cd ~/Desktop/Fifa21-Autobidder-main
+  cd ~/Desktop/Fifa22-Autobidder-main
   ```
 
   Command Prompt (Windows):
   ```
-  cd Desktop/Fifa21-Autobidder-main
+  cd Desktop/Fifa22-Autobidder-main
   ```
 
 5. Make sure pip is installed ([see here](https://pip.pypa.io/en/stable/installing/)) on your machine, and enter the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
@@ -73,7 +73,7 @@ Navigate to the project's root directory via command prompt / terminal described
 In Terminal, run:
 
 ```
-cd ~/Desktop/Fifa21-Autobidder-main
+cd ~/Desktop/Fifa22-Autobidder-main
 ```
 
 Then:
@@ -88,7 +88,7 @@ See [*Troublehoosting*](#troubleshooting) for help.
 
 In Command Prompt (Windows), enter:
 ```
-cd Desktop/Fifa21-Autobidder-main
+cd Desktop/Fifa22-Autobidder-main
 ```
 
 Then:

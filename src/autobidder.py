@@ -2493,7 +2493,7 @@ def login(queue, driver, user, email_credentials):
         )
         sleep(2)
     except:
-        log_event(queue, "login funciton error")
+        log_event(queue, "Login error - check config.ini or network connection")
 
 def get_access_code(queue, email_credentials):
 
