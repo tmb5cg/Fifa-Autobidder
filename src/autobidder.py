@@ -95,7 +95,7 @@ class AutobidderTest:
         devmode = False
 
         if devmode:
-            self.changeUserSettingFromAutobidder(350)
+            self.getFutbinList(self.url)
 
         else:
             self.driver.switch_to.window(self.driver.window_handles[0])
@@ -701,16 +701,17 @@ class AutobidderTest:
                     for x in range(30):
                         index = x + 1
                         index = str(index)
-                        name = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[1]/div[2]/div[1]/a")
-                        rating = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[2]/span")
-                        position = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index+ "]/td[3]")
-                        price = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[5]/span")
-                        pace = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[9]/span")
-                        shooting = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[10]/span")
-                        passing = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[11]/span")
-                        dribbling = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[12]/span")
-                        defense = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[13]/span")
-                        physical = self.getText("/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[14]/span")
+                            
+                        name = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[1]/div[2]/div[1]/a")
+                        rating = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[2]/span")
+                        position = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index+ "]/td[3]")
+                        price = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[5]/span")
+                        pace = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[9]/span")
+                        shooting = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[10]/span")
+                        passing = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[11]/span")
+                        dribbling = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[12]/span")
+                        defense = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[13]/span")
+                        physical = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[14]/span")
                         
                         
                         if "K" in price:
@@ -787,7 +788,7 @@ class AutobidderTest:
                             hs.close()
                     
                     pagenumber+=2
-                    nextpageXpath = "/html/body/div[8]/div[2]/div[5]/div[5]/nav/ul/li["+str(pagenumber)+"]"
+                    nextpageXpath = "/html/body/div[9]/div[2]/div[5]/div[5]/nav/ul/li["+str(pagenumber)+"]"
                     nextpageExists = self.check_exists_by_xpath(nextpageXpath)
                     if (nextpageExists == False):
                         keepgoing = False
@@ -806,7 +807,7 @@ class AutobidderTest:
             self.driver.switch_to.window(self.driver.window_handles[0])
         except:
             # print("User broke futbin fetch, self.botRunning false")
-            log_event(self.queue,"User broke futbin fetch, self.botRunning false")
+            log_event(self.queue,"Futbin fetch broke, self.botRunning false")
             self.driver.switch_to.window(self.driver.window_handles[0])
             self.botRunning = False
             
