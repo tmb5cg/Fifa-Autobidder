@@ -112,7 +112,7 @@ You want to have a conversion rate around 50%, at 100-150 margin that is 25 play
 
 Everything is configured via the user interface. [See here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing) for an explanation of the user interface settings.
 
-The bot uses Xbox prices, to switch the pricing fetcher see function [enable_xbox_prices()](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L815) in autobidder.py, edit the final "li[2]" on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L815):
+The bot uses Xbox prices, to switch the pricing fetcher see function [enable_xbox_prices()](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L816) in autobidder.py, edit the final "li[2]" on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L816):
   - li[1] for Playstation
   - li[2] is Xbox
   - li[3] is PC
