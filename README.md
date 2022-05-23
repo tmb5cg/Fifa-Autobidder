@@ -6,7 +6,7 @@ Mac             |  Windows
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
-_Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome, and paid bots are sus. It is not perfect and use it at your own risk. This is/was my first project working with [Tkinter](https://wiki.python.org/moin/TkInter) as well as [Selenium WebDriver](https://www.selenium.dev/documentation/en/), a library that interacts with [ChromeDriver](https://www.chromium.org/)._
+_Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome, and paid bots are sus. It is not perfect and use it at your own risk._
 
 _Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
 
@@ -14,7 +14,7 @@ _Note 3: (2/16/22) I might make a Youtube video explaining how to run it if ther
 
 ## Intro
 
-This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market. 
+This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market web application. 
 
 For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
 
@@ -112,7 +112,7 @@ You want to have a conversion rate around 50%, at 100-150 margin that is 25 play
 
 Everything is configured via the user interface. [See here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing) for an explanation of the user interface settings.
 
-The bot uses Xbox prices, to switch the pricing fetcher see function [enable_xbox_prices()](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L815) in autobidder.py, edit the final "li[2]" on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L815):
+The bot uses Xbox prices, to switch the pricing fetcher see function [enable_xbox_prices()](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L815) in autobidder.py, edit the variable on [this line](https://github.com/tmb5cg/Fifa21-Autobidder/blob/main/src/autobidder.py#L780):
   - li[1] for Playstation
   - li[2] is Xbox
   - li[3] is PC

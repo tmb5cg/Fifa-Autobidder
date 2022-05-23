@@ -726,66 +726,21 @@ class AutobidderTest:
                             x = str(x)
                             unique_player_id += x
 
-                        if (self.USE_FUTBIN_API):
+                        player = [index, name, rating, position, price, pace,shooting,passing,dribbling, defense,physical, unique_player_id]
 
-                            id_loc = "/html/body/div[8]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[1]/div[1]/img"
-                            internals_location = self.driver.find_element(By.XPATH, id_loc)
-                            # print("found")
-                            internal_id = str(internals_location.get_attribute("data-original")) # or src
-                            internal_id2 = internal_id.split("/")
-                            id2 = internal_id2[7]
-                            len_id = len(id2) - 9
+                        players.append(player)
+                        full_entry = ""
+                        for word in player:
+                            word = str(word)
+                            word_comma = word + ","
+                            full_entry += word_comma
 
-                            
-                            database_id = id2[:len_id]
-                            # print(database_id)
+                        full_entry = full_entry[:-1]
 
-                            price_url = "https://www.futbin.org/futbin/api/fetchPriceInformation?playerresource=" + str(database_id) + "&platform=XB"
-
-                            # - - - - - - -  
-                            r = requests.get(price_url)
-                            data = r.json()
-                            price_official = int(data["LCPrice"])
-                            lastupdated = data["updatedon"]
-
-                            # MINUTES
-                            lastupdated = int(lastupdated)
-                            last_updated_mins = lastupdated/60
-                            # - - -  - - -  - - -
-
-                            player = [index, name, rating, position, price_official,pace,shooting,passing,dribbling, defense,physical, unique_player_id]
-                            if last_updated_mins < self.LAST_UPDATED_CUTOFF:
-                                # print("NAME " + str(name) + " ID " + str(database_id) + " PAGE PRICE: " + str(price) + " API PRICE " + str(price_official) + " updated " + str(last_updated_mins))
-                                players.append(player)
-                                full_entry = ""
-                                for word in player:
-                                    word = str(word)
-                                    word_comma = word + ","
-                                    full_entry += word_comma
-
-                                full_entry = full_entry[:-1]
-
-                                # Add new line to end
-                                hs = open("./data/targetplayers.txt", "a", encoding="utf8")
-                                hs.write(full_entry + "\n")
-                                hs.close()
-                                self.sleep_approx(0.75)
-                        else:
-                            player = [index, name, rating, position, price, pace,shooting,passing,dribbling, defense,physical, unique_player_id]
-                            # print("NAME " + str(name) + " ID " + str(database_id) + " PAGE PRICE: " + str(price) + " API PRICE " + str(price_official) + " updated " + str(last_updated_mins))
-                            players.append(player)
-                            full_entry = ""
-                            for word in player:
-                                word = str(word)
-                                word_comma = word + ","
-                                full_entry += word_comma
-
-                            full_entry = full_entry[:-1]
-
-                            # Add new line to end
-                            hs = open("./data/targetplayers.txt", "a", encoding="utf8")
-                            hs.write(full_entry + "\n")
-                            hs.close()
+                        # Add new line to end
+                        hs = open("./data/targetplayers.txt", "a", encoding="utf8")
+                        hs.write(full_entry + "\n")
+                        hs.close()
                     
                     pagenumber+=2
                     nextpageXpath = "/html/body/div[9]/div[2]/div[5]/div[5]/nav/ul/li["+str(pagenumber)+"]"
@@ -810,15 +765,19 @@ class AutobidderTest:
             log_event(self.queue,"Futbin fetch broke, self.botRunning false")
             self.driver.switch_to.window(self.driver.window_handles[0])
             self.botRunning = False
+        log_event(self.queue,"Finished fetching futbin prices, hopefully it worked - check targetplayers.txt")
             
     def enable_xbox_prices(self):
         menu = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/span")
-        hidden_submenu = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")
+        hidden_submenu_ps = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a")
+        hidden_submenu_xbox = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")
+        hidden_submenu_pc = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[3]/a")
+
 
         actions = ActionChains(self.driver)
         actions.move_to_element(menu)
         self.sleep_approx(1)
-        actions.click(hidden_submenu)
+        actions.click(hidden_submenu_xbox)
         actions.perform()
 
     def installAdblock(self):
