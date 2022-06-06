@@ -3,4 +3,4 @@ SHELL := /bin/bash
 export PYTHONPATH=.
 
 run:
-	python src/main.py
+	python3 src/main.py
