@@ -114,3 +114,7 @@ dmypy.json
 .pyre/
 .DS_Store
 .venv
+data/targetplayers.txt
+data/gui_logs.txt
+data/config.ini
+.vscode/settings.json

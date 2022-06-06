@@ -18,6 +18,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import configparser
 
 import autobidder
+
 from autobidder import AutobidderTest
 from autobidder import *
 from helpers import *
@@ -389,8 +390,9 @@ class ThreadedClient(threading.Thread):
             login(self.queue, self.driver, USER, EMAIL_CREDENTIALS)
 
 
-checkStartupFiles()
-clearGUIstats()
-app = GUI()
-app.title("TMB's FIFA 22 Autobidder")
-app.mainloop()
+if __name__ == '__main__':
+    checkStartupFiles()
+    clearGUIstats()
+    app = GUI()
+    app.title("TMB's FIFA 22 Autobidder")
+    app.mainloop()

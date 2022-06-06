@@ -84,8 +84,8 @@ class AutobidderTest:
         
         
         
-        # ENTER FUTBIN URL HERE - note that format must match identically
-        # Meaning that your URL must start with https://www.futbin.com/22/players?page=1 exactly 40 characters long
+        # ENTER FUTBIN URL BELOW
+        # your URL must start with https://www.futbin.com/22/players?page=1 exactly
         # everything after ?page=1, you can add whatever futbin filters you like
         self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr"
         
@@ -676,9 +676,77 @@ class AutobidderTest:
             log_event(self.queue,"NEXTPAGE ERROR - hitting back and restarting search")
             self.hasExceededTimeCutoff = True
 
+    def fetch_player_data(self):
+        self.wait_for_visibility("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
+        tbody = self.driver.find_element_by_xpath("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
+        stats = tbody.find_elements_by_xpath('./tr')
+        
+        players = []
+        index = 1
+        for row in stats:
+            test = row.text
+            # print(test)
+            card_details = test.split("\n")
+            stats = card_details[1].strip("\n").split(" ")
+            # print("Card details: " + str(card_details))
+            # print("\n")
+            # print("Stats: " + str(stats))
+
+            name = card_details[0].strip("\n")
+            rating = stats[0]
+            position = stats[1]
+            price = stats[3]
+            pace = stats[9]
+            shooting = stats[10]
+            passing = stats[11]
+            dribbling = stats[12]
+            defense = stats[13]
+            physical = stats[14]
+            
+            if "K" in price:
+                price = price.replace("K", "")
+                price = float(price)
+                price = int(price*1000)
+                price = str(price)
+            player_data = [rating, pace, shooting, passing, dribbling, defense, physical]
+
+            unique_player_id = ""
+            for x in player_data:
+                x = str(x)
+                unique_player_id += x
+
+            player = [index, name, rating, position, price, pace,shooting,passing,dribbling, defense,physical, unique_player_id]
+
+            players.append(player)
+            full_entry = ""
+            for word in player:
+                word = str(word)
+                word_comma = word + ","
+                full_entry += word_comma
+
+            full_entry = full_entry[:-1]
+
+            # Add new line to end
+            hs = open("./data/targetplayers.txt", "a", encoding="utf8")
+            hs.write(full_entry + "\n")
+            hs.close()
+            index+=1
+
+    def check_for_results(self):
+        tbody = self.driver.find_element_by_xpath("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
+        stats = tbody.find_elements_by_xpath('./tr')
+        
+        for row in stats:
+            test = row.text
+            if test == "No Results":
+                return False
+        return True
+
     def getFutbinList(self, url):
+        test = True
+        # https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr
         try:
-            log_event(self.queue, "Fetching futbin prices... ")
+            log_event(self.queue, "Fetching futbin prices (new version)... ")
             self.clearOldPlayerlist() # clears targetplayers.txt
             self.driver.execute_script("window.open('');")
             self.driver.switch_to.window(self.driver.window_handles[1])
@@ -690,84 +758,38 @@ class AutobidderTest:
 
             self.sleep_approx(3)
             self.enable_xbox_prices()
+            self.sleep_approx(3)
 
-            players = []
-            counter2 = 1
-            try: 
-                keepgoing = True
-                pagenumber = 0
-                while keepgoing:
-                    
-                    for x in range(30):
-                        index = x + 1
-                        index = str(index)
-                            
-                        name = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[1]/div[2]/div[1]/a")
-                        rating = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[2]/span")
-                        position = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index+ "]/td[3]")
-                        price = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr["+index+"]/td[5]/span")
-                        pace = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[9]/span")
-                        shooting = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[10]/span")
-                        passing = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[11]/span")
-                        dribbling = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[12]/span")
-                        defense = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[13]/span")
-                        physical = self.getText("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody/tr[" + index + "]/td[14]/span")
-                        
-                        
-                        if "K" in price:
-                            price = price.replace("K", "")
-                            price = float(price)
-                            price = int(price*1000)
-                            price = str(price)
-                        player_data = [rating, pace, shooting, passing, dribbling, defense, physical]
+            # Iterate over page results
+            keepgoing = True
+            counter = 1
+            while keepgoing:
+                results = self.check_for_results()
 
-                        unique_player_id = ""
-                        for x in player_data:
-                            x = str(x)
-                            unique_player_id += x
+                if results:
+                    self.fetch_player_data()
 
-                        player = [index, name, rating, position, price, pace,shooting,passing,dribbling, defense,physical, unique_player_id]
-
-                        players.append(player)
-                        full_entry = ""
-                        for word in player:
-                            word = str(word)
-                            word_comma = word + ","
-                            full_entry += word_comma
-
-                        full_entry = full_entry[:-1]
-
-                        # Add new line to end
-                        hs = open("./data/targetplayers.txt", "a", encoding="utf8")
-                        hs.write(full_entry + "\n")
-                        hs.close()
-                    
-                    pagenumber+=2
-                    nextpageXpath = "/html/body/div[9]/div[2]/div[5]/div[5]/nav/ul/li["+str(pagenumber)+"]"
-                    nextpageExists = self.check_exists_by_xpath(nextpageXpath)
-                    if (nextpageExists == False):
-                        keepgoing = False
-                    else:
-                        counter2+=1
-                        new_url = first + str(counter2) + second
-                        self.driver.get(new_url)
-                        self.sleep_approx(3)
-
-            except Exception as e:
-                # print(e)
-                log_event(self.queue,"Finished fetching futbin prices")
+                    counter += 1
+                    new_url = first + str(counter) + second
+                    self.driver.get(new_url)
+                    self.sleep_approx(3)
+                else:
+                    log_event(self.queue, "No results box, should close out the tab now")
+                    keepgoing = False
+            # log_event(self.queue, "Finished exit from while loop")
 
             # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
         except:
-            # print("User broke futbin fetch, self.botRunning false")
-            log_event(self.queue,"Futbin fetch broke, self.botRunning false")
+            log_event(self.queue, "Error fetching futbin")
             self.driver.switch_to.window(self.driver.window_handles[0])
             self.botRunning = False
+        
         log_event(self.queue,"Finished fetching futbin prices, hopefully it worked - check targetplayers.txt")
-            
-    def enable_xbox_prices(self):
+
+    def enable_xbox_prices(self):                                                                       
+        myElem = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/header/nav/div/div/ul[2]/li[4]/div/span')))
         menu = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/span")
         hidden_submenu_ps = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a")
         hidden_submenu_xbox = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")

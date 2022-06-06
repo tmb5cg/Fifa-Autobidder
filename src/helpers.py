@@ -15,6 +15,7 @@ from selenium.webdriver.support import ui
 from selenium.webdriver.support.wait import WebDriverWait
 import configparser
 from datetime import datetime
+import undetected_chromedriver as uc
 
 def clearGUIstats():
     config = configparser.ConfigParser()
@@ -109,29 +110,32 @@ def create_driver():
     elif system == 'Windows':
         path = os.getcwd() + '\chrome_windows\chromedriver.exe'
 
-    options = webdriver.ChromeOptions()
+    # Shoutout to the dev who created this
+    use_undetected_chromedriver = True
+    if use_undetected_chromedriver:
+        options = uc.ChromeOptions()
 
-    # For older ChromeDriver under version 79.0.3945.16
-    options.add_argument("--ignore-certificate-error")
-    options.add_argument("--ignore-ssl-errors")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
-    
-    # Stop annoying windows logs
-    options.add_argument('--disable-logging')
-    options.add_argument("--log-level=3")
+        options.add_argument('--profile-directory=Profile 8')
+        options.add_argument('--disable-popup-blocking') # allow for new tab
 
+        driver = uc.Chrome(options=options)
+        return driver
 
-    # For ChromeDriver version 79.0.3945.16 or over
-    options.add_argument('--no-sandbox')
-    options.add_argument('--start-fullscreen')
-    options.add_argument('--single-process')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument("--incognito")
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument("disable-infobars")
+    else:
+        options = webdriver.ChromeOptions()
 
-    driver = webdriver.Chrome(executable_path=path, options=options)
-    driver.maximize_window()
+        # For older ChromeDriver under version 79.0.3945.16
+        options.add_argument("--ignore-certificate-error")
+        options.add_argument("--ignore-ssl-errors")
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        
+        # Stop annoying windows logs
+        options.add_argument('--disable-logging')
+        options.add_argument("--log-level=3")
 
-    return driver
+        driver = webdriver.Chrome(executable_path=path, options=options)
+
+        return driver
