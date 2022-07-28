@@ -21,16 +21,14 @@ def clearGUIstats():
     config = configparser.ConfigParser()
     config.read("./data/config.ini")
     user_settings_current_date = str(config.get("Other", "todays_date"))
-    print("USER SETTINGS DATE: " + str(user_settings_current_date))
+    # print("USER SETTINGS DATE: " + str(user_settings_current_date))
 
     today = datetime.today().strftime('%Y-%m-%d')
     today_str = str(today)
-    print("TODAYS DATE: " + str(today))
+    # print("TODAYS DATE: " + str(today))
 
-    if (user_settings_current_date == today_str):
-        print("Dates match - will not clear GUI statistics")
-    else:
-        print("Dates do not match - clearing GUI stats, setting date to day")
+    if (user_settings_current_date != today_str):
+        # print("Dates do not match - clearing GUI stats, setting date to day")
 
         # Set Date var to current date in file 
         config.read("./data/config.ini")
@@ -102,7 +100,7 @@ def checkStartupFiles():
 
 def create_driver():
     system = platform.system()
-    print("SYSTEM IS: " + str(system))
+    # print("SYSTEM IS: " + str(system))
     if system == 'Darwin':
         path = 'chrome_mac/chromedriver'
     elif system == 'Linux':
@@ -117,6 +115,8 @@ def create_driver():
 
         options.add_argument('--profile-directory=Profile 8')
         options.add_argument('--disable-popup-blocking') # allow for new tab
+        # options.add_extension("adblocker/uBlock-Origin.crx")
+
 
         driver = uc.Chrome(options=options)
         return driver

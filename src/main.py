@@ -1,26 +1,20 @@
-import queue
-import tkinter as tk
-from importlib import reload, import_module
-
+import configparser
 import os
 import os.path
-from os import path
 import platform
-
+import queue
+import threading
+import time
+import tkinter as tk
+from importlib import import_module, reload
+from os import path
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import Treeview
 
-import threading
-import time
-from oauth2client.service_account import ServiceAccountCredentials
-
-import configparser
-
 import autobidder
-
-from autobidder import AutobidderTest
 from autobidder import *
+from autobidder import AutobidderTest
 from helpers import *
 
 LARGE_FONT= ("Verdana", 12)
@@ -240,7 +234,7 @@ class UserOptions(tk.Frame):
             undercut_market_on_list = [0, 1]
             undercut_market_on_relist = [1, 0, 2]
             futbin_max_price = [800, 1000, 1200]
-            futbin_position = ["CB", "ST", "RW"]
+            platform = ["Xbox", "Playstation", "PC"]
 
             SPEEDCHOICE = []
             if useroption.lower() == "sleep_time":
@@ -257,11 +251,8 @@ class UserOptions(tk.Frame):
                 SPEEDCHOICE = undercut_market_on_relist
             if useroption.lower() == "futbin_max_price":
                 SPEEDCHOICE = futbin_max_price
-
-            # note that this feature was never implemented and does not work
-            # in theory would just substring update input Futbin URL
-            if useroption.lower() == "futbin_position":
-                SPEEDCHOICE = futbin_position 
+            if useroption.lower() == "platform":
+                SPEEDCHOICE = platform 
 
             useroption_lowered = useroption.lower()
             # autobidder_speed_option = tk.StringVar()
@@ -370,7 +361,6 @@ class ThreadedClient(threading.Thread):
             ab_test.test()
       
         if (self.action == "login"):
-            self.queue.put("Logging in")
             time.sleep(5)
             
             self.config = configparser.ConfigParser()

@@ -2,6 +2,7 @@ import csv
 import email
 import imaplib
 import json
+from platform import platform
 import random
 import sys
 from csv import reader
@@ -53,7 +54,7 @@ class AutobidderTest:
         self.user_transferlist_selling = int(self.config.get("Statistics", "current_selling"))
 
         # Assign frontend user config settings to memory on init
-        self.undercut_market_on_list, self.sleep_time, self.num_cycles, self.expiration_cutoff_mins, self.margin, self.undercut_market_on_relist, self.futbin_max_price, self.futbin_position = self.getUserConfig()
+        self.undercut_market_on_list, self.sleep_time, self.num_cycles, self.expiration_cutoff_mins, self.margin, self.undercut_market_on_relist, self.futbin_max_price, self.platform = self.getUserConfig()
 
         # Session variables assigned on init
         self.bids_made_this_round = 0
@@ -83,7 +84,6 @@ class AutobidderTest:
         self.current_tab_num = 0
         
         
-        
         # ENTER FUTBIN URL BELOW
         # your URL must start with https://www.futbin.com/22/players?page=1 exactly
         # everything after ?page=1, you can add whatever futbin filters you like
@@ -96,6 +96,7 @@ class AutobidderTest:
 
         if devmode:
             self.getFutbinList(self.url)
+            # self.installAdblock()
 
         else:
             self.driver.switch_to.window(self.driver.window_handles[0])
@@ -136,8 +137,9 @@ class AutobidderTest:
             elif state == "search results":
                 self.bid()
             
-            elif state == "home":
-                print("test")
+            else:
+                log_event(self.queue, "User error: user not on the 'Search the Transfer Market' page ")
+                log_event(self.queue, "Read the instructions on the GitHub repo")
 
             # self.update_autobidder_logs()
             log_event(self.queue, "at main function end, popup text was: " + str(self.popup_text))
@@ -185,7 +187,7 @@ class AutobidderTest:
 
         reversePage = False
         while keepgoing and self.botRunning: # and no_manual_user_intervention and not redPopupVisible:
-            try:
+            # try:
                 wait_for_shield_invisibility(self.driver)
                 if (redPopupVisible):
                     if (self.popup_text == "Item removed from Transfer Targets"):
@@ -279,11 +281,15 @@ class AutobidderTest:
                 elif self.requests_made_this_round > 50:
                     log_event(self.queue, "Made over 50 requests, stopping, keepgoing = False")
                     keepgoing = False
+                elif (self.user_num_coins < 1000):
+                    log_event(self.queue, "Coins too low, keepgoing = False")
+                    keepgoing = False
                 elif (no_manual_user_intervention):
                     players = self.getAllPlayerInfo2() # Re-load player list and cycle through them
                     num_eligible = 0
                     refresh = False
                     for p in players:
+                        # print(p)
                         if refresh == False:
                             id = int(p[16])
                             if (id in players_to_use):
@@ -357,16 +363,16 @@ class AutobidderTest:
                         self.clickSearch()
                         self.sleep_approx(5)
 
-            except Exception as e:
-                # print(e)
-                # print("EXCEPTION " + str(infinitecounter))
-                infinitecounter +=1
-                if infinitecounter > 10:
-                    log_event(self.queue, "Infinite exception counter greater than 10 in bid method - stopped bot")
-                    # print("infinite  counter over 10, break now")
-                    keepgoing = False
-                    self.botRunning = False
-                    break
+            # except Exception as e:
+            #     print(e)
+            #     # print("EXCEPTION " + str(infinitecounter))
+            #     infinitecounter +=1
+            #     if infinitecounter > 4:
+            #         log_event(self.queue, "Infinite exception counter greater than 10 in bid method - stopped bot")
+            #         # print("infinite  counter over 10, break now")
+            #         keepgoing = False
+            #         self.botRunning = False
+            #         break
 
         if (self.botRunning):
             log_event(self.queue,"Total Bids made: " + str(self.bids_made_this_round) + " Requests: " + str(self.requests_made_this_round))
@@ -752,6 +758,9 @@ class AutobidderTest:
             self.driver.switch_to.window(self.driver.window_handles[1])
             self.driver.get(url)
 
+            sleep(7)
+            self.driver.execute_script("return window.stop")
+
             len_url = len(url)
             first = url[:39]
             second = url[40:len_url]
@@ -772,7 +781,8 @@ class AutobidderTest:
                     counter += 1
                     new_url = first + str(counter) + second
                     self.driver.get(new_url)
-                    self.sleep_approx(3)
+                    self.sleep_approx(6)
+                    self.driver.execute_script("return window.stop")
                 else:
                     log_event(self.queue, "No results box, should close out the tab now")
                     keepgoing = False
@@ -795,35 +805,43 @@ class AutobidderTest:
         hidden_submenu_xbox = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")
         hidden_submenu_pc = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[3]/a")
 
+        user_submenu_choice = ""
+
+        if (self.platform == "Xbox"):
+            user_submenu_choice = hidden_submenu_xbox
+        elif (self.platform == "Playstation"):
+            user_submenu_choice = hidden_submenu_ps
+        elif (self.platform == "PC"):
+            user_submenu_choice = hidden_submenu_pc
 
         actions = ActionChains(self.driver)
         actions.move_to_element(menu)
         self.sleep_approx(1)
-        actions.click(hidden_submenu_xbox)
+        actions.click(user_submenu_choice)
         actions.perform()
 
     def installAdblock(self):
         try:
-            log_event(self.queue, "Installing adblock... ")
+            log_event(self.queue, "Install Adblock to make FutBin search work properly")
             self.driver.execute_script("window.open('');")
             self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.get("https://getadblock.com/en/")
-            self.wait_for_visibility("/html/body/main/div[1]/a")
-            self.clickButton("/html/body/main/div[1]/a")
+            self.driver.get("https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom")
+            self.wait_for_visibility("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")
+            self.clickButton("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")
             
             # check if button says add to chrome
-            self.wait_for_visibility("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div")
-            text = str(self.getText("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div"))
-            if text == "Add to Chrome":
-                self.clickButton("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div")
+            # self.wait_for_visibility("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div")
+            # text = str(self.getText("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div"))
+            # if text == "Add to Chrome":
+            #     self.clickButton("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div")
                 
-                # try click accept
-                # WebDriverWait(self.driver, 10).until(EC.alert_is_present())
-                # self.driver.switch_to.alert.accept()
-                self.sleep_approx(2)
-                test = self.driver.find_element_by_css_selector("body")
-                test.send_keys(Keys.LEFT)
-                test.send_keys(Keys.ENTER)
+            #     # try click accept
+            #     # WebDriverWait(self.driver, 10).until(EC.alert_is_present())
+            #     # self.driver.switch_to.alert.accept()
+            #     self.sleep_approx(2)
+            #     test = self.driver.find_element_by_css_selector("body")
+            #     test.send_keys(Keys.LEFT)
+            #     test.send_keys(Keys.ENTER)
         except Exception as e:
             # print("User broke futbin fetch, self.botRunning false")
             print(e)
@@ -1287,6 +1305,7 @@ class AutobidderTest:
         sell price
 
         """
+        sleep(3)
         status = self.checkState("transfermarket")
         if status:
             players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
@@ -1319,6 +1338,8 @@ class AutobidderTest:
                         seconds = 15
                     elif "<30" in time:
                         seconds = 30
+                    elif "Minute" in time:
+                        seconds = 60
                 elif "1 Minute" in time:
                     seconds = 60
                 elif "Minutes" in time:
@@ -1363,6 +1384,7 @@ class AutobidderTest:
                 id = 0
                 info = [playernumber, position, bidstatus, rating, name,
                         startprice, curbid_or_finalsoldprice, buynow, time, id, pace, shooting, passing, dribbling, defending, physical, unique_player_id]
+                        # time and id are wrong
                 playerdata.append(info)
                 playernumber += 1
 
@@ -1600,11 +1622,11 @@ class AutobidderTest:
         self.undercut_market_on_relist = int(self.config.get("Settings", "undercut_market_on_relist"))
 
         self.futbin_max_price = int(self.config.get("Settings", "futbin_max_price"))
-        self.futbin_position = str(self.config.get("Settings", "futbin_position"))
+        self.platform = str(self.config.get("Settings", "platform"))
 
 
         # Return values but this really shouldn't be used - only used on initialization
-        return self.undercut_market_on_list, self.sleep_time, self.num_cycles, self.expiration_cutoff_mins, self.margin, self.undercut_market_on_relist, self.futbin_max_price, self.futbin_position
+        return self.undercut_market_on_list, self.sleep_time, self.num_cycles, self.expiration_cutoff_mins, self.margin, self.undercut_market_on_relist, self.futbin_max_price, self.platform
 
     def update_autobidder_logs(self):
         """
@@ -2041,8 +2063,6 @@ class AutobidderTest:
         
             if self.PUSH_TO_GOOGLE:
                 self.pushGoogle(final)
-            else:
-                print("not pushing to google")
 
             return final
 
@@ -2299,8 +2319,6 @@ class AutobidderTest:
         
             if self.PUSH_TO_GOOGLE:
                 self.pushGoogle(final)
-            else:
-                print("not pushing to google")
 
 
     # never got this working, and is probably what got me banned ha
