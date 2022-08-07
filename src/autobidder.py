@@ -685,7 +685,7 @@ class AutobidderTest:
     def fetch_player_data(self):
         self.wait_for_visibility("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
         tbody = self.driver.find_element_by_xpath("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
-        stats = tbody.find_elements_by_xpath('./tr')
+        stats = tbody.find_elements(By.XPATH, './tr')
         
         players = []
         index = 1
@@ -740,7 +740,7 @@ class AutobidderTest:
 
     def check_for_results(self):
         tbody = self.driver.find_element_by_xpath("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
-        stats = tbody.find_elements_by_xpath('./tr')
+        stats = tbody.find_elements(By.XPATH, './tr')
         
         for row in stats:
             test = row.text
@@ -912,7 +912,7 @@ class AutobidderTest:
         self.sleep_approx(1)
         all_players_expired_pretty_list_for_google = []
         try:
-            playersOnPage = self.driver.find_elements_by_tag_name("li.listFUTItem")
+            playersOnPage = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
 
             num_players_expired = 0
             for player in playersOnPage:
@@ -1005,7 +1005,7 @@ class AutobidderTest:
             transfer list
         """
         self.sleep_approx(1)
-        playersOnPage = self.driver.find_elements_by_tag_name("li.listFUTItem")
+        playersOnPage = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
 
         num_players_sold = 0
         all_event_data = []
@@ -1308,7 +1308,7 @@ class AutobidderTest:
         sleep(3)
         status = self.checkState("transfermarket")
         if status:
-            players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
+            players_on_page = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
 
             playerdata = []
             playernumber = 1
@@ -1702,7 +1702,7 @@ class AutobidderTest:
         page = self.checkState("watchlist")
         if page:
             try:
-                players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
+                players_on_page = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
             
                 playerdata = []
                 playernumber = 1
@@ -1751,7 +1751,7 @@ class AutobidderTest:
         if state:
             infiniteloopcounter = 0
             try:
-                players_on_page = self.driver.find_elements_by_tag_name("li.listFUTItem")
+                players_on_page = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
             
                 playerdata = []
                 playernumber = 1
