@@ -120,3 +120,4 @@ data/config.ini
 .vscode/settings.json
 data/config.ini
 data/config.ini
+*.ini

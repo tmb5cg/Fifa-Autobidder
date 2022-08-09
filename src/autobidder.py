@@ -82,21 +82,22 @@ class AutobidderTest:
         self.original_window = self.driver.window_handles[0]
         self.current_tab_viewing = ""
         self.current_tab_num = 0
-        
+        self.cookies_accepted = False
         
         # ENTER FUTBIN URL BELOW
         # your URL must start with https://www.futbin.com/22/players?page=1 exactly
         # everything after ?page=1, you can add whatever futbin filters you like
-        self.url = "https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr"
-        
+        self.url = "https://www.futbin.com/22/players?page=1&league=19&position=CM&version=gold_nr&xbox_price=0-1500"        
 
+   
     # This is the main function
     def test(self):
         devmode = False
 
         if devmode:
-            self.getFutbinList(self.url)
-            # self.installAdblock()
+            # self.getFutbinList(self.url)
+            self.change_futbin_platform()
+      
 
         else:
             self.driver.switch_to.window(self.driver.window_handles[0])
@@ -142,7 +143,7 @@ class AutobidderTest:
                 log_event(self.queue, "Read the instructions on the GitHub repo")
 
             # self.update_autobidder_logs()
-            log_event(self.queue, "at main function end, popup text was: " + str(self.popup_text))
+            # log_event(self.queue, "at main function end, popup text was: " + str(self.popup_text))
 
             if self.popup_text == "Connect to a network in order to use the app.":
                 log_event(self.queue,"network connection lost detected -- insert function ehre to click OK and start over")
@@ -155,7 +156,7 @@ class AutobidderTest:
                 self.log_event(self.queue, "STOPPED at master end of Test main function -- unable to authenticate (doesn't auto mean captcha) ", eventData)    
             else:
                 eventData = ["00000000000000", 0, 0, "error", "error", "GeneralUserInterventionOrBotBroke"]
-                self.log_event(self.queue, "STOPPED at master end of Test main function", eventData)
+                self.log_event(self.queue, "Bot stopped", eventData)
                 
 
     def bid(self):
@@ -285,6 +286,7 @@ class AutobidderTest:
                     log_event(self.queue, "Coins too low, keepgoing = False")
                     keepgoing = False
                 elif (no_manual_user_intervention):
+                    sleep(3)
                     players = self.getAllPlayerInfo2() # Re-load player list and cycle through them
                     num_eligible = 0
                     refresh = False
@@ -328,7 +330,7 @@ class AutobidderTest:
                                                     
                                                     bidSuccesful = self.makebid_individualplayer2(p[0],idealbid)
                                                     if (bidSuccesful == True):
-                                                        self.log_event(self.queue,"BID " + str(self.bids_made_this_round + 1) + ": " + str(p[4]) + " - CurBid: " + str(curbid) + " -> Bid to make: " + str(idealbid) + " -> Sell price " + str(sell_quickily_price) + " -> Minus EA tax: " + str(sell_quickily_price *.95) + "-> Est. Profit: " + str( (sell_quickily_price*.95) - idealbid), eventData)
+                                                        self.log_event(self.queue,"BID " + str(self.bids_made_this_round + 1) + ": " + str(p[4]) + " - CurBid: " + str(curbid) + " -> Bid to make: " + str(idealbid) + " -> Sell price " + str(sell_quickily_price) + " -> Minus EA tax: " + str(int(sell_quickily_price *.95)) + " -> Est. Profit: " + str( int((sell_quickily_price*.95) - idealbid)), eventData)
                                                     
                                                     if self.user_blank_bids_softban_count > 15:
                                                         log_event(self.queue, "im guessing this is a softban but red popup didn't show")
@@ -684,30 +686,26 @@ class AutobidderTest:
 
     def fetch_player_data(self):
         self.wait_for_visibility("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
-        tbody = self.driver.find_element_by_xpath("/html/body/div[9]/div[2]/div[5]/div[4]/table/tbody")
+        tbody = self.driver.find_element(By.CSS_SELECTOR, '#repTb > tbody')
         stats = tbody.find_elements(By.XPATH, './tr')
         
         players = []
         index = 1
         for row in stats:
             test = row.text
-            # print(test)
             card_details = test.split("\n")
-            stats = card_details[1].strip("\n").split(" ")
-            # print("Card details: " + str(card_details))
-            # print("\n")
-            # print("Stats: " + str(stats))
+            stats = card_details[3].strip("\n").split(" ")
 
             name = card_details[0].strip("\n")
-            rating = stats[0]
-            position = stats[1]
-            price = stats[3]
-            pace = stats[9]
-            shooting = stats[10]
-            passing = stats[11]
-            dribbling = stats[12]
-            defense = stats[13]
-            physical = stats[14]
+            rating = card_details[1]
+            position = card_details[2]
+            price = stats[1]
+            pace = stats[7]
+            shooting = stats[8]
+            passing = stats[9]
+            dribbling = stats[10]
+            defense = stats[11]
+            physical = stats[12]
             
             if "K" in price:
                 price = price.replace("K", "")
@@ -751,56 +749,69 @@ class AutobidderTest:
     def getFutbinList(self, url):
         test = True
         # https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr
-        try:
-            log_event(self.queue, "Fetching futbin prices (new version)... ")
-            self.clearOldPlayerlist() # clears targetplayers.txt
-            self.driver.execute_script("window.open('');")
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.get(url)
+        # try:
+        log_event(self.queue, "Fetching futbin prices (new version)... ")
+        self.clearOldPlayerlist() # clears targetplayers.txt
+        self.driver.execute_script("window.open('');")
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.driver.get(url)
 
-            sleep(7)
-            self.driver.execute_script("return window.stop")
+        sleep(7)
+        self.driver.execute_script("return window.stop")
 
-            len_url = len(url)
-            first = url[:39]
-            second = url[40:len_url]
+        # click OK for cookies
+        if not self.cookies_accepted:
+            buttons = self.driver.find_elements_by_xpath("//*[contains(text(), 'Got it!')]")
+            for btn in buttons:
+                try:
+                    btn.click()
+                except:
+                    pass
+            self.cookies_accepted = True
 
-            self.sleep_approx(3)
-            self.enable_xbox_prices()
-            self.sleep_approx(3)
+        len_url = len(url)
+        first = url[:39]
+        second = url[40:len_url]
 
-            # Iterate over page results
-            keepgoing = True
-            counter = 1
-            while keepgoing:
-                results = self.check_for_results()
+        self.sleep_approx(3)
+        self.change_futbin_platform()
+        self.sleep_approx(3)
 
-                if results:
-                    self.fetch_player_data()
+        # Iterate over page results
+        keepgoing = True
+        counter = 1
+        while keepgoing:
+            results = self.check_for_results()
 
-                    counter += 1
-                    new_url = first + str(counter) + second
-                    self.driver.get(new_url)
-                    self.sleep_approx(6)
-                    self.driver.execute_script("return window.stop")
-                else:
-                    log_event(self.queue, "No results box, should close out the tab now")
-                    keepgoing = False
-            # log_event(self.queue, "Finished exit from while loop")
+            if results:
+                self.fetch_player_data()
 
-            # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
-            self.driver.close()
-            self.driver.switch_to.window(self.driver.window_handles[0])
-        except:
-            log_event(self.queue, "Error fetching futbin")
-            self.driver.switch_to.window(self.driver.window_handles[0])
-            self.botRunning = False
+                counter += 1
+                new_url = first + str(counter) + second
+                self.driver.get(new_url)
+                self.sleep_approx(6)
+                self.driver.execute_script("return window.stop")
+            else:
+                log_event(self.queue, "No results box, should close out the tab now")
+                keepgoing = False
+        # log_event(self.queue, "Finished exit from while loop")
+
+        # ~ ~ ~ ~ ~ ~ ~ Close the futbin tab ~ ~ ~ ~ ~
+        self.driver.close()
+        self.driver.switch_to.window(self.driver.window_handles[0])
+        # except Exception as e:
+        #     # print("error was: " + str(e))
+        #     log_event(self.queue, "Error fetching futbin")
+        #     self.driver.switch_to.window(self.driver.window_handles[0])
+        #     self.botRunning = False
         
+        self.driver.switch_to.window(self.driver.window_handles[0])
         log_event(self.queue,"Finished fetching futbin prices, hopefully it worked - check targetplayers.txt")
 
-    def enable_xbox_prices(self):                                                                       
-        myElem = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/header/nav/div/div/ul[2]/li[4]/div/span')))
-        menu = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/span")
+    def change_futbin_platform(self):   
+        myElem = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, 'platform_switch')))
+
+        menu = self.driver.find_element(By.ID, "platform_switch")
         hidden_submenu_ps = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a")
         hidden_submenu_xbox = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")
         hidden_submenu_pc = self.driver.find_element_by_xpath("/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[3]/a")
@@ -819,38 +830,6 @@ class AutobidderTest:
         self.sleep_approx(1)
         actions.click(user_submenu_choice)
         actions.perform()
-
-    def installAdblock(self):
-        try:
-            log_event(self.queue, "Install Adblock to make FutBin search work properly")
-            self.driver.execute_script("window.open('');")
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.get("https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom")
-            self.wait_for_visibility("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")
-            self.clickButton("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")
-            
-            # check if button says add to chrome
-            # self.wait_for_visibility("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div")
-            # text = str(self.getText("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div"))
-            # if text == "Add to Chrome":
-            #     self.clickButton("/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div")
-                
-            #     # try click accept
-            #     # WebDriverWait(self.driver, 10).until(EC.alert_is_present())
-            #     # self.driver.switch_to.alert.accept()
-            #     self.sleep_approx(2)
-            #     test = self.driver.find_element_by_css_selector("body")
-            #     test.send_keys(Keys.LEFT)
-            #     test.send_keys(Keys.ENTER)
-        except Exception as e:
-            # print("User broke futbin fetch, self.botRunning false")
-            print(e)
-            log_event(self.queue,"Failed at installing adblock")
-            self.driver.switch_to.window(self.driver.window_handles[0])
-            self.botRunning = False
-            
-        self.driver.switch_to.window(self.driver.window_handles[0])
-
 
     def checkState(self, desiredPage=""):
         """
@@ -2066,6 +2045,18 @@ class AutobidderTest:
 
             return final
 
+    def closeAllWindows(self):
+        # get windows
+        open_windows = len(self.driver.window_handles)
+
+        for w in range(open_windows):
+            if w != 0:
+                self.driver.switch_to.window(self.driver.window_handles[w])
+                self.driver.close()
+        
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
+
     def log_event2(self, event, msg_type = ''):
         event = str(event)
 
@@ -2396,6 +2387,8 @@ class AutobidderTest:
                 print("should run unfction reauthorize google here, and then reattempt append row")
                 self.reAuthorizeGoogle()
                 self.sheet_instance.append_rows(row)
+
+    
             
     def reAuthorizeGoogle(self):
         # define the scope
@@ -2452,6 +2445,62 @@ def wait_for_player_shield_invisibility(driver, duration=0.25):
     # print("PIZZA")
     sleep(.1)
 
+def setup_adblock(driver):
+    driver.execute_script("alert('IMPORTANT: After clicking OK below, click --Add Extension-- when prompted. Then proceed to login');")
+    
+    alert_present = True
+    while alert_present:
+        try:
+            alert_present = WebDriverWait(driver, 1).until(EC.alert_is_present(), 'Alert is gone')
+            
+        except Exception as e:
+            # Alert is gone, now install adblock
+            alert_present = False
+            try:
+                # log_event(self.queue, "Install Adblock to make FutBin search work properly")
+                # driver.execute_script("window.open('');")
+                # driver.switch_to.window(driver.window_handles[1])
+                driver.get("https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en")
+                WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")))
+                WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div"))).click()
+
+            except Exception as e:
+                # print("User broke futbin fetch, self.botRunning false")
+                print("Issue installing adblocker, please install manually")
+                driver.switch_to.window(driver.window_handles[0])
+                
+            driver.switch_to.window(driver.window_handles[0])
+    
+    sleep(3)
+    installing = True
+    while installing:
+        try:
+            elements = "/html/body/div[3]/div[2]/div/div/div[2]"
+            page_content = driver.find_elements(By.XPATH, elements)
+
+            for elem in page_content:
+                text = str(elem.text)
+                text = text.strip()
+                # print(text)
+                lowered = text.lower()
+                if (text == "Remove from Chrome"):
+                    installing = False
+
+                if (lowered == "remove from chrome"):
+                    installing = False 
+
+                if "remove" in lowered:
+                    installing = False
+                    break
+            
+        except:
+            print("hi")
+
+    driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
+
+
+    
+
 def login(queue, driver, user, email_credentials):
     try:
         WebDriverWait(driver, 15).until(
@@ -2481,19 +2530,9 @@ def login(queue, driver, user, email_credentials):
                 (By.XPATH, '/html/body/div/form/div/section/a[2]'))
         ).click()
 
-        access_code = get_access_code(queue, email_credentials)
-
-        driver.find_element(By.XPATH, '/html/body/div[1]/form/div/section/div[2]/div/input').send_keys(access_code)
-        sleep(1)
-        driver.find_element(By.ID, 'btnSubmit').click()
-
-        log_event(queue, "Logged in successfully!")
-        WebDriverWait(driver, 30).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, 'icon-transfer'))
-        )
-        sleep(2)
+        log_event(queue, "Continue login manually")
     except:
-        log_event(queue, "Login error - check config.ini or network connection")
+        log_event(queue, "Continue login manually")
 
 def get_access_code(queue, email_credentials):
 
@@ -2508,7 +2547,7 @@ def get_access_code(queue, email_credentials):
             queue, "Unable to fetch access code from email (see ReadMe for help on this), enter it manually")
         sys.exit(1)
 
-    print("Waiting for access code...")
+    # print("Waiting for access code...")
     sleep(3)
     message_numbers_list = []
     message_numbers = []

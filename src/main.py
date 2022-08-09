@@ -127,7 +127,9 @@ class Buttons(tk.Frame):
         self.config.read("./data/config.ini")
         url = str(self.config.get("Other", "webapp_url"))
         # https://www.ea.com/fifa/ultimate-team/web-app/
-        self.driver.get(url)
+        # ublock_origin_link = "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en"
+        # self.driver.get(ublock_origin_link)
+        setup_adblock(self.driver)
 
     def login(self):
         log_event(self.controller.parentQueue, "Auto logging in...")
