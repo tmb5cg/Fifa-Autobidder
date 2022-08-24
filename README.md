@@ -35,7 +35,7 @@ Advantages:
 
 ## Installation
 
-1. Download or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
+1. [Download](https://github.com/tmb5cg/Fifa22-Autobidder/archive/refs/heads/main.zip) or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
 
 2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
