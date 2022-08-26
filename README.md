@@ -18,7 +18,7 @@ _Note 4: (8/26/22) New version released with all-new UI and automatic filter ent
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market web application. 
 
-For detailed documentation on configuring the bot, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
+For detailed documentation on configuring the bot, [see here](https://tmb5cg.github.io/fifa-autobidder). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
 
 ## Overview & Features
 
@@ -106,13 +106,13 @@ The webapp should open in a new browser, along with the GUI.
 1. Login to the webapp manually (do not click the "LOGIN" button on the GUI unless you want auto login, which often causes issue)
 2. In the webapp, manually go to the Search the Transfer Market page. 
 3. Apply the filters that match your URL on line 90 in autobidder.py: rarity - nonrare, quality - gold, position - CM. Set the minimum buy now to 9900, maximum buy now 10,000. Do NOT click the "search" button. The bot will do this for you. Double check the filters are accurate.
-4. Click "RUN BOT" button on GUI. The bot should turn green (indicating it is running) and open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing)
+4. Click "RUN BOT" button on GUI. The bot should turn green (indicating it is running) and open the FUTBIN url in a new tab, just don't touch anything and let it run. To understand how it works and the configuration settings, [see here](https://tmb5cg.github.io/fifa-autobidder)
 
 You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or about 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
 
 ## Configuration
 
-Everything is configured via the user interface. [See here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing) for an explanation of the user interface settings.
+Everything is configured via the user interface. [See here](https://tmb5cg.github.io/fifa-autobidder) for an explanation of the user interface settings.
 
 The bot uses Xbox prices by default. To switch your platform, be sure to edit the Platform dropdown on the UI.
 
