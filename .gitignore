@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+xxxold/
 
 # C extensions
 *.so
@@ -121,3 +122,5 @@ data/config.ini
 data/config.ini
 data/config.ini
 *.ini
+src/ignore.py
+theme/light/vert-hover.png

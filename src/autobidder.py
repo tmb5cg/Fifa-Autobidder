@@ -2,6 +2,8 @@ import csv
 import email
 import imaplib
 import json
+import os
+from os import path
 from platform import platform
 import random
 import sys
@@ -11,7 +13,8 @@ from datetime import date
 
 from decimal import Decimal
 from time import sleep
-
+import re
+from turtle import position
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -29,17 +32,18 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import configparser
 
-class AutobidderTest:
-    def __init__(self, driver, queue, GUI_OPTIONS_MENU):
+from helpers import getFilters, log_event
+
+class Autobidder:
+    def __init__(self, driver, queue):
         self.driver = driver
         self.queue = queue
-        self.GUI_OPTIONS = GUI_OPTIONS_MENU
         self.playerlist = []
         self.players = []
 
         # Get user config statistics, and GUI labels
         self.config = configparser.ConfigParser()
-        self.config.read("./data/config.ini")
+        self.config.read("./data/settings.ini")
 
         # Load in frontend statistics on bot init
         self.user_players_won = int(self.config.get("Statistics", "players_won"))
@@ -82,22 +86,14 @@ class AutobidderTest:
         self.original_window = self.driver.window_handles[0]
         self.current_tab_viewing = ""
         self.current_tab_num = 0
-        self.cookies_accepted = False
-        
-        # ENTER FUTBIN URL BELOW
-        # your URL must start with https://www.futbin.com/22/players?page=1 exactly
-        # everything after ?page=1, you can add whatever futbin filters you like
-        self.url = "https://www.futbin.com/22/players?page=1&league=19&position=CM&version=gold_nr&xbox_price=0-1500"        
-
+        self.cookies_accepted = False      
    
     # This is the main function
-    def test(self):
+    def run(self):
         devmode = False
 
         if devmode:
-            # self.getFutbinList(self.url)
-            self.change_futbin_platform()
-      
+            self.write_to_table() 
 
         else:
             self.driver.switch_to.window(self.driver.window_handles[0])
@@ -118,8 +114,11 @@ class AutobidderTest:
                     newstate = self.checkState()
                     if newstate == "search the transfer market":
                         if self.botRunning:
+                            if (int(self.config["Other"]["autoinput"]) == 1):
+                                self.enterFilters()
+                            
                             self.bidround_number = x
-                            self.getFutbinList(self.url)
+                            self.getFutbinList(str(self.config["Other"]["futbin_url"]))
                             if (self.botRunning):
                                 self.sleep_approx(3)
                                 self.clickSearch()
@@ -141,9 +140,6 @@ class AutobidderTest:
             else:
                 log_event(self.queue, "User error: user not on the 'Search the Transfer Market' page ")
                 log_event(self.queue, "Read the instructions on the GitHub repo")
-
-            # self.update_autobidder_logs()
-            # log_event(self.queue, "at main function end, popup text was: " + str(self.popup_text))
 
             if self.popup_text == "Connect to a network in order to use the app.":
                 log_event(self.queue,"network connection lost detected -- insert function ehre to click OK and start over")
@@ -168,12 +164,10 @@ class AutobidderTest:
         no_manual_user_intervention = True
         redPopupVisible = False
         watchlistFullPopup = False
-        infinitecounter = 0
 
         # zero out 
         self.bids_made_this_round = 0
         self.requests_made_this_round = 0
-
         self.players_sold_this_round = 0
         self.players_expired_this_round = 0
         self.players_won_this_round = 0
@@ -278,7 +272,6 @@ class AutobidderTest:
                         keepgoing = False
                         self.botRunning = False
         
-                    # self.clickButton("/html/body/div[4]/section/div/div/button")
                 elif self.requests_made_this_round > 50:
                     log_event(self.queue, "Made over 50 requests, stopping, keepgoing = False")
                     keepgoing = False
@@ -339,7 +332,6 @@ class AutobidderTest:
                                                     num_eligible+=1
                                                     refresh = True
                                         else:
-                                            # START REVERSING PAGE
                                             self.hasExceededTimeCutoff = True
                                             refresh = True
 
@@ -364,17 +356,6 @@ class AutobidderTest:
                         self.sleep_approx(5)
                         self.clickSearch()
                         self.sleep_approx(5)
-
-            # except Exception as e:
-            #     print(e)
-            #     # print("EXCEPTION " + str(infinitecounter))
-            #     infinitecounter +=1
-            #     if infinitecounter > 4:
-            #         log_event(self.queue, "Infinite exception counter greater than 10 in bid method - stopped bot")
-            #         # print("infinite  counter over 10, break now")
-            #         keepgoing = False
-            #         self.botRunning = False
-            #         break
 
         if (self.botRunning):
             log_event(self.queue,"Total Bids made: " + str(self.bids_made_this_round) + " Requests: " + str(self.requests_made_this_round))
@@ -426,14 +407,10 @@ class AutobidderTest:
                 while status:
                     status = self.check_exists_by_xpath("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]")                
                     try:
-                        # self.wait_for_visibility("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]")
-                        # wait_for_shield_invisibility(self.driver)
                         self.clickButton('/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div') # click player
-                        # wait_for_player_shield_invisibility(self.driver)
                         wait_for_shield_invisibility(self.driver)
                         self.clickButton("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button") # click re-list
                         wait_for_shield_invisibility(self.driver)
-                        # wait_for_player_shield_invisibility(self.driver)
                         if int(self.undercut_market_on_relist) == 0:
                             print ("undercut market is 0, not gonna subtract")
                         elif int(self.undercut_market_on_relist) == 1:
@@ -444,7 +421,6 @@ class AutobidderTest:
                             self.clickButton("/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[3]/div[2]/button[1]") # click minus button
 
                         wait_for_shield_invisibility(self.driver)
-                        # wait_for_player_shield_invisibility(self.driver)
 
                         rating = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[5]/div[2]/div[1]")
                         position = self.getText("/html/body/main/section/section/div[2]/div/div/div/section[2]/ul/li[1]/div/div[1]/div[1]/div[5]/div[2]/div[2]")
@@ -612,7 +588,7 @@ class AutobidderTest:
             log_event(self.queue, "- - - - STATISTICS ROUND " + str(self.bidround_number + 1) + "- - -")
             log_event(self.queue, "Bids Made: " + str(self.bids_made_this_round) + " | Requests Made: " + str(self.requests_made_this_round))
             log_event(self.queue,"Players won: " + str(players_won) + " | Lost: " + str(players_expired))
-            log_event(self.queue,"Projected profit: " + str(projected_profit) + " | Prof per player: " + str(profit_per_player))
+            log_event(self.queue,"Projected profit: " + str(int(projected_profit)) + " | Prof per player: " + str(int(profit_per_player)))
             log_event(self.queue, " - - - - - - - - - - - -")
 
             self.players_won_this_round = players_won
@@ -635,33 +611,67 @@ class AutobidderTest:
        
 # HELPER METHODS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
-    def changeUserSettingFromAutobidder(self, new_value, option_to_change="margin"):
-        # expiration_cutoff_mins
-        # margin
-        # undercut_market_on_list
-        # undercut_market_on_relist
+    def enterFilters(self):
+        # Reset existing filters
+        self.clickButton("/html/body/main/section/section/div[2]/div/div[2]/div/div[2]/button[1]")
 
-        self.config.read("./data/config.ini")
-        count = 0
-        options = self.config.options("Settings")
+        # Enter min bin and max bin 
+        self.send_keys_and_more("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[5]/div[2]/input", "9900")
+        self.send_keys_and_more("/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input", "10000")
 
-        new_value = int(new_value)
+        webapp_filters_output = getFilters(str(self.config["Other"]["futbin_url"]))
+        webapp_options = ['quality', 'rarity', 'league', 'club', 'country', 'position']
 
-        # iterate over option memory objects in GUI OPTIONS list
-        for option in self.GUI_OPTIONS:
-            # Get option name in config.ini file
-            option_name = options[count]
+        # enter in order of precedence
+        for filter_option in webapp_options:
+            if filter_option in webapp_filters_output:
+                value = webapp_filters_output[filter_option]
+                if filter_option == "country": filter_option = "nationality"
 
-            option_dropdown_memory_object_name = str(option)
-            current_choice = option.get()
+                dict = {
+                    "quality": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div",
+                    "rarity": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[3]/div/div",
+                    "position": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[4]/div/div",
+                    "nationality": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[6]/div/div",
+                    "league": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[7]/div/div",
+                    "club": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[1]/div[8]/div/div",
+                    "minBin":"/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[5]/div[2]/input",
+                    "maxBin": "/html/body/main/section/section/div[2]/div/div[2]/div/div[1]/div[2]/div[6]/div[2]/input"
+                    }
 
-            # print("Option memory object, talking to it from Autobidder: " + str(option_dropdown_memory_object_name) + " curVal (on GUI): " + str(current_choice))
+                xpath = dict[filter_option]
+                
+                self.inputFilter(filter_option, value, xpath)
+                sleep(3)
+        
+        sleep(2)
+        log_event(self.queue, "Filters successfully entered")
+    
+    def inputFilter(self, option, target, xpath):
+        # Scroll filter into view
+        self.scrollIntoView(xpath)
+        sleep(2)
 
-            # Set user option to passed option
-            if option_dropdown_memory_object_name == option_to_change:
-                option.set(new_value)
-           
-            count+=1
+        # Click filter dropdown
+        self.clickButton(xpath)
+
+        dd = xpath[:-3] + "ul"
+        dropdown = self.driver.find_element(By.XPATH, dd)
+        dropdown_options = dropdown.find_elements(By.CSS_SELECTOR, "li")
+
+        not_found = True
+        for li in dropdown_options:
+            if not_found:
+                option_cleaned = str(li.text).strip().lower()
+                target_cleaned = str(target).strip().lower()
+                # print(option_cleaned)
+                if option_cleaned == target_cleaned:
+                    self.driver.execute_script("arguments[0].scrollIntoView(true);", li)
+                    sleep(1)
+                    li.click()
+                    not_found = False
+            else:
+                break
 
     def checkForPopup(self):
         popup = self.check_exists_by_xpath("/html/body/div[4]/section/div/div/button")
@@ -889,7 +899,6 @@ class AutobidderTest:
             watch list
         """
         self.sleep_approx(1)
-        all_players_expired_pretty_list_for_google = []
         try:
             playersOnPage = self.driver.find_elements(By.TAG_NAME, "li.listFUTItem")
 
@@ -933,16 +942,9 @@ class AutobidderTest:
 
                         text = "LOST PID: " + str(unique_player_id) + " NAME: " + str(name) + " SOLDPRICE: " + str(curbid_or_finalsoldprice) + " POSITION: " + str(position)
                         eventData = [unique_player_id, curbid_or_finalsoldprice, rating, name, position, playerNation, playerLeague, playerTeam]
-                        # self.log_event(self.queue, text, eventData)
-                        pretty_log = self.log_eventv2(self.queue, text, eventData)
-                        log_event(self.queue,text)
-                        all_players_expired_pretty_list_for_google.append(pretty_log)
+                        self.log_event(self.queue, text, eventData)
                 except Exception as e:
-                    # self.errorCounter +=1
                     print(e)
-                    # eventData = ["00000000000000", 0, 0, "error", "error"]
-                    # self.log_event(self.queue, "error6", eventData)
-                    # self.errorCounter +=1
 
             if num_players_expired > 0:
                 clearExpired = self.driver.find_element(By.XPATH, "/html/body/main/section/section/div[2]/div/div/div/section[4]/header/button")
@@ -967,9 +969,6 @@ class AutobidderTest:
                 exists = self.check_exists_by_xpath("/html/body/div[4]/section")
                 if exists:
                     self.popup_text = self.getText("/html/body/div[4]/section/div/p")
-        if len(all_players_expired_pretty_list_for_google) > 0:
-            print("looks good, going to push the array to google now")
-            # self.pushGoogle(all_players_expired_pretty_list_for_google)
 
     def clickBack(self):
             exists = self.check_exists_by_xpath("/html/body/main/section/section/div[1]/button[1]")
@@ -1049,18 +1048,11 @@ class AutobidderTest:
             self.clickButton("/html/body/main/section/section/div[2]/div/div/div/section[1]/header/button")
 
         # log the events
-        batch_rows_to_append_google = []
         for event in all_event_data:
             text = event[0]
             eventData = event[1]
 
-            rowCleaned = self.log_eventv2(self.queue, text, eventData)
-            log_event(self.queue, event) # only doing this so it prints
-            batch_rows_to_append_google.append(rowCleaned)
-
-
-        # batch send all rows to gsheets
-        # self.pushGoogle(batch_rows_to_append_google)
+            self.log_event(self.queue, text, eventData)
 
     def sleep_approx(self, seconds):
         """
@@ -1118,8 +1110,6 @@ class AutobidderTest:
         button = self.driver.find_element(By.XPATH, button_xpath)
         self.driver.execute_script(
             "arguments[0].scrollIntoView(true);", button)
-        # WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, button_xpath)))
-
 
     def go_to_transfer_market(self):
         """
@@ -1190,7 +1180,6 @@ class AutobidderTest:
                 self.go_to_transferlist()
         else:
             log_event(self.queue, "infinite loop detected")
-
 
     def clickSearch(self):
         """
@@ -1368,8 +1357,6 @@ class AutobidderTest:
                 playernumber += 1
 
             return playerdata
-            # except:
-            #     log_event(self.queue, "Exception getAllPlayerInfo")
 
     def getPlayerBidstatus(self, playernumber):
         status = self.checkState("transfermarket")
@@ -1532,7 +1519,7 @@ class AutobidderTest:
         # self.clickButton("/html/body/main/section/section/div[2]/div/div/section[2]/div/div/div[2]/div[2]/div/button[2]")
         # self.sleep_approx(.2)
         # self.clickButton("/html/body/main/section/section/div[2]/div/div/section[2]/div/div/div[2]/div[2]/div/button[1]")
-        # self.sleep_approx(.2)
+        self.sleep_approx(2)
 
     def getSellPrice(self, pid):
         pid = int(pid)
@@ -1588,7 +1575,7 @@ class AutobidderTest:
         Location:
             anywhere
         """
-        self.config.read("./data/config.ini")
+        self.config.read("./data/settings.ini")
 
 
         # SETTINGS START
@@ -1616,10 +1603,10 @@ class AutobidderTest:
             anywhere
         """
         #                self.config.set("Settings", option_name, str(choice))
-           #     self.config.write(open("./data/config.ini", "w"))
+           #     self.config.write(open("./data/settings.ini", "w"))
         # also update user config vars
         self.getUserConfig()
-        self.config.read("./data/config.ini")
+        self.config.read("./data/settings.ini")
 
         try:
             num_coins = self.driver.find_element(By.XPATH, '/html/body/main/section/section/div[1]/div[1]/div[1]').text
@@ -1640,8 +1627,8 @@ class AutobidderTest:
             self.config.set("Statistics", "requests_made", str(self.user_requests_made))
             self.config.set("Statistics", "bids_made", str(self.user_bids_made))
             self.config.set("Statistics", "current_selling", str(self.user_transferlist_selling))
-            # self.config.write(open("./data/config.ini", "w"))
-            with open('./data/config.ini', 'w') as configfile:
+            # self.config.write(open("./data/settings.ini", "w"))
+            with open("./data/settings.ini", 'w') as configfile:
                 self.config.write(configfile)
 
         except Exception as e:
@@ -1781,7 +1768,8 @@ class AutobidderTest:
             time_pretty = str(mins) + ":" + str(seconds)
 
             agg = [dt_string, time_pretty, bidround_number, self.players_won_this_round, self.players_lost_this_round, self.bids_made_this_round, self.requests_made_this_round, self.margin, self.players_sold_this_round, self.players_expired_this_round, int(self.projected_profit_this_round), int(self.profit_per_player_this_round)]
-            self.log_event(self.queue, "BIDROUNDOVER woohoo", agg)
+
+            self.log_event(self.queue, "", agg)
             full_entry = ""
             for word in agg:
                 word = str(word)
@@ -1789,261 +1777,11 @@ class AutobidderTest:
                 full_entry += word_comma
 
             full_entry = full_entry[:-1]
-
+            
             # send entry to queue object to update GUI
-            log_event(self.queue, full_entry, "bidround")
-
-            # Add new line to end
-            hs = open("./data/bid_rounds.txt", "a", encoding="utf8")
-            hs.write(full_entry + "\n")
-            hs.close()
+            log_event(self.queue, full_entry, True)
         except:
             log_event(self.queue, "Short term finished")
-
-    def log_eventv2(self, queue, event, eventData=""):
-        """
-        Special logging method for when writing to new file
-        """
-        event = str(event)
-        # log_event(queue, event)
-
-        if (len(eventData)) > 1:
-            split = event.split(" ")
-            event_action = split[0]
-
-            today = date.today()
-            now = datetime.now()
-
-            # General
-            date2 = str(today.strftime("%m/%d/%Y"))
-            time = now.strftime("%I:%M:%S %p")
-            coins = self.user_num_coins
-
-            # player specific
-            player_id = 0
-            player_name = ""
-            unique_id = ""
-            rating = ""
-            position = ""
-            player_nation = ""
-            player_league = ""
-            player_team = ""
-
-            action = ""
-            location = ""
-
-            # ACTION DETAILS
-            bid_action = 0
-            sold_action = 0
-            relist_action = 0
-            list_action = 0
-            lost_action = 0
-            
-            # BID
-            curbid = ""
-            bid_made = ""
-            sell_price = ""
-            sell_price_minus_tax = ""
-            est_profit = ""
-
-            # SOLD
-            sold_price_won = ""
-
-            # RELIST
-            relist_price = ""
-
-            # LIST
-            boughtprice = ""
-            list_price = ""
-
-            # LOST
-            sold_price_outbid = ""
-
-            # SUMMARY
-            time_elapsed = ""
-            won = ""
-            lost = ""
-            bids = ""
-            requests = ""
-            margin = ""
-            sold = ""
-            relisted = ""
-            profit = ""
-            profit_per_player = ""
-            url = self.url
-
-            if event_action == "SUMMARY":
-                action = "SUMMARY"
-                location = "none"
-                time_elapsed = ""
-                won = ""
-                lost = ""
-                bids = ""
-                requests = ""
-                margin = ""
-                sold = ""
-                relisted = ""
-                profit = ""
-                profit_per_player = ""
-
-            elif event_action == "BID":
-                # eventData = [pid, name, curbid, idealbid, sell_quickily_price, (sell_quickily_price*.95), ((sell_quickily_price*.95) - idealbid), nation, league, team, rating, position]]
-                # eventData = [pid, p[4], curbid, idealbid, sell_quickily_price, (sell_quickily_price*.95), ((sell_quickily_price*.95) - idealbid), nation, league, team, position, rating]
-
-                player_id = eventData[0]
-                player_name, rating, position, price = self.getPlayerInfoFromID(eventData[0])
-                player_id = eventData[0]
-                player_name = str(eventData[1])
-                rating = int(rating)
-                position = position
-                action = "BID"
-                location = "transfer market"
-                player_nation = eventData[7]
-                player_league = eventData[8]
-                player_team = eventData[9]
-                # rating = eventData[10]
-                # position = eventData[11]
-
-                # unique ones
-                curbid = eventData[2]
-                bid_made = eventData[3]
-                sell_price = eventData[4]
-                sell_price_minus_tax = eventData[5]
-                est_profit = eventData[6]
-                bid_action = 1
-                
-            elif event_action == "LOST":
-                # eventData = [unique_player_id, curbid_or_finalsoldprice, rating, name, position]	
-                # eventData = [unique_player_id, curbid_or_finalsoldprice, rating, name, position, playerNation, playerLeague, playerTeam]
-
-                player_id = eventData[0]
-                if (player_name != "unknown"):
-                    player_id = eventData[0]
-                    player_name = eventData[3]
-                    rating = int(eventData[2])
-                    position = eventData[4]
-                    action = "LOST"
-                    location = "watchlist"
-
-                    player_nation = eventData[5]
-                    player_league = eventData[6]
-                    player_team = eventData[7]
-
-                # UNIQUES
-                sold_price_outbid = eventData[1]
-                lost_action = 1
-
-            elif event_action == "SOLD":
-                # [unique_player_id, name, curbid_or_finalsoldprice, position, rating]
-                # [unique_player_id, name, curbid_or_finalsoldprice, position, rating, nation, league, team]
-
-                player_id = eventData[0]
-                player_name = eventData[1]
-                position = eventData[3]
-                rating = int(eventData[4])
-                player_id = eventData[0]
-                player_name = player_name
-                rating = rating
-                position = position
-                action = "SOLD"
-                location = "transfer list"
-                rating = int(rating)
-                player_nation = eventData[5]
-                player_league = eventData[6]
-                player_team = eventData[7]
-
-                # UNIQUES
-                sold_price_won = eventData[2]
-                sold_action = 1
-
-            elif event_action == "RELIST":
-                # eventData = [unique_player_id, name, relist_price, position, rating]
-                # eventData = [unique_player_id, name, relist_price, position, rating, nation, league, team]
-
-                player_id = eventData[0]
-                player_name = eventData[1]
-                position = eventData[3]
-                rating = int(eventData[4])
-                player_id = eventData[0]
-                player_name = player_name
-                rating = rating
-                position = position
-                action = "RELIST"
-                location = "transfer list"
-
-                player_nation = eventData[5]
-                player_league = eventData[6]
-                player_team = eventData[7]
-                
-                # UNIQUES 
-                relist_price = eventData[2]
-                relist_action = 1
-
-            elif event_action == "LIST":
-                # eventData = [pid, boughtprice, playerPrice, playerName, playerNation, playerLeague, playerTeam]
-                player_id = eventData[0]
-                player_name, rating, position, price = self.getPlayerInfoFromID(eventData[0])
-                
-                player_id = eventData[0]
-                player_name = eventData[3] # player_name
-                rating = int(rating)
-                position = position
-                action = "LIST"
-                location = "watchlist"
-
-                player_nation = eventData[4]
-                player_league = eventData[5]
-                player_team = eventData[6]
-
-                # UNIQUES
-                boughtprice = eventData[1]
-                list_price = eventData[2]
-                list_action = 1
-
-            elif event_action == "BIDROUNDOVER":
-                time_elapsed = eventData[1]
-                won = eventData[3]
-                lost = eventData[4]
-                bids = eventData[5]
-                requests = eventData[6]
-                margin = eventData[7]
-                sold = eventData[8]
-                relisted = eventData[9]
-                profit = eventData[10]
-                profit_per_player = eventData[11]
-                action = "SUMMARY"
-                location = "SUMMARY"
-
-            elif event_action == "STOPPED":
-                # ["00000000000000", 0, 0, "error", "error", LOCATION]
-                reason = eventData[5]
-                action = "STOPPED"
-                location = str(reason)
-                player_id = ""
-
-
-            if (event_action != "BIDROUNDOVER"):
-                if (event_action != "SOFTBAN"):
-                    if (event_action != "STOPPED"):
-                        # convert player id to int
-                        try:
-                            pid = str(player_id)
-                            unique_id = player_name + "_" + str(rating) + "_" + str(position) + "_" + pid
-                            player_id = int(player_id)
-                        except:
-                            print("casting player ID to int didn't work")
-    
-            new_datetime = date2 + " " + time
-            final = [date2,time,new_datetime,coins,player_id,player_name,unique_id,rating,position,player_nation,player_league,player_team,action,location,bid_action, sold_action, relist_action, list_action, lost_action, curbid,bid_made,sell_price,sell_price_minus_tax,est_profit,sold_price_won,relist_price,boughtprice,list_price,sold_price_outbid,time_elapsed,won,lost,bids,requests,margin,sold,relisted,profit,profit_per_player,url]
-
-            with open(r'./data/logs.csv', 'a', encoding="utf8") as f:
-                writer = csv.writer(f)
-                writer.writerow(final)
-        
-            if self.PUSH_TO_GOOGLE:
-                self.pushGoogle(final)
-
-            return final
 
     def closeAllWindows(self):
         # get windows
@@ -2056,12 +1794,6 @@ class AutobidderTest:
         
         self.driver.switch_to.window(self.driver.window_handles[0])
 
-
-    def log_event2(self, event, msg_type = ''):
-        event = str(event)
-
-        combined = [event, msg_type]
-        self.queue.put(combined)
         
     def log_event(self, queue, event, eventData=""):
         """
@@ -2133,7 +1865,7 @@ class AutobidderTest:
             relisted = ""
             profit = ""
             profit_per_player = ""
-            url = self.url
+            url = str(self.config["Other"]["futbin_url"])
 
             if event_action == "SUMMARY":
                 action = "SUMMARY"
@@ -2312,116 +2044,6 @@ class AutobidderTest:
                 self.pushGoogle(final)
 
 
-    # never got this working, and is probably what got me banned ha
-    def fixSoftban(self):
-        windows_open = self.driver.window_handles
-
-        for x in windows_open:
-            self.log_event2(x)
-
-        print(len(windows_open))
-
-        # open 3 windows with url
-        # url = "https://www.ea.com/fifa/ultimate-team/web-app/"
-        # self.driver.execute_script("window.open('');")
-        # self.driver.switch_to.window(self.driver.window_handles[1])
-        # self.driver.get(url)
-        self.openNewWebapp()
-        self.openNewWebapp()
-        self.openNewWebapp()
-
-        # self.driver.close()
-
-        # switch to original broken tab
-        sleep(5)
-        self.driver.switch_to.window(self.driver.window_handles[0])
-        self.driver.close()
-
-        # for x in range(self.current_tab_num)
-        # cur window is now web app 1 of 3
-
-        # 1st webapp tab opened normally
-        # switched to 2nd webapp, without logign in it said we're having errors, I clicked ok
-        # switched to 3rd webapp, it logged in but immediately said can't authenticate 
-        # (all of this while intiial web app is open)
-
-    def openNewWebapp(self):
-
-        url = "https://www.ea.com/fifa/ultimate-team/web-app/"
-        self.driver.execute_script("window.open('');")
-
-        num_current_tabs = len(self.driver.window_handles)
-        this_tab_just_opened = num_current_tabs - 1
-
-        self.driver.switch_to.window(self.driver.window_handles[this_tab_just_opened])
-        self.driver.get(url)
-
-        self.current_tab_viewing = self.driver.window_handles[this_tab_just_opened]
-        self.current_tab_num = this_tab_just_opened
-        print("tab cur on: " + str(self.current_tab_num))
-
-    def pushGoogle(self, row):
-        # check if we have a single log, or multiple logs
-        check = isinstance(row[0], list)
-
-        if check == False: # this should mean that the first element, ie Date stamp, is NOT a list, so it is one row we are sending to gsheets
-            try:
-
-                self.sheet_instance.append_row(row, value_input_option="USER_ENTERED")
-                
-            except Exception as e:
-                print("Google logs error: ")
-                print(e)
-                print("should run unfction reauthorize google here, and then reattempt append row")
-                self.reAuthorizeGoogle()
-                self.sheet_instance.append_row(row)
-        # sending multiple rows
-        else:
-            try:
-
-                self.sheet_instance.append_rows(row, value_input_option="USER_ENTERED")
-                
-            except Exception as e:
-                print("Google logs error APPEND MULTIPLE ROWS: ")
-                print(e)
-                print("should run unfction reauthorize google here, and then reattempt append row")
-                self.reAuthorizeGoogle()
-                self.sheet_instance.append_rows(row)
-
-    
-            
-    def reAuthorizeGoogle(self):
-        # define the scope
-        self.scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-
-        # add credentials to the account
-        self.creds = ServiceAccountCredentials.from_json_keyfile_name('./data/fifa-autobidder-229964592212.json', self.scope)
-
-        # authorize the clientsheet 
-        self.client = gspread.authorize(self.creds)
-
-        # get the instance of the Spreadsheet
-        self.sheet = self.client.open('autobidder')
-
-        # get the first sheet of the Spreadsheet
-        self.sheet_instance = self.sheet.get_worksheet(0)
-        
-
-
-def log_event(queue, event, msg_type=""):
-    """
-    Sends log to queue, which GUI handles and writes to txt file for display on GUI.
-    The queue objects allows us to talk to the GUI from a separate threads, which is cool.
-    This was a big breakthrough in functionality.
-
-    Parameters:
-        queue (queue): GUI's queue object
-        event (str): Event log to write to data/gui_logs.txt
-    """
-    event = str(event)
-
-    combined = [event, msg_type]
-    queue.put(combined)
 
 def wait_for_shield_invisibility(driver, duration=0.25):
     """
@@ -2445,126 +2067,3 @@ def wait_for_player_shield_invisibility(driver, duration=0.25):
     # print("PIZZA")
     sleep(.1)
 
-def setup_adblock(driver):
-    driver.execute_script("alert('IMPORTANT: After clicking OK below, click --Add Extension-- when prompted. Then proceed to login');")
-    
-    alert_present = True
-    while alert_present:
-        try:
-            alert_present = WebDriverWait(driver, 1).until(EC.alert_is_present(), 'Alert is gone')
-            
-        except Exception as e:
-            # Alert is gone, now install adblock
-            alert_present = False
-            try:
-                # log_event(self.queue, "Install Adblock to make FutBin search work properly")
-                # driver.execute_script("window.open('');")
-                # driver.switch_to.window(driver.window_handles[1])
-                driver.get("https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en")
-                WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")))
-                WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div"))).click()
-
-            except Exception as e:
-                # print("User broke futbin fetch, self.botRunning false")
-                print("Issue installing adblocker, please install manually")
-                driver.switch_to.window(driver.window_handles[0])
-                
-            driver.switch_to.window(driver.window_handles[0])
-    
-    sleep(3)
-    installing = True
-    while installing:
-        try:
-            elements = "/html/body/div[3]/div[2]/div/div/div[2]"
-            page_content = driver.find_elements(By.XPATH, elements)
-
-            for elem in page_content:
-                text = str(elem.text)
-                text = text.strip()
-                # print(text)
-                lowered = text.lower()
-                if (text == "Remove from Chrome"):
-                    installing = False
-
-                if (lowered == "remove from chrome"):
-                    installing = False 
-
-                if "remove" in lowered:
-                    installing = False
-                    break
-            
-        except:
-            print("hi")
-
-    driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
-
-
-    
-
-def login(queue, driver, user, email_credentials):
-    try:
-        WebDriverWait(driver, 15).until(
-            EC.visibility_of_element_located(
-                (By.XPATH, '//*[@class="ut-login-content"]//button'))
-        )
-        # print("Logging in...")
-
-        sleep(random.randint(2, 4))
-        driver.find_element(
-            By.XPATH, '//*[@class="ut-login-content"]//button').click()
-
-        WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located((By.ID, 'email'))
-        )
-
-        sleep(1)
-        driver.find_element(By.ID, 'email').send_keys(user["email"])
-        sleep(1)
-        driver.find_element(By.ID, 'password').send_keys(user["password"])
-        sleep(1)
-        driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/section/div[1]/form/div[6]/a').click()
-        sleep(3)
-
-        WebDriverWait(driver, 15).until(
-            EC.element_to_be_clickable(
-                (By.XPATH, '/html/body/div/form/div/section/a[2]'))
-        ).click()
-
-        log_event(queue, "Continue login manually")
-    except:
-        log_event(queue, "Continue login manually")
-
-def get_access_code(queue, email_credentials):
-
-    EA_EMAIL = "EA@e.ea.com"
-    M = imaplib.IMAP4_SSL("imap.gmail.com")
-
-    try:
-        M.login(email_credentials["email"], email_credentials["password"])
-    except imaplib.IMAP4.error:
-        # print("Login to email failed")
-        log_event(
-            queue, "Unable to fetch access code from email (see ReadMe for help on this), enter it manually")
-        sys.exit(1)
-
-    # print("Waiting for access code...")
-    sleep(3)
-    message_numbers_list = []
-    message_numbers = []
-
-    while not message_numbers_list:
-        M.select()
-        status, message_numbers = M.search(None, f'FROM "{EA_EMAIL}" UNSEEN')
-        message_numbers_list = message_numbers[0].split()
-
-    message_number = message_numbers[0].split()[0]
-    _, msg = M.fetch(message_number, '(RFC822)')
-    raw_email = msg[0][1].decode('utf-8')
-
-    email_message = email.message_from_string(raw_email)
-
-    log_event(queue, email_message['Subject'])
-
-    access_code = ''.join(filter(str.isdigit, email_message['Subject']))
-
-    return access_code

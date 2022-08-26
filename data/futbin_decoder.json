@@ -1,0 +1,2895 @@
+
+{
+    "version": {
+        "adidas": {
+            "quality": "Special",
+            "rarity": "adidas NUMBERS UP"
+            },
+            "all_ifs": {
+            "quality": "Gold",
+            "rarity": "Team of the Week"
+            },
+            "captain": {
+            "quality": "Special",
+            "rarity": "FUT CAPTAINS"
+            },
+            "captain_hero": {
+            "quality": "Special",
+            "rarity": "FUT HERO CAPTAINS"
+            },
+            "europa_live": {
+            "quality": "Special",
+            "rarity": "UECL Road to the Knockouts"
+            },
+            "europa_tott": {
+            "quality": "Special",
+            "rarity": "UEFA EUROPA LEAGUE TEAM OF THE TOURNAMENT"
+            },
+            "fantasy": {
+            "quality": "Special",
+            "rarity": "Fantasy FUT"
+            },
+            "fantasy_upgrade": {
+            "quality": "Special",
+            "rarity": "Fantasy FUT Upgrade"
+            },
+            "fut_heroes": {
+            "quality": "Special",
+            "rarity": "FUT Heroes"
+            },
+            "fut-bd": {
+            "quality": "Special",
+            "rarity": "FUT Birthday"
+            },
+            "futties": {
+            "quality": "Special",
+            "rarity": "FUTTIES"
+            },
+            "futties_winner": {
+            "quality": "Special",
+            "rarity": "Premium FUTTIES"
+            },
+            "future_stars": {
+            "quality": "Special",
+            "rarity": "FUT Future Stars"
+            },
+            "gold": {
+            "quality": "Gold",
+            "rarity": ""
+            },
+            "gold_all": {
+            "quality": "Gold",
+            "rarity": ""
+            },
+            "gold_nr": {
+            "quality": "Gold",
+            "rarity": "Common"
+            },
+            "gold_rare": {
+            "quality": "Gold",
+            "rarity": "Rare"
+            },
+            "headliners": {
+            "quality": "Special",
+            "rarity": "HEADLINERS"
+            },
+            "headliners_2": {
+            "quality": "Special",
+            "rarity": "HEADLINERS STREAK"
+            },
+            "icon_moment": {
+            "quality": "Special",
+            "rarity": "Prime Icon Moments"
+            },
+            "icons": {
+            "quality": "Special",
+            "rarity": "Icon"
+            },
+            "if_bronze": {
+            "quality": "Bronze",
+            "rarity": "Team of the Week"
+            },
+            "if_gold": {
+            "quality": "Gold",
+            "rarity": "Team of the Week"
+            },
+            "if_silver": {
+            "quality": "Silver",
+            "rarity": "Team of the Week"
+            },
+            "libertadores_b": {
+            "quality": "Special",
+            "rarity": "CONMEBOL LIBERTADORES"
+            },
+            "mid_icons": {
+            "quality": "Special",
+            "rarity": "Icon"
+            },
+            "otw": {
+            "quality": "Special",
+            "rarity": "Ones to Watch"
+            },
+            "RB": {
+            "quality": "Special",
+            "rarity": "RULEBREAKERS"
+            },
+            "shapeshifter": {
+            "quality": "Special",
+            "rarity": "SHAPESHIFTERS"
+            },
+            "shapeshifters_hero": {
+            "quality": "Special",
+            "rarity": "FUT Hero SHAPESHIFTERS"
+            },
+            "signature_signings": {
+            "quality": "Special",
+            "rarity": "SIGNATURE SIGNINGS"
+            },
+            "silver": {
+            "quality": "Silver",
+            "rarity": ""
+            },
+            "silver_all": {
+            "quality": "Silver",
+            "rarity": ""
+            },
+            "silver_nr": {
+            "quality": "Silver",
+            "rarity": "Common"
+            },
+            "silver_rare": {
+            "quality": "Silver",
+            "rarity": "Rare"
+            },
+            "sudamericana": {
+            "quality": "Special",
+            "rarity": "CONMEBOL SUDAMERICANA"
+            },
+            "tots": {
+            "quality": "Special",
+            "rarity": "Team of the Season"
+            },
+            "tots_token": {
+            "quality": "Special",
+            "rarity": "TOTS SWAP TOKEN 2"
+            },
+            "tots_token_2": {
+            "quality": "Special",
+            "rarity": "TOTS SWAP TOKEN 2"
+            },
+            "toty": {
+            "quality": "Special",
+            "rarity": "Team of the Year"
+            },
+            "toty_honourable": {
+            "quality": "Special",
+            "rarity": "TOTY HONOURABLE MENTIONS"
+            },
+            "ucl_live": {
+            "quality": "Special",
+            "rarity": "UCL Road to the Knockouts"
+            },
+            "ucl_rttf": {
+            "quality": "Special",
+            "rarity": "UEFA Champions League Road to the Final"
+            },
+            "ucl_tott": {
+            "quality": "Special",
+            "rarity": "UEFA CHAMPIONS LEAGUE TEAM OF THE TOURNAMENT"
+            },
+            "uecl_rttf": {
+            "quality": "Special",
+            "rarity": "UECL Road to the Final"
+            },
+            "uel_rttf": {
+            "quality": "Special",
+            "rarity": "UEFA Europa League Road to the Final"
+            },
+            "versus_fire": {
+            "quality": "Special",
+            "rarity": "FUT VERSUS FIRE"
+            },
+            "versus_ice": {
+            "quality": "Special",
+            "rarity": "FUT VERSUS ICE"
+            },
+            "winter_wildcards": {
+            "quality": "Special",
+            "rarity": "WINTER WILDCARDS"
+            }
+    },
+    "club": {
+        "1": {
+            "club": "Arsenal"
+            },
+            "2": {
+            "club": "Aston Villa"
+            },
+            "3": {
+            "club": "Blackburn Rovers"
+            },
+            "4": {
+            "club": "Bolton"
+            },
+            "5": {
+            "club": "Chelsea"
+            },
+            "7": {
+            "club": "Everton"
+            },
+            "8": {
+            "club": "Leeds United"
+            },
+            "9": {
+            "club": "Liverpool"
+            },
+            "10": {
+            "club": "Manchester City"
+            },
+            "11": {
+            "club": "Manchester Utd"
+            },
+            "12": {
+            "club": "Middlesbrough"
+            },
+            "13": {
+            "club": "Newcastle Utd"
+            },
+            "14": {
+            "club": "Nott'm Forest"
+            },
+            "15": {
+            "club": "QPR"
+            },
+            "17": {
+            "club": "Southampton"
+            },
+            "18": {
+            "club": "Spurs"
+            },
+            "19": {
+            "club": "West Ham"
+            },
+            "21": {
+            "club": "FC Bayern München"
+            },
+            "22": {
+            "club": "Borussia Dortmund"
+            },
+            "23": {
+            "club": "M'gladbach"
+            },
+            "25": {
+            "club": "SC Freiburg"
+            },
+            "27": {
+            "club": "Rostock"
+            },
+            "28": {
+            "club": "Hamburger SV"
+            },
+            "29": {
+            "club": "Kaiserslautern"
+            },
+            "31": {
+            "club": "1. FC Köln"
+            },
+            "32": {
+            "club": "Leverkusen"
+            },
+            "33": {
+            "club": "1860 München"
+            },
+            "34": {
+            "club": "FC Schalke 04"
+            },
+            "36": {
+            "club": "VfB Stuttgart"
+            },
+            "38": {
+            "club": "SV Werder Bremen"
+            },
+            "44": {
+            "club": "Inter"
+            },
+            "47": {
+            "club": "Milan"
+            },
+            "48": {
+            "club": "Napoli"
+            },
+            "50": {
+            "club": "Parma"
+            },
+            "54": {
+            "club": "Torino"
+            },
+            "55": {
+            "club": "Udinese"
+            },
+            "57": {
+            "club": "AJ Auxerre"
+            },
+            "58": {
+            "club": "SC Bastia"
+            },
+            "59": {
+            "club": "Bordeaux"
+            },
+            "62": {
+            "club": "En Avant Guingamp"
+            },
+            "64": {
+            "club": "RC Lens"
+            },
+            "65": {
+            "club": "LOSC Lille"
+            },
+            "66": {
+            "club": "OL"
+            },
+            "68": {
+            "club": "FC Metz"
+            },
+            "69": {
+            "club": "AS Monaco"
+            },
+            "70": {
+            "club": "Montpellier"
+            },
+            "71": {
+            "club": "FC Nantes"
+            },
+            "72": {
+            "club": "OGC Nice"
+            },
+            "73": {
+            "club": "Paris SG"
+            },
+            "74": {
+            "club": "Stade Rennais FC"
+            },
+            "76": {
+            "club": "Strasbourg"
+            },
+            "77": {
+            "club": "Aberdeen"
+            },
+            "78": {
+            "club": "Celtic"
+            },
+            "80": {
+            "club": "Hearts"
+            },
+            "81": {
+            "club": "Hibernian"
+            },
+            "83": {
+            "club": "Motherwell"
+            },
+            "86": {
+            "club": "Rangers"
+            },
+            "88": {
+            "club": "Birmingham City"
+            },
+            "89": {
+            "club": "Charlton Ath"
+            },
+            "91": {
+            "club": "Derby County"
+            },
+            "94": {
+            "club": "Ipswich"
+            },
+            "95": {
+            "club": "Leicester City"
+            },
+            "97": {
+            "club": "Millwall"
+            },
+            "106": {
+            "club": "Sunderland"
+            },
+            "109": {
+            "club": "West Brom"
+            },
+            "110": {
+            "club": "Wolves"
+            },
+            "121": {
+            "club": "Crewe Alexandra"
+            },
+            "127": {
+            "club": "Shrewsbury"
+            },
+            "142": {
+            "club": "Doncaster"
+            },
+            "143": {
+            "club": "Exeter City"
+            },
+            "144": {
+            "club": "Fulham"
+            },
+            "149": {
+            "club": "Lincoln City"
+            },
+            "159": {
+            "club": "Arminia Bielefeld"
+            },
+            "160": {
+            "club": "VfL Bochum"
+            },
+            "165": {
+            "club": "Fürth"
+            },
+            "166": {
+            "club": "Hertha Berlin"
+            },
+            "169": {
+            "club": "1. FSV Mainz 05"
+            },
+            "171": {
+            "club": "1. FC Nürnberg"
+            },
+            "175": {
+            "club": "VfL Wolfsburg"
+            },
+            "180": {
+            "club": "Dundee FC"
+            },
+            "181": {
+            "club": "Dundee United"
+            },
+            "189": {
+            "club": "Bologna"
+            },
+            "191": {
+            "club": "RB Salzburg"
+            },
+            "205": {
+            "club": "Venezia"
+            },
+            "206": {
+            "club": "Hellas Verona"
+            },
+            "209": {
+            "club": "SK Sturm Graz"
+            },
+            "210": {
+            "club": "SM Caen"
+            },
+            "211": {
+            "club": "Dinamo Zagreb"
+            },
+            "217": {
+            "club": "FC Lorient"
+            },
+            "219": {
+            "club": "OM"
+            },
+            "224": {
+            "club": "Nîmes Olympique"
+            },
+            "226": {
+            "club": "FCSM"
+            },
+            "229": {
+            "club": "RSC Anderlecht"
+            },
+            "230": {
+            "club": "Royal Antwerp FC"
+            },
+            "231": {
+            "club": "Club Brugge"
+            },
+            "232": {
+            "club": "Standard Liège"
+            },
+            "234": {
+            "club": "SL Benfica"
+            },
+            "236": {
+            "club": "FC Porto"
+            },
+            "237": {
+            "club": "Sporting CP"
+            },
+            "240": {
+            "club": "Atlético de Madrid"
+            },
+            "241": {
+            "club": "FC Barcelona"
+            },
+            "243": {
+            "club": "Real Madrid"
+            },
+            "244": {
+            "club": "R. Zaragoza"
+            },
+            "245": {
+            "club": "Ajax"
+            },
+            "246": {
+            "club": "Feyenoord"
+            },
+            "247": {
+            "club": "PSV"
+            },
+            "252": {
+            "club": "LASK"
+            },
+            "254": {
+            "club": "SK Rapid Wien"
+            },
+            "256": {
+            "club": "FK Austria Wien"
+            },
+            "260": {
+            "club": "CD Tenerife"
+            },
+            "263": {
+            "club": "Hajduk Split"
+            },
+            "266": {
+            "club": "Slavia Praha"
+            },
+            "267": {
+            "club": "Sparta Praha"
+            },
+            "269": {
+            "club": "Brøndby IF"
+            },
+            "270": {
+            "club": "Silkeborg IF"
+            },
+            "271": {
+            "club": "Aarhus GF"
+            },
+            "272": {
+            "club": "Odense BK"
+            },
+            "278": {
+            "club": "AEK Athens"
+            },
+            "280": {
+            "club": "Olympiacos CFP"
+            },
+            "294": {
+            "club": "ESTAC Troyes"
+            },
+            "298": {
+            "club": "Rosenborg BK"
+            },
+            "299": {
+            "club": "Lillestrøm SK"
+            },
+            "300": {
+            "club": "Viking FK"
+            },
+            "305": {
+            "club": "Bohemian FC"
+            },
+            "306": {
+            "club": "Shamrock Rovers"
+            },
+            "308": {
+            "club": "Univ. Craiova"
+            },
+            "310": {
+            "club": "FC Rapid"
+            },
+            "315": {
+            "club": "AFC Metro"
+            },
+            "319": {
+            "club": "IFK Göteborg"
+            },
+            "320": {
+            "club": "Malmö FF"
+            },
+            "321": {
+            "club": "Halmstads BK"
+            },
+            "322": {
+            "club": "Grasshopper Club"
+            },
+            "324": {
+            "club": "Servette FC"
+            },
+            "325": {
+            "club": "Galatasaray"
+            },
+            "326": {
+            "club": "Fenerbahçe"
+            },
+            "327": {
+            "club": "Beşiktaş"
+            },
+            "347": {
+            "club": "Lecce"
+            },
+            "357": {
+            "club": "Morecambe"
+            },
+            "361": {
+            "club": "Stevenage"
+            },
+            "378": {
+            "club": "Stade Brestois 29"
+            },
+            "379": {
+            "club": "Stade de Reims"
+            },
+            "381": {
+            "club": "Barrow"
+            },
+            "393": {
+            "club": "PAOK"
+            },
+            "417": {
+            "club": "Molde FK"
+            },
+            "418": {
+            "club": "Tromsø IL"
+            },
+            "420": {
+            "club": "Górnik Zabrze"
+            },
+            "423": {
+            "club": "St. Pats"
+            },
+            "433": {
+            "club": "AIK"
+            },
+            "436": {
+            "club": "Trabzonspor"
+            },
+            "445": {
+            "club": "Derry City"
+            },
+            "448": {
+            "club": "Athletic Club"
+            },
+            "449": {
+            "club": "Real Betis"
+            },
+            "450": {
+            "club": "RC Celta"
+            },
+            "452": {
+            "club": "RCD Espanyol"
+            },
+            "453": {
+            "club": "RCD Mallorca"
+            },
+            "457": {
+            "club": "Real Sociedad"
+            },
+            "459": {
+            "club": "R. Sporting"
+            },
+            "461": {
+            "club": "Valencia CF"
+            },
+            "462": {
+            "club": "R. Valladolid CF"
+            },
+            "463": {
+            "club": "D. Alavés"
+            },
+            "467": {
+            "club": "SD Eibar"
+            },
+            "468": {
+            "club": "Elche CF"
+            },
+            "472": {
+            "club": "UD Las Palmas"
+            },
+            "479": {
+            "club": "CA Osasuna"
+            },
+            "480": {
+            "club": "Rayo Vallecano"
+            },
+            "481": {
+            "club": "Sevilla FC"
+            },
+            "483": {
+            "club": "Villarreal CF"
+            },
+            "485": {
+            "club": "Hannover 96"
+            },
+            "487": {
+            "club": "VfL Osnabrück"
+            },
+            "492": {
+            "club": "SVWW"
+            },
+            "503": {
+            "club": "Dynamo Dresden"
+            },
+            "506": {
+            "club": "FC Erzgebirge Aue"
+            },
+            "523": {
+            "club": "Saarbrücken"
+            },
+            "543": {
+            "club": "Regensburg"
+            },
+            "561": {
+            "club": "Forest Green"
+            },
+            "563": {
+            "club": "Sligo Rovers"
+            },
+            "573": {
+            "club": "Málaga CF"
+            },
+            "576": {
+            "club": "Holstein Kiel"
+            },
+            "605": {
+            "club": "Al Hilal"
+            },
+            "607": {
+            "club": "Al Ittihad"
+            },
+            "614": {
+            "club": "AC Ajaccio"
+            },
+            "621": {
+            "club": "Livingston"
+            },
+            "631": {
+            "club": "Ross County"
+            },
+            "634": {
+            "club": "Fortuna Sittard"
+            },
+            "647": {
+            "club": "SC Cambuur"
+            },
+            "670": {
+            "club": "Sp. Charleroi"
+            },
+            "673": {
+            "club": "KRC Genk"
+            },
+            "674": {
+            "club": "KAA Gent"
+            },
+            "675": {
+            "club": "K Beerschot VA"
+            },
+            "680": {
+            "club": "Sint-Truiden"
+            },
+            "682": {
+            "club": "KV Oostende"
+            },
+            "687": {
+            "club": "Columbus Crew"
+            },
+            "688": {
+            "club": "D.C. United"
+            },
+            "689": {
+            "club": "Red Bulls"
+            },
+            "691": {
+            "club": "New England"
+            },
+            "693": {
+            "club": "Chicago Fire FC"
+            },
+            "694": {
+            "club": "Colorado Rapids"
+            },
+            "695": {
+            "club": "FC Dallas"
+            },
+            "696": {
+            "club": "Sporting KC"
+            },
+            "697": {
+            "club": "LA Galaxy"
+            },
+            "698": {
+            "club": "Houston Dynamo"
+            },
+            "700": {
+            "club": "IF Elfsborg"
+            },
+            "702": {
+            "club": "IFK Norrköping"
+            },
+            "705": {
+            "club": "Örebro SK"
+            },
+            "708": {
+            "club": "Hammarby IF"
+            },
+            "710": {
+            "club": "Djurgårdens IF"
+            },
+            "711": {
+            "club": "BK Häcken"
+            },
+            "741": {
+            "club": "Antalyaspor"
+            },
+            "753": {
+            "club": "Waterford FC"
+            },
+            "780": {
+            "club": "SV Ried"
+            },
+            "819": {
+            "club": "F.C. København"
+            },
+            "820": {
+            "club": "Aalborg BK"
+            },
+            "822": {
+            "club": "Vejle Boldklub"
+            },
+            "837": {
+            "club": "Dundalk"
+            },
+            "873": {
+            "club": "Lech Poznań"
+            },
+            "894": {
+            "club": "FC Zürich"
+            },
+            "896": {
+            "club": "FC Basel 1893"
+            },
+            "897": {
+            "club": "FC Luzern"
+            },
+            "898": {
+            "club": "FC St. Gallen"
+            },
+            "900": {
+            "club": "BSC Young Boys"
+            },
+            "917": {
+            "club": "Stabæk Fotball"
+            },
+            "918": {
+            "club": "FK Bodø/Glimt"
+            },
+            "919": {
+            "club": "SK Brann"
+            },
+            "920": {
+            "club": "Vålerenga Fotball"
+            },
+            "922": {
+            "club": "Strømsgodset IF"
+            },
+            "981": {
+            "club": "Seongnam FC"
+            },
+            "982": {
+            "club": "FC Seoul"
+            },
+            "983": {
+            "club": "Suwon Samsung"
+            },
+            "1013": {
+            "club": "San Lorenzo"
+            },
+            "1032": {
+            "club": "CF Monterrey"
+            },
+            "1438": {
+            "club": "Santa Clara"
+            },
+            "1439": {
+            "club": "Kalmar FF"
+            },
+            "1443": {
+            "club": "Viborg FF"
+            },
+            "1447": {
+            "club": "SønderjyskE"
+            },
+            "1456": {
+            "club": "Odds BK"
+            },
+            "1463": {
+            "club": "FK Haugesund"
+            },
+            "1473": {
+            "club": "Ulsan Hyundai"
+            },
+            "1474": {
+            "club": "Pohang Steelers"
+            },
+            "1477": {
+            "club": "Jeonbuk Hyundai"
+            },
+            "1478": {
+            "club": "Jeju United"
+            },
+            "1480": {
+            "club": "Carlisle United"
+            },
+            "1516": {
+            "club": "FC Midtjylland"
+            },
+            "1530": {
+            "club": "Angers SCO"
+            },
+            "1569": {
+            "club": "Wisła Płock"
+            },
+            "1572": {
+            "club": "Drogheda United"
+            },
+            "1586": {
+            "club": "Longford Town"
+            },
+            "1738": {
+            "club": "Havre AC"
+            },
+            "1746": {
+            "club": "Empoli"
+            },
+            "1750": {
+            "club": "Cercle Brugge"
+            },
+            "1757": {
+            "club": "Sandefjord"
+            },
+            "1786": {
+            "club": "Randers FC"
+            },
+            "1787": {
+            "club": "Austria Klagenfurt"
+            },
+            "1788": {
+            "club": "FC Nordsjælland"
+            },
+            "1790": {
+            "club": "Portsmouth"
+            },
+            "1792": {
+            "club": "Norwich"
+            },
+            "1793": {
+            "club": "Reading"
+            },
+            "1794": {
+            "club": "Sheffield Utd"
+            },
+            "1795": {
+            "club": "Watford"
+            },
+            "1796": {
+            "club": "Burnley"
+            },
+            "1797": {
+            "club": "Rotherham Utd"
+            },
+            "1798": {
+            "club": "MK Dons"
+            },
+            "1799": {
+            "club": "Crystal Palace"
+            },
+            "1800": {
+            "club": "Coventry City"
+            },
+            "1801": {
+            "club": "Preston"
+            },
+            "1802": {
+            "club": "Gillingham"
+            },
+            "1803": {
+            "club": "Walsall"
+            },
+            "1804": {
+            "club": "Bradford City"
+            },
+            "1805": {
+            "club": "Grenoble Foot 38"
+            },
+            "1806": {
+            "club": "Stoke City"
+            },
+            "1807": {
+            "club": "Sheffield Wed"
+            },
+            "1808": {
+            "club": "Brighton"
+            },
+            "1809": {
+            "club": "Toulouse FC"
+            },
+            "1813": {
+            "club": "Niort"
+            },
+            "1815": {
+            "club": "Clermont Foot 63"
+            },
+            "1816": {
+            "club": "Amiens SC"
+            },
+            "1819": {
+            "club": "AS Saint-Étienne"
+            },
+            "1823": {
+            "club": "AS Nancy Lorraine"
+            },
+            "1824": {
+            "club": "Frankfurt"
+            },
+            "1825": {
+            "club": "MSV Duisburg"
+            },
+            "1831": {
+            "club": "Union Berlin"
+            },
+            "1832": {
+            "club": "Karlsruher SC"
+            },
+            "1837": {
+            "club": "Sampdoria"
+            },
+            "1842": {
+            "club": "Cagliari"
+            },
+            "1853": {
+            "club": "Levante UD"
+            },
+            "1860": {
+            "club": "Getafe CF"
+            },
+            "1861": {
+            "club": "UD Almería"
+            },
+            "1862": {
+            "club": "Lausanne-Sport"
+            },
+            "1871": {
+            "club": "Legia Warszawa"
+            },
+            "1873": {
+            "club": "Wisła Kraków"
+            },
+            "1874": {
+            "club": "Ferencvárosi TC"
+            },
+            "1876": {
+            "club": "River Plate"
+            },
+            "1877": {
+            "club": "Boca Juniors"
+            },
+            "1878": {
+            "club": "Cruz Azul"
+            },
+            "1879": {
+            "club": "América"
+            },
+            "1880": {
+            "club": "Guadalajara"
+            },
+            "1881": {
+            "club": "Pumas"
+            },
+            "1882": {
+            "club": "Toluca"
+            },
+            "1884": {
+            "club": "Panathinaikos"
+            },
+            "1887": {
+            "club": "Vitória SC"
+            },
+            "1888": {
+            "club": "Gil Vicente"
+            },
+            "1889": {
+            "club": "Belenenses SAD"
+            },
+            "1892": {
+            "club": "Paços Ferreira"
+            },
+            "1893": {
+            "club": "Marítimo"
+            },
+            "1896": {
+            "club": "SC Braga"
+            },
+            "1898": {
+            "club": "Boavista FC"
+            },
+            "1900": {
+            "club": "Moreirense FC"
+            },
+            "1903": {
+            "club": "FC Utrecht"
+            },
+            "1905": {
+            "club": "RKC Waalwijk"
+            },
+            "1906": {
+            "club": "AZ"
+            },
+            "1907": {
+            "club": "Willem II"
+            },
+            "1908": {
+            "club": "FC Twente"
+            },
+            "1909": {
+            "club": "Vitesse"
+            },
+            "1910": {
+            "club": "N.E.C. Nijmegen"
+            },
+            "1913": {
+            "club": "sc Heerenveen"
+            },
+            "1914": {
+            "club": "PEC Zwolle"
+            },
+            "1915": {
+            "club": "FC Groningen"
+            },
+            "1917": {
+            "club": "Wigan Athletic"
+            },
+            "1919": {
+            "club": "Bristol City"
+            },
+            "1920": {
+            "club": "Oldham Athletic"
+            },
+            "1923": {
+            "club": "Luton Town"
+            },
+            "1925": {
+            "club": "Brentford"
+            },
+            "1926": {
+            "club": "Blackpool"
+            },
+            "1928": {
+            "club": "Port Vale"
+            },
+            "1929": {
+            "club": "Plymouth Argyle"
+            },
+            "1930": {
+            "club": "Northampton"
+            },
+            "1932": {
+            "club": "Barnsley"
+            },
+            "1933": {
+            "club": "Wycombe"
+            },
+            "1934": {
+            "club": "Swindon Town"
+            },
+            "1935": {
+            "club": "Colchester"
+            },
+            "1936": {
+            "club": "Cheltenham Town"
+            },
+            "1938": {
+            "club": "Peterborough"
+            },
+            "1939": {
+            "club": "Huddersfield"
+            },
+            "1940": {
+            "club": "Mansfield Town"
+            },
+            "1941": {
+            "club": "Hartlepool"
+            },
+            "1943": {
+            "club": "AFC Bournemouth"
+            },
+            "1944": {
+            "club": "Cambridge Utd"
+            },
+            "1947": {
+            "club": "Wrexham AFC"
+            },
+            "1949": {
+            "club": "Scunthorpe Utd"
+            },
+            "1951": {
+            "club": "Oxford United"
+            },
+            "1952": {
+            "club": "Hull City"
+            },
+            "1955": {
+            "club": "Rochdale"
+            },
+            "1958": {
+            "club": "Leyton Orient"
+            },
+            "1960": {
+            "club": "Swansea City"
+            },
+            "1961": {
+            "club": "Cardiff City"
+            },
+            "1962": {
+            "club": "Bristol Rovers"
+            },
+            "1968": {
+            "club": "Cádiz CF"
+            },
+            "1970": {
+            "club": "Tigres"
+            },
+            "2013": {
+            "club": "KAS Eupen"
+            },
+            "2014": {
+            "club": "Union SG"
+            },
+            "2017": {
+            "club": "TSV Hartberg"
+            },
+            "2023": {
+            "club": "SD Ponferradina"
+            },
+            "2056": {
+            "club": "Daegu FC"
+            },
+            "10020": {
+            "club": "Estoril Praia"
+            },
+            "10029": {
+            "club": "TSG Hoffenheim"
+            },
+            "10030": {
+            "club": "SC Paderborn 07"
+            },
+            "10031": {
+            "club": "Portimonense SC"
+            },
+            "10032": {
+            "club": "FC Lugano"
+            },
+            "10846": {
+            "club": "Burgos CF"
+            },
+            "15005": {
+            "club": "Zulte Waregem"
+            },
+            "15009": {
+            "club": "SCR Altach"
+            },
+            "15015": {
+            "club": "Burton Albion"
+            },
+            "15040": {
+            "club": "WSG Tirol"
+            },
+            "15048": {
+            "club": "Tranmere Rovers"
+            },
+            "100081": {
+            "club": "KV Kortrijk"
+            },
+            "100087": {
+            "club": "OH Leuven"
+            },
+            "100135": {
+            "club": "Apoel FC"
+            },
+            "100325": {
+            "club": "HJK Helsinki"
+            },
+            "100409": {
+            "club": "FC Augsburg"
+            },
+            "100632": {
+            "club": "Go Ahead Eagles"
+            },
+            "100634": {
+            "club": "Heracles Almelo"
+            },
+            "100646": {
+            "club": "Sparta Rotterdam"
+            },
+            "100757": {
+            "club": "FC Dinamo 1948"
+            },
+            "100759": {
+            "club": "FC Argeș"
+            },
+            "100761": {
+            "club": "FCSB"
+            },
+            "100765": {
+            "club": "CFC Dampf"
+            },
+            "100767": {
+            "club": "AS Metro"
+            },
+            "100804": {
+            "club": "St. Johnstone"
+            },
+            "100805": {
+            "club": "St. Mirren"
+            },
+            "100831": {
+            "club": "AD Alcorcón"
+            },
+            "100851": {
+            "club": "FC Cartagena"
+            },
+            "100888": {
+            "club": "CD Leganés"
+            },
+            "101006": {
+            "club": "Altay SK"
+            },
+            "101014": {
+            "club": "Başakşehir"
+            },
+            "101016": {
+            "club": "Adana Demirspor"
+            },
+            "101020": {
+            "club": "Kayserispor"
+            },
+            "101026": {
+            "club": "Göztepe"
+            },
+            "101028": {
+            "club": "Hatayspor"
+            },
+            "101033": {
+            "club": "Konyaspor"
+            },
+            "101037": {
+            "club": "Çaykur Rizespor"
+            },
+            "101041": {
+            "club": "Sivasspor"
+            },
+            "101047": {
+            "club": "Dynamo Kyiv"
+            },
+            "101059": {
+            "club": "Shakhtar Donetsk"
+            },
+            "101083": {
+            "club": "Estudiantes"
+            },
+            "101084": {
+            "club": "Gimnasia"
+            },
+            "101085": {
+            "club": "Racing Club"
+            },
+            "101088": {
+            "club": "Vélez Sarsfield"
+            },
+            "101099": {
+            "club": "América de Cali"
+            },
+            "101100": {
+            "club": "Atl. Nacional"
+            },
+            "101101": {
+            "club": "Junior"
+            },
+            "101102": {
+            "club": "Deportivo Cali"
+            },
+            "101104": {
+            "club": "Santa Fe"
+            },
+            "101108": {
+            "club": "Olimpia"
+            },
+            "101110": {
+            "club": "Peñarol"
+            },
+            "101112": {
+            "club": "Whitecaps FC"
+            },
+            "101114": {
+            "club": "Atlas"
+            },
+            "101121": {
+            "club": "Necaxa"
+            },
+            "101145": {
+            "club": "Kashiwa Reysol"
+            },
+            "101146": {
+            "club": "Vissel Kobe"
+            },
+            "101147": {
+            "club": "Kashima Antlers"
+            },
+            "101148": {
+            "club": "Cerezo Osaka"
+            },
+            "101149": {
+            "club": "Shimizu S-Pulse"
+            },
+            "101150": {
+            "club": "F.C. Tokyo"
+            },
+            "101151": {
+            "club": "Yokohama F･M"
+            },
+            "110062": {
+            "club": "Girona FC"
+            },
+            "110065": {
+            "club": "CF Fuenlabrada"
+            },
+            "110069": {
+            "club": "CD Mirandés"
+            },
+            "110075": {
+            "club": "Farul Constanța"
+            },
+            "110093": {
+            "club": "Independiente"
+            },
+            "110144": {
+            "club": "Santos Laguna"
+            },
+            "110147": {
+            "club": "Pachuca"
+            },
+            "110150": {
+            "club": "Querétaro"
+            },
+            "110152": {
+            "club": "Puebla"
+            },
+            "110178": {
+            "club": "SV Sandhausen"
+            },
+            "110197": {
+            "club": "Würzburg"
+            },
+            "110313": {
+            "club": "Accrington"
+            },
+            "110321": {
+            "club": "Pau FC"
+            },
+            "110329": {
+            "club": "FC St. Pauli"
+            },
+            "110373": {
+            "club": "Salernitana"
+            },
+            "110374": {
+            "club": "Fiorentina"
+            },
+            "110394": {
+            "club": "Arsenal"
+            },
+            "110395": {
+            "club": "Lanús"
+            },
+            "110396": {
+            "club": "Newell's"
+            },
+            "110404": {
+            "club": "Banfield"
+            },
+            "110406": {
+            "club": "Colón"
+            },
+            "110456": {
+            "club": "Valenciennes FC"
+            },
+            "110468": {
+            "club": "Viktoria Plzeň"
+            },
+            "110482": {
+            "club": "Hallescher FC"
+            },
+            "110500": {
+            "club": "Braunschweig"
+            },
+            "110501": {
+            "club": "SC Verl"
+            },
+            "110502": {
+            "club": "SV Darmstadt 98"
+            },
+            "110532": {
+            "club": "SV Waldhof"
+            },
+            "110556": {
+            "club": "Genoa"
+            },
+            "110565": {
+            "club": "Górnik Łęczna"
+            },
+            "110569": {
+            "club": "Dijon FCO"
+            },
+            "110580": {
+            "club": "Rosario Central"
+            },
+            "110581": {
+            "club": "Patronato"
+            },
+            "110588": {
+            "club": "1. FC Magdeburg"
+            },
+            "110592": {
+            "club": "FSV Zwickau"
+            },
+            "110597": {
+            "club": "SV Meppen"
+            },
+            "110636": {
+            "club": "Düsseldorf"
+            },
+            "110645": {
+            "club": "Viktoria Köln"
+            },
+            "110676": {
+            "club": "B. Dortmund II"
+            },
+            "110678": {
+            "club": "TSV Havelse"
+            },
+            "110691": {
+            "club": "SC Freiburg II"
+            },
+            "110711": {
+            "club": "Real Sociedad B"
+            },
+            "110724": {
+            "club": "KV Mechelen"
+            },
+            "110734": {
+            "club": "Crotone"
+            },
+            "110745": {
+            "club": "Jagiellonia"
+            },
+            "110746": {
+            "club": "Pogoń Szczecin"
+            },
+            "110747": {
+            "club": "Cracovia"
+            },
+            "110749": {
+            "club": "Zagłębie Lubin"
+            },
+            "110750": {
+            "club": "UTA Arad"
+            },
+            "110752": {
+            "club": "FC Botoșani"
+            },
+            "110765": {
+            "club": "Incheon United"
+            },
+            "110770": {
+            "club": "FC Sion"
+            },
+            "110776": {
+            "club": "Gaziantep"
+            },
+            "110781": {
+            "club": "León"
+            },
+            "110799": {
+            "club": "Sutton United"
+            },
+            "110827": {
+            "club": "R. Oviedo"
+            },
+            "110831": {
+            "club": "CD Lugo"
+            },
+            "110832": {
+            "club": "Granada CF"
+            },
+            "110839": {
+            "club": "SD Huesca"
+            },
+            "110890": {
+            "club": "Crawley Town"
+            },
+            "110929": {
+            "club": "Kaizer Chiefs"
+            },
+            "110930": {
+            "club": "Orlando Pirates"
+            },
+            "110955": {
+            "club": "Shanghai Shenhua"
+            },
+            "110968": {
+            "club": "Bolívar"
+            },
+            "110969": {
+            "club": "The Strongest"
+            },
+            "110974": {
+            "club": "Wilstermann"
+            },
+            "110975": {
+            "club": "Uni. Católica"
+            },
+            "110981": {
+            "club": "Barcelona SC"
+            },
+            "110984": {
+            "club": "CS Emelec"
+            },
+            "110986": {
+            "club": "LDU Quito"
+            },
+            "110987": {
+            "club": "Aucas"
+            },
+            "110990": {
+            "club": "Dep. Táchira"
+            },
+            "111007": {
+            "club": "12 de Octubre"
+            },
+            "111008": {
+            "club": "Libertad"
+            },
+            "111013": {
+            "club": "Sporting Cristal"
+            },
+            "111014": {
+            "club": "Universitario"
+            },
+            "111019": {
+            "club": "Argentinos Jrs."
+            },
+            "111065": {
+            "club": "Real Salt Lake"
+            },
+            "111086": {
+            "club": "Piast Gliwice"
+            },
+            "111088": {
+            "club": "Radomiak Radom"
+            },
+            "111091": {
+            "club": "Lechia Gdańsk"
+            },
+            "111092": {
+            "club": "Śląsk Wrocław"
+            },
+            "111117": {
+            "club": "Karagümrük SK"
+            },
+            "111131": {
+            "club": "Finn Harps"
+            },
+            "111138": {
+            "club": "Minnesota United"
+            },
+            "111139": {
+            "club": "CF Montréal"
+            },
+            "111140": {
+            "club": "Portland Timbers"
+            },
+            "111144": {
+            "club": "Sounders FC"
+            },
+            "111235": {
+            "club": "Heidenheim"
+            },
+            "111239": {
+            "club": "FC Ingolstadt 04"
+            },
+            "111276": {
+            "club": "USL Dunkerque"
+            },
+            "111325": {
+            "club": "Nacional"
+            },
+            "111327": {
+            "club": "Huachipato FC"
+            },
+            "111328": {
+            "club": "Palestino"
+            },
+            "111334": {
+            "club": "FBC Melgar"
+            },
+            "111339": {
+            "club": "Kasımpaşa"
+            },
+            "111393": {
+            "club": "Adelaide United"
+            },
+            "111395": {
+            "club": "Brisbane Roar"
+            },
+            "111396": {
+            "club": "Central Coast"
+            },
+            "111397": {
+            "club": "Melb. Victory"
+            },
+            "111398": {
+            "club": "Newcastle Jets"
+            },
+            "111399": {
+            "club": "Perth Glory"
+            },
+            "111400": {
+            "club": "Sydney FC"
+            },
+            "111539": {
+            "club": "FC Vizela"
+            },
+            "111575": {
+            "club": "Urawa Reds"
+            },
+            "111629": {
+            "club": "SC East Bengal"
+            },
+            "111651": {
+            "club": "Toronto FC"
+            },
+            "111659": {
+            "club": "Rodez AF"
+            },
+            "111674": {
+            "club": "Al Shabab"
+            },
+            "111678": {
+            "club": "Tijuana"
+            },
+            "111701": {
+            "club": "Al Ain FC"
+            },
+            "111706": {
+            "club": "Godoy Cruz"
+            },
+            "111707": {
+            "club": "Aldosivi"
+            },
+            "111708": {
+            "club": "Atlético Tucumán"
+            },
+            "111710": {
+            "club": "Defensa"
+            },
+            "111711": {
+            "club": "Huracán"
+            },
+            "111716": {
+            "club": "Unión"
+            },
+            "111722": {
+            "club": "Deportes Tolima"
+            },
+            "111724": {
+            "club": "Shandong Taishan"
+            },
+            "111730": {
+            "club": "Kawasaki Frontale"
+            },
+            "111766": {
+            "club": "Well. Phoenix"
+            },
+            "111768": {
+            "club": "Beijing Guoan"
+            },
+            "111769": {
+            "club": "Changchun Yatai"
+            },
+            "111773": {
+            "club": "Shenzhen FC"
+            },
+            "111774": {
+            "club": "Tianjin JMT"
+            },
+            "111779": {
+            "club": "Henan Songshan"
+            },
+            "111811": {
+            "club": "AC Monza"
+            },
+            "111817": {
+            "club": "Paris FC"
+            },
+            "111821": {
+            "club": "Admira Wacker"
+            },
+            "111822": {
+            "club": "Wolfsberger AC"
+            },
+            "111839": {
+            "club": "Guangzhou FC"
+            },
+            "111928": {
+            "club": "SJ Earthquakes"
+            },
+            "111974": {
+            "club": "Sassuolo"
+            },
+            "112026": {
+            "club": "Benevento"
+            },
+            "112072": {
+            "club": "Mjällby AIF"
+            },
+            "112092": {
+            "club": "Nagoya Grampus"
+            },
+            "112093": {
+            "club": "Gamba Osaka"
+            },
+            "112096": {
+            "club": "Ettifaq FC"
+            },
+            "112115": {
+            "club": "Gangwon FC"
+            },
+            "112120": {
+            "club": "Giresunspor"
+            },
+            "112134": {
+            "club": "Philadelphia"
+            },
+            "112139": {
+            "club": "Al Nassr"
+            },
+            "112165": {
+            "club": "Chongqing LJ Ath"
+            },
+            "112172": {
+            "club": "RB Leipzig"
+            },
+            "112199": {
+            "club": "Sarpsborg 08"
+            },
+            "112222": {
+            "club": "Harrogate Town"
+            },
+            "112224": {
+            "club": "Melbourne City"
+            },
+            "112254": {
+            "club": "Newport County"
+            },
+            "112258": {
+            "club": "GwangJu FC"
+            },
+            "112259": {
+            "club": "AFC Wimbledon"
+            },
+            "112260": {
+            "club": "Fleetwood Town"
+            },
+            "112378": {
+            "club": "Dalian Pro"
+            },
+            "112387": {
+            "club": "Al Ahli"
+            },
+            "112389": {
+            "club": "Al Faisaly"
+            },
+            "112390": {
+            "club": "Al Fateh"
+            },
+            "112392": {
+            "club": "Al Raed"
+            },
+            "112393": {
+            "club": "Al Taawoun"
+            },
+            "112420": {
+            "club": "Mjøndalen IF"
+            },
+            "112427": {
+            "club": "WS Wanderers"
+            },
+            "112429": {
+            "club": "Guangzhou City"
+            },
+            "112444": {
+            "club": "H.Consa.Sapporo"
+            },
+            "112510": {
+            "club": "Bruk-Bet"
+            },
+            "112511": {
+            "club": "Warta Poznań"
+            },
+            "112513": {
+            "club": "Arouca"
+            },
+            "112516": {
+            "club": "CD Tondela"
+            },
+            "112523": {
+            "club": "La Equidad"
+            },
+            "112535": {
+            "club": "Unión La Calera"
+            },
+            "112540": {
+            "club": "Shanghai Port"
+            },
+            "112541": {
+            "club": "Wuhan FC"
+            },
+            "112552": {
+            "club": "Quevilly Rouen"
+            },
+            "112558": {
+            "club": "Suwon FC"
+            },
+            "112572": {
+            "club": "Al Tai"
+            },
+            "112606": {
+            "club": "Orlando City"
+            },
+            "112637": {
+            "club": "Gaz Metan"
+            },
+            "112670": {
+            "club": "Talleres"
+            },
+            "112678": {
+            "club": "Atlético de San Luis"
+            },
+            "112689": {
+            "club": "Platense"
+            },
+            "112695": {
+            "club": "RFC Seraing"
+            },
+            "112713": {
+            "club": "Sarmiento"
+            },
+            "112716": {
+            "club": "Cerro Porteño"
+            },
+            "112783": {
+            "club": "Tokushima Vortis"
+            },
+            "112809": {
+            "club": "FC Famalicão"
+            },
+            "112828": {
+            "club": "New York City FC"
+            },
+            "112836": {
+            "club": "Vegalta Sendai"
+            },
+            "112853": {
+            "club": "Dep. La Guaira"
+            },
+            "112885": {
+            "club": "Atlanta United"
+            },
+            "112893": {
+            "club": "Inter Miami CF"
+            },
+            "112908": {
+            "club": "Independiente DV"
+            },
+            "112914": {
+            "club": "Metropolitanos"
+            },
+            "112916": {
+            "club": "Aragua FC"
+            },
+            "112961": {
+            "club": "Qingdao FC"
+            },
+            "112965": {
+            "club": "Central Córdoba"
+            },
+            "112978": {
+            "club": "Hebei FC"
+            },
+            "112985": {
+            "club": "Cangzhou Lions"
+            },
+            "112990": {
+            "club": "Al Batin"
+            },
+            "112996": {
+            "club": "LAFC"
+            },
+            "113040": {
+            "club": "NorthEast United"
+            },
+            "113057": {
+            "club": "Al Fayha"
+            },
+            "113058": {
+            "club": "Abha Club"
+            },
+            "113134": {
+            "club": "FC Juárez"
+            },
+            "113142": {
+            "club": "Alanyaspor"
+            },
+            "113143": {
+            "club": "Mdeo City Torque"
+            },
+            "113146": {
+            "club": "ATK Mohun Bagan"
+            },
+            "113149": {
+            "club": "FC Cincinnati"
+            },
+            "113157": {
+            "club": "S-Hiroshima"
+            },
+            "113160": {
+            "club": "Sagan Tosu"
+            },
+            "113161": {
+            "club": "Shonan Bellmare"
+            },
+            "113173": {
+            "club": "Östersunds FK"
+            },
+            "113182": {
+            "club": "FC Voluntari"
+            },
+            "113183": {
+            "club": "Oita Trinita"
+            },
+            "113186": {
+            "club": "Avispa Fukuoka"
+            },
+            "113197": {
+            "club": "Yokohama FC"
+            },
+            "113217": {
+            "club": "Damac FC"
+            },
+            "113222": {
+            "club": "Al Hazem"
+            },
+            "113257": {
+            "club": "Odisha FC"
+            },
+            "113259": {
+            "club": "Yeni Malatyaspor"
+            },
+            "113297": {
+            "club": "Chennaiyin FC"
+            },
+            "113298": {
+            "club": "FC Goa"
+            },
+            "113299": {
+            "club": "Kerala Blasters"
+            },
+            "113300": {
+            "club": "Mumbai City FC"
+            },
+            "113301": {
+            "club": "Hyderabad FC"
+            },
+            "113302": {
+            "club": "Bengaluru FC"
+            },
+            "113356": {
+            "club": "SD Amorebieta"
+            },
+            "113378": {
+            "club": "Sepsi OSK"
+            },
+            "113380": {
+            "club": "CS Mioveni"
+            },
+            "113387": {
+            "club": "AFC Chindia"
+            },
+            "113391": {
+            "club": "Academica"
+            },
+            "113458": {
+            "club": "IK Sirius"
+            },
+            "113459": {
+            "club": "Kristiansund"
+            },
+            "113743": {
+            "club": "Varbergs BoIS"
+            },
+            "113892": {
+            "club": "Degerfors IF"
+            },
+            "113926": {
+            "club": "Salford City"
+            },
+            "113974": {
+            "club": "Spezia"
+            },
+            "113981": {
+            "club": "UD Ibiza"
+            },
+            "114004": {
+            "club": "Stal Mielec"
+            },
+            "114023": {
+            "club": "Western United"
+            },
+            "114153": {
+            "club": "Piemonte Calcio"
+            },
+            "114161": {
+            "club": "Austin FC"
+            },
+            "114162": {
+            "club": "Nashville SC"
+            },
+            "114168": {
+            "club": "Jamshedpur FC"
+            },
+            "114326": {
+            "club": "Raków"
+            },
+            "114385": {
+            "club": "CFR Cluj"
+            },
+            "114398": {
+            "club": "Türkgücü"
+            },
+            "114511": {
+            "club": "Sport Huancayo"
+            },
+            "114575": {
+            "club": "River Plate"
+            },
+            "114577": {
+            "club": "Always Ready"
+            },
+            "114600": {
+            "club": "Guabirá"
+            },
+            "114604": {
+            "club": "Macarthur FC"
+            },
+            "114899": {
+            "club": "Mazatlán FC"
+            },
+            "114912": {
+            "club": "Roma FC"
+            },
+            "115535": {
+            "club": "Rentistas"
+            },
+            "115716": {
+            "club": "FC U Craiova"
+            },
+            "115820": {
+            "club": "Viktoria Berlin"
+            },
+            "115841": {
+            "club": "Latium"
+            },
+            "115845": {
+            "club": "Bergamo Calcio"
+            }
+        
+    },
+    "league": {
+        "1": {
+            "league": "3F Superliga (DEN 1)"
+            },
+            "4": {
+            "league": "1A Pro League (BEL 1)"
+            },
+            "10": {
+            "league": "Eredivisie (NED 1)"
+            },
+            "13": {
+            "league": "Premier League (ENG 1)"
+            },
+            "14": {
+            "league": "EFL Championship (ENG 2)"
+            },
+            "16": {
+            "league": "Ligue 1 Uber Eats (FRA 1)"
+            },
+            "17": {
+            "league": "Ligue 2 BKT (FRA 2)"
+            },
+            "19": {
+            "league": "Bundesliga (GER 1)"
+            },
+            "20": {
+            "league": "Bundesliga 2 (GER 2)"
+            },
+            "31": {
+            "league": "Serie A TIM (ITA 1)"
+            },
+            "39": {
+            "league": "MLS (MLS)"
+            },
+            "41": {
+            "league": "Eliteserien (NOR 1)"
+            },
+            "50": {
+            "league": "cinch Prem (SPFL)"
+            },
+            "53": {
+            "league": "LaLiga Santander (ESP 1)"
+            },
+            "54": {
+            "league": "LaLiga SmartBank (ESP 2)"
+            },
+            "56": {
+            "league": "Allsvenskan (SWE 1)"
+            },
+            "60": {
+            "league": "EFL League One (ENG 3)"
+            },
+            "61": {
+            "league": "EFL League Two (ENG 4)"
+            },
+            "63": {
+            "league": "Hellas Liga (GRE 1)"
+            },
+            "65": {
+            "league": "SSE Airtricity PD (IRL 1)"
+            },
+            "66": {
+            "league": "PKO Ekstraklasa (POL 1)"
+            },
+            "68": {
+            "league": "Süper Lig (TUR 1)"
+            },
+            "80": {
+            "league": "Ö. Bundesliga (AUT 1)"
+            },
+            "83": {
+            "league": "K League 1 (KOR 1)"
+            },
+            "189": {
+            "league": "CSSL (SUI 1)"
+            },
+            "308": {
+            "league": "Liga Portugal (POR 1)"
+            },
+            "317": {
+            "league": "Liga Hrvatska (CRO 1)"
+            },
+            "319": {
+            "league": "Česká Liga (CZE 1)"
+            },
+            "322": {
+            "league": "Finnliiga (FIN 1)"
+            },
+            "330": {
+            "league": "Liga I (ROM 1)"
+            },
+            "332": {
+            "league": "Ukrayina Liha (UKR 1)"
+            },
+            "341": {
+            "league": "LIGA BBVA MX (MEX 1)"
+            },
+            "347": {
+            "league": "South African FL (RSA 1)"
+            },
+            "349": {
+            "league": "Meiji Yasuda J1 (JPN 1)"
+            },
+            "350": {
+            "league": "MBS Pro League (SAU 1)"
+            },
+            "351": {
+            "league": "A-League (AUS 1)"
+            },
+            "353": {
+            "league": "LPF (ARG 1)"
+            },
+            "1003": {
+            "league": "Libertadores (LIB)"
+            },
+            "1014": {
+            "league": "Sudamericana (SUD)"
+            },
+            "2012": {
+            "league": "CSL (CHN 1)"
+            },
+            "2076": {
+            "league": "3. Liga (GER 3)"
+            },
+            "2118": {
+            "league": "Icons (ICN)"
+            },
+            "2172": {
+            "league": "United Emirates League (UAE 1)"
+            },
+            "2179": {
+            "league": "Calcio B (ITA 2)"
+            },
+            "2208": {
+            "league": "Men's National (INT)"
+            },
+            "2210": {
+            "league": "Liga Cyprus (CYP 1)"
+            },
+            "2211": {
+            "league": "Magyar Liga (HUN 1)"
+            },
+            "3006": {
+            "league": "League of Russia (RUS 1)"
+            }
+    },
+    "country": {
+        "1": {
+            "country": "Albania"
+            },
+            "2": {
+            "country": "Andorra"
+            },
+            "3": {
+            "country": "Armenia"
+            },
+            "4": {
+            "country": "Austria"
+            },
+            "5": {
+            "country": "Azerbaijan"
+            },
+            "6": {
+            "country": "Belarus"
+            },
+            "7": {
+            "country": "Belgium"
+            },
+            "8": {
+            "country": "Bosnia-H."
+            },
+            "9": {
+            "country": "Bulgaria"
+            },
+            "10": {
+            "country": "Croatia"
+            },
+            "11": {
+            "country": "Cyprus"
+            },
+            "12": {
+            "country": "Czech Rep."
+            },
+            "13": {
+            "country": "Denmark"
+            },
+            "14": {
+            "country": "England"
+            },
+            "15": {
+            "country": "Montenegro"
+            },
+            "16": {
+            "country": "Faroe Isl."
+            },
+            "17": {
+            "country": "Finland"
+            },
+            "18": {
+            "country": "France"
+            },
+            "19": {
+            "country": "Macedonia"
+            },
+            "20": {
+            "country": "Georgia"
+            },
+            "21": {
+            "country": "Germany"
+            },
+            "22": {
+            "country": "Greece"
+            },
+            "23": {
+            "country": "Hungary"
+            },
+            "24": {
+            "country": "Iceland"
+            },
+            "25": {
+            "country": "Ireland"
+            },
+            "26": {
+            "country": "Israel"
+            },
+            "27": {
+            "country": "Italy"
+            },
+            "28": {
+            "country": "Latvia"
+            },
+            "30": {
+            "country": "Lithuania"
+            },
+            "31": {
+            "country": "Luxemburg"
+            },
+            "32": {
+            "country": "Malta"
+            },
+            "33": {
+            "country": "Moldova"
+            },
+            "34": {
+            "country": "Netherlands"
+            },
+            "35": {
+            "country": "N. Ireland"
+            },
+            "36": {
+            "country": "Norway"
+            },
+            "37": {
+            "country": "Poland"
+            },
+            "38": {
+            "country": "Portugal"
+            },
+            "39": {
+            "country": "Romania"
+            },
+            "40": {
+            "country": "Russia"
+            },
+            "42": {
+            "country": "Scotland"
+            },
+            "43": {
+            "country": "Slovakia"
+            },
+            "44": {
+            "country": "Slovenia"
+            },
+            "45": {
+            "country": "Spain"
+            },
+            "46": {
+            "country": "Sweden"
+            },
+            "47": {
+            "country": "Switzerl."
+            },
+            "48": {
+            "country": "Turkey"
+            },
+            "49": {
+            "country": "Ukraine"
+            },
+            "50": {
+            "country": "Wales"
+            },
+            "51": {
+            "country": "Serbia"
+            },
+            "52": {
+            "country": "Argentina"
+            },
+            "53": {
+            "country": "Bolivia"
+            },
+            "54": {
+            "country": "Brazil"
+            },
+            "55": {
+            "country": "Chile"
+            },
+            "56": {
+            "country": "Colombia"
+            },
+            "57": {
+            "country": "Ecuador"
+            },
+            "58": {
+            "country": "Paraguay"
+            },
+            "59": {
+            "country": "Peru"
+            },
+            "60": {
+            "country": "Uruguay"
+            },
+            "61": {
+            "country": "Venezuela"
+            },
+            "63": {
+            "country": "Antigua B."
+            },
+            "66": {
+            "country": "Barbados"
+            },
+            "67": {
+            "country": "Belize"
+            },
+            "68": {
+            "country": "Bermuda"
+            },
+            "70": {
+            "country": "Canada"
+            },
+            "72": {
+            "country": "Costa Rica"
+            },
+            "73": {
+            "country": "Cuba"
+            },
+            "76": {
+            "country": "El Salvad."
+            },
+            "77": {
+            "country": "Grenada"
+            },
+            "78": {
+            "country": "Guatemala"
+            },
+            "79": {
+            "country": "Guyana"
+            },
+            "80": {
+            "country": "Haiti"
+            },
+            "81": {
+            "country": "Honduras"
+            },
+            "82": {
+            "country": "Jamaica"
+            },
+            "83": {
+            "country": "Mexico"
+            },
+            "84": {
+            "country": "Montserrat"
+            },
+            "85": {
+            "country": "N.Antilles"
+            },
+            "87": {
+            "country": "Panama"
+            },
+            "88": {
+            "country": "Puerto Rico"
+            },
+            "89": {
+            "country": "St Kitts Nevis"
+            },
+            "90": {
+            "country": "St Lucia"
+            },
+            "92": {
+            "country": "Suriname"
+            },
+            "93": {
+            "country": "Trinidad"
+            },
+            "95": {
+            "country": "USA"
+            },
+            "97": {
+            "country": "Algeria"
+            },
+            "98": {
+            "country": "Angola"
+            },
+            "99": {
+            "country": "Benin"
+            },
+            "101": {
+            "country": "Burk. Faso"
+            },
+            "102": {
+            "country": "Burundi"
+            },
+            "103": {
+            "country": "Cameroon"
+            },
+            "104": {
+            "country": "Cape Verde"
+            },
+            "105": {
+            "country": "CAR"
+            },
+            "106": {
+            "country": "Chad"
+            },
+            "107": {
+            "country": "Congo"
+            },
+            "108": {
+            "country": "Ivory Coast"
+            },
+            "110": {
+            "country": "DR Congo"
+            },
+            "111": {
+            "country": "Egypt"
+            },
+            "112": {
+            "country": "E. Guinea"
+            },
+            "113": {
+            "country": "Eritrea"
+            },
+            "114": {
+            "country": "Ethiopia"
+            },
+            "115": {
+            "country": "Gabon"
+            },
+            "116": {
+            "country": "Gambia"
+            },
+            "117": {
+            "country": "Ghana"
+            },
+            "118": {
+            "country": "Guinea"
+            },
+            "119": {
+            "country": "Guinea-Bis"
+            },
+            "120": {
+            "country": "Kenya"
+            },
+            "122": {
+            "country": "Liberia"
+            },
+            "123": {
+            "country": "Libya"
+            },
+            "124": {
+            "country": "Madagascar"
+            },
+            "125": {
+            "country": "Malawi"
+            },
+            "126": {
+            "country": "Mali"
+            },
+            "127": {
+            "country": "Mauritania"
+            },
+            "128": {
+            "country": "Mauritius"
+            },
+            "129": {
+            "country": "Morocco"
+            },
+            "130": {
+            "country": "Mozambique"
+            },
+            "131": {
+            "country": "Namibia"
+            },
+            "132": {
+            "country": "Niger"
+            },
+            "133": {
+            "country": "Nigeria"
+            },
+            "136": {
+            "country": "Senegal"
+            },
+            "138": {
+            "country": "Sierra L."
+            },
+            "140": {
+            "country": "S. Africa"
+            },
+            "141": {
+            "country": "Sudan"
+            },
+            "143": {
+            "country": "Tanzania"
+            },
+            "144": {
+            "country": "Togo"
+            },
+            "145": {
+            "country": "Tunisia"
+            },
+            "146": {
+            "country": "Uganda"
+            },
+            "147": {
+            "country": "Zambia"
+            },
+            "148": {
+            "country": "Zimbabwe"
+            },
+            "149": {
+            "country": "Afghanist."
+            },
+            "155": {
+            "country": "China PR"
+            },
+            "157": {
+            "country": "Guam"
+            },
+            "158": {
+            "country": "Hong Kong"
+            },
+            "159": {
+            "country": "India"
+            },
+            "161": {
+            "country": "Iran"
+            },
+            "162": {
+            "country": "Iraq"
+            },
+            "163": {
+            "country": "Japan"
+            },
+            "164": {
+            "country": "Jordan"
+            },
+            "165": {
+            "country": "Kazakhstan"
+            },
+            "166": {
+            "country": "Korea DPR"
+            },
+            "167": {
+            "country": "Korea Rep."
+            },
+            "171": {
+            "country": "Lebanon"
+            },
+            "173": {
+            "country": "Malaysia"
+            },
+            "180": {
+            "country": "Palestinian Authority"
+            },
+            "181": {
+            "country": "Philippines"
+            },
+            "183": {
+            "country": "Saudi Ara."
+            },
+            "186": {
+            "country": "Syria"
+            },
+            "188": {
+            "country": "Thailand"
+            },
+            "190": {
+            "country": "United Arab Emirates"
+            },
+            "191": {
+            "country": "Uzbekistan"
+            },
+            "192": {
+            "country": "Vietnam"
+            },
+            "195": {
+            "country": "Australia"
+            },
+            "197": {
+            "country": "Fiji"
+            },
+            "198": {
+            "country": "New Zealand"
+            },
+            "205": {
+            "country": "Gibraltar"
+            },
+            "207": {
+            "country": "Dom. Rep."
+            },
+            "208": {
+            "country": "Estonia"
+            },
+            "213": {
+            "country": "Chinese Taipei"
+            },
+            "214": {
+            "country": "Comoros"
+            },
+            "218": {
+            "country": "South Sudan"
+            },
+            "219": {
+            "country": "Kosovo"
+            }          
+    },
+    "position": {
+        "Attackers": {
+            "position": "Attackers"
+            },
+            "CAM": {
+            "position": "CAM"
+            },
+            "CB": {
+            "position": "CB"
+            },
+            "CDM": {
+            "position": "CDM"
+            },
+            "CF": {
+            "position": "CF"
+            },
+            "CM": {
+            "position": "CM"
+            },
+            "Defenders": {
+            "position": "Defenders"
+            },
+            "GK": {
+            "position": "GK"
+            },
+            "LB": {
+            "position": "LB"
+            },
+            "LF": {
+            "position": "LF"
+            },
+            "LM": {
+            "position": "LM"
+            },
+            "LW": {
+            "position": "LW"
+            },
+            "LWB": {
+            "position": "LWB"
+            },
+            "Midfielders": {
+            "position": "Midfielders"
+            },
+            "RB": {
+            "position": "RB"
+            },
+            "RF": {
+            "position": "RF"
+            },
+            "RM": {
+            "position": "RM"
+            },
+            "RW": {
+            "position": "RW"
+            },
+            "RWB": {
+            "position": "RWB"
+            },
+            "ST": {
+            "position": "ST"
+            }
+    }
+}

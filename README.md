@@ -2,7 +2,7 @@
 
 Mac             |  Windows
 :-------------------------:|:-------------------------:
-![](./demos/gui_mac_v23.PNG)  |  ![](./demos/gui_windows_v23.PNG)
+<img src="./demos/userInterface_mac.PNG" width="822" height="600">  |  ![](./demos/gui_windows_v23.PNG)
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
@@ -11,6 +11,8 @@ _Note 1: I built this for me and my friends as a fun side project. I'm making it
 _Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
 
 _Note 3: (2/16/22) I might make a Youtube video explaining how to run it if there are issues. Join the Discord here: https://discord.gg/3ZuA9w6Szk_
+
+_Note 4: (8/26/22) New version released with all-new UI and automatic filter entry_
 
 ## Intro
 
@@ -35,7 +37,7 @@ Advantages:
 
 ## Installation
 
-1. [Download](https://github.com/tmb5cg/Fifa22-Autobidder/archive/refs/heads/main.zip) or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
+1. Download or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
 
 2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
@@ -112,25 +114,7 @@ You want to have a conversion rate around 50%, at 100-150 margin that is 25 play
 
 Everything is configured via the user interface. [See here](https://docs.google.com/document/d/1kZ2sAFf_Pvo5JcXJof28a5J2TDkmFwJKj6GbONeBer8/edit?usp=sharing) for an explanation of the user interface settings.
 
-The bot uses Xbox prices by default. To switch your platform, edit the variable on [this line](https://github.com/tmb5cg/Fifa22-Autobidder/blob/main/src/autobidder.py#L802):
-  - actions.click(hidden_submenu_ps) for Playstation
-  - actions.click(hidden_submenu_xbox) is Xbox
-  - actions.click(hidden_submenu_pc) is PC
-
-
-Line 90 in autobidder.py is where the Futbin URL is updated. I intended to have config.ini control this, but it was not implemented. Join the Discord if this is confusing. 
-
-### Automatic login
-
-Mac             |  Windows
-:-------------------------:|:-------------------------:
-![](./demos/maclogin_compressed.gif)  |  ![](to do)
-
-If you would like to automatically login, ensure that your credentials are entered in [config.ini](config.ini).
-
-Auto login is not required, it is just convenient. If you can't read/understand most or all of my code you probably shouldn't use auto-login (it is safe, but rule of thumb be cautious on the internet). Login manually and the Start Bot button will function as normal.
-
-Email credentials are used to fetch the authorization code which requires a bit more work and honestly is needlessly dangerous, you need to enable third party app access on your Gmail which in hindsight just login manually. But if you are curious, (see **[here](https://support.google.com/accounts/answer/3466521?hl=en_)**). I'd recommend creating a new separate Gmail account that gets auto-forwarded your EA security code, that way you are not exposing your actual email (I did this because I almost pushed this new bot to Github with my actual email's credentials, which freaked me out).
+The bot uses Xbox prices by default. To switch your platform, be sure to edit the Platform dropdown on the UI.
 
 
 ## Troubleshooting
