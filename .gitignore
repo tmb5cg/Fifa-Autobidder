@@ -118,6 +118,6 @@ dmypy.json
 data/targetplayers.txt
 data/gui_logs.txt
 .vscode/settings.json
-*.ini
+
 src/ignore.py
 theme/light/vert-hover.png
