@@ -8,7 +8,8 @@ import random
 import re
 from time import sleep
 from selenium import webdriver
-from selenium.common.exceptions import (NoSuchElementException, TimeoutException, WebDriverException)
+from selenium.common.exceptions import (
+    NoSuchElementException, TimeoutException, WebDriverException)
 from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -17,6 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support import ui
 from selenium.webdriver.support.wait import WebDriverWait
 import undetected_chromedriver as uc
+
 
 def log_event(queue, event, bidroundOver=False):
     """
@@ -35,51 +37,53 @@ def log_event(queue, event, bidroundOver=False):
 
 
 def getFilters(url):
-        webapp_options = ['quality', 'rarity', 'league', 'club', 'country', 'position']
-        futbin_options = ['league', 'nation', 'club', 'version', 'position']
+    webapp_options = ['quality', 'rarity',
+                      'league', 'club', 'country', 'position']
+    futbin_options = ['league', 'nation', 'club', 'version', 'position']
 
-        full_data = ""
+    full_data = ""
 
-        # Opening JSON file
-        with open('./data/futbin_decoder.json') as json_file:
-            data = json.load(json_file)
-            full_data = data
-        
-        txt = url
-        results = re.findall("[^&?]*?=[^&?]*", txt)
+    # Opening JSON file
+    with open('./data/futbin_decoder.json') as json_file:
+        data = json.load(json_file)
+        full_data = data
 
-        webapp_filters_output = {}
-        if results:
-            for i in results:
-                temp = i.split("=")
+    txt = url
+    results = re.findall("[^&?]*?=[^&?]*", txt)
 
-                param = temp[0]
-                value = temp[1]
-                param = param.strip()
-                value = value.strip()
+    webapp_filters_output = {}
+    if results:
+        for i in results:
+            temp = i.split("=")
 
-                # Extract valid futbin paramters
-                if param in futbin_options:
+            param = temp[0]
+            value = temp[1]
+            param = param.strip()
+            value = value.strip()
+
+            # Extract valid futbin paramters
+            if param in futbin_options:
+                try:
+                    if (param == "nation"):
+                        param = "country"
+                    full_data[param]
                     try:
-                        if (param == "nation"): param = "country"
-                        full_data[param]
-                        try:
-                            output = full_data[param][value]
+                        output = full_data[param][value]
 
-                            if (param != "version"):
-                                webapp_filters_output[param] = output[param]
-                            else:
-                                webapp_filters_output["quality"] = output['quality']
-                                webapp_filters_output["rarity"] = output['rarity']
-                        except:
-                            continue
+                        if (param != "version"):
+                            webapp_filters_output[param] = output[param]
+                        else:
+                            webapp_filters_output["quality"] = output['quality']
+                            webapp_filters_output["rarity"] = output['rarity']
                     except:
                         continue
-        else:
-            print("No match")
+                except:
+                    continue
+    else:
+        print("No match")
 
-        total_filters = len(webapp_filters_output)
-        return webapp_filters_output
+    total_filters = len(webapp_filters_output)
+    return webapp_filters_output
 
 
 def create_driver():
@@ -98,9 +102,8 @@ def create_driver():
         options = uc.ChromeOptions()
 
         options.add_argument('--profile-directory=Profile 8')
-        options.add_argument('--disable-popup-blocking') # allow for new tab
+        options.add_argument('--disable-popup-blocking')  # allow for new tab
         # options.add_extension("adblocker/uBlock-Origin.crx")
-
 
         driver = uc.Chrome(options=options)
         return driver
@@ -113,9 +116,10 @@ def create_driver():
         options.add_argument("--ignore-ssl-errors")
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option(
+            "excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
-        
+
         # Stop annoying windows logs
         options.add_argument('--disable-logging')
         options.add_argument("--log-level=3")
@@ -124,31 +128,38 @@ def create_driver():
 
         return driver
 
+
 def setup_adblock(driver):
-    driver.execute_script("alert('Click Add Extension when prompted. Then proceed to login');")
-    
+    driver.execute_script(
+        "alert('Click Add Extension when prompted. Then proceed to login');")
+
     alert_present = True
     while alert_present:
         try:
-            alert_present = WebDriverWait(driver, 1).until(EC.alert_is_present(), 'Alert is gone')
-            
+            alert_present = WebDriverWait(driver, 1).until(
+                EC.alert_is_present(), 'Alert is gone')
+
         except Exception as e:
             # Alert is gone, now install adblock
             alert_present = False
             try:
-                driver.get("https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en")
-                WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")))
-                WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div"))).click()
+                driver.get(
+                    "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en")
+                WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
+                    (By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")))
+                WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+                    (By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div"))).click()
 
             except Exception as e:
                 # print("User broke futbin fetch, self.botRunning false")
                 print("Issue installing adblocker, please install manually")
                 driver.switch_to.window(driver.window_handles[0])
-                
+
             driver.switch_to.window(driver.window_handles[0])
-    
+
     sleep(3)
     installing = True
+    infiniteCounter = 0
     while installing:
         try:
             elements = "/html/body/div[3]/div[2]/div/div/div[2]"
@@ -163,14 +174,16 @@ def setup_adblock(driver):
                     installing = False
 
                 if (lowered == "remove from chrome"):
-                    installing = False 
+                    installing = False
 
                 if "remove" in lowered:
                     installing = False
                     break
-            
+
         except:
-            print("hi")
+            infiniteCounter += 1
+            if infiniteCounter > 10:
+                print("Issue installing adblocker, restart bot")
 
     driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
 
@@ -183,7 +196,8 @@ def login(queue, driver, user):
         )
 
         sleep(random.randint(2, 4))
-        driver.find_element(By.XPATH, '//*[@class="ut-login-content"]//button').click()
+        driver.find_element(
+            By.XPATH, '//*[@class="ut-login-content"]//button').click()
 
         WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located((By.ID, 'email'))
@@ -194,7 +208,8 @@ def login(queue, driver, user):
         sleep(1)
         driver.find_element(By.ID, 'password').send_keys(user["password"])
         sleep(1)
-        driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/section/div[1]/form/div[6]/a').click()
+        driver.find_element(
+            By.XPATH, '/html/body/div[1]/div[2]/section/div[1]/form/div[6]/a').click()
         sleep(3)
 
         WebDriverWait(driver, 15).until(
@@ -216,9 +231,9 @@ def clearGUIstats():
     today_str = str(today)
 
     if (user_settings_current_date != today_str):
-        # Set Date var to current date in file 
+        # Set Date var to current date in file
         config.read("./data/settings.ini")
-        config.set("Other","todays_date", today_str)
+        config.set("Other", "todays_date", today_str)
         with open("./data/settings.ini", 'w') as configfile:
             config.write(configfile)
 
@@ -232,6 +247,7 @@ def clearGUIstats():
 
         with open("./data/settings.ini", 'w') as configfile:
             config.write(configfile)
+
 
 def checkStartupFiles():
     gui_logs_exists = os.path.exists("./data/output.txt")

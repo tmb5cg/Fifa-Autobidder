@@ -120,4 +120,3 @@ data/gui_logs.txt
 .vscode/settings.json
 
 src/ignore.py
-theme/light/vert-hover.png
