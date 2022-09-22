@@ -131,7 +131,7 @@ def create_driver():
 
 def setup_adblock(driver):
     driver.execute_script(
-        "alert('Click Add Extension when prompted. Then proceed to login');")
+        "alert('You must install Adblocker. Without Adblocker, FUTBIN fetch will break (way too many advertisements). After 10 seconds, bot will automatically go to Webapp. ');")
 
     alert_present = True
     while alert_present:
@@ -146,9 +146,9 @@ def setup_adblock(driver):
                 driver.get(
                     "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en")
                 WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-                    (By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div")))
+                    (By.XPATH, "/html/body/div[5]/div[2]/div/div/div[2]/div[2]/div/div/div/div")))
                 WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
-                    (By.XPATH, "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div"))).click()
+                    (By.XPATH, "/html/body/div[5]/div[2]/div/div/div[2]/div[2]/div/div/div/div"))).click()
 
             except Exception as e:
                 # print("User broke futbin fetch, self.botRunning false")
@@ -157,34 +157,34 @@ def setup_adblock(driver):
 
             driver.switch_to.window(driver.window_handles[0])
 
-    sleep(3)
-    installing = True
-    infiniteCounter = 0
-    while installing:
-        try:
-            elements = "/html/body/div[3]/div[2]/div/div/div[2]"
-            page_content = driver.find_elements(By.XPATH, elements)
+    sleep(14)
+    # installing = True
+    # infiniteCounter = 0
+    # while installing:
+    #     try:
+    #         elements = "/html/body/div[3]/div[2]/div/div/div[2]"
+    #         page_content = driver.find_elements(By.XPATH, elements)
 
-            for elem in page_content:
-                text = str(elem.text)
-                text = text.strip()
-                # print(text)
-                lowered = text.lower()
-                if (text == "Remove from Chrome"):
-                    installing = False
+    #         for elem in page_content:
+    #             text = str(elem.text)
+    #             text = text.strip()
+    #             # print(text)
+    #             lowered = text.lower()
+    #             if (text == "Remove from Chrome"):
+    #                 installing = False
 
-                if (lowered == "remove from chrome"):
-                    installing = False
+    #             if (lowered == "remove from chrome"):
+    #                 installing = False
 
-                if "remove" in lowered:
-                    installing = False
-                    break
+    #             if "remove" in lowered:
+    #                 installing = False
+    #                 break
 
-        except:
-            infiniteCounter += 1
-            if infiniteCounter > 10:
-                print("Issue installing adblocker, restart bot")
-                break
+    #     except:
+    #         infiniteCounter += 1
+    #         if infiniteCounter > 10:
+    #             print("Issue installing adblocker, restart bot")
+    #             break
 
     driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
 
