@@ -184,6 +184,7 @@ def setup_adblock(driver):
             infiniteCounter += 1
             if infiniteCounter > 10:
                 print("Issue installing adblocker, restart bot")
+                break
 
     driver.get("https://www.ea.com/fifa/ultimate-team/web-app/")
 
