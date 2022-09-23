@@ -842,37 +842,26 @@ class Autobidder:
             card_details = test.split("\n")
             stats = card_details[4].strip("\n").split(" ")
 
+            # print(f"card stats: {stats}")
+            # print(f"card deets: {card_details}")
+
             if len(stats) < 7:
                 stats = card_details[3].strip("\n").split(" ")
 
-            print(f"card stats: {stats}")
-            print(f"card deets: {card_details}")
+            if len(stats) == 13:
+                stats = stats[1:len(stats)]
 
-            ok = int(stats[1])
-            if ok > 100:
-                # this means its messed up
-                name = card_details[0].strip("\n")
-                rating = card_details[1]
-                position = card_details[2]
-                price = stats[1]
-                pace = stats[7]
-                shooting = stats[8]
-                passing = stats[9]
-                dribbling = stats[10]
-                defense = stats[11]
-                physical = stats[12]
-
-            else:
-                name = card_details[0].strip("\n")
-                rating = card_details[1]
-                position = card_details[2]
-                price = stats[0]
-                pace = stats[6]
-                shooting = stats[7]
-                passing = stats[8]
-                dribbling = stats[9]
-                defense = stats[10]
-                physical = stats[11]
+            # print(f"card stats: {stats}")
+            name = card_details[0].strip("\n")
+            rating = card_details[1]
+            position = card_details[2]
+            price = stats[0]
+            pace = stats[6]
+            shooting = stats[7]
+            passing = stats[8]
+            dribbling = stats[9]
+            defense = stats[10]
+            physical = stats[11]
 
             if "K" in price:
                 price = price.replace("K", "")
@@ -944,7 +933,7 @@ class Autobidder:
 
         len_url = len(url)
         first = url[:36]
-        second = url[47:len_url]
+        second = url[37:len_url]
 
         self.sleep_approx(3)
         self.change_futbin_platform()
