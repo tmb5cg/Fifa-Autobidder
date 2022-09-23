@@ -1,8 +1,10 @@
 # TMB's FIFA 22 Autobidder
 
-Mac             |  Windows
+Mac             |   .
 :-------------------------:|:-------------------------:
-<img src="./demos/userInterface_mac.png" width="822" height="600">  |  ![](./demos/gui_windows_v23.PNG)
+<img src="./demos/userInterface_mac.png" >  |  ![](./demos/gui_windows_v23.PNG)
+
+
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
