@@ -8,25 +8,18 @@ Mac             |   .
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
-_Note 1: I built this for me and my friends as a fun side project. I'm making it open source because it's awesome, and paid bots are sus. It is not perfect and use it at your own risk._
-
-_Note 2: (1/26/22) This is an entirely new version that works really well -- don't make more than 1000 bids in a day (or 2000 lol). Remember that in using this you are taking a risk and CAN get banned. The stats in config.ini are my last resting stats and [see here](https://docs.google.com/spreadsheets/d/15PRwG_wVajMtrCvhV2PRkPFTdEkvgdzcOdb_XwKUxxA/edit#gid=0) for my logs down to the minute and second!_
-
-_Note 3: (2/16/22) I might make a Youtube video explaining how to run it if there are issues. Join the Discord here: https://discord.gg/3ZuA9w6Szk_
-
-_Note 4: (8/26/22) New version released with all-new UI and automatic filter entry_
-
 ## Intro
 
 This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market web application. 
 
-For detailed documentation on configuring the bot, [see here](https://tmb5cg.github.io/fifa-autobidder). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
+Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
+
+See [*technical overiew*](https://tmb5cg.github.io/fifa-autobidder) for detailed documentation. For issues/questions, consider joining Discord server [here.](https://discord.gg/3ZuA9w6Szk)
+
 
 ## Overview & Features
 
-Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
-
-Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on speed and luck (and custom JS injection), Autobidding relies on lower margins at higher volumes (around 100 - 200 coins per card). This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
+Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on speed and luck (and risky JavaScript injection), Autobidding relies on lower margins at higher volumes (around 100 - 200 coins per card). This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
 
 Advantages:
 
@@ -36,6 +29,8 @@ Advantages:
   - Supply of undervalued auctions is infinitely greater than snipes
 - Detectability
   - Selenium's JS injection in itself is no different than a typical browser extension's injected JS, like an Adblocker
+
+For detailed documentation on configuring the bot, [see here](https://tmb5cg.github.io/fifa-autobidder). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
 
 ## Installation
 
