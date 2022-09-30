@@ -587,7 +587,8 @@ class Autobidder:
 
         players_won = 0
         players_expired = 0
-        while status:
+        transferlist_full = False
+        while status and (transferlist_full == False):
             try:
                 # every 10 seconds, check if bid is currently active and expiring etc
                 activeBid = self.check_exists_by_xpath(
@@ -606,7 +607,7 @@ class Autobidder:
 
                     unlistedPlayers = True
                     counter = 0
-                    while unlistedPlayers:
+                    while unlistedPlayers and (transferlist_full == False):
                         try:
                             wait_for_shield_invisibility(self.driver)
                             wait_for_player_shield_invisibility(self.driver)
@@ -658,6 +659,16 @@ class Autobidder:
                             # Show player listing
                             self.clickButton(
                                 '/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[1]/button')
+
+                            # Check for popup here
+                            # "This item cannot be listed for transfer as you have reached your transfer limit"
+                            popup_exists = self.checkForPopup()
+                            if popup_exists:
+                                self.clickButton(
+                                    "/html/body/div[4]/section/div/div/button")
+                                transferlist_full = True
+                                break
+
                             self.send_keys_and_more(
                                 '/html/body/main/section/section/div[2]/div/div/section/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/input', startBid)  # Start bid
                             self.send_keys_and_more(
@@ -810,6 +821,7 @@ class Autobidder:
             log_event(self.queue, "popup exists - text is: " +
                       str(self.popup_text))
 
+            return True
         else:
             return False
 
@@ -830,8 +842,12 @@ class Autobidder:
             self.hasExceededTimeCutoff = True
 
     def fetch_player_data(self):
-        self.wait_for_visibility(
-            "/html/body/div[9]/div[2]/div[5]/div[3]/table/tbody")
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, "#repTb"))
+        )
+        # self.wait_for_visibility(
+        #     "/html/body/div[9]/div[2]/div[5]/div[3]/table/tbody")
         tbody = self.driver.find_element(By.CSS_SELECTOR, '#repTb > tbody')
         stats = tbody.find_elements(By.XPATH, './tr')
 
@@ -839,19 +855,31 @@ class Autobidder:
         index = 1
         for row in stats:
             test = row.text
+
             card_details = test.split("\n")
-            stats = card_details[4].strip("\n").split(" ")
 
-            # print(f"card stats: {stats}")
-            # print(f"card deets: {card_details}")
+            # Find which element has prices
+            stats = ""
+            for x in range(3, 7):
+                temp = ""
+                try:
+                    temp = card_details[x].strip("\n").split(" ")
+                except:
+                    continue
 
-            if len(stats) < 7:
-                stats = card_details[3].strip("\n").split(" ")
+                if len(temp) == 12:
+                    stats = temp
 
-            if len(stats) == 13:
-                stats = stats[1:len(stats)]
+            # print(
+            # f"Test is: \n {test} \n \n card_details is \n {card_details} and \n \n stats is {stats} \n")
+            # print(f"Test is: \n {test}")
+            # print(card_details)
+            # if len(stats) < 7:
+            #     stats = card_details[3].strip("\n").split(" ")
 
-            # print(f"card stats: {stats}")
+            # if len(stats) == 13:
+            #     stats = stats[1:len(stats)]
+
             name = card_details[0].strip("\n")
             rating = card_details[1]
             position = card_details[2]
@@ -895,8 +923,11 @@ class Autobidder:
             index += 1
 
     def check_for_results(self):
-        tbody = self.driver.find_element_by_xpath(
-            "/html/body/div[9]/div[2]/div[5]/div[3]/table/tbody")
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, "#repTb"))
+        )
+        tbody = self.driver.find_element(By.CSS_SELECTOR, '#repTb > tbody')
         stats = tbody.find_elements(By.XPATH, './tr')
 
         for row in stats:

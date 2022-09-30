@@ -131,7 +131,7 @@ def create_driver():
 
 def setup_adblock(driver):
     driver.execute_script(
-        "alert('You must install Adblocker. Without Adblocker, FUTBIN fetch will break (way too many advertisements). After 10 seconds, bot will automatically go to Webapp. ');")
+        "alert('Install Adblocker after accepting this prompt. Without Adblocker, FUTBIN fetch will break (way too many advertisements). After 10 seconds, bot will automatically go to Webapp. ');")
 
     alert_present = True
     while alert_present:
