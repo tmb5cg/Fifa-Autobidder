@@ -858,69 +858,73 @@ class Autobidder:
 
             card_details = test.split("\n")
 
-            # Find which element has prices
-            stats = ""
-            for x in range(3, 7):
-                temp = ""
-                try:
-                    temp = card_details[x].strip("\n").split(" ")
-                except:
-                    continue
+            if len(card_details) > 2:
 
-                if len(temp) == 12:
-                    stats = temp
+                # Find which element has prices
+                stats = ""
+                for x in range(3, 7):
+                    temp = ""
+                    try:
+                        temp = card_details[x].strip("\n").split(" ")
+                    except:
+                        continue
 
-            # print(
-            # f"Test is: \n {test} \n \n card_details is \n {card_details} and \n \n stats is {stats} \n")
-            # print(f"Test is: \n {test}")
-            # print(card_details)
-            # if len(stats) < 7:
-            #     stats = card_details[3].strip("\n").split(" ")
+                    if len(temp) == 12:
+                        stats = temp
 
-            # if len(stats) == 13:
-            #     stats = stats[1:len(stats)]
+                # print(card_details)
 
-            name = card_details[0].strip("\n")
-            rating = card_details[1]
-            position = card_details[2]
-            price = stats[0]
-            pace = stats[6]
-            shooting = stats[7]
-            passing = stats[8]
-            dribbling = stats[9]
-            defense = stats[10]
-            physical = stats[11]
+                # print(
+                #     f"Test is: \n {test} \n \n card_details is \n {card_details} and \n \n stats is {stats} \n")
+                # print(f"Test is: \n {test}")
+                # print(card_details)
+                if len(stats) < 7:
+                    stats = card_details[3].strip("\n").split(" ")
 
-            if "K" in price:
-                price = price.replace("K", "")
-                price = float(price)
-                price = int(price*1000)
-                price = str(price)
-            player_data = [rating, pace, shooting,
-                           passing, dribbling, defense, physical]
+                if len(stats) == 13:
+                    stats = stats[1:len(stats)]
 
-            unique_player_id = ""
-            for x in player_data:
-                x = str(x)
-                unique_player_id += x
+                name = card_details[0].strip("\n")
+                rating = card_details[1]
+                position = card_details[2]
+                price = stats[0]
+                pace = stats[6]
+                shooting = stats[7]
+                passing = stats[8]
+                dribbling = stats[9]
+                defense = stats[10]
+                physical = stats[11]
 
-            player = [index, name, rating, position, price, pace, shooting,
-                      passing, dribbling, defense, physical, unique_player_id]
+                if "K" in price:
+                    price = price.replace("K", "")
+                    price = float(price)
+                    price = int(price*1000)
+                    price = str(price)
+                player_data = [rating, pace, shooting,
+                               passing, dribbling, defense, physical]
 
-            players.append(player)
-            full_entry = ""
-            for word in player:
-                word = str(word)
-                word_comma = word + ","
-                full_entry += word_comma
+                unique_player_id = ""
+                for x in player_data:
+                    x = str(x)
+                    unique_player_id += x
 
-            full_entry = full_entry[:-1]
+                player = [index, name, rating, position, price, pace, shooting,
+                          passing, dribbling, defense, physical, unique_player_id]
 
-            # Add new line to end
-            hs = open("./data/targetplayers.txt", "a", encoding="utf8")
-            hs.write(full_entry + "\n")
-            hs.close()
-            index += 1
+                players.append(player)
+                full_entry = ""
+                for word in player:
+                    word = str(word)
+                    word_comma = word + ","
+                    full_entry += word_comma
+
+                full_entry = full_entry[:-1]
+
+                # Add new line to end
+                hs = open("./data/targetplayers.txt", "a", encoding="utf8")
+                hs.write(full_entry + "\n")
+                hs.close()
+                index += 1
 
     def check_for_results(self):
         WebDriverWait(self.driver, 10).until(
