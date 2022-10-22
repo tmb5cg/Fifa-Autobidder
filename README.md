@@ -1,16 +1,14 @@
 # TMB's FIFA 23 Autobidder
 
-Mac             |   .
-:-------------------------:|:-------------------------:
-<img src="./demos/userInterface_mac.png" >  |  ![](./demos/gui_windows_v23.PNG)
-
-
+|                    Mac                     |                .                 |
+|:------------------------------------------:|:--------------------------------:|
+| <img src="./demos/userInterface_mac.png" > | ![](./demos/gui_windows_v23.PNG) |
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
 ## Intro
 
-This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA 22 Ultimate Team) Transfer Market web application. 
+This project is an Autobidder trading bot that buys and sells players on the FUT (FIFA Ultimate Team) Transfer Market web application. 
 
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
@@ -28,13 +26,13 @@ Advantages:
 - Efficiency
   - Supply of undervalued auctions is infinitely greater than snipes
 - Detectability
-  - Selenium's JS injection in itself is no different than a typical browser extension's injected JS, like an Adblocker
+  - Selenium's JS injection in itself is no different from a typical browser extension's injected JS, like an ad blocker
 
 For detailed documentation on configuring the bot, [see here](https://tmb5cg.github.io/fifa-autobidder). For issues or support, join our Discord community [here](https://discord.gg/3ZuA9w6Szk).
 
 ## Installation
 
-1. Download or clone this repository to your machine, the unzipped folder should be named Fifa22-Autobidder-main. 
+1. Download or clone this repository to your machine, the unzipped folder should be named Fifa-Autobidder. 
 
 2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
 
@@ -45,12 +43,12 @@ For detailed documentation on configuring the bot, [see here](https://tmb5cg.git
   Terminal (Mac):
 
   ```
-  cd ~/Desktop/Fifa22-Autobidder-main
+  cd ~/Desktop/Fifa-Autobidder
   ```
 
   Command Prompt (Windows):
   ```
-  cd Desktop/Fifa22-Autobidder-main
+  cd Desktop/Fifa-Autobidder
   ```
 
 5. Make sure pip is installed ([see here](https://pip.pypa.io/en/stable/installing/)) on your machine, and enter the following to install Selenium and any other requirements (see [requirements.txt](./requirements.txt)): 
@@ -72,7 +70,7 @@ Navigate to the project's root directory via command prompt / terminal described
 In Terminal, run:
 
 ```
-cd ~/Desktop/Fifa22-Autobidder-main
+cd ~/Desktop/Fifa-Autobidder
 ```
 
 Then:
@@ -87,7 +85,7 @@ See [*Troublehoosting*](#troubleshooting) for help.
 
 In Command Prompt (Windows), enter:
 ```
-cd Desktop/Fifa22-Autobidder-main
+cd Desktop/Fifa-Autobidder
 ```
 
 Then:
@@ -100,7 +98,7 @@ See [*Troublehoosting*](#troubleshooting) for help.
 
 The webapp should open in a new browser, along with the GUI.
 
-1. Accept the prompt to install Adblocker.
+1. Accept the prompt to install uBlock Origin.
 2. Login, either automatically (and fetch code manually) or entirely manually
 3. Enter filter URL in the GUI and make sure it was processed correctly (you will see the filters populate) 
 4. Go to the "Search the Transfer Market" page and click "Start Bot" 
