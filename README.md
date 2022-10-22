@@ -1,8 +1,8 @@
 # TMB's FIFA 23 Autobidder
 
-|                    Mac                     |                .                 |
-|:------------------------------------------:|:--------------------------------:|
-| <img src="./demos/userInterface_mac.png" > | ![](./demos/gui_windows_v23.PNG) |
+|                    Mac                     |
+|:------------------------------------------:|
+| <img src="./demos/userInterface_mac.png" > |
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
