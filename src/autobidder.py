@@ -103,7 +103,7 @@ class Autobidder:
         devmode = False
 
         if devmode:
-            self.fetch_player_data()
+            self.getFutbinList(str(self.config["Other"]["futbin_url"]))
 
         else:
             self.driver.switch_to.window(self.driver.window_handles[0])
@@ -357,10 +357,12 @@ class Autobidder:
 
                                         margin = int(self.margin)
                                         idealbid = self.round_nearest(
-                                            breakevenprice-margin)
+                                            bidprice)
+                                            #breakevenprice-margin)
                                         if ((breakevenprice - margin) >= bidprice):
                                             idealbid = self.round_nearest(
-                                                breakevenprice-margin)
+                                                bidprice)
+                                                #breakevenprice-margin)
                                             if ((sell_quickily_price * 0.95) - idealbid) >= margin:
 
                                                 # ID = p[0]
@@ -869,7 +871,7 @@ class Autobidder:
                     except:
                         continue
 
-                    if len(temp) == 12:
+                    if len(temp) == 13:
                         stats = temp
 
                 # print(card_details)
@@ -879,21 +881,21 @@ class Autobidder:
                 # print(f"Test is: \n {test}")
                 # print(card_details)
                 if len(stats) < 7:
-                    stats = card_details[3].strip("\n").split(" ")
+                    stats = card_details[6].strip("\n").split(" ")
 
-                if len(stats) == 13:
-                    stats = stats[1:len(stats)]
-
+                #if len(stats) == 13:
+                #    stats = stats[1:len(stats)]
+                #
                 name = card_details[0].strip("\n")
                 rating = card_details[1]
                 position = card_details[2]
                 price = stats[0]
-                pace = stats[6]
-                shooting = stats[7]
-                passing = stats[8]
-                dribbling = stats[9]
-                defense = stats[10]
-                physical = stats[11]
+                pace = stats[7]
+                shooting = stats[8]
+                passing = stats[9]
+                dribbling = stats[10]
+                defense = stats[11]
+                physical = stats[12]
 
                 if "K" in price:
                     price = price.replace("K", "")
@@ -1299,7 +1301,7 @@ class Autobidder:
     def check_exists_by_xpath(self, xpath):
         """
         Checks if element exists by XPATH.
-        I think this method is unused. 
+        I think this method is unused.
 
         Location:
             anywhere
@@ -1447,7 +1449,7 @@ class Autobidder:
 
     def wait_for_visibility(self, xpath, duration=0.25):
         """
-        Detects loading circle and waits for it to dissappear. 
+        Detects loading circle and waits for it to dissappear.
         """
         WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(
@@ -2317,7 +2319,7 @@ class Autobidder:
 
 def wait_for_shield_invisibility(driver, duration=0.25):
     """
-    Detects loading circle and waits for it to dissappear. 
+    Detects loading circle and waits for it to dissappear.
     """
     WebDriverWait(driver, 30).until(
         EC.invisibility_of_element_located(
@@ -2328,7 +2330,7 @@ def wait_for_shield_invisibility(driver, duration=0.25):
 
 def wait_for_player_shield_invisibility(driver, duration=0.25):
     """
-    Detects loading circle and waits for it to dissappear. 
+    Detects loading circle and waits for it to dissappear.
     """
     WebDriverWait(driver, 30).until(
         EC.invisibility_of_element_located(
