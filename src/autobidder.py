@@ -940,6 +940,17 @@ class Autobidder:
                 return False
         return True
 
+    def acceptCookies(self):
+        if not self.cookies_accepted:
+            buttons = self.driver.find_elements_by_xpath(
+                "//*[contains(text(), 'Got it!')]")
+            for btn in buttons:
+                try:
+                    btn.click()
+                except:
+                    pass
+            self.cookies_accepted = True
+
     def getFutbinList(self, url):
         test = True
         # https://www.futbin.com/22/players?page=1&position=CM&xbox_price=0-1500&version=gold_nr
@@ -956,15 +967,7 @@ class Autobidder:
         self.driver.execute_script("return window.stop")
 
         # click OK for cookies
-        if not self.cookies_accepted:
-            buttons = self.driver.find_elements_by_xpath(
-                "//*[contains(text(), 'Got it!')]")
-            for btn in buttons:
-                try:
-                    btn.click()
-                except:
-                    pass
-            self.cookies_accepted = True
+        self.acceptCookies()
 
         len_url = len(url)
         first = url[:36]
@@ -1009,9 +1012,10 @@ class Autobidder:
 
     def change_futbin_platform(self):
         myElem = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, 'platform_switch')))
+            EC.presence_of_element_located((By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")))
 
-        menu = self.driver.find_element(By.ID, "platform_switch")
+        menu = self.driver.find_element(
+            By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")
         hidden_submenu_ps = self.driver.find_element_by_xpath(
             "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a")
         hidden_submenu_xbox = self.driver.find_element_by_xpath(
