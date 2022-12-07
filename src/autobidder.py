@@ -1,22 +1,14 @@
 import csv
-import email
-import imaplib
-import json
-import os
 from os import path
 from platform import platform
 import random
-import sys
 from csv import reader
 from datetime import datetime
 from datetime import date
 
 from decimal import Decimal
 from time import sleep
-import re
 from turtle import position
-
-import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 import requests

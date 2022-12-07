@@ -44,7 +44,7 @@ def getFilters(url):
     full_data = ""
 
     # Opening JSON file
-    with open('./data/futbin_decoder.json') as json_file:
+    with open('./data/futbin_decoder.json', "r", encoding="utf8") as json_file:
         data = json.load(json_file)
         full_data = data
 
