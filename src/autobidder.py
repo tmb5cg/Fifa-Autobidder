@@ -566,7 +566,7 @@ class Autobidder:
         log_event(self.queue, "Going to watchlist")
 
         # INSERT CHECK FOR POPUP HERE
-        print("CHECK FOR POOPUP HERE")
+        print("todo: check for popup")
         self.go_to_watchlist()
         self.listPlayers()
 
@@ -833,6 +833,32 @@ class Autobidder:
                 self.queue, "NEXTPAGE ERROR - hitting back and restarting search")
             self.hasExceededTimeCutoff = True
 
+    def extract_player_price(self, playerdata):
+        if playerdata[4].isdigit():
+            price = playerdata[4]
+        elif playerdata[5].isdigit():
+            price = playerdata[5]
+        else:
+            price = playerdata[6]
+
+        if "%" in price:
+            price = playerdata[5]
+
+        if "World Cup Player" in playerdata:
+            price = "World Cup Player"
+        return price
+
+    def convert_price(self, price):
+        try:
+            if price.endswith("K"):
+                return int(float(price[:-1]) * 1000)
+            elif price.endswith("M"):
+                return int(float(price[:-1]) * 1000000)
+            else:
+                return int(price)
+        except:
+            return "invalid"
+
     def fetch_player_data(self):
         WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(
@@ -851,50 +877,42 @@ class Autobidder:
             card_details = test.split("\n")
 
             if len(card_details) > 2:
+                price = self.extract_player_price(card_details)
+                player_stats = ""
+                for i in card_details:
+                    if " \\ " in i:
+                        player_stats = i
 
-                # Find which element has prices
-                stats = ""
-                for x in range(3, 7):
-                    temp = ""
-                    try:
-                        temp = card_details[x].strip("\n").split(" ")
-                    except:
-                        continue
-
-                    if len(temp) == 12:
-                        stats = temp
-
-                # print(card_details)
-
-                # print(
-                #     f"Test is: \n {test} \n \n card_details is \n {card_details} and \n \n stats is {stats} \n")
-                # print(f"Test is: \n {test}")
-                # print(card_details)
-                if len(stats) < 7:
-                    stats = card_details[3].strip("\n").split(" ")
-
-                if len(stats) == 13:
-                    stats = stats[1:len(stats)]
-
+                # if "%" in price:
+                #     print(card_details)
                 name = card_details[0].strip("\n")
                 rating = card_details[1]
                 position = card_details[2]
-                price = stats[0]
-                pace = stats[6]
-                shooting = stats[7]
-                passing = stats[8]
-                dribbling = stats[9]
-                defense = stats[10]
-                physical = stats[11]
+
+                p = player_stats.split(" ")
+                # print(p)
+                pace = p[-6]
+                shooting = p[-5]
+                passing = p[-4]
+                dribbling = p[-3]
+                defense = p[-2]
+                physical = p[-1]
 
                 if "K" in price:
                     price = price.replace("K", "")
                     price = float(price)
                     price = int(price*1000)
                     price = str(price)
+                if "M" in price:
+                    price = price.replace("M", "")
+                    price = float(price)
+                    price = int(price*1000000)
+                    price = str(price)
                 player_data = [rating, pace, shooting,
                                passing, dribbling, defense, physical]
 
+                print(" PRICE: ", price, "RATING: ",
+                      rating, " POSITION: ", position)
                 unique_player_id = ""
                 for x in player_data:
                     x = str(x)
@@ -913,10 +931,11 @@ class Autobidder:
                 full_entry = full_entry[:-1]
 
                 # Add new line to end
-                hs = open("./data/targetplayers.txt", "a", encoding="utf8")
-                hs.write(full_entry + "\n")
-                hs.close()
-                index += 1
+                if (price != "World Cup Player"):
+                    hs = open("./data/targetplayers.txt", "a", encoding="utf8")
+                    hs.write(full_entry + "\n")
+                    hs.close()
+            index += 1
 
     def check_for_results(self):
         WebDriverWait(self.driver, 10).until(
