@@ -834,9 +834,9 @@ class Autobidder:
             self.hasExceededTimeCutoff = True
 
     def extract_player_price(self, playerdata):
-        if playerdata[4].isdigit():
+        if playerdata[4].isdigit() or playerdata[4].endswith("K") or playerdata[4].endswith("M"):
             price = playerdata[4]
-        elif playerdata[5].isdigit():
+        elif playerdata[5].isdigit() or playerdata[4].endswith("K") or playerdata[4].endswith("M"):
             price = playerdata[5]
         else:
             price = playerdata[6]
