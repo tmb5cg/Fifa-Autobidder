@@ -9,9 +9,7 @@ from datetime import date
 from decimal import Decimal
 from time import sleep
 from turtle import position
-from oauth2client.service_account import ServiceAccountCredentials
 
-import requests
 from selenium import webdriver
 from selenium.common.exceptions import (
     NoSuchElementException, TimeoutException, WebDriverException)
