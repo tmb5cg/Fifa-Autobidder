@@ -1021,16 +1021,28 @@ class Autobidder:
 
     def change_futbin_platform(self):
         myElem = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")))
+            EC.presence_of_element_located((By.XPATH, "//*[@id='desk-right-ul']/li[2]")))
+        # EC.presence_of_element_located((By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")))
 
         menu = self.driver.find_element(
-            By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")
+            By.XPATH, "//*[@id='desk-right-ul']/li[2]")
+        # By.XPATH, "//*[@id='main-site-nav']/ul[2]/li[4]")
+
+        actions = ActionChains(self.driver)
+        actions.move_to_element(menu)
+        actions.click(menu)
+        actions.perform()
+        self.sleep_approx(1)
+
         hidden_submenu_ps = self.driver.find_element_by_xpath(
-            "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a")
+            "/html/body/div[8]/div/div[2]/div/div[2]/div[1]/button[1]")
+        # "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[1]/a"
         hidden_submenu_xbox = self.driver.find_element_by_xpath(
-            "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a")
+            "/html/body/div[8]/div/div[2]/div/div[2]/div[1]/button[2]")
+        # "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[2]/a"
         hidden_submenu_pc = self.driver.find_element_by_xpath(
-            "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[3]/a")
+            "/html/body/div[8]/div/div[2]/div/div[2]/div[1]/button[3]")
+        # "/html/body/header/nav/div/div/ul[2]/li[4]/div/ul/li[3]/a"
 
         user_submenu_choice = ""
 
@@ -1041,9 +1053,6 @@ class Autobidder:
         elif (self.platform == "PC"):
             user_submenu_choice = hidden_submenu_pc
 
-        actions = ActionChains(self.driver)
-        actions.move_to_element(menu)
-        self.sleep_approx(1)
         actions.click(user_submenu_choice)
         actions.perform()
 
