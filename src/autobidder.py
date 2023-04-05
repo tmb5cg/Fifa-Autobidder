@@ -834,7 +834,7 @@ class Autobidder:
     def extract_player_price(self, playerdata):
         if playerdata[4].isdigit() or playerdata[4].endswith("K") or playerdata[4].endswith("M"):
             price = playerdata[4]
-        elif playerdata[5].isdigit() or playerdata[4].endswith("K") or playerdata[4].endswith("M"):
+        elif playerdata[5].isdigit() or playerdata[5].endswith("K") or playerdata[5].endswith("M"):
             price = playerdata[5]
         else:
             price = playerdata[6]
