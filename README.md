@@ -17,7 +17,9 @@ See [*technical overiew*](https://tmb5cg.github.io/fifa-autobidder) for detailed
 
 ## Overview & Features
 
-Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer) that rely on speed and luck (and risky JavaScript injection), Autobidding relies on lower margins at higher volumes (around 100 - 200 coins per card). This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
+Unlike the more common and widely known botting methods, such as [Autobuyers or snipers](https://github.com/chithakumar13/Fifa21-AutoBuyer), which rely on speed and luck (and risky JavaScript injection), Autobidding takes a different approach. It focuses on lower margins at higher volumes, typically around 100-200 coins per card.
+
+This makes Autobidding not only more lucrative long term, but also more consistent, and in my opinion, safer. It is also more fun to watch compared to card sniping.
 
 Advantages:
 
@@ -105,7 +107,13 @@ The webapp should open in a new browser, along with the GUI.
 
 To understand how it works and the configuration settings, [see here](https://tmb5cg.github.io/fifa-autobidder)
 
-You want to have a conversion rate around 50%, at 100-150 margin that is 25 players * ~125 profit each, totalling ~3200 coins every 20 mins, or about 10k an hour at the absolute minimum. Some days I would find a filter list and make 30k an hour, it's fun.
+Aim for a conversion rate of around 50%. With a 100-150 coin margin, this translates to:
+
+- 25 players * ~125 profit each
+- ~3200 coins every 20 minutes
+- About 10k coins per hour at the absolute minimum
+
+On particularly good days, with an optimal filter list, profits can reach up to 30k coins per hour.
 
 ## Configuration
 
