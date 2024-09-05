@@ -2,7 +2,7 @@
 
 |                    Mac                     |
 |:------------------------------------------:|
-| <img src="./demos/userInterface_mac.png" > |
+| <img src="./demos/userInterface_mac.png" width="800"> |
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/3ZuA9w6Szk)
 
@@ -12,7 +12,7 @@ This project is an Autobidder trading bot that buys and sells players on the FUT
 
 Built in Python, this bot uses [Selenium](https://www.selenium.dev/documentation/en/) to interact with FUT Webapp via [ChromeDriver](https://www.chromium.org/) and features a [Tkinter](https://wiki.python.org/moin/TkInter) User Interface for easy operation.
 
-See [*technical overiew*](https://tmb5cg.github.io/fifa-autobidder) for detailed documentation. For issues/questions, consider joining Discord server [here.](https://discord.gg/3ZuA9w6Szk)
+See [*technical overview*](https://tmb5cg.github.io/fifa-autobidder) for detailed documentation. For issues/questions, consider joining Discord server [here.](https://discord.gg/3ZuA9w6Szk)
 
 
 ## Overview & Features
@@ -36,7 +36,7 @@ For detailed documentation on configuring the bot, [see here](https://tmb5cg.git
 
 1. Download or clone this repository to your machine, the unzipped folder should be named Fifa-Autobidder. 
 
-2. Ensure Python 3.x is installed on your machine. See [*Troublehoosting*](#troubleshooting) below for help.
+2. Ensure Python 3.x is installed on your machine. See [*Troubleshooting*](#troubleshooting) below for help.
 
 3. Download the latest release of Chromedriver for your system [here](https://chromedriver.chromium.org/downloads). Replace the chromedriver in either the [*chrome_windows*](https://github.com/tmb5cg/Fifa22-Autobidder/tree/main/chrome_windows) or [*chrome_mac*](https://github.com/tmb5cg/Fifa22-Autobidder/tree/main/chrome_mac) with your download, depending on your machine.
 
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 If there are any errors, such as 'missing xyz module', simply ```pip install [xyz]```. Feel free to post an issue on this Repository or Discord.
 
-For any other errors, it is likely your system's Python interpreter which can be a huge headache. See [*Troublehoosting*](#troubleshooting) below.
+For any other errors, it is likely your system's Python interpreter which can be a huge headache. See [*Troubleshooting*](#troubleshooting) below.
 
 ## Running the bot
 
@@ -81,7 +81,7 @@ Then:
 make run
 ```
 
-See [*Troublehoosting*](#troubleshooting) for help.
+See [*Troubleshooting*](#troubleshooting) for help.
 
 #### Windows
 
@@ -96,7 +96,7 @@ Then:
 python src/run.py
 ```
 
-See [*Troublehoosting*](#troubleshooting) for help.
+See [*Troubleshooting*](#troubleshooting) for help.
 
 The webapp should open in a new browser, along with the GUI.
 
@@ -153,7 +153,7 @@ You might need to add the PYTHONPATH variable with the value of the code directo
 
 I suspect this will cause the biggest number of issues.
 
-### Chomedriver
+### Chromedriver
 
 If the bot is correctly starting, and you are sure Python is not the issue, then Chromedriver is the issue. The Chromedriver files ([chrome_windows](./chrome_windows) and [chrome_mac](./chrome_mac)) are the versions used by my system. 
 
